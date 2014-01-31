@@ -14,7 +14,7 @@ namespace MobilePhone
     /// </summary>
     public class Display
     {
-        private uint sizeInches;
+        private decimal sizeInches;
         private uint totalColors;
 
         // Paramerless constrcutor - assume size is 1 inch, and has 1 color
@@ -22,16 +22,28 @@ namespace MobilePhone
         {
         }
 
-        public Display(uint diagonal, uint colors)
+        public Display(decimal diagonal, uint colors)
         {
             this.SizeInches = diagonal;
             this.TotalColors = colors;
         }
 
-        public uint SizeInches
+        public decimal SizeInches
         {
-            get { return this.sizeInches; }
-            set { this.sizeInches = value; }
+            get
+            { 
+                return this.sizeInches;
+            }
+
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentOutOfRangeException("Display size cannot be negative!");
+                }
+
+                this.sizeInches = value;
+            }
         }
 
         public uint TotalColors

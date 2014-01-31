@@ -19,8 +19,12 @@
 
             foreach (var phone in testPhones)
             {
-                Console.WriteLine(phone);
+                Console.WriteLine(phone + "\n");
             }
+
+            Console.WriteLine("iPhone4S");
+            Console.WriteLine("========");
+            Console.WriteLine(GSM.IPhone4S);
         }
     }
 }

@@ -14,6 +14,9 @@ namespace MobilePhone
     /// </summary>
     public class GSM
     {
+        // Add a static field and a property IPhone4S in the GSM class to hold the information about iPhone 4S.
+        private static GSM iPhone4S = new GSM("iPhone4S", "Apple", 500, new Battery("1440 mAh", 10, 3, BatteryType.LiIo), new Display(4.7m, 16000000));
+
         // Fields
         private string model;
         private string manufacturer;
@@ -21,9 +24,6 @@ namespace MobilePhone
         private string owner;
         private Battery battery;
         private Display display;
-
-        // Add a static field and a property IPhone4S in the GSM class to hold the information about iPhone 4S.
-        private static string iOS = "7.0.4";
 
         // Constructors
         public GSM(string model, string manufacturer)
@@ -33,6 +33,11 @@ namespace MobilePhone
 
         public GSM(string model, string manufacturer, Battery batt, Display disp)
             : this(model, manufacturer, 0, null, batt, disp)
+        {
+        }
+
+        public GSM(string model, string manufacturer, uint price, Battery batt, Display disp)
+            : this(model, manufacturer, price, null, batt, disp)
         {
         }
 
@@ -47,6 +52,11 @@ namespace MobilePhone
         }
 
         // Properties
+        public static GSM IPhone4S
+        {
+            get { return GSM.iPhone4S; }
+        }
+
         public string Model
         {
             get
@@ -107,17 +117,16 @@ namespace MobilePhone
             set { this.display = value; }
         }
 
-        public static string IOS
-        {
-            get { return GSM.iOS; }
-            set { GSM.iOS = value; }
-        }
-
         // Methods
         public override string ToString()
         {
-            return string.Format("Model: {0}\nManufacturer: {1}\nPrice: ${2}\nOwner: {3}\nBattery: {4}\n",
-                this.Model, this.Manufacturer, this.Price, this.Owner ?? "unknown", this.Battery != null ? this.Battery.Type.ToString() : "unknown");
+            return string.Format(
+                "Model: {0}\nManufacturer: {1}\nPrice: ${2}\nOwner: {3}\nBattery: {4}",
+                this.Model,
+                this.Manufacturer,
+                this.Price,
+                this.Owner ?? "unknown",
+                this.Battery != null ? this.Battery.Type.ToString() : "unknown");
         }
     }
 }
