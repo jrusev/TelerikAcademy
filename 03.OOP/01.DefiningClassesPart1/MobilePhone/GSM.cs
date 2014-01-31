@@ -27,12 +27,12 @@ namespace MobilePhone
 
         // Constructors
         public GSM(string model, string manufacturer)
-            : this(model, manufacturer, 1, null, null, null)
+            : this(model, manufacturer, 0, null, null, null)
         {
         }
 
         public GSM(string model, string manufacturer, Battery batt, Display disp)
-            : this(model, manufacturer, 1, null, batt, disp)
+            : this(model, manufacturer, 0, null, batt, disp)
         {
         }
 
@@ -102,7 +102,7 @@ namespace MobilePhone
 
             set
             {
-                if (value <= 0)
+                if (value < 0)
                 {
                     throw new ArgumentOutOfRangeException("Price cannot be negative!");
                 }
