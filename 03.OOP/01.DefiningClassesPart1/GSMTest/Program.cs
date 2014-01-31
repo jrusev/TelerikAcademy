@@ -8,6 +8,10 @@
     //    Create an array of few instances of the GSM class.
     //    Display the information about the GSMs in the array.
     //    Display the information about the static property IPhone4S.
+
+    /// <summary>
+    /// Test the GSM class.
+    /// </summary>
     public class GSMTest
     {
         public static void Main()
