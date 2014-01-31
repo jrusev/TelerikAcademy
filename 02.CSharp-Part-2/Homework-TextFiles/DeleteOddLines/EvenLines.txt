@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+
+{
+    {
+
+        string outputPath = @"...\...\EvenLines.txt";
+        List<string> evenLines = ReadEvenLines(inputPath);
+    }
+    static List<string> ReadEvenLines(string path)
+        List<string> evenLines = new List<string>();
+        int currentLine = 1;
+        using (StreamReader input = new StreamReader(path))
+            string lineString;
+            {
+                currentLine++;
+        }
+        return evenLines;
+
+    {
+        {
+            {
+            }
+    }

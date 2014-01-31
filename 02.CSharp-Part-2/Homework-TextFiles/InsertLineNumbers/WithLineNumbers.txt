@@ -1,0 +1,27 @@
+1. using System;
+2. using System.IO;
+3. 
+4. class InsertLineNumbers
+5. {
+6.     static void Main()
+7.     {
+8.         // Write a program that reads a text file and inserts line numbers in front of each of its lines.
+9.         // The result should be written to another text file.
+10. 
+11.         using (StreamReader input = new StreamReader(@"...\...\InsertLineNumbers.cs"))
+12.         {
+13.             using (StreamWriter output = new StreamWriter(@"...\...\WithLineNumbers.txt"))
+14.             {
+15.                 int line = 1; // The first line
+16.                 string fileLine;
+17.                 while ((fileLine = input.ReadLine()) != null)
+18.                 {
+19.                     string newLine = String.Format("{0}. {1}", line, fileLine);
+20.                     output.WriteLine(newLine);
+21.                     Console.WriteLine(newLine);
+22.                     line++;
+23.                 }
+24.             }
+25.         }
+26.     }
+27. }

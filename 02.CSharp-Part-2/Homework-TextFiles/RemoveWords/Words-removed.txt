@@ -1,0 +1,110 @@
+ System;
+ System.Collections.Generic;
+ System.IO;
+ System.Security;
+ System.Text.RegularExpressions;
+
+ RemoveWords
+{
+      Main()
+    {
+        // Write a program that removes from a text file all words listed  another text file.
+        // Handle all possible exceptions  your methods.
+
+        Console.WriteLine("This program removes C# key words from a file.");
+
+         fileWords = @"...\...\Words-to-remove.txt"; // the file that contains the list of words
+         fileToFix = @"...\...\RemoveWords.cs"; // the file where those words must be removed
+         fileNew = @"...\...\Words-removed.txt"; // the  file with the removed words
+
+        
+        {
+            // Get all lines  the file and store them  a list of strings
+            List<> wordsList = ReadLines(fileWords);
+
+            Console.WriteLine("The following words will be deleted from this source file:");
+            wordsList.Sort();
+             ( item  wordsList) Console.WriteLine(item);
+
+            // Build a regex pattern from the words
+             words = String.Join("|", wordsList); // Joins the words  a special 
+             regex = @"\b(" + words + @")\b"; // ... and inserts the  into the regex expression
+
+            // Get all lines  the file and store them  a list of strings
+            List<> fileLinesToFix = ReadLines(fileToFix);
+
+            // Delete the text that matches the pattern (remove the words)
+            DeleteText(fileLinesToFix, regex);
+
+            Console.WriteLine("=============================================");
+            Console.WriteLine("This is the source file without the keywords:");
+             ( line  fileLinesToFix) Console.WriteLine(line);
+
+            // Write the clean text to a  file
+            WriteLines(fileLinesToFix, fileNew);
+        }
+
+         (FileNotFoundException)
+        {
+            Console.WriteLine("File not found!");
+        }
+
+         (DirectoryNotFoundException)
+        {
+            Console.WriteLine("Directory not found!");
+        }
+
+         (SecurityException)
+        {
+            Console.WriteLine("Security error is detected!");
+        }
+
+         (IOException e)
+        {
+            Console.WriteLine(e.Message);
+        }
+
+         (UnauthorizedAccessException e)
+        {
+            Console.WriteLine(e.Message);
+        }
+    }
+
+     List<> ReadLines( path)
+    {
+        List<> fileLines =  List<>();
+
+         (StreamReader input =  StreamReader(path))
+        {
+             lineString;
+            while ((lineString = input.ReadLine()) != )
+            {
+                fileLines.Add(lineString);
+            }
+        }
+
+         fileLines;
+    }
+
+    // Delete the text that matches the pattern
+      DeleteText(List<> lines,  pattern)
+    {
+         ( i = 0; i < lines.Count; i++)
+        {
+            // Replaces all strings that match the pattern with an empty  
+             newLine = Regex.Replace(lines[i], pattern, String.Empty);
+            lines[i] = newLine;
+        }
+    }
+
+      WriteLines(List<> lines,  path)
+    {
+         (StreamWriter output =  StreamWriter(path))
+        {
+             ( line  lines)
+            {
+                output.WriteLine(line);
+            }
+        }
+    }
+}

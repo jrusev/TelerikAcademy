@@ -1,0 +1,7 @@
+"using" found 9 times.
+"words" found 10 times.
+"file" found 8 times.
+"string" found 8 times.
+"catch" found 5 times.
+"while" found 2 times.
+"if" found 3 times.
