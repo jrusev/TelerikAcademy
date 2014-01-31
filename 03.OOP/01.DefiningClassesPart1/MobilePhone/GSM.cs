@@ -20,28 +20,28 @@ namespace MobilePhone
         // Fields
         private string model;
         private string manufacturer;
-        private uint price;
+        private decimal price;
         private string owner;
         private Battery battery;
         private Display display;
 
         // Constructors
         public GSM(string model, string manufacturer)
-            : this(model, manufacturer, 0, null, null, null)
+            : this(model, manufacturer, 1, null, null, null)
         {
         }
 
         public GSM(string model, string manufacturer, Battery batt, Display disp)
-            : this(model, manufacturer, 0, null, batt, disp)
+            : this(model, manufacturer, 1, null, batt, disp)
         {
         }
 
-        public GSM(string model, string manufacturer, uint price, Battery batt, Display disp)
+        public GSM(string model, string manufacturer, decimal price, Battery batt, Display disp)
             : this(model, manufacturer, price, null, batt, disp)
         {
         }
 
-        public GSM(string model, string manufacturer, uint price, string owner, Battery batt, Display disp)
+        public GSM(string model, string manufacturer, decimal price, string owner, Battery batt, Display disp)
         {
             this.Model = model;
             this.Manufacturer = manufacturer;
@@ -93,10 +93,22 @@ namespace MobilePhone
             }
         }
 
-        public uint Price
+        public decimal Price
         {
-            get { return this.price; }
-            set { this.price = value; }
+            get
+            { 
+                return this.price;
+            }
+
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentOutOfRangeException("Price cannot be negative!");
+                }
+
+                this.price = value;
+            }
         }
 
         public string Owner
