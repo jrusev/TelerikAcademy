@@ -1,6 +1,8 @@
 ﻿namespace MobilePhone
 {
-    // Add an enumeration BatteryType (Li-Ion, NiMH, NiCd, …) and use it as a new field for the batteries.
+    /// <summary>
+    /// BatteryType (Li-Ion, NiMH, NiCd, …)
+    /// </summary>
     public enum BatteryType
     {
         LiIo, NiMH, NiCd, unknown

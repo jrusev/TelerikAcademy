@@ -1,20 +1,21 @@
 ﻿/*
  * Define a class that holds information about a mobile phone device:
- * model, manufacturer, price, owner, battery characteristics and display characteristics.
- * Define 3 separate classes (class GSM holding instances of the classes Battery and Display).
- * For complete description see ExerciseDescription.txt
+ * For complete description of the task see ExerciseDescription.txt
  */
 
 namespace MobilePhone
 {
     using System;
+    using System.Collections.Generic;
 
     /// <summary>
     /// Mobile phone device
     /// </summary>
     public class GSM
     {
-        // Add a static field and a property IPhone4S in the GSM class to hold the information about iPhone 4S.
+        /// <summary>
+        /// Holds information about iPhone 4S.
+        /// </summary>
         private static GSM iPhone4S = new GSM("iPhone4S", "Apple", 500, new Battery("1440 mAh", 10, 3, BatteryType.LiIo), new Display(4.7m, 16000000));
 
         // Fields
@@ -24,6 +25,7 @@ namespace MobilePhone
         private string owner;
         private Battery battery;
         private Display display;
+        private List<Call> callHistory; // Holds a list of the performed calls.
 
         // Constructors
         public GSM(string model, string manufacturer)
@@ -49,6 +51,7 @@ namespace MobilePhone
             this.Owner = owner;
             this.Battery = batt;
             this.Display = disp;
+            this.callHistory = new List<Call>();
         }
 
         // Properties
@@ -68,7 +71,7 @@ namespace MobilePhone
             {
                 if (string.IsNullOrEmpty(value))
                 {
-                    throw new FormatException("Model cannot be null!");                    
+                    throw new FormatException("Model cannot be null!");
                 }
 
                 this.model = value;
@@ -96,7 +99,7 @@ namespace MobilePhone
         public decimal Price
         {
             get
-            { 
+            {
                 return this.price;
             }
 
@@ -129,6 +132,11 @@ namespace MobilePhone
             set { this.display = value; }
         }
 
+        public List<Call> CallHistory
+        {
+            get { return this.callHistory; }
+        }
+
         // Methods
         public override string ToString()
         {
@@ -139,6 +147,75 @@ namespace MobilePhone
                 this.Price,
                 this.Owner ?? "unknown",
                 this.Battery != null ? this.Battery.Type.ToString() : "unknown");
+        }
+
+        /// <summary>
+        /// Opens a new call - creates a new Call object with the dialed number and adds it to the call list.
+        /// </summary>
+        /// <param name="phoneNum">The dialed number</param>
+        public void OpenCall(string phoneNum)
+        {
+            Call call = new Call(phoneNum);
+            this.callHistory.Add(call);
+        }
+
+        /// <summary>
+        /// Closes a call - ends the last opened call from the call list.
+        /// </summary>
+        public void CloseCall(int durationSeconds = -1)
+        {
+            if (this.callHistory.Count == 0)
+            {
+                throw new ApplicationException("No call to close!");
+            }
+
+            Call lastCall = this.callHistory[this.callHistory.Count - 1];
+            if (lastCall.IsClosed)
+            {
+                throw new ApplicationException("No open calls!");
+            }
+
+            if (durationSeconds < 0)
+            {
+                lastCall.EndCall(); // Will calculate the duration by the system clock
+            }
+            else
+            {
+                lastCall.EndCall(durationSeconds);
+            }            
+        }
+
+        /// <summary>
+        /// Clears the call history.
+        /// </summary>
+        public void ClearCallHistory()
+        {
+            this.CallHistory.Clear();
+        }
+
+        /// <summary>
+        /// Delete calls from the calls history.
+        /// </summary>
+        /// <param name="index">The index of the call in the call history.</param>
+        public void DeleteCall(int index)
+        {
+            // RemoveAt will throw ArgumentOutOfRange exception if index is out of range
+            this.CallHistory.RemoveAt(index);
+        }
+
+        /// <summary>
+        /// Calculates the total price of the calls in the call history.
+        /// </summary>
+        /// <param name="pricePerMinute">The price per minute.</param>
+        public decimal TotalCallPrice(decimal pricePerMinute)
+        {
+            int totalCallTimeSeconds = 0;
+            foreach (var call in this.CallHistory)
+            {
+                totalCallTimeSeconds += call.Duration;
+            }
+
+            return totalCallTimeSeconds * pricePerMinute / 60;
         }
     }
 }
