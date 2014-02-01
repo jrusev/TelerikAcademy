@@ -5,6 +5,15 @@
     /// </summary>
     public class Battery
     {
+        // Fields
+        public readonly BatteryType Type;
+
+        public readonly string Model;
+
+        public readonly uint HoursIdle;
+
+        public readonly uint HoursTalk;
+
         // Constructors
         public Battery() : this(null, 0, 0, BatteryType.LiIo)
         {
@@ -17,14 +26,5 @@
             this.HoursTalk = hoursTalk;
             this.Type = type;
         }
-
-        // Properties
-        public string Model { get; set; }
-
-        public uint HoursIdle { get; set; }
-
-        public uint HoursTalk { get; set; }
-
-        public BatteryType Type { get; set; }
     }
 }

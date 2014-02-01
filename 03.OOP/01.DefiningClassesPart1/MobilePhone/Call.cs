@@ -9,7 +9,9 @@
     public class Call
     {
         // Fields
-        private DateTime startCall;
+        public readonly string DialedNumber;
+
+        private readonly DateTime startCall;
 
         private DateTime endCall;
 
@@ -22,8 +24,6 @@
         }
 
         // Properties
-        public string DialedNumber { get; private set; }
-
         public bool IsClosed { get; private set; }
 
         /// <summary>

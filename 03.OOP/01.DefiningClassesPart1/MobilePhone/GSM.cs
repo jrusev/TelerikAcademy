@@ -67,7 +67,7 @@ namespace MobilePhone
                 return this.model;
             }
 
-            set
+            private set
             {
                 if (string.IsNullOrEmpty(value))
                 {
@@ -85,7 +85,7 @@ namespace MobilePhone
                 return this.manufacturer;
             }
 
-            set
+            private set
             {
                 if (string.IsNullOrEmpty(value))
                 {
