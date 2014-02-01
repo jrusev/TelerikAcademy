@@ -15,7 +15,7 @@ namespace MobilePhone
     public class GSM
     {
         // Add a static field and a property IPhone4S in the GSM class to hold the information about iPhone 4S.
-        private static GSM iPhone4S = new GSM("iPhone4S", "Apple", 500, new Battery("1440 mAh", 10, 3, BatteryType.LiIo), new Display(4.7m, 16000000));
+        private readonly GSM iPhone4S = new GSM("iPhone4S", "Apple", 500, new Battery("1440 mAh", 10, 3, BatteryType.LiIo), new Display(4.7m, 16000000));
 
         // Fields
         private string model;
