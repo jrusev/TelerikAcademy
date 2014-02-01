@@ -90,7 +90,7 @@ public class GSMCallHistoryTest
     /// </summary>
     /// <param name="phone">The phone.</param>
     /// <param name="pricePerMinute">Price per minute.</param>
-    static void PrintTotalCost(GSM phone, decimal pricePerMinute)
+    public static void PrintTotalCost(GSM phone, decimal pricePerMinute)
     {
         Console.WriteLine("Total cost: ${0:F2}", phone.TotalCallPrice(pricePerMinute));
     }
