@@ -20,11 +20,15 @@
         {
             this.startCall = DateTime.Now;
             this.DialedNumber = dialedNumber;
-            this.IsClosed = false;
         }
 
-        // Properties
-        public bool IsClosed { get; private set; }
+        // Copy constructor
+        public Call(Call callToCopy)
+        {
+            this.DialedNumber = callToCopy.DialedNumber;
+            this.startCall = callToCopy.startCall;
+            this.endCall = callToCopy.endCall;
+        }
 
         /// <summary>
         /// Call duration in seconds.
@@ -40,22 +44,19 @@
         }
 
         // Methods
-        public void EndCall()
-        {
-            this.endCall = DateTime.Now;
-            this.IsClosed = true;
-        }
-
-        // Methods
-        public void EndCall(int durationSeconds)
-        {
-            this.endCall = this.startCall.AddSeconds(durationSeconds);
-            this.IsClosed = true;
-        }
-
         public DateTime Date()
         {
-            return this.startCall;
+            return this.startCall; // DateTime is a struct, so it's immutable
+        }
+
+        internal void EndCall()
+        {
+            this.endCall = DateTime.Now;
+        }
+
+        internal void EndCall(int durationSeconds)
+        {
+            this.endCall = this.startCall.AddSeconds(durationSeconds);
         }
     }
 }

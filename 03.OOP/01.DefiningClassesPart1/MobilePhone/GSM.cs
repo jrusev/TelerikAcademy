@@ -17,6 +17,7 @@ namespace MobilePhone
         /// Holds information about iPhone 4S.
         /// </summary>
         private static GSM iPhone4S = new GSM("iPhone4S", "Apple", 500, new Battery("1440 mAh", 10, 3, BatteryType.LiIo), new Display(4.7m, 16000000));
+        private readonly List<Call> callHistory; // Holds a list of the performed calls.        
 
         // Fields
         private string model;
@@ -25,7 +26,7 @@ namespace MobilePhone
         private string owner;
         private Battery battery;
         private Display display;
-        private List<Call> callHistory; // Holds a list of the performed calls.
+        private Call currentCall; // Holds the current call (just one)
 
         // Constructors
         public GSM(string model, string manufacturer)
@@ -132,9 +133,14 @@ namespace MobilePhone
             set { this.display = value; }
         }
 
+        /// <summary>
+        /// Returns a shallow copy of the call history,
+        /// so the original call list cannot be changed.
+        /// The calls in the list are protected by access modifiers in the Call class.
+        /// </summary>
         public List<Call> CallHistory
         {
-            get { return this.callHistory; }
+            get { return new List<Call>(this.callHistory); }
         }
 
         // Methods
@@ -155,8 +161,12 @@ namespace MobilePhone
         /// <param name="phoneNum">The dialed number</param>
         public void OpenCall(string phoneNum)
         {
-            Call call = new Call(phoneNum);
-            this.callHistory.Add(call);
+            if (this.currentCall != null)
+            {
+                throw new ApplicationException("You can't open a new call before you close the old one!");
+            }
+
+            this.currentCall = new Call(phoneNum);
         }
 
         /// <summary>
@@ -164,25 +174,23 @@ namespace MobilePhone
         /// </summary>
         public void CloseCall(int durationSeconds = -1)
         {
-            if (this.callHistory.Count == 0)
+            if (this.currentCall == null)
             {
                 throw new ApplicationException("No call to close!");
             }
 
-            Call lastCall = this.callHistory[this.callHistory.Count - 1];
-            if (lastCall.IsClosed)
-            {
-                throw new ApplicationException("No open calls!");
-            }
-
             if (durationSeconds < 0)
             {
-                lastCall.EndCall(); // Will calculate the duration by the system clock
+                this.currentCall.EndCall(); // Will calculate the duration by the system clock
             }
             else
             {
-                lastCall.EndCall(durationSeconds);
-            }            
+                this.currentCall.EndCall(durationSeconds);
+            }
+
+            Call newCall = new Call(this.currentCall); // Copy the current call
+            this.callHistory.Add(newCall); // ... and add it to the call history
+            this.currentCall = null; // ... release the current call
         }
 
         /// <summary>
@@ -190,7 +198,7 @@ namespace MobilePhone
         /// </summary>
         public void ClearCallHistory()
         {
-            this.CallHistory.Clear();
+            this.callHistory.Clear();
         }
 
         /// <summary>
@@ -200,7 +208,7 @@ namespace MobilePhone
         public void DeleteCall(int index)
         {
             // RemoveAt will throw ArgumentOutOfRange exception if index is out of range
-            this.CallHistory.RemoveAt(index);
+            this.callHistory.RemoveAt(index);
         }
 
         /// <summary>
