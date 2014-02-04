@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Space3D", "Space3D\Space3D.csproj", "{FCBC9DFE-6683-464F-B20B-429141EB03AB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.Space3D", "Space3D\01.Space3D.csproj", "{FCBC9DFE-6683-464F-B20B-429141EB03AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.GenericList", "GenericList\02.GenericList.csproj", "{53B65618-9506-4D75-8B0D-12B5BD5E973C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{FCBC9DFE-6683-464F-B20B-429141EB03AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCBC9DFE-6683-464F-B20B-429141EB03AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCBC9DFE-6683-464F-B20B-429141EB03AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53B65618-9506-4D75-8B0D-12B5BD5E973C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53B65618-9506-4D75-8B0D-12B5BD5E973C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53B65618-9506-4D75-8B0D-12B5BD5E973C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53B65618-9506-4D75-8B0D-12B5BD5E973C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
