@@ -10,7 +10,9 @@
     //      finding element by its value and ToString().
     // Check all input parameters to avoid accessing elements at invalid positions.
     // Implement auto-grow functionality: when the internal array is full, create a new array of double size and move all elements to it.
-    public class GenericList<T> where T : IEquatable<T>
+    // Create generic methods for finding the minimal and maximal element in the GenericList<T>.
+    public class GenericList<T>
+        where T : IComparable<T>
     {
         private const int DefaultCapacity = 4;
         private T[] items;
@@ -139,10 +141,60 @@
             return -1;
         }
 
+        // Find Min value in the list
+        public T Min()
+        {
+            if (this.Count == 0)
+            {
+                throw new ApplicationException("Searching min value in an empty list!");
+            }
+
+            if (this.Count == 1)
+            {
+                return this.items[0];
+            }
+
+            T min = this.items[0];
+            for (int i = 0; i < this.Count; i++)
+            {
+                if (this.items[i].CompareTo(min) < 0)
+                {
+                    min = this.items[i];
+                }
+            }
+
+            return min;
+        }
+
+        // Find Max value in the list
+        public T Max()
+        {
+            if (this.Count == 0)
+            {
+                throw new ApplicationException("Searching max value in an empty list!");
+            }
+
+            if (this.Count == 1)
+            {
+                return this.items[0];
+            }
+
+            T max = this.items[0];
+            for (int i = 0; i < this.Count; i++)
+            {
+                if (this.items[i].CompareTo(max) > 0)
+                {
+                    max = this.items[i];
+                }
+            }
+
+            return max;
+        }
+
         // Override ToString
         public override string ToString()
         {
-            return string.Join(" ", this.items);
+            return string.Join(", ", this.items);
         }
 
         // Auto-resize functionality
