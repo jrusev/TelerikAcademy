@@ -7,7 +7,7 @@
     <ProjectGuid>{676062A3-0955-4D49-A103-A597133A2110}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>VersionAttribute</RootNamespace>
+    <RootNamespace>CustomAttributes</RootNamespace>
     <AssemblyName>VersionAttribute</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthorAttribute.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VersionAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

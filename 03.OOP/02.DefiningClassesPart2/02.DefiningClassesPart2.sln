@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05-07.GenericList", "Generi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08-10.Matrix", "Matrix\08-10.Matrix.csproj", "{ED26977A-FC48-4DF2-B7B7-4ACEDD570170}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11.VersionAttribute", "VersionAttribute\11.VersionAttribute.csproj", "{676062A3-0955-4D49-A103-A597133A2110}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11.CustomAttributes", "VersionAttribute\11.CustomAttributes.csproj", "{676062A3-0955-4D49-A103-A597133A2110}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
