@@ -9,7 +9,6 @@
     public class Matrix<T>
     {
         private T[,] matrix;
-        private int rows, cols;
 
         // Create an empty matrix of size m x n
         public Matrix(int m, int n)
@@ -20,18 +19,16 @@
             }
 
             this.matrix = new T[m, n];
-            this.rows = m;
-            this.cols = n;
         }
 
         public int Rows
         {
-            get { return this.rows; }
+            get { return this.matrix.GetLength(0); }
         }
 
         public int Cols
         {
-            get { return this.cols; }
+            get { return this.matrix.GetLength(1); }
         }
 
         // Indexer accessor
