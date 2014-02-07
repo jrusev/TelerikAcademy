@@ -20,6 +20,7 @@ public class TimerExample
         Console.WriteLine("Press Enter to exit the program.");
         Console.ReadLine();
 
+        // Unsubscribe from the timer event, this will stop the timer
         timer.Elapsed -= new TimerDelegate(OnTimerTick);
     }
 

@@ -23,10 +23,12 @@ public class Timer
         this.Interval = t;
         this.timerThread = new Thread(() =>
         {
+            // Wait for a method to attach to the delegate
             while (Elapsed == null)
             {
             }
 
+            // The thread will exit if there are no methods attached
             while (Elapsed != null)
             {
                 this.Elapsed("Elapsed delegate");
