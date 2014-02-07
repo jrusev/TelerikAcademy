@@ -12,24 +12,25 @@ public class TimerExample
         Timer timer = new Timer();
 
         // Set the interval in milliseconds
-        timer.Interval = t_sec * 1000;
+        timer.Interval = (int)(t_sec * 1000);
 
         // Attach our method to the Elapsed delegate
         timer.Elapsed += new TimerDelegate(OnTimerTick);
 
-        Console.WriteLine("Press any key to exit the program.");
+        Console.WriteLine("Press Enter to exit the program.");
+        Console.ReadLine();
 
-        timer.Run();
+        timer.Elapsed -= new TimerDelegate(OnTimerTick);
     }
 
     // This is the method that will be called by the Elapsed delegate 
     // Note that the method is private and it is not called from within this class!
-    private static void OnTimerTick(string source, DateTime date)
+    private static void OnTimerTick(string source)
     {
         Console.WriteLine(
             "{0} was called at {1} by the {2}.",
             System.Reflection.MethodBase.GetCurrentMethod().Name,
-            date.ToString("HH:mm:ss"),
+            DateTime.Now.ToString("HH:mm:ss"),
             source);
     }
 }

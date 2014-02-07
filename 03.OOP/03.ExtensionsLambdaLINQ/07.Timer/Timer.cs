@@ -1,18 +1,40 @@
 ﻿using System;
-using System.Diagnostics;
+using System.Threading;
 
 // The delegate type used to call other methods.
-public delegate void TimerDelegate(string msg, DateTime date);
+public delegate void TimerDelegate(string source);
 
 /// <summary>
 /// Generates recurring events in an application using a delegate.
 /// </summary>
 public class Timer
 {
+    // A separate thread for the timer to run without blocking the main application
+    private readonly Thread timerThread;
+
     // Constructor
-    public Timer(double t = 100)
+    public Timer(int t = 100)
     {
+        if (t <= 0)
+        {
+            throw new ApplicationException("Timer interval must be greater than zero!");
+        }
+
         this.Interval = t;
+        this.timerThread = new Thread(() =>
+        {
+            while (Elapsed == null)
+            {
+            }
+
+            while (Elapsed != null)
+            {
+                this.Elapsed("Elapsed delegate");
+                Thread.Sleep(this.Interval);
+            }
+        });
+
+        this.timerThread.Start();
     }
 
     /// <summary>
@@ -26,18 +48,5 @@ public class Timer
     /// <summary>
     /// Gets or sets the interval at which to call the Elapsed delegate.
     /// </summary>
-    public double Interval { get; set; }
-
-    public void Run()
-    {
-        Stopwatch sw = Stopwatch.StartNew();
-        while (!Console.KeyAvailable)
-        {
-            if (sw.ElapsedMilliseconds >= this.Interval)
-            {
-                this.Elapsed("Elapsed delegate", DateTime.Now);
-                sw.Restart();
-            } 
-        }
-    }
+    public int Interval { get; set; }
 }
