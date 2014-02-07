@@ -54,7 +54,7 @@ public static class IEnumerableExtensions
     /// Computes the minimum of a sequence of values.
     /// </summary>
     public static T Min<T>(this IEnumerable<T> collection)
-        where T: IComparable
+        where T : IComparable
     {
         dynamic min = long.MaxValue;
         foreach (var item in collection)
@@ -72,7 +72,7 @@ public static class IEnumerableExtensions
     /// Computes the maximum of a sequence of values.
     /// </summary>
     public static T Max<T>(this IEnumerable<T> collection)
-        where T: IComparable
+        where T : IComparable
     {
         dynamic max = long.MinValue;
         foreach (var item in collection)

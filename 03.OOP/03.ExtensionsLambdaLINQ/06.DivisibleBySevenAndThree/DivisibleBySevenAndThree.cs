@@ -8,16 +8,16 @@ internal class DivisibleBySevenAndThree
     private static void Main()
     {
         int[] nums = { 1, 2, 3, 7, 21, 25, 42, 43 };
-        Console.WriteLine("Integers: {0}", String.Join(", ", nums));
+        Console.WriteLine("Integers: {0}", string.Join(", ", nums));
 
         // With extension methods
         var divisible = nums.Where(num => num % 21 == 0).Select(num => num);
-        Console.WriteLine("Divisible by 3 and 7: {0}", String.Join(", ", divisible));
+        Console.WriteLine("Divisible by 3 and 7: {0}", string.Join(", ", divisible));
 
         // With LINQ query
         var numsQuery = from num in nums
                         where num % 21 == 0
                         select num;
-        Console.WriteLine("Divisible by 3 and 7: {0}", String.Join(", ", numsQuery));
+        Console.WriteLine("Divisible by 3 and 7: {0}", string.Join(", ", numsQuery));
     }
 }

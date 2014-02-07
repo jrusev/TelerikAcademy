@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2013 for Windows Desktop
+# Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.StringBuilderExtensions", "01.StringBuilderExtensions\01.StringBuilderExtensions.csproj", "{24E0E8B0-3571-40B5-B059-5E348F7D4239}"
@@ -15,7 +15,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05.StudentsOrderBy", "05.St
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06.DivisibleBySevenAndThree", "06.DivisibleBySevenAndThree\06.DivisibleBySevenAndThree.csproj", "{5C5F000B-B92E-4F44-BEEA-588B648A271E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07.Timer", "07.Timer\07.Timer.csproj", "{CD859314-3756-40E2-9182-3365736DFDA3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07.CustomTimer", "07.Timer\07.CustomTimer.csproj", "{CD859314-3756-40E2-9182-3365736DFDA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08.SystemTimer", "08.SystemTimer\08.SystemTimer.csproj", "{49AAD2E6-14B6-4B41-B6D2-45CB27D52BCF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{CD859314-3756-40E2-9182-3365736DFDA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD859314-3756-40E2-9182-3365736DFDA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD859314-3756-40E2-9182-3365736DFDA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49AAD2E6-14B6-4B41-B6D2-45CB27D52BCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49AAD2E6-14B6-4B41-B6D2-45CB27D52BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49AAD2E6-14B6-4B41-B6D2-45CB27D52BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49AAD2E6-14B6-4B41-B6D2-45CB27D52BCF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,12 +1,35 @@
 ﻿using System;
 
-class Program
+// Using delegates write a class Timer that can execute certain method at each t seconds.
+public class TimerExample
 {
-    // Using delegates write a class Timer that can execute certain method at each t seconds.
-    static void Main()
+    public static void Main()
     {
-        int t_sec = 3;
-        Timer timer = new Timer(t_sec);
-        timer.action += Console.WriteLine;
+        // Timer interval in seconds
+        double t_sec = 1.0;
+
+        // Create a timer (100 ms interval by default).
+        Timer timer = new Timer();
+
+        // Set the interval in milliseconds
+        timer.Interval = t_sec * 1000;
+
+        // Attach our method to the Elapsed delegate
+        timer.Elapsed += new TimerDelegate(OnTimerTick);
+
+        Console.WriteLine("Press any key to exit the program.");
+
+        timer.Run();
+    }
+
+    // This is the method that will be called by the Elapsed delegate 
+    // Note that the method is private and it is not called from within this class!
+    private static void OnTimerTick(string source, DateTime date)
+    {
+        Console.WriteLine(
+            "{0} was called at {1} by the {2}.",
+            System.Reflection.MethodBase.GetCurrentMethod().Name,
+            date.ToString("HH:mm:ss"),
+            source);
     }
 }

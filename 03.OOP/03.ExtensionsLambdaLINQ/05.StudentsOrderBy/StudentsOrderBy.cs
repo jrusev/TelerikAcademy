@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Students;
 
-class StudentsOrderBy
+internal class StudentsOrderBy
 {
     // Using the extension methods OrderBy() and ThenBy() with lambda expressions
     // sort the students by first name and last name in descending order.
