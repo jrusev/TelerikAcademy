@@ -16,14 +16,17 @@ public class Timer
     }
 
     /// <summary>
+    /// The delegate used to invoke other methods.
+    /// The event keyword is simply a modifier that only applies to delegates.
+    /// It restricts the access to the delegate to only add/remove methods,
+    /// so that subscribers cannot unsubscribe other subscribers, invoke the delegate or set it to null.
+    /// </summary>
+    public event TimerDelegate Elapsed;
+
+    /// <summary>
     /// Gets or sets the interval at which to call the Elapsed delegate.
     /// </summary>
     public double Interval { get; set; }
-
-    /// <summary>
-    /// The delegate used to invoke other methods.
-    /// </summary>
-    public TimerDelegate Elapsed { get; set; }
 
     public void Run()
     {
