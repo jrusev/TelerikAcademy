@@ -55,13 +55,13 @@
         {
             students = new List<Student>()
             {
-                new Student("Johnny", "Walker", "johny@abv.bg", "359 2 886123456", 123406, 1, new List<decimal>() {6, 6, 6, 5.50m}), 
-                new Student("Billy", "Bob", "billy@yahoo.com", "359 52 886184656", 223406, 2, new List<decimal>() {5, 5, 6, 4.50m}), 
-                new Student("Jane", "Austin", "jane@gmail.com", "359 34 8453456", 263407, 2, new List<decimal>() {4, 4.5m, 4}), 
-                new Student("Mery", "Jane", "mery@hotmail.com", "359 2 8128456", 723456, 7, new List<decimal>() {5, 4, 4}), 
-                new Student("Tony", "M", "tony@yahoo.co.uk", "359 2 8887656", 523406, 5, new List<decimal>() {3, 2}), 
-                new Student("Jack", "Sparrow", string.Empty, "359 56 88655956", 823409, 8, new List<decimal>() {2, 3, 2, 5, 6}), 
-                new Student("Dean", "Donovan", "dean2014@abv.bg", "359 888356456", 263412, 2, new List<decimal>() {5.50m, 5.50m, 5.00m}), 
+                new Student("Johnny", "Walker", "johny@abv.bg", "359 2 886123456", "123406", 1, new List<decimal>() { 6, 6, 6, 5.50m }), 
+                new Student("Billy", "Bob", "billy@yahoo.com", "359 52 886184656", "223406", 2, new List<decimal>() { 5, 5, 6, 4.50m }), 
+                new Student("Jane", "Austin", "jane@gmail.com", "359 34 8453456", "263407", 2, new List<decimal>() { 4, 4.5m, 4 }), 
+                new Student("Mery", "Jane", "mery@hotmail.com", "359 2 8128456", "723456", 7, new List<decimal>() { 5, 4, 4 }), 
+                new Student("Tony", "M", "tony@yahoo.co.uk", "359 2 8887656", "523406", 5, new List<decimal>() { 3, 2 }), 
+                new Student("Jack", "Sparrow", string.Empty, "359 56 88655956", "823407", 8, new List<decimal>() { 2, 3, 2, 5, 6 }), 
+                new Student("Dean", "Donovan", "dean2014@abv.bg", "359 888356456", "263412", 2, new List<decimal>() { 5.50m, 5.50m, 5.00m }), 
             };
         }
 
@@ -138,10 +138,16 @@
         }
 
         // Extract all Marks of the students that enrolled in 2006.
+        // The students from 2006 have 06 as their 5-th and 6-th digit in the FN.
         private static void PrintStudentsFromYear(uint year)
         {
-            // TODO: PrintStudentsFromYear
-            throw new NotImplementedException("PrintStudentsFromYear");
+            var group = students.Where(
+                s =>
+                    s.FacultyNum[4] == year.ToString()[2] &&
+                    s.FacultyNum[5] == year.ToString()[3]);
+
+            Console.WriteLine("\nStudents enrolled in {0}:", year);
+            PrintStudents(group, student => student.FacultyNum);
         }
 
         // Prints a group of students and one of their properties (passed by a delegate)

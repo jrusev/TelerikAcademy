@@ -7,7 +7,7 @@
     {
         private List<decimal> marks;
 
-        public Student(string firstName, string lastName, string email, string phone, int facultyNum, int groupNumber, List<decimal> marks = null)
+        public Student(string firstName, string lastName, string email, string phone, string facultyNum, int groupNumber, List<decimal> marks = null)
         {
             this.FristName = firstName;
             this.LastName = lastName;
@@ -26,7 +26,7 @@
 
         public string Phone { get; set; }
 
-        public int FacultyNum { get; set; }
+        public string FacultyNum { get; set; }
 
         public int GroupNumber { get; set; }
 
