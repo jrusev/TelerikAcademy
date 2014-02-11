@@ -48,7 +48,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\01.School\01.School.Common.csproj">
+    <ProjectReference Include="..\01.School.Common\01.School.Common.csproj">
       <Project>{b6c06040-9ff2-48c1-bcdd-b7bb6cf42ad2}</Project>
       <Name>01.School.Common</Name>
     </ProjectReference>
