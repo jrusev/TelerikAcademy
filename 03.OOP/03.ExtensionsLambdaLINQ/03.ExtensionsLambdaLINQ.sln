@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "17.MaxString", "17.MaxStrin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "16,18,19.MathematicsDepartment", "16,18,19.MathematicsDepartment\16,18,19.MathematicsDepartment.csproj", "{3C2F1575-B085-4D5A-96C6-65F1AB03B65A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "20.UniversalMethod", "20.UniversalMethod\20.UniversalMethod.csproj", "{7764EB94-BEF6-455C-9553-3FDBDCC7A9F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{3C2F1575-B085-4D5A-96C6-65F1AB03B65A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C2F1575-B085-4D5A-96C6-65F1AB03B65A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C2F1575-B085-4D5A-96C6-65F1AB03B65A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7764EB94-BEF6-455C-9553-3FDBDCC7A9F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7764EB94-BEF6-455C-9553-3FDBDCC7A9F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7764EB94-BEF6-455C-9553-3FDBDCC7A9F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7764EB94-BEF6-455C-9553-3FDBDCC7A9F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

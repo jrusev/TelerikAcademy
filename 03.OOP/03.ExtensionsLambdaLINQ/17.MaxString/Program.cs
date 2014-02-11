@@ -16,5 +16,7 @@ internal class Program
 
         // Fastest method - O(n) operation
         Console.WriteLine(arr.Aggregate((max, cur) => max.Length > cur.Length ? max : cur));
+
+        Console.WriteLine(arr.Aggregate((x, y) => x.Length > y.Length ? x : y));
     }
 }
