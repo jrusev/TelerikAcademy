@@ -80,9 +80,6 @@ public class BitArray64 : IEnumerable<int>
 
     IEnumerator IEnumerable.GetEnumerator()
     {
-        for (int i = 0; i < BitArray64.Size; i++)
-        {
-            yield return this[i];
-        }
+        return this.GetEnumerator();
     }
 }
