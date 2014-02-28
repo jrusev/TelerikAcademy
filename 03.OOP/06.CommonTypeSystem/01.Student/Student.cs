@@ -1,7 +1,13 @@
-﻿// Define a class Student, which contains data about a student – first, middle and last name,
+﻿// Task 1:
+// Define a class Student, which contains data about a student – first, middle and last name,
 // SSN, permanent address, mobile phone e-mail, course, specialty, university, faculty.
 // Use an enumeration for the specialties, universities and faculties.
 // Override the standard methods, inherited by  System.Object: Equals(), ToString(), GetHashCode() and operators == and !=.
+//
+// Task 2:
+// Add implementations of the ICloneable interface. The Clone() method should deeply copy all object's fields into a new object of type Student.
+using System;
+
 public enum Specialty
 {
     Mathematics,
@@ -25,7 +31,7 @@ public enum Faculty
     Phylosophy
 }
 
-public class Student
+public class Student : ICloneable
 {
     public Student(string firstName, string lastName, string ssn, University uni, Faculty fac, Specialty spec)
     {
@@ -118,5 +124,26 @@ public class Student
     {
         string str = string.Format("{0} {1}: {2}, {3}, {4}", this.FirstName, this.LastName, this.University, this.Faculty, this.Specialty);
         return str;
+    }
+
+    // Deep copy 
+    public object Clone()
+    {
+        // From MSDN: Because the Clone method simply returns the existing string instance,
+        // there is little reason to call it directly.
+        Student deepClone = new Student(
+            (string)this.FirstName.Clone(),
+            this.LastName,
+            this.SSN,
+            this.University,
+            this.Faculty,
+            this.Specialty);
+
+        deepClone.Phone = this.Phone;
+        deepClone.Address = this.Address;
+        deepClone.Email = this.Email;
+        deepClone.Course = this.Course;
+
+        return deepClone;
     }
 }
