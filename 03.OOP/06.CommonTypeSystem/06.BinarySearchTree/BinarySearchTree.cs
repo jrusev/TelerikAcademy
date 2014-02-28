@@ -2,9 +2,7 @@
 
 public partial class BinarySearchTree<T> where T : IComparable<T>
 {
-    /// <summary>
-    /// The root of the tree
-    /// </summary>
+    // The root of the tree
     private BinaryTreeNode<T> root;
 
     /// <summary>
@@ -84,11 +82,7 @@ public partial class BinarySearchTree<T> where T : IComparable<T>
         return node;
     }
 
-    /// <summary>Finds a given value in the tree and
-    /// return the node which contains it if such exsists
-    /// </summary>
-    /// <param name="value">the value to be found</param>
-    /// <returns>the found node or null if not found</returns>
+    // Finds a given value in the tree and returns the node which contains it if such exsists
     private BinaryTreeNode<T> Find(T value)
     {
         BinaryTreeNode<T> node = this.root;
@@ -178,16 +172,14 @@ public partial class BinarySearchTree<T> where T : IComparable<T>
         }
     }
 
-    /// <summary>Traverses and prints the ordered binary search tree
-    /// tree starting from given root node.</summary>
-    /// <param name="node">the starting node</param>
-    private void PrintTreeDFS(BinaryTreeNode<T> node)
+    // Traverses and prints the ordered binary search tree starting from given root node.
+    private void PrintTreeDFS(BinaryTreeNode<T> startNode)
     {
-        if (node != null)
+        if (startNode != null)
         {
-            this.PrintTreeDFS(node.LeftChild);
-            Console.Write(node.Value + " ");
-            this.PrintTreeDFS(node.RightChild);
+            this.PrintTreeDFS(startNode.LeftChild);
+            Console.Write(startNode.Value + " ");
+            this.PrintTreeDFS(startNode.RightChild);
         }
     }
 }

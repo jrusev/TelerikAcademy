@@ -14,7 +14,7 @@ public partial class BinarySearchTree<T> where T : IComparable<T>
             if (value == null)
             {
                 // Null values cannot be compared -> do not allow them
-                throw new ArgumentNullException( "Cannot insert null value!");
+                throw new ArgumentNullException("Cannot insert null value!");
             }
 
             this.Value = value;
@@ -55,5 +55,5 @@ public partial class BinarySearchTree<T> where T : IComparable<T>
         {
             return this.Value.CompareTo(other.Value);
         }
-    }  
+    }
 }
