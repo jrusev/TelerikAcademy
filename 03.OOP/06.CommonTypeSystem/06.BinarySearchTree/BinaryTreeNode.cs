@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 
-public partial class BinarySearchTree<T> where T : IComparable<T>
+public partial class BinarySearchTree<T> : ICloneable, IEnumerable<T>
+        where T : IComparable<T>, IEquatable<T>
 {
     /// <summary>Represents a binary tree node</summary>
     /// <typeparam name="T">The type of the nodes</typeparam>

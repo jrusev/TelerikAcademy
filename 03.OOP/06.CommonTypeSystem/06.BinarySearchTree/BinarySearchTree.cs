@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 
-public partial class BinarySearchTree<T> where T : IComparable<T>
+public partial class BinarySearchTree<T> : ICloneable, IEnumerable<T>
+        where T : IComparable<T>, IEquatable<T>
 {
     // The root of the tree
     private BinaryTreeNode<T> root;
