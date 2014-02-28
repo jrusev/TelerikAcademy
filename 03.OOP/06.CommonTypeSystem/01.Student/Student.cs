@@ -6,6 +6,11 @@
 //
 // Task 2:
 // Add implementations of the ICloneable interface. The Clone() method should deeply copy all object's fields into a new object of type Student.
+//
+// Task 3:
+// Implement the  IComparable<Student> interface to compare students
+// by names (as first criteria, in lexicographic order)
+// and by social security number (as second criteria, in increasing order).
 using System;
 
 public enum Specialty
@@ -31,9 +36,9 @@ public enum Faculty
     Phylosophy
 }
 
-public class Student : ICloneable
+public class Student : ICloneable, IComparable<Student>
 {
-    public Student(string firstName, string lastName, string ssn, University uni, Faculty fac, Specialty spec)
+    public Student(string firstName, string lastName, ulong ssn, University uni, Faculty fac, Specialty spec)
     {
         this.FirstName = firstName;
         this.LastName = lastName;
@@ -49,7 +54,7 @@ public class Student : ICloneable
 
     public string LastName { get; set; }
 
-    public string SSN { get; set; }
+    public ulong SSN { get; set; }
 
     public string Address { get; set; }
 
@@ -126,7 +131,9 @@ public class Student : ICloneable
         return str;
     }
 
-    // Deep copy 
+    /// <summary>
+    /// Creates a deep copy of the Student.
+    /// </summary>
     public object Clone()
     {
         // From MSDN: Because the Clone method simply returns the existing string instance,
@@ -145,5 +152,33 @@ public class Student : ICloneable
         deepClone.Course = this.Course;
 
         return deepClone;
+    }
+
+    /// <summary>
+    /// Compare studetns by by names (as first criteria, in lexicographic order)
+    /// and by social security number (as second criteria, in increasing order).
+    /// </summary>
+    public int CompareTo(Student other)
+    {
+        int firstNamesCompare = string.Compare(this.FirstName, other.FirstName);
+        if (firstNamesCompare != 0)
+        {
+            return firstNamesCompare;
+        }
+        else
+        {
+            if (this.SSN > other.SSN)
+            {
+                return 1;
+            }
+            else if (this.SSN < other.SSN)
+            {
+                return -1;
+            }
+            else
+            {
+                return 0;
+            }
+        }        
     }
 }
