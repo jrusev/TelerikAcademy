@@ -61,7 +61,7 @@ public class BitArray64 : IEnumerable<int>
 
     public override string ToString()
     {
-        StringBuilder sb = new StringBuilder(64);
+        StringBuilder sb = new StringBuilder(BitArray64.Size);
         foreach (var bit in this)
         {
             sb.Append(bit);
