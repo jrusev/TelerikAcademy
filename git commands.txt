@@ -1,7 +1,8 @@
-git add -A stages All
-git add . stages new and modified, without deleted
-git add -u stages modified and deleted, without new
-git log --oneline
-git commit -m "Comment"
-git remote add origin <git@github.com:....>
-git push origin commit
+git pull origin master // изтегля каквото ново има от отдалеченото хранилище (GitHub), съкратното му име е "origin"
+git add -A . // слага всичко от работната ти директория в буфера (т.нар. staging area)
+git status -s // не е задължително - дава ти дали всичко от работната директория е сложено в буфера
+git commit -m "put your comment here" // качва каквото има в буфер в локалното ти хранинлище
+git push origin master // качва всичко от локалното хранинлище (master) в отдалеченото (origin)
+git log --oneline // не е задължително - дава ти историята на логовете, трябва да си виждаш твоите (значи са на сървъра)
+
+Shift+ Z,Z -> ако екрана е блокирал, като изписва дълъг списък (примерно след git status), го отблокира и показва промпта
