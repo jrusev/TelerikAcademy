@@ -11,8 +11,8 @@ namespace ParticleSystem
     {
         public ParticleRepeller repeller;
 
-        public FieldEngine(IRenderer renderer, IParticleOperator particleOperator, ParticleRepeller repeller, List<Particle> particles = null)
-            : base(renderer, particleOperator, particles)
+        public FieldEngine(IRenderer renderer, IParticleOperator particleOperator, int sleepTimeMs, ParticleRepeller repeller, List<Particle> particles = null)
+            : base(renderer, particleOperator, sleepTimeMs, particles)
         {
             this.repeller = repeller;
         }
@@ -64,7 +64,7 @@ namespace ParticleSystem
                 renderer.ClearQueue();
 
                 //Debug.WriteLine("Thread.Sleep({0})", SleepTimeMs);
-                Thread.Sleep(SleepTimeMs);
+                Thread.Sleep(sleepTimeMs);
             }
         }
 

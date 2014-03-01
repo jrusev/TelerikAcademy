@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05-06.RepellerParticle", "0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03-04.ChickenParticle", "03-04.ChickenParticle\03-04.ChickenParticle.csproj", "{E16A9089-4A57-4EBD-9F6C-BA241107ADD0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParticleSystem.Common", "ParticleSystem.Common\ParticleSystem.Common.csproj", "{6A6D48D2-98F8-4288-BC8B-4647141C015D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{E16A9089-4A57-4EBD-9F6C-BA241107ADD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E16A9089-4A57-4EBD-9F6C-BA241107ADD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E16A9089-4A57-4EBD-9F6C-BA241107ADD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A6D48D2-98F8-4288-BC8B-4647141C015D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A6D48D2-98F8-4288-BC8B-4647141C015D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A6D48D2-98F8-4288-BC8B-4647141C015D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A6D48D2-98F8-4288-BC8B-4647141C015D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

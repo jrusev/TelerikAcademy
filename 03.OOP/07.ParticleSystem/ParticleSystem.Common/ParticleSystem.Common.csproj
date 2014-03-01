@@ -1,19 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D45EC0C9-273C-472C-8770-625B39586C9C}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{6A6D48D2-98F8-4288-BC8B-4647141C015D}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ParticleSystem</RootNamespace>
-    <AssemblyName>ParticleSystem</AssemblyName>
+    <RootNamespace>ParticleSystem.Common</RootNamespace>
+    <AssemblyName>ParticleSystem.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,18 +39,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChaoticParticle.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="ConsoleRenderer.cs" />
+    <Compile Include="Engine.cs" />
+    <Compile Include="IAcceleratable.cs" />
+    <Compile Include="IParticle.cs" />
+    <Compile Include="IParticleOperator.cs" />
+    <Compile Include="IRenderable.cs" />
+    <Compile Include="IRenderer.cs" />
+    <Compile Include="MatrixCoords.cs" />
+    <Compile Include="Particle.cs" />
+    <Compile Include="ParticleUpdater.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ParticleSystem.Common\ParticleSystem.Common.csproj">
-      <Project>{6a6d48d2-98f8-4288-bc8b-4647141c015d}</Project>
-      <Name>ParticleSystem.Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

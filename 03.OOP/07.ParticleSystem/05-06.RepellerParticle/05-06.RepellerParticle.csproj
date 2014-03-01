@@ -44,23 +44,18 @@
     <Compile Include="FieldEngine.cs" />
     <Compile Include="FreeParticle.cs" />
     <Compile Include="ParticleEmitter.cs" />
-    <Compile Include="ConsoleRenderer.cs" />
-    <Compile Include="Engine.cs" />
-    <Compile Include="IAcceleratable.cs" />
-    <Compile Include="IParticle.cs" />
-    <Compile Include="IParticleOperator.cs" />
-    <Compile Include="IRenderable.cs" />
-    <Compile Include="IRenderer.cs" />
-    <Compile Include="MatrixCoords.cs" />
-    <Compile Include="Particle.cs" />
     <Compile Include="ParticleRepeller.cs" />
-    <Compile Include="ParticleUpdater.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="ParticleSystemDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ParticleSystem.Common\ParticleSystem.Common.csproj">
+      <Project>{6a6d48d2-98f8-4288-bc8b-4647141c015d}</Project>
+      <Name>ParticleSystem.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

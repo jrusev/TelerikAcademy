@@ -9,7 +9,7 @@ namespace ParticleSystem
 {
     public class Engine
     {
-        protected const int SleepTimeMs = 250;
+        protected int sleepTimeMs;
 
         protected IParticleOperator particleOperator;
 
@@ -19,10 +19,11 @@ namespace ParticleSystem
 
         public static readonly Random rand = new Random();
 
-        public Engine(IRenderer renderer, IParticleOperator particleOperator, List<Particle> particles = null)
+        public Engine(IRenderer renderer, IParticleOperator particleOperator, int sleepTimeMs, List<Particle> particles = null)
         {
             this.renderer = renderer;
             this.particleOperator = particleOperator;
+            this.sleepTimeMs = sleepTimeMs;
 
             if (particles != null)
             {
@@ -63,7 +64,7 @@ namespace ParticleSystem
                 renderer.ClearQueue();
 
                 //Debug.WriteLine("Thread.Sleep({0})", SleepTimeMs);
-                Thread.Sleep(SleepTimeMs);
+                Thread.Sleep(sleepTimeMs);
             }
         }
     }

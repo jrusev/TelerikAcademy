@@ -22,8 +22,8 @@ namespace ParticleSystem
             ParticleRepeller repeller = new ParticleRepeller(repellerPosition, repellerSpeed, repellerGravity);
 
             // Use a field engine - derives from Engine, but can affect the speed of the particles,
-            // the center of the field is the the repeller
-            FieldEngine engine = new FieldEngine(renderer, particleOperator, repeller);
+            // the center of the field is the repeller
+            FieldEngine engine = new FieldEngine(renderer, particleOperator, 50, repeller);
             engine.AddParticle(repeller);
 
             // Add emmitter for free particles (appears as 'E' on the console)

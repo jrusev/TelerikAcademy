@@ -16,7 +16,7 @@ namespace ParticleSystem
             IRenderer renderer = new ConsoleRenderer(MaxRows, MaxCols);
             IParticleOperator particleOperator = new ParticleUpdater();
 
-            Engine engine = new Engine(renderer, particleOperator);
+            Engine engine = new Engine(renderer, particleOperator, 250);
 
             // Create a ChickenParticle (it will spawn other particles)
             MatrixCoords initialPosition = new MatrixCoords(MaxRows / 2, MaxCols / 2);
