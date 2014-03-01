@@ -12,6 +12,7 @@ namespace ParticleSystem
         public ChaoticParticle(MatrixCoords position, MatrixCoords speed)
             : base(position, speed)
         {
+
         }
 
         public MatrixCoords Acceleration { get; private set; }
@@ -46,6 +47,7 @@ namespace ParticleSystem
             {
                 this.Acceleration = new MatrixCoords(this.Acceleration.Row, 5);
             }
+
 
             this.Accelerate(Acceleration);
             base.Move();

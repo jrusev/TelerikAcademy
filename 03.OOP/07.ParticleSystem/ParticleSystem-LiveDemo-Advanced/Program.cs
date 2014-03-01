@@ -48,12 +48,12 @@ namespace ParticleSystem
             var emitterSpeed = new MatrixCoords(0, 0);
             var emitter = new ParticleEmitter(emitterPosition, emitterSpeed,
                 RandomGenerator,
-                5,
+                1,
                 1,
                 GenerateRandomParticle
                 );
 
-            //engine.AddParticle(emitter);
+            engine.AddParticle(emitter);
 
             var attractorPosition = new MatrixCoords(MaxRows/2, MaxCols / 3);
             var attractor = new ParticleAttractor(
@@ -75,8 +75,8 @@ namespace ParticleSystem
         {
             MatrixCoords particlePos = emitterParameter.Position;
 
-            int particleRowSpeed = emitterParameter.RandomGenerator.Next(emitterParameter.MinSpeedCoord, emitterParameter.MaxSpeedCoord + 1);
-            int particleColSpeed = emitterParameter.RandomGenerator.Next(emitterParameter.MinSpeedCoord, emitterParameter.MaxSpeedCoord + 1);
+            int particleRowSpeed = emitterParameter.RandomGenerator.Next(0, emitterParameter.MaxSpeedCoord + 1);
+            int particleColSpeed = emitterParameter.RandomGenerator.Next(0, emitterParameter.MaxSpeedCoord + 1);
 
             MatrixCoords particleSpeed = new MatrixCoords(particleRowSpeed, particleColSpeed);
 

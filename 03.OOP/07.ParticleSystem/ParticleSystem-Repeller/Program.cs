@@ -13,12 +13,19 @@ namespace ParticleSystem
             IRenderer renderer = new ConsoleRenderer(MaxRows, MaxCols);
             IParticleOperator particleOperator = new ParticleUpdater();
 
-            Engine engine = new Engine(renderer, particleOperator);
+            MatrixCoords repellerPosition = new MatrixCoords(MaxRows - 10, MaxCols - 10);
+            MatrixCoords repellerSpeed = new MatrixCoords(0, 0);
+            int repellerGravity = -2; // antigravity
+            ParticleRepeller repeller = new ParticleRepeller(repellerPosition, repellerSpeed, repellerGravity);
 
-            MatrixCoords initialPosition = new MatrixCoords(MaxRows / 2, MaxCols / 2);
-            MatrixCoords initialSpeed = new MatrixCoords(0, 0);
-            Particle chaoticParticle = new ChaoticParticle(initialPosition, initialSpeed);
-            engine.AddParticle(chaoticParticle);
+            FieldEngine engine = new FieldEngine(renderer, particleOperator, repeller);
+            engine.AddParticle(repeller);
+
+            MatrixCoords emitterPosition = new MatrixCoords(10, 20);
+            MatrixCoords emitterSpeed = new MatrixCoords(10, 10);
+            int particleLifeTicks = 20;
+            ParticleEmitter emitter = new ParticleEmitter(emitterPosition, emitterSpeed, particleLifeTicks);
+            engine.AddParticle(emitter);
 
             SetConsole();
             engine.Run();

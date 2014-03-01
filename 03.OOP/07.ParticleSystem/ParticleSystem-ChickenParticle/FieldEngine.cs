@@ -7,39 +7,17 @@ using System.Diagnostics;
 
 namespace ParticleSystem
 {
-    public class Engine
+    public class FieldEngine : Engine
     {
-        protected const int SleepTimeMs = 250;
+        public ParticleRepeller repeller;
 
-        protected IParticleOperator particleOperator;
-
-        protected List<Particle> particles;
-
-        protected IRenderer renderer;
-
-        public static readonly Random rand = new Random();
-
-        public Engine(IRenderer renderer, IParticleOperator particleOperator, List<Particle> particles = null)
+        public FieldEngine(IRenderer renderer, IParticleOperator particleOperator, ParticleRepeller repeller, List<Particle> particles = null)
+            : base(renderer, particleOperator, particles)
         {
-            this.renderer = renderer;
-            this.particleOperator = particleOperator;
-
-            if (particles != null)
-            {
-                this.particles = particles;
-            }
-            else
-            {
-                this.particles = new List<Particle>();
-            }
+            this.repeller = repeller;
         }
 
-        public void AddParticle(Particle p)
-        {
-            this.particles.Add(p);
-        }
-
-        public virtual void Run()
+        public override void Run()
         {
             while (true)
             {

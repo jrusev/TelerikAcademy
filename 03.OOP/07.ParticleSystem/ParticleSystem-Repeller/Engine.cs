@@ -9,7 +9,7 @@ namespace ParticleSystem
 {
     public class Engine
     {
-        protected const int SleepTimeMs = 250;
+        protected const int SleepTimeMs = 50;
 
         protected IParticleOperator particleOperator;
 

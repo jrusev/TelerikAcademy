@@ -44,7 +44,9 @@ namespace ParticleSystem
 
         private static MatrixCoords GetAccelerationFromParticleToAttractor(ParticleAttractor attractor, Particle particle)
         {
-            var currParticleToAttractorVector = attractor.Position - particle.Position;
+            //var currParticleToAttractorVector = attractor.Position - particle.Position;
+
+            var currParticleToAttractorVector = particle.Position - attractor.Position;
 
             int pToAttrRow = currParticleToAttractorVector.Row;
             pToAttrRow = DecreaseVectorCoordToPower(attractor, pToAttrRow);

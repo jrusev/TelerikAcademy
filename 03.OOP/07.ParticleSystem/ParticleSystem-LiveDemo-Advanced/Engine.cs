@@ -16,6 +16,8 @@ namespace ParticleSystem
 
         private int waitMs;
 
+        public static readonly Random rand = new Random();
+
         public Engine(IRenderer renderer, IParticleOperator particleOperator, List<Particle> particles = null, int waitMs = 1000)
         {
             this.renderer = renderer;
