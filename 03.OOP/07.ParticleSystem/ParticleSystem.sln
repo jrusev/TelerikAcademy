@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParticleSystem", "ParticleSystem\ParticleSystem.csproj", "{E33B48A2-0340-4BD2-B1D5-D3A9FAAA2EE1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParticleSystem-Skeleton", "ParticleSystem-Skeleton\ParticleSystem-Skeleton.csproj", "{E33B48A2-0340-4BD2-B1D5-D3A9FAAA2EE1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParticleSystem-LiveDemo", "ParticleSystem-LiveDemo\ParticleSystem-LiveDemo.csproj", "{AEF8E6A6-2BC0-4AEF-8DBE-EECC0E5085FA}"
 EndProject

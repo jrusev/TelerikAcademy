@@ -21,7 +21,7 @@
       <HashCode>AAAAAAAAAQAAAAAAABAAAAIAAAAAABAAACAAAAEAAAA=</HashCode>
       <FileName>ConsoleRenderer.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="ParticleSystem.ParticleUpdater" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="6.5" Y="1.75" Width="1.5" />
@@ -29,7 +29,7 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAABAAAAAA=</HashCode>
       <FileName>ParticleUpdater.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="ParticleSystem.Engine">
     <Position X="4" Y="2.25" Width="1.5" />
