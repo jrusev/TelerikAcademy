@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Diagnostics;
 
 namespace ParticleSystem
 {
     public class Engine
     {
+        private const int SleepTimeMs = 500;
+
         private IParticleOperator particleOperator;
 
         private List<Particle> particles;
@@ -51,6 +55,9 @@ namespace ParticleSystem
 
                 renderer.RenderAll();
                 renderer.ClearQueue();
+
+                Debug.WriteLine("Thread.Sleep({0})", SleepTimeMs);
+                Thread.Sleep(SleepTimeMs);
             }
         }
     }

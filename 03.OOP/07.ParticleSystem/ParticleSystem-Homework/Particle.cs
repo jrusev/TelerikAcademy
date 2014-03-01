@@ -19,8 +19,14 @@ namespace ParticleSystem
         public virtual IEnumerable<Particle> Update()
         {
             // TODO: Particle Update
-            this.Position += this.Speed;
+            this.Move();
             return new List<Particle>();
+        }
+
+        protected virtual void Move()
+        {
+            // TODO: Particle Move
+             this.Position += this.Speed;
         }
 
         public MatrixCoords GetTopLeft()
@@ -29,12 +35,11 @@ namespace ParticleSystem
             return this.Position;
         }
 
-        public char[,] GetImage()
+        public virtual char[,] GetImage()
         {
             // TODO: GetImage
             return new char[,] { { '*' } };
         }
-
 
         public bool Exists
         {

@@ -91,7 +91,6 @@ namespace ParticleSystem
                     break;
                 default:
                     throw new Exception("No such particle for this particleTypeIndex");
-                    break;
             }
             return generated;
         }

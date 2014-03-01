@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 
 namespace ParticleSystem
 {
@@ -17,7 +16,6 @@ namespace ParticleSystem
         public void TickEnded()
         {
             // TODO: TickEnded
-            Thread.Sleep(100);
         }
     }
 }
