@@ -4,23 +4,23 @@ namespace ParticleSystem
 {
     class Program
     {
-        private const int MaxRows = 60;
-        private const int MaxCols = 120;
+        private const int MaxRows = 40;
+        private const int MaxCols = 80;
 
-        // Create a ChaoticParticle class, which is a Particle, randomly changing its movement (Speed).
+        // Create a ChickenParticle class.
+        // The ChickenParticle class moves like a ChaoticParticle,
+        // but randomly stops at different positions for several simulation ticks and,
+        // for each of those stops, creates (lays) a new ChickenParticle.
         static void Main()
         {
             IRenderer renderer = new ConsoleRenderer(MaxRows, MaxCols);
             IParticleOperator particleOperator = new ParticleUpdater();
 
-            ParticleRepeller repeller = new ParticleRepeller();
-            Engine engine = new FieldEngine(renderer, particleOperator, repeller);
+            Engine engine = new Engine(renderer, particleOperator);
 
+            // Create a ChickenParticle (it will spawn other particles)
             MatrixCoords initialPosition = new MatrixCoords(MaxRows / 2, MaxCols / 2);
             MatrixCoords initialSpeed = new MatrixCoords(0, 0);
-            Particle chaoticParticle = new ChaoticParticle(initialPosition, initialSpeed);
-            engine.AddParticle(chaoticParticle);
-
             Particle chickenParticle = new ChickenParticle(initialPosition, initialSpeed);
             engine.AddParticle(chickenParticle);
 

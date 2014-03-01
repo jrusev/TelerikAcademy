@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E33B48A2-0340-4BD2-B1D5-D3A9FAAA2EE1}</ProjectGuid>
+    <ProjectGuid>{1DF6B9D0-DCC4-4E9F-BF28-3ED7BF094580}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ParticleSystem</RootNamespace>
@@ -41,15 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FieldEngine.cs" />
+    <Compile Include="FreeParticle.cs" />
+    <Compile Include="ParticleEmitter.cs" />
     <Compile Include="ConsoleRenderer.cs" />
     <Compile Include="Engine.cs" />
-    <Compile Include="IMovingParticle.cs" />
+    <Compile Include="IAcceleratable.cs" />
     <Compile Include="IParticle.cs" />
     <Compile Include="IParticleOperator.cs" />
     <Compile Include="IRenderable.cs" />
     <Compile Include="IRenderer.cs" />
     <Compile Include="MatrixCoords.cs" />
     <Compile Include="Particle.cs" />
+    <Compile Include="ParticleRepeller.cs" />
     <Compile Include="ParticleUpdater.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

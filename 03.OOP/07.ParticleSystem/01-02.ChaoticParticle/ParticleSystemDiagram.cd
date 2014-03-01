@@ -42,14 +42,6 @@
       <Field Name="renderer" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="ParticleSystem.FreeParticle" Collapsed="true">
-    <Position X="1" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAIgAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>FreeParticle.cs</FileName>
-      <NewMemberFileName>ChaoticParticle.cs</NewMemberFileName>
-    </TypeIdentifier>
-  </Class>
   <Interface Name="ParticleSystem.IRenderable" Collapsed="true">
     <Position X="8.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>

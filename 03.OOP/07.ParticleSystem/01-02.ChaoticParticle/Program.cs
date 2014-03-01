@@ -4,8 +4,8 @@ namespace ParticleSystem
 {
     class Program
     {
-        private const int MaxRows = 60;
-        private const int MaxCols = 120;
+        private const int MaxRows = 40;
+        private const int MaxCols = 80;
 
         // Create a ChaoticParticle class, which is a Particle, randomly changing its movement (Speed).
         static void Main()
@@ -13,19 +13,13 @@ namespace ParticleSystem
             IRenderer renderer = new ConsoleRenderer(MaxRows, MaxCols);
             IParticleOperator particleOperator = new ParticleUpdater();
 
-            MatrixCoords repellerPosition = new MatrixCoords(MaxRows - 10, MaxCols - 10);
-            MatrixCoords repellerSpeed = new MatrixCoords(0, 0);
-            int repellerGravity = -2; // antigravity
-            ParticleRepeller repeller = new ParticleRepeller(repellerPosition, repellerSpeed, repellerGravity);
+            Engine engine = new Engine(renderer, particleOperator);
 
-            FieldEngine engine = new FieldEngine(renderer, particleOperator, repeller);
-            engine.AddParticle(repeller);
-
-            MatrixCoords emitterPosition = new MatrixCoords(10, 20);
-            MatrixCoords emitterSpeed = new MatrixCoords(10, 10);
-            int particleLifeTicks = 20;
-            ParticleEmitter emitter = new ParticleEmitter(emitterPosition, emitterSpeed, particleLifeTicks);
-            engine.AddParticle(emitter);
+            // Create a ChaoticParticle
+            MatrixCoords initialPosition = new MatrixCoords(MaxRows / 2, MaxCols / 2);
+            MatrixCoords initialSpeed = new MatrixCoords(0, 0);
+            Particle chaoticParticle = new ChaoticParticle(initialPosition, initialSpeed);
+            engine.AddParticle(chaoticParticle);
 
             SetConsole();
             engine.Run();

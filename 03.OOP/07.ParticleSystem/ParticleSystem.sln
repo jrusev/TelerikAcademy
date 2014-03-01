@@ -3,17 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParticleSystem-Skeleton", "ParticleSystem-Skeleton\ParticleSystem-Skeleton.csproj", "{E33B48A2-0340-4BD2-B1D5-D3A9FAAA2EE1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01-02.ChaoticParticle", "01-02.ChaoticParticle\01-02.ChaoticParticle.csproj", "{D45EC0C9-273C-472C-8770-625B39586C9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParticleSystem-LiveDemo", "ParticleSystem-LiveDemo\ParticleSystem-LiveDemo.csproj", "{AEF8E6A6-2BC0-4AEF-8DBE-EECC0E5085FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05-06.RepellerParticle", "05-06.RepellerParticle\05-06.RepellerParticle.csproj", "{1DF6B9D0-DCC4-4E9F-BF28-3ED7BF094580}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParticleSystem-LiveDemo-Advanced", "ParticleSystem-LiveDemo-Advanced\ParticleSystem-LiveDemo-Advanced.csproj", "{2B91B6E2-A5E5-4CBD-A083-3713D74099C1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01-02.ChaoticParticle", "ParticleSystem-Homework\01-02.ChaoticParticle.csproj", "{D45EC0C9-273C-472C-8770-625B39586C9C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05-06.RepellerParticle", "ParticleSystem-Repeller\05-06.RepellerParticle.csproj", "{1DF6B9D0-DCC4-4E9F-BF28-3ED7BF094580}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03-04.ChickenParticle", "ParticleSystem-ChickenParticle\03-04.ChickenParticle.csproj", "{E16A9089-4A57-4EBD-9F6C-BA241107ADD0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03-04.ChickenParticle", "03-04.ChickenParticle\03-04.ChickenParticle.csproj", "{E16A9089-4A57-4EBD-9F6C-BA241107ADD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,18 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E33B48A2-0340-4BD2-B1D5-D3A9FAAA2EE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E33B48A2-0340-4BD2-B1D5-D3A9FAAA2EE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E33B48A2-0340-4BD2-B1D5-D3A9FAAA2EE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E33B48A2-0340-4BD2-B1D5-D3A9FAAA2EE1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AEF8E6A6-2BC0-4AEF-8DBE-EECC0E5085FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AEF8E6A6-2BC0-4AEF-8DBE-EECC0E5085FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AEF8E6A6-2BC0-4AEF-8DBE-EECC0E5085FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AEF8E6A6-2BC0-4AEF-8DBE-EECC0E5085FA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2B91B6E2-A5E5-4CBD-A083-3713D74099C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2B91B6E2-A5E5-4CBD-A083-3713D74099C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2B91B6E2-A5E5-4CBD-A083-3713D74099C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2B91B6E2-A5E5-4CBD-A083-3713D74099C1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D45EC0C9-273C-472C-8770-625B39586C9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D45EC0C9-273C-472C-8770-625B39586C9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D45EC0C9-273C-472C-8770-625B39586C9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
