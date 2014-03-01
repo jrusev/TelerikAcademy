@@ -31,7 +31,6 @@ namespace ParticleSystem
         {
             tickCounter++;
             var newParticles = new List<Particle>();
-            //newParticles.Add(this);
 
             double totalSpeed = Math.Sqrt(this.Speed.Row * this.Speed.Row + this.Speed.Col * this.Speed.Col);
             if (tickCounter > 4 * ChickenParticle.totalChickenParticles && totalSpeed < maxSpeed)
