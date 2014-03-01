@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParticleSystem-LiveDemo", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParticleSystem-LiveDemo-Advanced", "ParticleSystem-LiveDemo-Advanced\ParticleSystem-LiveDemo-Advanced.csproj", "{2B91B6E2-A5E5-4CBD-A083-3713D74099C1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParticleSystem-Homework", "ParticleSystem-Homework\ParticleSystem-Homework.csproj", "{D45EC0C9-273C-472C-8770-625B39586C9C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{2B91B6E2-A5E5-4CBD-A083-3713D74099C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B91B6E2-A5E5-4CBD-A083-3713D74099C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B91B6E2-A5E5-4CBD-A083-3713D74099C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D45EC0C9-273C-472C-8770-625B39586C9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D45EC0C9-273C-472C-8770-625B39586C9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D45EC0C9-273C-472C-8770-625B39586C9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D45EC0C9-273C-472C-8770-625B39586C9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace ParticleSystem
 {
@@ -9,12 +10,14 @@ namespace ParticleSystem
     {
         public void OperateOn(Particle p)
         {
-            throw new NotImplementedException();
+            // TODO: OperateOn
+            p.Update();
         }
 
         public void TickEnded()
         {
-            throw new NotImplementedException();
+            // TODO: TickEnded
+            Thread.Sleep(100);
         }
     }
 }

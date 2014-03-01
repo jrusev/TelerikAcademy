@@ -8,12 +8,12 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ParticleSystem.Particle" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="8.25" Y="0.75" Width="1.5" />
+    <Position X="1" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAgAAAAAAARCAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Particle.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="ParticleSystem.ConsoleRenderer" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="6.5" Y="0.75" Width="1.5" />
@@ -42,6 +42,13 @@
       <Field Name="renderer" />
     </ShowAsAssociation>
   </Class>
+  <Class Name="ParticleSystem.ChaoticParticle" Collapsed="true">
+    <Position X="1" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ChaoticParticle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="ParticleSystem.IRenderable" Collapsed="true">
     <Position X="8.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
@@ -60,7 +67,7 @@
     <Position X="6.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAABCAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>IMovingParticle.cs</FileName>
+      <FileName>IAcceleratable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="ParticleSystem.IParticleOperator">

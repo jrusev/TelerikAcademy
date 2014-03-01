@@ -18,7 +18,7 @@ namespace ParticleSystem
         public virtual IEnumerable<Particle> Update()
         {
             this.Move();
-            return new List<Particle>();
+            return new List<Particle>() { this };
         }
 
         protected virtual void Move()

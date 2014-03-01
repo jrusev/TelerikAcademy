@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E33B48A2-0340-4BD2-B1D5-D3A9FAAA2EE1}</ProjectGuid>
+    <ProjectGuid>{D45EC0C9-273C-472C-8770-625B39586C9C}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ParticleSystem</RootNamespace>
@@ -41,9 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChaoticParticle.cs" />
     <Compile Include="ConsoleRenderer.cs" />
     <Compile Include="Engine.cs" />
-    <Compile Include="IMovingParticle.cs" />
+    <Compile Include="IAcceleratable.cs" />
     <Compile Include="IParticle.cs" />
     <Compile Include="IParticleOperator.cs" />
     <Compile Include="IRenderable.cs" />

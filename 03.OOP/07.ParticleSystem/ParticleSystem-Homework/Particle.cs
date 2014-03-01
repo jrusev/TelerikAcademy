@@ -7,31 +7,32 @@ namespace ParticleSystem
 {
     public class Particle : IRenderable, IAcceleratable
     {
-        public MatrixCoords Position
+        public Particle(MatrixCoords position, MatrixCoords speed)
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
+            // TODO: Particle constructor
+            this.Position = position;
+            this.Speed = speed;
         }
 
-        public IEnumerable<Particle> Update()
+        public MatrixCoords Position { get; protected set; }
+
+        public virtual IEnumerable<Particle> Update()
         {
-            throw new NotImplementedException();
+            // TODO: Particle Update
+            this.Position += this.Speed;
+            return new List<Particle>();
         }
 
         public MatrixCoords GetTopLeft()
         {
-            throw new NotImplementedException();
+            // TODO: GetTopLeft
+            return this.Position;
         }
 
         public char[,] GetImage()
         {
-            throw new NotImplementedException();
+            // TODO: GetImage
+            return new char[,] { { '*' } };
         }
 
 
@@ -40,14 +41,12 @@ namespace ParticleSystem
             get { return true; }
         }
 
-        public MatrixCoords Speed
-        {
-            get { throw new NotImplementedException(); }
-        }
+        public MatrixCoords Speed { get; protected set; }
 
         public void Accelerate(MatrixCoords acceleration)
         {
-            throw new NotImplementedException();
+            // TODO: Accelerate
+            this.Speed += acceleration;
         }
     }
 }
