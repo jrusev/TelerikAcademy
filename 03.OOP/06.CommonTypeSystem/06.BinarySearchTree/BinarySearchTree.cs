@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 public partial class BinarySearchTree<T> : ICloneable, IEnumerable<T>
-        where T : IComparable<T>, IEquatable<T>
+        where T : IComparable<T>
 {
     // The root of the tree
     private BinaryTreeNode<T> root;

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public partial class BinarySearchTree<T> : ICloneable, IEnumerable<T>
-        where T : IComparable<T>, IEquatable<T>
+        where T : IComparable<T>
 {
     public static bool operator ==(BinarySearchTree<T> tree1, BinarySearchTree<T> tree2)
     {
