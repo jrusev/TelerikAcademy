@@ -13,7 +13,8 @@ namespace ParticleSystem
             IRenderer renderer = new ConsoleRenderer(MaxRows, MaxCols);
             IParticleOperator particleOperator = new ParticleUpdater();
 
-            Engine engine = new Engine(renderer, particleOperator, 250);
+            int sleepTimeMs = 250;
+            Engine engine = new Engine(renderer, particleOperator, sleepTimeMs);
 
             // Create a ChaoticParticle
             MatrixCoords initialPosition = new MatrixCoords(MaxRows / 2, MaxCols / 2);
