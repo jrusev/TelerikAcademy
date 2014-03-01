@@ -7,10 +7,10 @@ namespace ParticleSystem
 {
     public class ParticleUpdater : IParticleOperator
     {
-        public void OperateOn(Particle p)
+        public IEnumerable<Particle> OperateOn(Particle p)
         {
             // TODO: OperateOn
-            p.Update();
+            return p.Update();
         }
 
         public void TickEnded()

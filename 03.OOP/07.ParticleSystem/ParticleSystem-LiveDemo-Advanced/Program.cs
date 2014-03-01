@@ -9,14 +9,14 @@ namespace ParticleSystem
 {
     class Program
     {
-        const int Rows = 30;
-        const int Cols = 30;
+        const int MaxRows = 60;
+        const int MaxCols = 120;
 
         static readonly Random RandomGenerator = new Random();
 
         static void Main(string[] args)
         {
-            var renderer = new ConsoleRenderer(Rows, Cols);
+            var renderer = new ConsoleRenderer(MaxRows, MaxCols);
 
             var particleOperator = new AdvancedParticleOperator();
 
@@ -25,6 +25,7 @@ namespace ParticleSystem
 
             GenerateInitialData(engine);
 
+            SetConsole();
             engine.Run();
         }
 
@@ -43,28 +44,28 @@ namespace ParticleSystem
                     12)
                 );
 
-            var emitterPosition = new MatrixCoords(29, 0);
+            var emitterPosition = new MatrixCoords(0, 0);
             var emitterSpeed = new MatrixCoords(0, 0);
             var emitter = new ParticleEmitter(emitterPosition, emitterSpeed,
                 RandomGenerator,
                 5,
-                2,
+                1,
                 GenerateRandomParticle
                 );
 
             //engine.AddParticle(emitter);
 
-            var attractorPosition = new MatrixCoords(10, 3);
+            var attractorPosition = new MatrixCoords(MaxRows/2, MaxCols / 3);
             var attractor = new ParticleAttractor(
                 attractorPosition,
                 new MatrixCoords(0, 0),
                 1);
 
-            var attractorPosition2 = new MatrixCoords(10, 13);
+            var attractorPosition2 = new MatrixCoords(MaxRows/2, MaxCols * 2 / 3);
             var attractor2 = new ParticleAttractor(
                 attractorPosition2,
                 new MatrixCoords(0, 0),
-                3);
+                1);
 
             engine.AddParticle(attractor);
             engine.AddParticle(attractor2);
@@ -93,6 +94,26 @@ namespace ParticleSystem
                     throw new Exception("No such particle for this particleTypeIndex");
             }
             return generated;
+        }
+
+        private static void SetConsole()
+        {
+            Console.CursorVisible = false;
+            try
+            {
+                // Set console dimensions
+                Console.WindowWidth = MaxCols + 1;
+                Console.WindowHeight = MaxRows + 1;
+
+                Console.BufferWidth = MaxCols + 1;
+                Console.BufferHeight = MaxRows + 1;
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+
+                Console.WriteLine("Cannot set console dimensions!");
+                Console.ReadKey(true);
+            }
         }
     }
 }

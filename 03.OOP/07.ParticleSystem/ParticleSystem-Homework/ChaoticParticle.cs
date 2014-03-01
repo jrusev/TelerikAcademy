@@ -9,8 +9,6 @@ namespace ParticleSystem
     // Create a ChaoticParticle class, which is a Particle, randomly changing its movement (Speed).
     public class ChaoticParticle : Particle
     {
-        private readonly Random rand = new Random();
-
         public ChaoticParticle(MatrixCoords position, MatrixCoords speed)
             : base(position, speed)
         {
@@ -27,41 +25,39 @@ namespace ParticleSystem
             //int deltaRow = rand.Next(3) - 1;
             //int deltaCol = rand.Next(3) - 1;
 
-            int deltaRow = (int)(rand.Next(3) - this.Speed.Row / 1.5 - 1);
-            int deltaCol = (int)(rand.Next(3) - this.Speed.Col / 1.5 - 1);
+            int deltaRow = (int)(Engine.rand.Next(3) - this.Speed.Row / 1.5 - 1);
+            int deltaCol = (int)(Engine.rand.Next(3) - this.Speed.Col / 1.5 - 1);
 
             this.Acceleration = new MatrixCoords(this.Acceleration.Row + deltaRow, this.Acceleration.Col + deltaCol);
+
+            if (this.Speed.Row > 5)
+            {
+                this.Acceleration = new MatrixCoords(-5, this.Acceleration.Col);
+            }
+            else if (this.Speed.Row < -5)
+            {
+                this.Acceleration = new MatrixCoords(5, this.Acceleration.Col);
+            }
+
+            if (this.Speed.Col > 5)
+            {
+                this.Acceleration = new MatrixCoords(this.Acceleration.Row, -5);
+            }
+            else if (this.Speed.Col < -5)
+            {
+                this.Acceleration = new MatrixCoords(this.Acceleration.Row, 5);
+            }
+
+
             this.Accelerate(Acceleration);
             base.Move();
-            Debug.WriteLine("accRow = {0}, accCol = {1}", this.Acceleration.Row, this.Acceleration.Col);
-            Debug.WriteLine("spdRow = {0}, spdCol = {1}", this.Speed.Row, this.Speed.Col);
+            //Debug.WriteLine("accRow = {0}, accCol = {1}", this.Acceleration.Row, this.Acceleration.Col);
+            //Debug.WriteLine("spdRow = {0}, spdCol = {1}", this.Speed.Row, this.Speed.Col);
         }
 
         public override char[,] GetImage()
         {
-            double angleInDegrees = Math.Atan2(-this.Speed.Row, this.Speed.Col) * 180 / Math.PI;
-            int dir = (int)(Math.Round(angleInDegrees / 90, 0));
-
-            char symbol = '*';
-            if (dir == 0)
-            {
-                symbol = '→';
-            }
-            else if (dir == 1)
-            {
-                symbol = '↑';
-            }
-            else if (dir == -1)
-            {
-                symbol = '↓';
-            }
-            else if (dir == 2 || dir == -2)
-            {
-                symbol = '←';
-            }
-
-            symbol = '*';
-            return new char[,] { { symbol } };
+            return new char[,] { { '*' } };
         }
     }
 }

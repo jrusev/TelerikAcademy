@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChickenParticle.cs" />
     <Compile Include="ChaoticParticle.cs" />
     <Compile Include="ConsoleRenderer.cs" />
     <Compile Include="Engine.cs" />

@@ -19,6 +19,9 @@ namespace ParticleSystem
             Particle chaoticParticle = new ChaoticParticle(initialPosition, initialSpeed);
             engine.AddParticle(chaoticParticle);
 
+            Particle chickenParticle = new ChickenParticle(initialPosition, initialSpeed);
+            engine.AddParticle(chickenParticle);
+
             SetConsole();
             engine.Run();
         }

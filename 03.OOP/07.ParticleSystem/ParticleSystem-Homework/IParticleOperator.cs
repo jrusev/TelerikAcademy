@@ -7,7 +7,7 @@ namespace ParticleSystem
 {
     public interface IParticleOperator
     {
-        void OperateOn(Particle p);
+        IEnumerable<Particle> OperateOn(Particle p);
 
         void TickEnded();
     }
