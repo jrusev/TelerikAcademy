@@ -25,11 +25,29 @@
         public string Report()
         {
             StringBuilder report = new StringBuilder();
+
+            // (pilot name) – (number of machines/”no”) (“machine”/”machines”)
+            if (this.machines.Count > 0)
+            {
+                string str = string.Format(
+                    "{0} – {1} {2}",
+                    this.Name,
+                    this.machines.Count,
+                    this.machines.Count == 1 ? "machine" : "machines");
+                report.AppendLine(str);
+            }
+            else
+            {
+                string str = string.Format("{0} – no machines", this.Name);
+                report.Append(str);
+            }
+
             foreach (var machine in this.machines)
             {
                 report.Append(machine.ToString());
             }
 
+            report.Length--;
             return report.ToString();
         }
     }

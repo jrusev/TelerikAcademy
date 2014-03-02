@@ -13,6 +13,7 @@
             this.Name = name;
             this.AttackPoints = attackPoints;
             this.DefensePoints = defensePoints;
+            this.Targets = new List<string>();
         }
 
         public double HealthPoints { get; set; }
@@ -34,19 +35,29 @@
 
         public override string ToString()
         {
-            //- (machine name)
-            // *Type: (“Tank”/”Fighter”)
-            // *Health: (machine health points)
-            // *Attack: (machine attack points)
-            // *Defense: (machine defense points)
-            // *Targets: (machine target names/”None” – comma separated)
-            // *Defense: (“ON”/”OFF” – when applicable)
-            // *Stealth: (“ON”/”OFF” – when applicable)
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(string.Format("- {0}", this.Name));
             sb.AppendLine(string.Format(" *Type: {0}", this.GetType().Name));
+            sb.AppendLine(string.Format(" *Attack: {0}", this.AttackPoints));
+            sb.AppendLine(string.Format(" *Defense: {0}", this.DefensePoints));
 
+            // *Targets: (machine target names/”None” – comma separated)
+            sb.AppendLine(string.Format(" *Targets: {0}", this.Targets.Count > 0 ? string.Join(",", this.Targets) : "None"));
 
+            if (this is ITank)
+            {
+                bool defenseOn = (this as ITank).DefenseMode;
+                sb.AppendLine(string.Format(" *Defense: {0}", defenseOn ? "ON" : "OFF"));
+            }
+            else if (this is IFighter)
+            {
+                bool stealthOn = (this as IFighter).StealthMode;
+                sb.AppendLine(string.Format(" *Stealth: {0}", stealthOn ? "ON" : "OFF"));
+            }
+            else
+            {
+                throw new ApplicationException("Machine not supported");
+            }
 
             return sb.ToString();
         }
