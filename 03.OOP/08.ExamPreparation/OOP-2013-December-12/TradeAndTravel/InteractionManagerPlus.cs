@@ -68,30 +68,56 @@ namespace TradeAndTravel
             switch (commandWords[1])
             {
                 case "gather":
-                    HandleGatherItemFromLocation(commandWords, actor);
+                    this.HandleGatherItemFromLocation(commandWords, actor);
                     break;
                 case "craft":
-                    HandleCraftItem(commandWords, actor);
+                    this.HandleCraftItem(commandWords, actor);
                     break;
                 default:
                     base.HandlePersonCommand(commandWords, actor);
                     break;
-            }            
+            }
         }
 
-        private static void HandleCraftItem(string[] commandWords, Person actor)
+        private void HandleCraftItem(string[] commandWords, Person actor)
         {
-            // Joro craft newItemName
-            // A Person can craft items, provided he has some items in his inventory
+            // Syntax: Joro craft newItemName
+            // 
             // A Person should be able to craft Weapons and Armor
+            //
             // Crafting an Armor requires that the Person has Iron in his inventory
             // Results in adding an Armor item in the Person’s inventory
+            //
             // Crafting a Weapon requires that the Person has Iron and Wood in his inventory
+            bool hasIron = false;
+            bool hasWood = false;
 
-            throw new NotImplementedException();
+            var inventory = actor.ListInventory();
+            foreach (var item in inventory)
+            {
+                if (item is Iron)
+                {
+                    hasIron = true;
+                }
+                else if (item is Wood)
+                {
+                    hasWood = true;
+                }
+            }
+
+            if (hasIron && hasWood)
+            {
+                this.AddToPerson(actor, new Weapon(commandWords[3]));
+                return;
+            }
+            else if (hasIron)
+            {
+                this.AddToPerson(actor, new Armor(commandWords[3]));
+                return;
+            }
         }
 
-        private static void HandleGatherItemFromLocation(string[] commandWords, Person actor)
+        private void HandleGatherItemFromLocation(string[] commandWords, Person actor)
         {
             // Syntax: Joro gather newItemName 
             //
@@ -109,11 +135,11 @@ namespace TradeAndTravel
                 {
                     if (item is Weapon)
                     {
-                        inventory.Add(new Wood(commandWords[2]));
+                        this.AddToPerson(actor, new Wood(commandWords[2]));
                         return;
                     }
                 }
-                
+
             }
             else if (actor.Location.LocationType == LocationType.Mine)
             {
@@ -122,11 +148,11 @@ namespace TradeAndTravel
                 {
                     if (item is Armor)
                     {
-                        inventory.Add(new Iron(commandWords[2]));
+                        this.AddToPerson(actor, new Iron(commandWords[2]));
                         return;
                     }
                 }
-                
+
             }
         }
     }
