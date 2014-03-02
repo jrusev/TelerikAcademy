@@ -449,23 +449,6 @@ namespace GeometryAPI
                         currentFigure = new Triangle(a, b, c);
                         break;
                     }
-                case "circle":
-                    {
-                        // (centerX,centerY,centerZ) radius
-                        Vector3D center = Vector3D.Parse(splitFigString[1]);
-                        double radius = double.Parse(splitFigString[2]);
-                        currentFigure = new Circle(center, radius);
-                        break;
-                    }
-                case "cylinder":
-                    {
-                        // (bottomX,bottomY,bottomZ) (topX, topY, topZ) radius
-                        Vector3D bottom = Vector3D.Parse(splitFigString[1]);
-                        Vector3D top = Vector3D.Parse(splitFigString[2]);
-                        double radius = double.Parse(splitFigString[3]);
-                        currentFigure = new Cylinder(bottom, top, radius);
-                        break;
-                    }
             }
 
             this.EndCommandExecuted = false;
@@ -506,45 +489,6 @@ namespace GeometryAPI
                         Console.WriteLine("{0:0.00}", this.currentFigure.GetPrimaryMeasure());
                         break;
                     }
-                case "area":
-                    {
-                        if (this.currentFigure is IAreaMeasurable)
-                        {
-                            Console.WriteLine("{0:0.00}", (this.currentFigure as IAreaMeasurable).GetArea());
-                        }
-                        else
-                        {
-                            Console.WriteLine("undefined");
-                        }
-
-                        break;
-                    }
-                case "normal":
-                    {
-                        if (this.currentFigure is IFlat)
-                        {
-                            Console.WriteLine("{0:0.00}", (this.currentFigure as IFlat).GetNormal());
-                        }
-                        else
-                        {
-                            Console.WriteLine("undefined");
-                        }
-
-                        break;
-                    }
-                case "volume":
-                    {
-                        if (this.currentFigure is IVolumeMeasurable)
-                        {
-                            Console.WriteLine("{0:0.00}", (this.currentFigure as IVolumeMeasurable).GetVolume());
-                        }
-                        else
-                        {
-                            Console.WriteLine("undefined");
-                        }
-
-                        break;
-                    }
             }
         }
     }
@@ -556,7 +500,7 @@ namespace AcademyGeometry
     {
         private static FigureController GetFigureController()
         {
-            return new FigureController();
+            return new AdvancedFigureController();
         }
 
         static void Main(string[] args)

@@ -54,7 +54,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="GeometryAPI.FigureController" Collapsed="true">
-    <Position X="10" Y="0.5" Width="1.5" />
+    <Position X="2.5" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIAAAAAAAAIABAAAAAAAAAEAAIAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
@@ -82,6 +82,13 @@
       <FileName>Cylinder.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GeometryAPI.AdvancedFigureController" Collapsed="true">
+    <Position X="2.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>AdvancedFigureController.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Interface Name="GeometryAPI.ITransformable" Collapsed="true">
     <Position X="10" Y="3" Width="1.5" />

@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdvancedFigureController.cs" />
     <Compile Include="Circle.cs" />
     <Compile Include="Cylinder.cs" />
     <Compile Include="Program.cs" />
