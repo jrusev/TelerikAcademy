@@ -81,7 +81,7 @@
 
         private void HandleCraftItem(string[] commandWords, Person actor)
         {
-            // Syntax: Joro craft newItemName
+            // Syntax: kiro craft weapon craftedWeapon
             // 
             // A Person should be able to craft Weapons and Armor
             //
@@ -105,15 +105,22 @@
                 }
             }
 
-            if (hasIron && hasWood)
+            if (commandWords[2] == "weapon")
             {
-                this.AddToPerson(actor, new Weapon(commandWords[3]));
-                return;
+                if (hasIron && hasWood)
+                {
+                    this.AddToPerson(actor, new Weapon(commandWords[3]));
+                    return;
+                }
             }
-            else if (hasIron)
+
+            if (commandWords[2] == "armor")
             {
-                this.AddToPerson(actor, new Armor(commandWords[3]));
-                return;
+                if (hasIron)
+                {
+                    this.AddToPerson(actor, new Armor(commandWords[3]));
+                    return;
+                }
             }
         }
 
