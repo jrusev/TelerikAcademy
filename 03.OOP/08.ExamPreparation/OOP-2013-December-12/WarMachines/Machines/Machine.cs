@@ -18,9 +18,9 @@
 
         public double HealthPoints { get; set; }
 
-        public double AttackPoints { get; private set; }
+        public double AttackPoints { get; protected set; }
 
-        public double DefensePoints { get; private set; }
+        public double DefensePoints { get; protected set; }
 
         public string Name { get; set; }
 
@@ -30,7 +30,7 @@
 
         public void Attack(string target)
         {
-            Console.WriteLine("Attack not implemented");
+            this.Targets.Add(target);
         }
 
         public override string ToString()
@@ -38,21 +38,22 @@
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(string.Format("- {0}", this.Name));
             sb.AppendLine(string.Format(" *Type: {0}", this.GetType().Name));
+            sb.AppendLine(string.Format(" *Health: {0}", this.HealthPoints));
             sb.AppendLine(string.Format(" *Attack: {0}", this.AttackPoints));
             sb.AppendLine(string.Format(" *Defense: {0}", this.DefensePoints));
 
             // *Targets: (machine target names/”None” – comma separated)
-            sb.AppendLine(string.Format(" *Targets: {0}", this.Targets.Count > 0 ? string.Join(",", this.Targets) : "None"));
+            sb.AppendLine(string.Format(" *Targets: {0}", this.Targets.Count > 0 ? string.Join(", ", this.Targets) : "None"));
 
             if (this is ITank)
             {
                 bool defenseOn = (this as ITank).DefenseMode;
-                sb.AppendLine(string.Format(" *Defense: {0}", defenseOn ? "ON" : "OFF"));
+                sb.Append(string.Format(" *Defense: {0}", defenseOn ? "ON" : "OFF"));
             }
             else if (this is IFighter)
             {
                 bool stealthOn = (this as IFighter).StealthMode;
-                sb.AppendLine(string.Format(" *Stealth: {0}", stealthOn ? "ON" : "OFF"));
+                sb.Append(string.Format(" *Stealth: {0}", stealthOn ? "ON" : "OFF"));
             }
             else
             {
