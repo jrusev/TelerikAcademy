@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace TradeAndTravel
+﻿namespace TradeAndTravel
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+
     public class InteractionManagerPlus : InteractionManager
     {
         protected override Location CreateLocation(string locationTypeString, string locationName)
