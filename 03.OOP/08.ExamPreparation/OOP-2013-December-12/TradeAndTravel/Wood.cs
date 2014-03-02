@@ -13,5 +13,17 @@ namespace TradeAndTravel
             : base(name, Wood.MoneyValue, ItemType.Wood, location)
         {
         }
+
+        // The Wood item decreases its value each time it is dropped by 1, until it reaches 0
+        public override void UpdateWithInteraction(string interaction)
+        {
+            if (interaction == "drop")
+            {
+                if (this.Value > 0)
+                {
+                    this.Value--;
+                }                
+            }
+        }
     }
 }

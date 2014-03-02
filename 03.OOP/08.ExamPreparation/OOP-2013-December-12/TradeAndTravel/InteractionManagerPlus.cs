@@ -139,7 +139,6 @@
                         return;
                     }
                 }
-
             }
             else if (actor.Location.LocationType == LocationType.Mine)
             {
@@ -152,7 +151,6 @@
                         return;
                     }
                 }
-
             }
         }
     }
