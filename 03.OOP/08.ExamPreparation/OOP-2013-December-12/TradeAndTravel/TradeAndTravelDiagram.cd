@@ -112,7 +112,7 @@
   <Class Name="TradeAndTravel.Wood" Collapsed="true">
     <Position X="10.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Wood.cs</FileName>
     </TypeIdentifier>
   </Class>
