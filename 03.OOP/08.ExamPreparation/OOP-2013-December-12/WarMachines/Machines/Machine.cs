@@ -5,7 +5,7 @@
     using System.Text;
     using WarMachines.Interfaces;
 
-    public class Machine : IMachine
+    public abstract class Machine : IMachine
     {
         private string name;
         private IPilot pilot;
