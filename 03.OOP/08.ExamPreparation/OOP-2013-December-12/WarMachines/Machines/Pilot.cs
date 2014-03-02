@@ -26,7 +26,7 @@
         {
             StringBuilder report = new StringBuilder();
 
-            // (pilot name) – (number of machines/”no”) (“machine”/”machines”)
+            // (pilot name) - (number of machines/”no”) (“machine”/”machines”)
             if (this.machines.Count > 0)
             {
                 string str = string.Format(
