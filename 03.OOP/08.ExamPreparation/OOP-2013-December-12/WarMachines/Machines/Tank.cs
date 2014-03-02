@@ -35,7 +35,6 @@
             {
                 this.DefensePoints -= 30;
                 this.AttackPoints += 40;
-
             }
         }
     }

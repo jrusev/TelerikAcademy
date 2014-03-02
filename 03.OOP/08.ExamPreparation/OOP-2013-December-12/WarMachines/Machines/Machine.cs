@@ -7,6 +7,9 @@
 
     public class Machine : IMachine
     {
+        private string name;
+        private IPilot pilot;
+
         // (name) (attack) (defense)
         public Machine(string name, double attackPoints, double defensePoints)
         {
@@ -22,14 +25,51 @@
 
         public double DefensePoints { get; protected set; }
 
-        public string Name { get; set; }
+        public string Name
+        {
+            get
+            {
+                return this.name;
+            }
 
-        public IPilot Pilot { get; set; }
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ApplicationException("The name of the machine cannot be null or empty string!");
+                }
+
+                this.name = value;
+            }
+        }
+
+        public IPilot Pilot
+        {
+            get
+            {
+                return this.pilot;
+            }
+
+            set
+            {
+                if (value == null)
+                {
+                    throw new ApplicationException("The machine cannot be engaged with null pilot!");
+                }
+
+                this.pilot = value;
+            }
+        }
 
         public IList<string> Targets { get; private set; }
 
         public void Attack(string target)
         {
+            if (string.IsNullOrWhiteSpace(target))
+            {
+                throw new ApplicationException("The attacked target cannot be null or empty string!");
+            }
+
             this.Targets.Add(target);
         }
 
