@@ -8,23 +8,43 @@
         public Cylinder(Vector3D bottom, Vector3D top, double radius)
             : base(bottom, top)
         {
-            this.Bottom = bottom;
-            this.Top = top;
             this.Radius = radius;
         }
 
-        public Vector3D Bottom { get; private set; }
+        public Vector3D Top
+        {
+            get
+            {
+                return new Vector3D(this.vertices[0].X, this.vertices[0].Y, this.vertices[0].Z);
+            }
 
-        public Vector3D Top { get; private set; }
+            private set
+            {
+                this.vertices[0] = new Vector3D(value.X, value.Y, value.Z);
+            }
+        }
+
+        public Vector3D Bottom
+        {
+            get
+            {
+                return new Vector3D(this.vertices[1].X, this.vertices[1].Y, this.vertices[1].Z);
+            }
+
+            private set
+            {
+                this.vertices[1] = new Vector3D(value.X, value.Y, value.Z);
+            }
+        }
 
         public double Radius { get; private set; }
 
         public double Height
-        { 
+        {
             get
             {
-                return this.Top.Z - this.Bottom.Z;
-            }            
+                return (this.Top - this.Bottom).Magnitude;
+            }
         }
 
         public override double GetPrimaryMeasure()
@@ -39,7 +59,7 @@
 
         public double GetArea()
         {
-            return 2 * Math.PI * this.Radius * this.Height;
+            return (2 * Math.PI * this.Radius * this.Radius) + (2 * Math.PI * this.Radius * this.Height);
         }
     }
 }
