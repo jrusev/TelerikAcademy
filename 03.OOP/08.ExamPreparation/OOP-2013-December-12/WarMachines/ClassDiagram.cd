@@ -25,9 +25,9 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="WarMachines.Machines.Fighter" Collapsed="true">
-    <Position X="0.5" Y="4.25" Width="1.5" />
+    <Position X="0.5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAEAAAAQAAABAAAAAAAAAQIAIAAAEAAAAAAEQAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
       <FileName>Machines\Fighter.cs</FileName>
       <NewMemberFileName>Machines\Tank.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -40,19 +40,28 @@
       <FileName>WarMachinesProgram.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="WarMachines.Machines.Tank" Collapsed="true">
-    <Position X="2.75" Y="4.25" Width="1.5" />
+  <Class Name="WarMachines.Machines.Machine" Collapsed="true">
+    <Position X="1.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAEAAAAQAAAAAAAAAAAAAwIAIAAgEAAAAAAAQAAAAA=</HashCode>
-      <FileName>Machines\Tank.cs</FileName>
+      <HashCode>AAAEAAAAQAAAAAAEAAAAAAQIAIAAAEAAAAAAAQAAAAA=</HashCode>
+      <FileName>Machines\Machine.cs</FileName>
+      <NewMemberFileName>Machines\Tank.cs</NewMemberFileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="WarMachines.Machines.Pilot" Collapsed="true">
-    <Position X="1.5" Y="3.25" Width="1.5" />
+    <Position X="8.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAABAA=</HashCode>
       <FileName>Machines\Pilot.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WarMachines.Machines.Tank" Collapsed="true">
+    <Position X="2.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Machines\Tank.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>

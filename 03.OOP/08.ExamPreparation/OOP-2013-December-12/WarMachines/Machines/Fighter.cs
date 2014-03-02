@@ -4,39 +4,20 @@
     using System.Collections.Generic;
     using WarMachines.Interfaces;
 
-    public class Fighter : IFighter
+    public class Fighter : Machine, IFighter
     {
         public Fighter(string name, double attackPoints, double defensePoints, bool stealthMode)
+            : base(name, attackPoints, defensePoints)
         {
-            this.HealthPoints = 200;
-            this.Name = name;
-            this.AttackPoints = attackPoints;
-            this.DefensePoints = defensePoints;
+            this.HealthPoints = 200;  
             this.StealthMode = stealthMode;
         }
 
-        public bool StealthMode { get; private set; }
-
-        public string Name {get; set; }
-
-        public IPilot Pilot {get; set; }
-
-        public double HealthPoints {get; set; }
-
-        public double AttackPoints { get; private set; }
-
-        public double DefensePoints { get; private set; }
-
-        public IList<string> Targets { get; private set; }
+        public bool StealthMode { get; private set; } 
 
         public void ToggleStealthMode()
         {
             this.StealthMode = !this.StealthMode;
-        }
-
-        public void Attack(string target)
-        {
-            Console.WriteLine("Attack not implemented");
-        }
+        }    
     }
 }

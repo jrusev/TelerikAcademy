@@ -52,6 +52,7 @@
     <Compile Include="Interfaces\IMachineFactory.cs" />
     <Compile Include="Engine\MachineFactory.cs" />
     <Compile Include="Machines\Fighter.cs" />
+    <Compile Include="Machines\Machine.cs" />
     <Compile Include="Machines\Tank.cs" />
     <Compile Include="Machines\Pilot.cs" />
     <Compile Include="WarMachinesProgram.cs" />
