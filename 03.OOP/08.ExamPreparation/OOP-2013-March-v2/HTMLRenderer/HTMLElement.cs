@@ -24,13 +24,18 @@ namespace HTMLRenderer
         {
             get
             {
-                // TODO: return copy
-                return this.childElements;
+                // return copy
+                return new List<IElement>(this.childElements);
             }
         }
 
         public void AddElement(IElement element)
         {
+            if (element == null)
+            {
+                throw new ApplicationException("Cannot add a null element!");
+            }
+
             this.childElements.Add(element);
         }
 

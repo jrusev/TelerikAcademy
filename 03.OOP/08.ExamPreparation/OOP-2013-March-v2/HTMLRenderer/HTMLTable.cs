@@ -14,6 +14,8 @@ namespace HTMLRenderer
     {
         private const string TableName = "table";
         private IElement[,] table;
+        private int rows;
+        private int cols;
 
         public HTMLTable(int rows, int cols)
         {
@@ -23,9 +25,41 @@ namespace HTMLRenderer
             this.table = new IElement[rows, cols];
         }
 
-        public int Rows { get; private set; }
+        public int Rows
+        {
+            get
+            {
+                return this.rows;
+            }
 
-        public int Cols { get; private set; }
+            private set
+            {
+                if (value <= 0)
+                {
+                    throw new ApplicationException("Cannot have negative number of rows!");
+                }
+
+                this.rows = value;
+            }
+        }
+
+        public int Cols
+        {
+            get
+            {
+                return this.cols;
+            }
+
+            private set
+            {
+                if (value <= 0)
+                {
+                    throw new ApplicationException("Cannot have negative number of columns!");
+                }
+
+                this.cols = value;
+            }
+        }
 
         // table[0, 0] = htmlFactory.CreateElement("b", "First Name");
         public IElement this[int row, int col]
@@ -53,19 +87,6 @@ namespace HTMLRenderer
         {            
         }
 
-        //  <table>
-        //      <tr>
-        //          <td>(cell_0_0)</td>
-        //          <td>(cell_0_1)</td>
-        //          …
-        //      </tr>
-        //      <tr>
-        //          <td>(cell_1_0)</td>
-        //          <td>(cell_1_1)</td>
-        //          …
-        //      </tr>
-        //      …
-        //  </table>
         // For each row its content is rendered enclosed between the <tr> and </tr> tags.
         // For each column inside a row its element content is rendered enclosed between the <td> and </td> tags.
         public void Render(StringBuilder output)
