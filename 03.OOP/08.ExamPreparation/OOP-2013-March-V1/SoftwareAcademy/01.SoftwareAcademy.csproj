@@ -45,6 +45,30 @@
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Tests\test.000.001.in.txt" />
+    <Content Include="Tests\test.000.001.out.txt" />
+    <Content Include="Tests\test.001.in.txt" />
+    <Content Include="Tests\test.001.out.txt" />
+    <Content Include="Tests\test.002.in.txt" />
+    <Content Include="Tests\test.002.out.txt" />
+    <Content Include="Tests\test.003.in.txt" />
+    <Content Include="Tests\test.003.out.txt" />
+    <Content Include="Tests\test.004.in.txt" />
+    <Content Include="Tests\test.004.out.txt" />
+    <Content Include="Tests\test.005.in.txt" />
+    <Content Include="Tests\test.005.out.txt" />
+    <Content Include="Tests\test.006.in.txt" />
+    <Content Include="Tests\test.006.out.txt" />
+    <Content Include="Tests\test.007.in.txt" />
+    <Content Include="Tests\test.007.out.txt" />
+    <Content Include="Tests\test.008.in.txt" />
+    <Content Include="Tests\test.008.out.txt" />
+    <Content Include="Tests\test.009.in.txt" />
+    <Content Include="Tests\test.009.out.txt" />
+    <Content Include="Tests\test.010.in.txt" />
+    <Content Include="Tests\test.010.out.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

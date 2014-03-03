@@ -7,6 +7,7 @@ namespace SoftwareAcademy
 {
     public class Teacher : ITeacher
     {
+        private string name;
         private IList<ICourse> courses;
 
         public Teacher(string name)
@@ -15,10 +16,31 @@ namespace SoftwareAcademy
             this.courses = new List<ICourse>();
         }
 
-        public string Name { get; set; }
+        public string Name
+        {
+            get
+            {
+                return this.name;
+            }
+
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentNullException("Teacher name cannot be null or empty!");
+                }
+
+                this.name = value;
+            }
+        }
 
         public void AddCourse(ICourse course)
         {
+            if (course == null)
+            {
+                throw new ArgumentNullException("Teacher course cannot be null or empty!");
+            }
+
             this.courses.Add(course);
         }
 

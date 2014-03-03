@@ -7,6 +7,7 @@ namespace SoftwareAcademy
 {
     public class Course : ICourse
     {
+        private string name;
         private IList<string> topics;
 
         public Course(string name, ITeacher teacher = null)
@@ -16,12 +17,34 @@ namespace SoftwareAcademy
             this.topics = new List<string>();
         }
 
-        public string Name { get; set; }
+        public string Name
+        {
+            get
+            {
+                return this.name;
+            }
 
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentNullException("Course name cannot be null or empty!");
+                }
+
+                this.name = value;
+            }
+        }
+
+        // Teacher can be null
         public ITeacher Teacher { get; set; }
 
         public void AddTopic(string topic)
         {
+            if (string.IsNullOrEmpty(topic))
+            {
+                throw new ArgumentNullException("Topic cannot be null or empty!");
+            }
+
             this.topics.Add(topic);
         }
 
@@ -39,7 +62,7 @@ namespace SoftwareAcademy
                 string teacherName = string.Format("Teacher={0}; ", this.Teacher.Name);
                 result.Append(teacherName);
             }
-            
+
             if (this.topics.Count > 0)
             {
                 result.Append("Topics=[");
@@ -49,11 +72,11 @@ namespace SoftwareAcademy
 
             if (this is LocalCourse)
             {
-                result.Append(string.Format("Lab={0};", (this as LocalCourse).Lab));      
+                result.Append(string.Format("Lab={0};", (this as LocalCourse).Lab));
             }
             else if (this is OffsiteCourse)
             {
-                result.Append(string.Format("Town={0};",(this as OffsiteCourse).Town));      
+                result.Append(string.Format("Town={0};", (this as OffsiteCourse).Town));
             }
 
             result.Length--;
