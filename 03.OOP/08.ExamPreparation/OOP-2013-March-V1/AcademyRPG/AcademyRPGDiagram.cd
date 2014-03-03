@@ -106,7 +106,7 @@
       <FileName>House.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AcademyRPG.Ninja">
+  <Class Name="AcademyRPG.Ninja" Collapsed="true">
     <Position X="14.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAIAAAAAACAAQAAAAA=</HashCode>
