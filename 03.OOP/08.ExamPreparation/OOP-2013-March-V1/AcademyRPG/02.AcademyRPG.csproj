@@ -41,12 +41,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Character.cs" />
+    <Compile Include="EnginePlus.cs" />
     <Compile Include="Guard.cs" />
     <Compile Include="ICollectable.cs" />
     <Compile Include="ICollector.cs" />
     <Compile Include="IDestroyable.cs" />
     <Compile Include="IGatherer.cs" />
     <Compile Include="IResource.cs" />
+    <Compile Include="Knight.cs" />
     <Compile Include="MovingObject.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Engine.cs" />
