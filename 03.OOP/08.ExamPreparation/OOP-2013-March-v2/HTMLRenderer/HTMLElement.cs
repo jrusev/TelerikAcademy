@@ -38,12 +38,27 @@ namespace HTMLRenderer
         // If (text_content) is missing, it is not rendered.
         // The (child_content) is rendered by rendering all child elements in the order of their addition.
         // If the element has no child elements, the (child_content) is empty.
+        // When a TextContent is rendered, the HTML special characters <, > and & are escaped as &lt;, &gt;, &amp; 
+        // When elements are rendered, no spacing or new lines is put between them.
         public void Render(StringBuilder output)
         {
-            output.AppendFormat("<{0}>", this.Name);
-            output.AppendFormat("{0}", this.TextContent);
+            if (this.Name != null)
+            {
+                output.AppendFormat("<{0}>", this.Name);
+            }
+
+            if (this.TextContent != null)
+            {
+                string escapedContent = this.TextContent.Replace("&", "&amp;").Replace("<", "&lt;").Replace(">", "&gt;");
+                output.AppendFormat("{0}", escapedContent);
+            }
+
             output.AppendFormat("{0}", string.Join("", this.ChildElements));
-            output.AppendFormat("</{0}>", this.Name);            
+
+            if (this.Name != null)
+            {
+                output.AppendFormat("</{0}>", this.Name);     
+            }                   
         }
 
         // The ToString method renders the element into a string and returns it as result.
