@@ -31,7 +31,10 @@ namespace SoftwareAcademy
             result.Append(teacherName);
             if (this.courses.Count > 0)
             {
-                // add courses
+                result.Append(" Courses=[");
+                var courseNames = this.courses.Select(c => c.Name);
+                result.Append(string.Join(", ", courseNames));
+                result.Append("];");
             }
 
             result.Length--;

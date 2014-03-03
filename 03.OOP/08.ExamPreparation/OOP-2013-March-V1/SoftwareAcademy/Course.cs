@@ -9,7 +9,7 @@ namespace SoftwareAcademy
     {
         private IList<string> topics;
 
-        public Course(string name, ITeacher teacher)
+        public Course(string name, ITeacher teacher = null)
         {
             this.Name = name;
             this.Teacher = teacher;
@@ -31,15 +31,20 @@ namespace SoftwareAcademy
         public override string ToString()
         {
             StringBuilder result = new StringBuilder();
-            string courseName = string.Format("{0}: Name={1};", this.GetType().Name, this.Name);
-            string teacherName = string.Format("Teacher={0};", this.Teacher.Name);
+            string courseName = string.Format("{0}: Name={1}; ", this.GetType().Name, this.Name);
             result.Append(courseName);
-            result.Append(teacherName);
+
+            if (this.Teacher != null)
+            {
+                string teacherName = string.Format("Teacher={0}; ", this.Teacher.Name);
+                result.Append(teacherName);
+            }
+            
             if (this.topics.Count > 0)
             {
                 result.Append("Topics=[");
                 result.Append(string.Join(", ", this.topics));
-                result.Append("];");
+                result.Append("]; ");
             }
 
             if (this is LocalCourse)

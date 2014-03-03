@@ -53,7 +53,7 @@ namespace SoftwareAcademy
 
         public IOffsiteCourse CreateOffsiteCourse(string name, ITeacher teacher, string town)
         {
-            throw new NotImplementedException();
+            return new OffsiteCourse(name, teacher, town);
         }
     }
 
