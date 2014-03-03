@@ -36,6 +36,7 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HTMLElement.cs" />
     <Compile Include="HTMLRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -61,6 +62,9 @@
     <Content Include="Tests\test.009.out.txt" />
     <Content Include="Tests\test.010.in.txt" />
     <Content Include="Tests\test.010.out.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
