@@ -38,6 +38,7 @@
   <ItemGroup>
     <Compile Include="HTMLElement.cs" />
     <Compile Include="HTMLRenderer.cs" />
+    <Compile Include="HTMLTable.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Tests\test.000.001.in.txt" />

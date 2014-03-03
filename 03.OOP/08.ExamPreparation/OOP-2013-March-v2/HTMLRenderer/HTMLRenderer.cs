@@ -46,7 +46,7 @@ namespace HTMLRenderer
 
 		public ITable CreateTable(int rows, int cols)
 		{
-			throw new NotImplementedException();
+			return new HTMLTable(rows, cols);
 		}
 	}
 
