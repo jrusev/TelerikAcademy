@@ -24,21 +24,21 @@ namespace AcademyRPG
                         this.AddObject(new Knight(name, position, owner));
                         break;
                     }
-                //case "guard":
-                //    {
-                //        string name = commandWords[2];
-                //        Point position = Point.Parse(commandWords[3]);
-                //        int owner = int.Parse(commandWords[4]);
-                //        this.AddObject(new Guard(name, position, owner));
-                //        break;
-                //    }
-                //case "tree":
-                //    {
-                //        int size = int.Parse(commandWords[2]);
-                //        Point position = Point.Parse(commandWords[3]);
-                //        this.AddObject(new Tree(size, position));
-                //        break;
-                //    }
+                case "giant":
+                    {
+                        // create giant <name> <position> 
+                        string name = commandWords[2];
+                        Point position = Point.Parse(commandWords[3]);
+                        this.AddObject(new Giant(name, position));
+                        break;
+                    }
+                case "rock":
+                    {
+                        int hitPoints = int.Parse(commandWords[2]);
+                        Point position = Point.Parse(commandWords[3]);
+                        this.AddObject(new Rock(hitPoints, position));
+                        break;
+                    }
                 default:
                     base.ExecuteCreateObjectCommand(commandWords);
                     break;

@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Character.cs" />
     <Compile Include="EnginePlus.cs" />
+    <Compile Include="Giant.cs" />
     <Compile Include="Guard.cs" />
     <Compile Include="ICollectable.cs" />
     <Compile Include="ICollector.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="IVulnerable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ResourceType.cs" />
+    <Compile Include="Rock.cs" />
     <Compile Include="StaticObject.cs" />
     <Compile Include="Tree.cs" />
     <Compile Include="Lumberjack.cs" />
