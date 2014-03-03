@@ -32,5 +32,14 @@ namespace SoftwareAcademy
                 this.town = value;
             }
         }
+
+        // Town=(town name)
+        public override string ToString()
+        {
+            StringBuilder result = new StringBuilder(base.ToString());
+            result.Append(string.Format("; Town={0}", this.Town));
+
+            return result.ToString();
+        }
     }
 }

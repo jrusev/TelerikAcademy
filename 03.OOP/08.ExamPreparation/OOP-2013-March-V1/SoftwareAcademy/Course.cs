@@ -5,12 +5,12 @@ using System.Text;
 
 namespace SoftwareAcademy
 {
-    public class Course : ICourse
+    public abstract class Course : ICourse
     {
         private string name;
         private IList<string> topics;
 
-        public Course(string name, ITeacher teacher = null)
+        protected Course(string name, ITeacher teacher = null)
         {
             this.Name = name;
             this.Teacher = teacher;
@@ -48,38 +48,26 @@ namespace SoftwareAcademy
             this.topics.Add(topic);
         }
 
-        // (course type): Name=(course name); Teacher=(teacher name);
-        // Topics=[(course topics – comma separated)];
-        // Lab=(lab name – when applicable); Town=(town name – when applicable);
+        // (course type): Name=(course name); Teacher=(teacher name); Topics=[(course topics – comma separated)]
         public override string ToString()
         {
             StringBuilder result = new StringBuilder();
-            string courseName = string.Format("{0}: Name={1}; ", this.GetType().Name, this.Name);
+            string courseName = string.Format("{0}: Name={1}", this.GetType().Name, this.Name);
             result.Append(courseName);
 
             if (this.Teacher != null)
             {
-                string teacherName = string.Format("Teacher={0}; ", this.Teacher.Name);
+                string teacherName = string.Format("; Teacher={0}", this.Teacher.Name);
                 result.Append(teacherName);
             }
 
             if (this.topics.Count > 0)
             {
-                result.Append("Topics=[");
+                result.Append("; Topics=[");
                 result.Append(string.Join(", ", this.topics));
-                result.Append("]; ");
+                result.Append("]");
             }
 
-            if (this is LocalCourse)
-            {
-                result.Append(string.Format("Lab={0};", (this as LocalCourse).Lab));
-            }
-            else if (this is OffsiteCourse)
-            {
-                result.Append(string.Format("Town={0};", (this as OffsiteCourse).Town));
-            }
-
-            result.Length--;
             return result.ToString();
         }
     }

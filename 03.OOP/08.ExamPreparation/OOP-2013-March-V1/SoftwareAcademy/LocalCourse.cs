@@ -32,5 +32,14 @@ namespace SoftwareAcademy
                 this.lab = value;
             }
         }
+
+        // Lab=(lab name)
+        public override string ToString()
+        {
+            StringBuilder result = new StringBuilder(base.ToString());
+            result.Append(string.Format("; Lab={0}", this.Lab));
+
+            return result.ToString();
+        }
     }
 }
