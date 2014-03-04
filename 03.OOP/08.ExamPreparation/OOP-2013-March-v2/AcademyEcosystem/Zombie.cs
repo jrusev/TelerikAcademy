@@ -21,7 +21,7 @@ namespace AcademyEcosystem
         // However, the Zombie should never die. 
         public override int GetMeatFromKillQuantity()
         {
-            //this.IsAlive = false;
+            ////this.IsAlive = false;
             return Zombie.MeatFromKill;
         }
     }
