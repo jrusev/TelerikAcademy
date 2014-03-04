@@ -43,18 +43,12 @@ namespace AcademyEcosystem
                         this.AddOrganism(new Zombie(name, position));
                         break;
                     }
-                //case "tree":
-                //    {
-                //        Point position = Point.Parse(commandWords[2]);
-                //        this.AddOrganism(new Tree(position));
-                //        break;
-                //    }
-                //case "bush":
-                //    {
-                //        Point position = Point.Parse(commandWords[2]);
-                //        this.AddOrganism(new Bush(position));
-                //        break;
-                //    }
+                case "grass":
+                    {
+                        Point position = Point.Parse(commandWords[2]);
+                        this.AddOrganism(new Grass(position));
+                        break;
+                    }
                 default:
                     base.ExecuteBirthCommand(commandWords);
                     break;

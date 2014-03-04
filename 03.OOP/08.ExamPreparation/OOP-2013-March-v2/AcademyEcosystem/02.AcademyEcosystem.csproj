@@ -47,6 +47,7 @@
     <Compile Include="Deer.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="EnginePlus.cs" />
+    <Compile Include="Grass.cs" />
     <Compile Include="ICarnivore.cs" />
     <Compile Include="IHerbivore.cs" />
     <Compile Include="IOrganism.cs" />
