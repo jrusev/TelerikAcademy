@@ -9,6 +9,7 @@ namespace HTMLRenderer
     {
         private IList<IElement> childElements;
 
+        // Name and TextContent properties are optional and can be null
         public HTMLElement(string name = null, string content = null)
         {
             this.Name = name;
