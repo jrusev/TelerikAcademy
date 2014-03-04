@@ -61,6 +61,26 @@ namespace HTMLRenderer
             }
         }
 
+        public string Name { get; private set; }
+
+        public string TextContent
+        {
+            get
+            {
+                throw new InvalidOperationException("Tables don't have text content!");
+            }
+
+            set
+            {
+                throw new InvalidOperationException("Tables cannot have text content!");
+            }
+        }
+
+        public IEnumerable<IElement> ChildElements
+        {
+            get { throw new InvalidOperationException("Tables don't have child elements!"); }
+        }
+
         // table[0, 0] = htmlFactory.CreateElement("b", "First Name");
         public IElement this[int row, int col]
         {
@@ -68,23 +88,15 @@ namespace HTMLRenderer
             {
                 return this.table[row, col];
             }
+
             set
             {
                 this.table[row, col] = value;
             }
         }
 
-        public string Name { get; private set; }
-
-        public string TextContent { get; set; }
-
-        public IEnumerable<IElement> ChildElements
-        {
-            get { return null; }
-        }
-
         public void AddElement(IElement element)
-        {            
+        {
         }
 
         // For each row its content is rendered enclosed between the <tr> and </tr> tags.
@@ -98,8 +110,8 @@ namespace HTMLRenderer
                 for (int col = 0; col < this.Cols; col++)
                 {
                     output.Append("<td>");
-                    output.Append(this[row,col]);
-                    output.Append("</td>");                    
+                    output.Append(this[row, col]);
+                    output.Append("</td>");
                 }
 
                 output.Append("</tr>");

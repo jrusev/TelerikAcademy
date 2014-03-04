@@ -59,7 +59,7 @@ namespace HTMLRenderer
                 output.AppendFormat("{0}", escapedContent);
             }
 
-            output.AppendFormat("{0}", string.Join("", this.ChildElements));
+            output.AppendFormat("{0}", string.Join(string.Empty, this.ChildElements));
 
             if (this.Name != null)
             {
