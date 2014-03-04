@@ -10,7 +10,7 @@ namespace HTMLRenderer
     // HTML tables cannot have child elements.
     // HTML tables are HTML elements that have fixed size (rows and columns)
     // and hold rows * columns cells which are HTML elements.
-    public class HTMLTable : ITable
+    public class HTMLTable : HTMLElement, ITable
     {
         private const string TableName = "table";
         private IElement[,] table;
@@ -18,8 +18,8 @@ namespace HTMLRenderer
         private int cols;
 
         public HTMLTable(int rows, int cols)
+            : base(HTMLTable.TableName)
         {
-            this.Name = HTMLTable.TableName;
             this.Rows = rows;
             this.Cols = cols;
             this.table = new IElement[rows, cols];
@@ -61,9 +61,7 @@ namespace HTMLRenderer
             }
         }
 
-        public string Name { get; private set; }
-
-        public string TextContent
+        public override string TextContent
         {
             get
             {
@@ -76,12 +74,11 @@ namespace HTMLRenderer
             }
         }
 
-        public IEnumerable<IElement> ChildElements
+        public override IEnumerable<IElement> ChildElements
         {
             get { throw new InvalidOperationException("Tables don't have child elements!"); }
         }
 
-        // table[0, 0] = htmlFactory.CreateElement("b", "First Name");
         public IElement this[int row, int col]
         {
             get
@@ -95,13 +92,14 @@ namespace HTMLRenderer
             }
         }
 
-        public void AddElement(IElement element)
+        public override void AddElement(IElement element)
         {
+            throw new InvalidOperationException("Tables cannot add child elements!");
         }
 
         // For each row its content is rendered enclosed between the <tr> and </tr> tags.
         // For each column inside a row its element content is rendered enclosed between the <td> and </td> tags.
-        public void Render(StringBuilder output)
+        public override void Render(StringBuilder output)
         {
             output.AppendFormat("<{0}>", this.Name);
             for (int row = 0; row < this.Rows; row++)
@@ -118,14 +116,6 @@ namespace HTMLRenderer
             }
 
             output.AppendFormat("</{0}>", this.Name);
-        }
-
-        // The ToString method renders the element into a string and returns it as result.
-        public override string ToString()
-        {
-            StringBuilder output = new StringBuilder();
-            this.Render(output);
-            return output.ToString();
         }
     }
 }
