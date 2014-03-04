@@ -27,6 +27,22 @@ namespace AcademyEcosystem
                         this.AddOrganism(new Boar(name, position));
                         break;
                     }
+                case "lion":
+                    {
+                        // birth lion <name> <position> 
+                        string name = commandWords[2];
+                        Point position = Point.Parse(commandWords[3]);
+                        this.AddOrganism(new Lion(name, position));
+                        break;
+                    }
+                case "zombie":
+                    {
+                        // birth zombie <name> <position>
+                        string name = commandWords[2];
+                        Point position = Point.Parse(commandWords[3]);
+                        this.AddOrganism(new Zombie(name, position));
+                        break;
+                    }
                 //case "tree":
                 //    {
                 //        Point position = Point.Parse(commandWords[2]);

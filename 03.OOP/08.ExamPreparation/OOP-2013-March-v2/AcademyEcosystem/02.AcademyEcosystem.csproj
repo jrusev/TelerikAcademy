@@ -50,12 +50,14 @@
     <Compile Include="ICarnivore.cs" />
     <Compile Include="IHerbivore.cs" />
     <Compile Include="IOrganism.cs" />
+    <Compile Include="Lion.cs" />
     <Compile Include="Organism.cs" />
     <Compile Include="Plant.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Tree.cs" />
     <Compile Include="Wolf.cs" />
+    <Compile Include="Zombie.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="AcademyEcosystemDiagram.cd" />
