@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.HTML-Fundamentals", "01.HTML-Fundamentals\01.HTML-Fundamentals.csproj", "{081AE82B-770A-4761-8EDA-5D9F6607AD3C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.RunnersHome", "01.HTML-Fundamentals\01.RunnersHome.csproj", "{081AE82B-770A-4761-8EDA-5D9F6607AD3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.NestedLists", "02.NestedLists\02.NestedLists.csproj", "{7C153C7A-B412-44B4-9321-B81D364509E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.DogeSocialNetwork", "03.DogeSocialNetwork\03.DogeSocialNetwork.csproj", "{B9DF6F9C-3814-480F-BCC5-C118D7C7DEEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{081AE82B-770A-4761-8EDA-5D9F6607AD3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{081AE82B-770A-4761-8EDA-5D9F6607AD3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{081AE82B-770A-4761-8EDA-5D9F6607AD3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C153C7A-B412-44B4-9321-B81D364509E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C153C7A-B412-44B4-9321-B81D364509E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C153C7A-B412-44B4-9321-B81D364509E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C153C7A-B412-44B4-9321-B81D364509E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9DF6F9C-3814-480F-BCC5-C118D7C7DEEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9DF6F9C-3814-480F-BCC5-C118D7C7DEEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9DF6F9C-3814-480F-BCC5-C118D7C7DEEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9DF6F9C-3814-480F-BCC5-C118D7C7DEEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
