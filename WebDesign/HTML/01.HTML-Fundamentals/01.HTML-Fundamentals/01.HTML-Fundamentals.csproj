@@ -66,6 +66,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="01.RunnersHome.html" />
+    <Content Include="02.NestedLists.html" />
+    <Content Include="01.RunnersHome.png" />
+    <Content Include="02.NestedLists.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
