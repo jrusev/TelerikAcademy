@@ -65,8 +65,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Doge-Profile.html" />
     <Content Include="Doge-Friends.html" />
     <Content Include="Doge-Home.html" />
+    <Content Include="doge.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
