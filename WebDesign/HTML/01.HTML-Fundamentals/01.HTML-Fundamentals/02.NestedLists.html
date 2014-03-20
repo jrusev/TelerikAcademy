@@ -3,6 +3,15 @@
 <head>
     <meta charset="utf-8" />
     <title>Nested lists</title>
+    <style>
+        .circle {
+            list-style: circle;
+        }
+
+        .disc {
+            list-style: disc;
+        }
+    </style>
 </head>
 <body>
     <p>Preceding Text</p>
@@ -20,7 +29,7 @@
                 <li>Nested Item 2.1</li>
                 <li>
                     Nested Item 2.2
-                    <ul style="list-style-type:circle">
+                    <ul class="circle">
                         <li>Nested Item 2.2.1</li>
                         <li>
                             Nested Item 2.2.2
@@ -37,7 +46,7 @@
         </li>
         <li>
             List Item 3
-            <ul style="list-style-type:disc">
+            <ul class="disc">
                 <li>Nested Item 3.1</li>
                 <li>Nested Item 3.1</li>
                 <li>Nested Item 3.1</li>
