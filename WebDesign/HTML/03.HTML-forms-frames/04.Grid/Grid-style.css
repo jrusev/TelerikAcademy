@@ -8,7 +8,7 @@
     font-weight: normal;
     text-align: left;
     vertical-align: central;
-    padding: 3px 3px 3px 5px;
+    padding: 3px 5px 3px 5px;
 }
 
 th, tfoot {
@@ -35,5 +35,6 @@ span.page-size {
 }
 
 span.items {
-    text-align: right;
+    float: right;
+    padding: 0 5px;
 }
