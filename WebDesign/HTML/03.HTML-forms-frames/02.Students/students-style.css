@@ -1,0 +1,12 @@
+﻿table, th, td {
+    padding: 4px;
+    border: 1px solid #000;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+tfoot ul, tfoot li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
