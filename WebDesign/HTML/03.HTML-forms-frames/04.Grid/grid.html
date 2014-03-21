@@ -1,0 +1,209 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Grid</title>
+    <link href="Grid-style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <form name="myForm" method="post">
+        <table cellspacing="0">
+            <colgroup>
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col style="width:30px" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th colspan="6">Drag a column header and drop it here to group by that column</th>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="pid">ProductID</label>
+                    </th>
+                    <th>
+                        <label for="pn">Product name</label>
+                    </th>
+                    <th>
+                        <label for="up">Unit price</label>
+                    </th>
+                    <th>
+                        <label for="qu">Quantity per unit</label>
+                    </th>
+                    <th>
+                        <label for="us">Units in stock</label>
+                    </th>
+                    <th>
+                        <label for="ds">Discontinued</label>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <input type="text" name="productID" id="pid" size="4" />
+                    </th>
+                    <th>
+                        <input type="text" name="productName" id="pn" />
+                    </th>
+                    <th>
+                        <input type="text" name="unitPrice" id="up" />
+                        <input type="image" src="Images/sort.PNG" alt="button" name="upBtn" />
+                    </th>
+                    <th>
+                        <input type="text" name="quantityPerUnit" id="qu" />
+                    </th>
+                    <th>
+                        <input type="text" name="unitsInStock" id="us" />
+                        <input type="image" src="Images/sort.PNG" alt="button" name="usBtn" />
+                    </th>
+                    <th>
+                        <input type="checkbox" name="discontinued" id="ds" />
+                        <input type="image" src="Images/sort.PNG" alt="button" name="dsBtn" />
+                    </th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td colspan="2">
+                        <input type="image" src="Images/nav-start.png" alt="First Page" />
+                        <input type="image" src="Images/nav-left.png" alt="Previous Page" />
+                        <a href="#">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                        <a href="#">6</a>
+                        <a href="#">7</a>
+                        <a href="#">8</a>
+                        <a href="#">9</a>
+                        <a href="#">10</a>
+                        ...
+                        <input type="image" src="Images/nav-right.png" alt="Next Page" />
+                        <input type="image" src="Images/nav-end.png" alt="Last Page" />
+                    </td>
+                    <td colspan="2">
+                        <span class="page-size">Page size:</span>
+                        <select name="pageSize">
+                            <option value="10"
+                                    selected="selected">
+                                10
+                            </option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>
+                    </td>
+                    <td colspan="2">
+                        <span class="items">335104 items in 33511 pages</span>
+                    </td>                    
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Chai</td>
+                    <td>$18.00</td>
+                    <td>10 boxes x 20 bags</td>
+                    <td>39</td>
+                    <td>
+                        <input type="checkbox" name="discontinued" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Chang</td>
+                    <td>$19.00</td>
+                    <td>24 - 12 oz bottles</td>
+                    <td>17</td>
+                    <td>
+                        <input type="checkbox" name="discontinued" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Aniseed Syrup</td>
+                    <td>$10.00</td>
+                    <td>12 - 550 ml bottles</td>
+                    <td>13</td>
+                    <td>
+                        <input type="checkbox" name="discontinued" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Chef Anton's Cajun Seasoning</td>
+                    <td>$22.00</td>
+                    <td>48-6 oz jars</td>
+                    <td>53</td>
+                    <td>
+                        <input type="checkbox" name="discontinued" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Chef Anton's Gumno Mix</td>
+                    <td>$21.35</td>
+                    <td>36 boxes</td>
+                    <td>0</td>
+                    <td>
+                        <input type="checkbox" name="discontinued" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Grandma's Boysenberry Spread</td>
+                    <td>$25.00</td>
+                    <td>12 - 8 oz jars</td>
+                    <td>120</td>
+                    <td>
+                        <input type="checkbox" name="discontinued" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Uncle Bob's Organic Dried Pears</td>
+                    <td>$30.00</td>
+                    <td>12 - 1 lb pkgs.</td>
+                    <td>15</td>
+                    <td>
+                        <input type="checkbox" name="discontinued" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Northwoods Cranberry Sauce</td>
+                    <td>$40.00</td>
+                    <td>12 - 12 oz jars</td>
+                    <td>6</td>
+                    <td>
+                        <input type="checkbox" name="discontinued" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Mishi Kobe Niku</td>
+                    <td>$97.00</td>
+                    <td>18 - 500 g pkgs.</td>
+                    <td>29</td>
+                    <td>
+                        <input type="checkbox" name="discontinued" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Ikura</td>
+                    <td>$31.00</td>
+                    <td>12 - 200 ml jars</td>
+                    <td>31</td>
+                    <td>
+                        <input type="checkbox" name="discontinued" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</body>
+</html>

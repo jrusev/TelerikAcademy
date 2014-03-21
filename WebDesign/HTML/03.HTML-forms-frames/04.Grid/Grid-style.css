@@ -1,0 +1,39 @@
+﻿table, th, td {
+    border-color: rgb(196,196,196);
+    border-style: solid;
+    border-width: 1px;
+    border-collapse: collapse;
+    font-family: Ebrima;
+    font-size: small;
+    font-weight: normal;
+    text-align: left;
+    vertical-align: central;
+    padding: 3px 3px 3px 5px;
+}
+
+th, tfoot {
+    background: rgb(231,233,235);
+}
+
+    tfoot td {
+        border-right: none;
+        border-left: none;
+    }
+
+input[type="text"] {
+    position: relative;
+    top: -2px;
+}
+
+input[type="image"] {
+    position: relative;
+    top: 4px;
+}
+
+span.page-size {
+    text-align: left;
+}
+
+span.items {
+    text-align: right;
+}
