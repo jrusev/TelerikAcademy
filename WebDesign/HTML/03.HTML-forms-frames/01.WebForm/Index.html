@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Sample Form</title>
+</head>
+<body>
+    <form method="get" action="apply-now.php">
+
+        <label for="lname">Last Name</label>
+        <input type="text" name="lname" id="lname" value="Nakov" />
+        <br />
+
+        <label for="fname">First Name</label>
+        <input type="text" name="fname" id="fname" value="Svetlin" />
+        <br />
+
+        <label for="address">Address</label>
+        <textarea name="address" id="address">17 Hristo Botev Str. floor 3, apt. 12</textarea>
+        <br />
+
+        <label for="city">City</label>
+        <input type="text" name="city" id="city" value="Kaspichan" />
+
+        <label for="state">State</label>
+        <input type="text" name="state" id="state" />
+        <br />
+
+        <label for="zip">Zip/Postal Code</label>
+        <input type="text" name="zip" id="zip" value="9325" />
+        <br />
+
+        <label for="country">Country</label>
+        <select id="country" name="country">
+            <option value="AT">Austria</option>
+            <option value="BG" selected="selected">Bulgaria</option>
+            <option value="CL">Chile</option>
+            <option value="CR">Costa Rica</option>
+            <option value="NZ">New Zealand</option>
+            <option value="US">United States</option>
+        </select>
+        <br />
+
+        Phone (country code, area code, number)
+        (+
+        <input type="text" name="code" value="359" />
+        )
+        <input type="text" name="area" value="88" />
+        -
+        <input type="text" name="number" value="8334343" />
+        <br />
+
+        <label for="email">E-mail</label>
+        <input type="text" name="email" id="email" value="nakov@kaspichan.org" />
+        <br />
+
+        Birth date
+        Month
+        <input type="text" name="month" value="06" />
+        Day
+        <input type="text" name="day" value="14" />
+        Year (4 digit)
+        <input type="text" name="year" value="1980" />
+        <br />
+
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender">
+            <option value="m" selected="selected">Male</option>
+            <option value="f">Female</option>
+        </select>
+        <br />
+
+        Starting date
+        <input type="radio" name="startDate" value="Spring2006" checked /> Spring 2006
+        <input type="radio" name="startDate" value="Summer2006" /> Summer 2006
+        <br />
+
+        Comments/Questions
+        <textarea name="comments" cols="30" rows="4">Please send me more information about the lodging.</textarea>
+
+        <p>
+            <input type="submit" name="submit" value="Submit" />
+            <input type="reset" value="Clear This Form" />
+        </p>
+    </form>
+</body>
+</html>
