@@ -1,0 +1,16 @@
+﻿table {
+    <!-- border: 1px solid black; -->
+    table-layout: fixed;
+    width: 420px;
+}
+
+th, td {
+    <!-- border: 1px solid black; -->
+    overflow: hidden;
+    width: 210px;
+}
+
+th {
+    font-size: 20pt;
+    font-style: italic;
+}
