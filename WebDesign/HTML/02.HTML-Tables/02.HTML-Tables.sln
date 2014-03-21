@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.PagesWithTables", "02.HTML-Tables\01.PagesWithTables.csproj", "{094F77D3-4705-4F41-8264-43FEE8418C95}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.WebForm", "02.WebForm\02.WebForm.csproj", "{90E1930B-3620-4BB0-99C0-544E02F0B175}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{094F77D3-4705-4F41-8264-43FEE8418C95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{094F77D3-4705-4F41-8264-43FEE8418C95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{094F77D3-4705-4F41-8264-43FEE8418C95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90E1930B-3620-4BB0-99C0-544E02F0B175}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90E1930B-3620-4BB0-99C0-544E02F0B175}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90E1930B-3620-4BB0-99C0-544E02F0B175}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90E1930B-3620-4BB0-99C0-544E02F0B175}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
