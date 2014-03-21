@@ -9,8 +9,12 @@
         }
 
         table, th, td {
-            border: 1px solid black;
+            border-style: solid;
+            border-width: 1px;
+            border-color: rgb(196, 196, 196);
             border-collapse: collapse;
+            padding: 3px;
+            font-family: sans-serif;
         }
 
         tfoot {
@@ -18,8 +22,9 @@
             background-color: rgb(209,237,225);
         }
 
-        .label-text {
+        th {
             font-weight: bold;
+            text-align: right;
         }
     </style>
 </head>
@@ -36,25 +41,25 @@
             </tfoot>
             <tbody>
                 <tr>
-                    <td>
-                        <label class="label-text" for="lname">Last Name</label>
-                    </td>
+                    <th>
+                        <label for="lname">Last Name</label>
+                    </th>
                     <td>
                         <input type="text" name="lname" id="lname" size="44" placeholder="Nakov" />
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <label class="label-text" for="fname">First Name</label>
-                    </td>
+                    <th>
+                        <label for="fname">First Name</label>
+                    </th>
                     <td>
                         <input type="text" name="fname" id="fname" size="44" placeholder="Svetlin" />
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <label class="label-text" for="address">Address</label>
-                    </td>
+                    <th>
+                        <label for="address">Address</label>
+                    </th>
                     <td>
                         <textarea name="address"
                                   id="address"
@@ -64,27 +69,27 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <label class="label-text" for="city">City</label>
-                    </td>
-                    <td>
+                    <th>
+                        <label for="city">City</label>
+                    </th>
+                    <th>
                         <input type="text" name="city" id="city" size="30" placeholder="Kaspichan" />
-                        <label class="label-text" for="state">State</label>
+                        <label for="state">State</label>
                         <input type="text" name="state" id="state" size="3" />
-                    </td>
+                    </th>
                 </tr>
                 <tr>
-                    <td>
-                        <label class="label-text" for="zip">Zip/Postal Code</label>
-                    </td>
+                    <th>
+                        <label for="zip">Zip/Postal Code</label>
+                    </th>
                     <td>
                         <input type="text" name="zip" id="zip" placeholder="9325" />
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <label class="label-text" for="country">Country</label>
-                    </td>
+                    <th>
+                        <label for="country">Country</label>
+                    </th>
                     <td>
                         <select id="country" name="country">
                             <option value="AT">Austria</option>
@@ -97,9 +102,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="label-text">
+                    <th class="label-text">
                         Phone (country code,<br /> area code, number)
-                    </td>
+                    </th>
                     <td>
                         (+
                         <input type="text" name="code" placeholder="359" size="5" />
@@ -110,9 +115,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <label class="label-text" for="email">E-mail</label>
-                    </td>
+                    <th>
+                        <label for="email">E-mail</label>
+                    </th>
                     <td>
                         <input type="email"
                                name="email"
@@ -122,7 +127,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="label-text">Birth date</td>
+                    <th class="label-text">Birth date</th>
                     <td>
                         <label for="month">Month</label>
                         <input type="text" id="month" maxlength="2" size="1" placeholder="06" />
@@ -133,9 +138,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <label class="label-text" for="gender">Gender</label>
-                    </td>
+                    <th>
+                        <label for="gender">Gender</label>
+                    </th>
                     <td>
                         <select id="gender" name="gender">
                             <option value="m" selected="selected">Male</option>
@@ -144,14 +149,14 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="label-text">Starting date</td>
+                    <th class="label-text">Starting date</th>
                     <td>
                         <input type="radio" name="startDate" value="Spring2006" checked /> Spring 2006
                         <input type="radio" name="startDate" value="Summer2006" /> Summer 2006
                     </td>
                 </tr>
                 <tr>
-                    <td class="label-text">Comments/Questions</td>
+                    <th class="label-text">Comments/Questions</th>
                     <td>
                         <textarea name="comments"
                                   cols="33" rows="5"
