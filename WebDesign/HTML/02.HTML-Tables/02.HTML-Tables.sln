@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.PagesWithTables", "02.HTML-Tables\01.PagesWithTables.csproj", "{094F77D3-4705-4F41-8264-43FEE8418C95}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.PagesWithTables", "01.PagesWithTables\01.PagesWithTables.csproj", "{094F77D3-4705-4F41-8264-43FEE8418C95}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.WebForm", "02.WebForm\02.WebForm.csproj", "{90E1930B-3620-4BB0-99C0-544E02F0B175}"
 EndProject
