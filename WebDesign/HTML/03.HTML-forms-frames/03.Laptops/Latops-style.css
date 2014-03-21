@@ -1,0 +1,44 @@
+﻿table {
+    font-family: Corbel;
+    font-size: large;
+}
+
+td {
+    padding: 4px;
+}
+
+fieldset {
+    border: 2px solid black;
+}
+
+.centerAlign {
+    text-align: center;
+}
+
+#infoTable {
+    border: 2px solid black;
+}
+
+thead ul {
+    display: table;
+    margin: 0 auto;
+    font-size: larger;
+}
+
+thead li {
+    display: inline-block;
+}
+
+thead a {
+    padding: 0 5px;
+}
+
+form{
+    font-size: larger;
+}
+
+.slider{
+    width: 160px;
+        margin-top: 10px;
+    margin-bottom: 10px;
+}

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.WebForm", "01.WebForm\01
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.Students", "02.Students\02.Students.csproj", "{078DA5A0-5AD7-4336-8CFD-9C48532B0339}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.Laptops", "03.Laptops\03.Laptops.csproj", "{7419B49B-5215-4318-937A-C414C670A431}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{078DA5A0-5AD7-4336-8CFD-9C48532B0339}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{078DA5A0-5AD7-4336-8CFD-9C48532B0339}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{078DA5A0-5AD7-4336-8CFD-9C48532B0339}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7419B49B-5215-4318-937A-C414C670A431}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7419B49B-5215-4318-937A-C414C670A431}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7419B49B-5215-4318-937A-C414C670A431}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7419B49B-5215-4318-937A-C414C670A431}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
