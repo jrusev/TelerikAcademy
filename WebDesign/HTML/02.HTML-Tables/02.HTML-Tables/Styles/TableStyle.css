@@ -1,14 +1,30 @@
 ﻿table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
+    padding: 3px;
 }
 
 table {
-    width: 180px;
-    height: 140px;
+    width: 160px;
 }
 
 th, td {    
     width: 20px;
-    height: 20px;
+}
+
+.table-center{
+    text-align: center;
+}
+
+.td-right{
+    text-align: right;
+}
+
+.td-left{
+    text-align: left;
+}
+
+.td-right-bottom{
+    text-align: right;
+    vertical-align: bottom;
 }
