@@ -3,85 +3,163 @@
 <head>
     <meta charset="utf-8" />
     <title>Sample Form</title>
+    <style>
+        textarea {
+            resize: none;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        tfoot {
+            text-align: center;
+            background-color: rgb(209,237,225);
+        }
+
+        .label-text {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <form method="get" action="apply-now.php">
-
-        <label for="lname">Last Name</label>
-        <input type="text" name="lname" id="lname" value="Nakov" />
-        <br />
-
-        <label for="fname">First Name</label>
-        <input type="text" name="fname" id="fname" value="Svetlin" />
-        <br />
-
-        <label for="address">Address</label>
-        <textarea name="address" id="address">17 Hristo Botev Str. floor 3, apt. 12</textarea>
-        <br />
-
-        <label for="city">City</label>
-        <input type="text" name="city" id="city" value="Kaspichan" />
-
-        <label for="state">State</label>
-        <input type="text" name="state" id="state" />
-        <br />
-
-        <label for="zip">Zip/Postal Code</label>
-        <input type="text" name="zip" id="zip" value="9325" />
-        <br />
-
-        <label for="country">Country</label>
-        <select id="country" name="country">
-            <option value="AT">Austria</option>
-            <option value="BG" selected="selected">Bulgaria</option>
-            <option value="CL">Chile</option>
-            <option value="CR">Costa Rica</option>
-            <option value="NZ">New Zealand</option>
-            <option value="US">United States</option>
-        </select>
-        <br />
-
-        Phone (country code, area code, number)
-        (+
-        <input type="text" name="code" value="359" />
-        )
-        <input type="text" name="area" value="88" />
-        -
-        <input type="text" name="number" value="8334343" />
-        <br />
-
-        <label for="email">E-mail</label>
-        <input type="text" name="email" id="email" value="nakov@kaspichan.org" />
-        <br />
-
-        Birth date
-        Month
-        <input type="text" name="month" value="06" />
-        Day
-        <input type="text" name="day" value="14" />
-        Year (4 digit)
-        <input type="text" name="year" value="1980" />
-        <br />
-
-        <label for="gender">Gender</label>
-        <select id="gender" name="gender">
-            <option value="m" selected="selected">Male</option>
-            <option value="f">Female</option>
-        </select>
-        <br />
-
-        Starting date
-        <input type="radio" name="startDate" value="Spring2006" checked /> Spring 2006
-        <input type="radio" name="startDate" value="Summer2006" /> Summer 2006
-        <br />
-
-        Comments/Questions
-        <textarea name="comments" cols="30" rows="4">Please send me more information about the lodging.</textarea>
-
-        <p>
-            <input type="submit" name="submit" value="Submit" />
-            <input type="reset" value="Clear This Form" />
-        </p>
+        <table>
+            <tfoot>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" name="submit" value="Submit" />
+                        <input type="reset" value="Clear This Form" />
+                    </td>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <td>
+                        <label class="label-text" for="lname">Last Name</label>
+                    </td>
+                    <td>
+                        <input type="text" name="lname" id="lname" size="44" placeholder="Nakov" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="label-text" for="fname">First Name</label>
+                    </td>
+                    <td>
+                        <input type="text" name="fname" id="fname" size="44" placeholder="Svetlin" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="label-text" for="address">Address</label>
+                    </td>
+                    <td>
+                        <textarea name="address"
+                                  id="address"
+                                  cols="33"
+                                  rows="4"
+                                  placeholder="17 Hristo Botev Str. floor 3, apt. 12"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="label-text" for="city">City</label>
+                    </td>
+                    <td>
+                        <input type="text" name="city" id="city" size="30" placeholder="Kaspichan" />
+                        <label class="label-text" for="state">State</label>
+                        <input type="text" name="state" id="state" size="3" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="label-text" for="zip">Zip/Postal Code</label>
+                    </td>
+                    <td>
+                        <input type="text" name="zip" id="zip" placeholder="9325" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="label-text" for="country">Country</label>
+                    </td>
+                    <td>
+                        <select id="country" name="country">
+                            <option value="AT">Austria</option>
+                            <option value="BG" selected="selected">Bulgaria</option>
+                            <option value="CL">Chile</option>
+                            <option value="CR">Costa Rica</option>
+                            <option value="NZ">New Zealand</option>
+                            <option value="US">United States</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label-text">
+                        Phone (country code,<br /> area code, number)
+                    </td>
+                    <td>
+                        (+
+                        <input type="text" name="code" placeholder="359" size="5" />
+                        )
+                        <input type="text" name="area" placeholder="88" size="7" />
+                        -
+                        <input type="text" name="number" placeholder="8334343" size="10" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="label-text" for="email">E-mail</label>
+                    </td>
+                    <td>
+                        <input type="email"
+                               name="email"
+                               id="email"
+                               pattern="[a-zA-Z0-9_]{3,}@[a-zA-Z0-9_]{3,}.[a-zA-Z0-9_]{2,4}"
+                               placeholder="nakov@kaspichan.org" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label-text">Birth date</td>
+                    <td>
+                        <label for="month">Month</label>
+                        <input type="text" id="month" maxlength="2" size="1" placeholder="06" />
+                        <label for="day">Day</label>
+                        <input type="text" id="day" maxlength="2" size="1" placeholder="14" />
+                        <label for="year">Year(4 digit)</label>
+                        <input type="text" id="year" maxlength="4" size="3" placeholder="1980" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="label-text" for="gender">Gender</label>
+                    </td>
+                    <td>
+                        <select id="gender" name="gender">
+                            <option value="m" selected="selected">Male</option>
+                            <option value="f">Female</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label-text">Starting date</td>
+                    <td>
+                        <input type="radio" name="startDate" value="Spring2006" checked /> Spring 2006
+                        <input type="radio" name="startDate" value="Summer2006" /> Summer 2006
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label-text">Comments/Questions</td>
+                    <td>
+                        <textarea name="comments"
+                                  cols="33" rows="5"
+                                  placeholder="Please send me more information about the lodging."></textarea>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </form>
 </body>
 </html>
