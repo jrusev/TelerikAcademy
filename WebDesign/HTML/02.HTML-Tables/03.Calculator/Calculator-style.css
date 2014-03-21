@@ -1,0 +1,21 @@
+﻿table {
+    table-layout: fixed;
+    width: 180px;
+    font-size: 20pt;
+    text-align: center;
+    font-family: Consolas;
+    font-weight:500;
+    background-color: #202020;
+    color: cyan;    
+}
+
+table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+    border-color: darkcyan;
+    padding: 5px;
+}
+
+.display{
+    text-align: right;
+}
