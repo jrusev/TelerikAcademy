@@ -18,28 +18,28 @@
                 <li>
                     <a href="#">Join Today</a>
                 </li>
-                <li>
-                    <form>
-                        <fieldset>
-                            <legend>Sign in</legend>
-                            <ul>
-                                <li>
-                                    <label for="email">Email:</label>
-                                    <input type="email" id="email" name="email" autofocus />
-                                </li>
-                                <li>
-                                    <label for="password">Password:</label>
-                                    <input type="password" id="password" name="password" />
-                                </li>
-                                <li>
-                                    <input type="submit" value="Sign In" />
-                                </li>
-                            </ul>
-                        </fieldset>
-                    </form>
-                </li>
             </ul>
         </nav>
+        <!-- The "Sign In" form is not a list item, as seen in the design, because semantically it should not be a part of a <nav> element -->
+        <!-- ... and the <nav> cannot be nested inside a <ul> element. -->
+        <form>
+            <fieldset>
+                <legend>Sign in</legend>
+                <ul>
+                    <li>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" autofocus />
+                    </li>
+                    <li>
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" />
+                    </li>
+                    <li>
+                        <input type="submit" value="Sign In" />
+                    </li>
+                </ul>
+            </fieldset>
+        </form>
     </header>
     <hr />
     <section>
