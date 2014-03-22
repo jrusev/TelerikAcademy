@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.refactoring-homework", "01.refactoring-homework\01.refactoring-homework.csproj", "{2419E4C4-7C31-478E-AE09-0534E2F24FD7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.Design-1", "02.Design-1\02.Design-1.csproj", "{4A46381C-787B-4243-B347-3120303D558C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2419E4C4-7C31-478E-AE09-0534E2F24FD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2419E4C4-7C31-478E-AE09-0534E2F24FD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2419E4C4-7C31-478E-AE09-0534E2F24FD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A46381C-787B-4243-B347-3120303D558C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A46381C-787B-4243-B347-3120303D558C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A46381C-787B-4243-B347-3120303D558C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A46381C-787B-4243-B347-3120303D558C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

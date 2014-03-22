@@ -1,0 +1,14 @@
+﻿table, tr, td, th {
+    border-style: solid;
+    border-width: 1px;
+    border-collapse: collapse;
+}
+
+ul li {
+    display: inline-block;
+    padding: 0 5px;
+}
+
+img {
+    float: left;
+}
