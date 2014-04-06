@@ -1,0 +1,75 @@
+body, header, nav, section , article, p, footer, h1, h2, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #A9A9A9;  
+}
+
+h1 {
+    color: #FAFAD2; 
+}
+
+body > header, body > footer { 
+    text-align: center;
+}
+
+body > header {
+    padding-top: 32px; 
+}
+
+body > header h1 {
+    font-size: 3em;    
+}
+
+header nav {   
+    font-size: 1.6em;
+    font-weight: bold;
+    padding-top: 30px;
+}  
+
+header nav ul {
+    list-style-type: none;
+}
+
+section {
+    padding: 0px 10px;
+}
+
+article > header h1 {
+    padding: 30px 0px;
+    font-size: 2.0em;    
+}
+
+p {
+    padding-top: 10px;
+    font-size: 1.25em;
+} 
+
+footer p {
+    padding-top: 15px;
+    font-size: 1.00em;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a.current {
+    background-color: #D3D3D3;  
+}
+
+p > a {
+    color: inherit;
+}
+
+header nav li:last-of-type a {
+     text-decoration: underline;  
+}
+
+body > footer {
+    padding-top: 20px;
+    font-size: 1.2em;
+}
