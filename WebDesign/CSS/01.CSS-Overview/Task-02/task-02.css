@@ -6,16 +6,16 @@ body, table, thead, tbody, tr, th, td, img, label {
 table, th, td, tr {
     box-sizing: border-box;
     border-collapse: collapse;
-    font-family: calibri;
+    font-family: ebrima;
     font-size: 0.9em;
     font-weight: normal;
     text-align: left;
-    padding: 4px 5px;
+    padding: 3px 6px;
 }
 
 img {
     display: inline-block;
-    margin: 0px 8px -5px 1px;
+    margin: 0px 7px -5px 1px;
 }
 
 table {
@@ -50,7 +50,7 @@ table th {
 
 tr.table-head {
     height: 24px; 
-    font-size: 1.00em;
+    font-size: 0.95em;
     padding-top: 0;
 }
 
@@ -60,7 +60,7 @@ td.country {
 }
 
 tr.table-head th {
-    padding-top: 0;
+    padding-top: 1px;
 }
 
 th.col-1 {
