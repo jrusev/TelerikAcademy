@@ -1,0 +1,103 @@
+body, table, thead, tbody, tr, th, td, img, label {
+    margin: 0;
+    padding: 0;    
+}
+
+table, th, td, tr {
+    box-sizing: border-box;
+    border-collapse: collapse;
+    font-family: calibri;
+    font-size: 0.9em;
+    font-weight: normal;
+    text-align: left;
+    padding: 4px 5px;
+}
+
+img {
+    display: inline-block;
+    margin: 0px 8px -5px 1px;
+}
+
+table {
+    border-top: 1px solid #C2C0A6;
+    border-bottom: 1px solid #C2C0A6;     
+}
+
+td, th {
+    border-right: 1px solid #C2C0A6;      
+}
+
+tr > td:last-of-type, tr > th:last-of-type {    
+    border-right: none;
+}
+
+table tr:nth-of-type(2n) {
+    background-color: #ECECD8;
+}
+
+table th {
+    color: white;
+    //background-color: #56B906; 
+    background: rgb(94,195,6); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(94,195,6,1) 0%, rgba(79,179,6,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(94,195,6,1)), color-stop(100%,rgba(79,179,6,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(94,195,6,1) 0%,rgba(79,179,6,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(94,195,6,1) 0%,rgba(79,179,6,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(94,195,6,1) 0%,rgba(79,179,6,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(94,195,6,1) 0%,rgba(79,179,6,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5ec306', endColorstr='#4fb306',GradientType=0 ); /* IE6-9 */
+}
+
+tr.table-head {
+    height: 24px; 
+    font-size: 1.00em;
+    padding-top: 0;
+}
+
+td.country {
+    padding-top: 4px;
+    vertical-align: top;
+}
+
+tr.table-head th {
+    padding-top: 0;
+}
+
+th.col-1 {
+    width: 139px;   
+}
+
+th.col-2 {
+    width: 110px;   
+}
+
+th.col-3 {
+    width: 125px;   
+}
+
+th.col-4 {
+    width: 84px;  
+}
+
+input[type=checkbox] {
+    display:none;
+}
+ 
+input[type=checkbox] + label
+{
+    background: url('checkbox-unchecked.jpg') no-repeat;
+    height: 12px;
+    width: 12px;
+    display:inline-block;
+    padding: 2px 5px;
+    background-position: bottom; 
+ }
+
+input[type=checkbox]:checked + label
+{
+    background: url('checkbox-checked.jpg') no-repeat;
+    height: 12px;
+    width: 12px;
+    display:inline-block;
+    background-position: bottom; 
+}
