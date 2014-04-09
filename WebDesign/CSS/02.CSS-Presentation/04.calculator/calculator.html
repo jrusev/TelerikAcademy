@@ -61,7 +61,11 @@
         
         .menu ul li {
             display: inline-block;
-            padding: 2px 0 0 8px;      
+            padding: 2px 0 0 8px;             
+        }
+        
+        .menu ul li:first-letter {
+            text-decoration:underline;           
         }
         
         .display {
@@ -200,7 +204,7 @@
                     <li>Help</li>
                 </ul>
             </div>
-            <div class="display">0</div>
+            <div class="display">8854455</div>
             <div class="bits">
                 <ul>
                     <li>0000</li><li>0000</li><li>0000</li><li>0000</li><li>0000</li><li>0000</li><li>0000</li><li>0000</li>
@@ -209,7 +213,7 @@
                     <li class="bit-1">63</li><li class="bit-2">47</li><li class="bit-3">32</li>
                 </ul>
                 <ul>
-                    <li>0000</li><li>0000</li><li>0000</li><li>0000</li><li>0000</li><li>0000</li><li>0000</li><li>0000</li>
+                    <li>0000</li><li>0000</li><li>1000</li><li>0111</li><li>0001</li><li>1011</li><li>1011</li><li>0111</li>
                 </ul>
                 <ul class="positions">
                     <li class="bit-1">31</li><li class="bit-2">15</li><li class="bit-3"> 0</li>
@@ -218,7 +222,7 @@
             <div class="radio-menu">
                 <ul>
                     <li><input type="radio" name="hex"><label>Hex</label></li>
-                    <li><input type="radio" name="hex"><label>Dec</label></li>
+                    <li><input type="radio" name="hex" checked><label>Dec</label></li>
                     <li><input type="radio" name="hex"><label>Oct</label></li>
                     <li><input type="radio" name="hex"><label>Bin</label></li>
                 </ul>
@@ -285,7 +289,7 @@
             </div>
             <div class="radio-menu">
                 <ul>
-                    <li><input type="radio" name="word"><label>Qword</label></li>
+                    <li><input type="radio" name="word" checked><label>Qword</label></li>
                     <li><input type="radio" name="word"><label>Dword</label></li>
                     <li><input type="radio" name="word"><label>Word</label></li>
                     <li><input type="radio" name="word"><label>Byte</label></li>
