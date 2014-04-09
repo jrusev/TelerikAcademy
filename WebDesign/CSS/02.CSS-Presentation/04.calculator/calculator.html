@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Calculator</title>
+    <style>
+        body, div, ul, li {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Segoe UI, sans-serif;             
+        }
+        
+        #wrapper {
+            width: 423px;
+            height: 388px;
+            border: 1px solid #252C33;
+            border-radius: 7px;
+            background-color: #D9E4F1;
+            font-size: 12px;
+        }
+        
+        div {
+           border-radius: 2px;
+        }
+        
+        .title-bar {
+            height: 28px;
+        }
+        
+        #icon {
+            float: left;
+            margin: 6px 6px 5px 9px;   
+        }
+        
+        #close-menu {
+            float: right;
+            margin: -27px 5px 5px 9px;   
+        }
+        
+        .title-bar .title {            
+            padding: 6px 0px;
+        }
+        
+        .main {
+            width: 409px;
+            height: 352px;
+            border: 1px solid #5D6C7A;
+            margin: 0 auto;
+        }
+        
+        .menu {
+            width: 407px;
+            height: 19px;
+            border-bottom: 1px solid #B6BCCC;            
+            background: -webkit-linear-gradient(#FEFEFF 0%,#E5EAF5 40%,#D4DBED 41%,#E1E6F6 100%);
+            background:    -moz-linear-gradient(#FEFEFF 0%,#E5EAF5 40%,#D4DBED 41%,#E1E6F6 100%);
+            background:      -o-linear-gradient(#FEFEFF 0%,#E5EAF5 40%,#D4DBED 41%,#E1E6F6 100%);
+            background:         linear-gradient(#FEFEFF 0%,#E5EAF5 40%,#D4DBED 41%,#E1E6F6 100%);
+        }
+        
+        .menu ul li {
+            display: inline-block;
+            padding: 2px 0 0 8px;      
+        }
+        
+        .display {
+            width: 385px;
+            height: 50px;
+            margin: 11px auto 0;
+            border: 1px solid #8E9CAD;
+            background: -webkit-linear-gradient(#E5EEFB,#FFFFFF);
+            background:    -moz-linear-gradient(#E5EEFB,#FFFFFF);
+            background:      -o-linear-gradient(#E5EEFB,#FFFFFF);
+            background:         linear-gradient(#E5EEFB,#FFFFFF);
+            font: 24px consolas;
+            text-align: right;
+            padding: 14px 4px;
+        }
+        
+        .bits {
+            width: 385px;
+            height: 61px;
+            margin: 5px auto 0;
+            border: 1px solid #8696AA;
+        }    
+        
+        .bits ul li {
+            display: inline;
+            font: 12px Consolas;
+            color: #1E3973;
+            list-style-type: none;
+            margin: 2px 10px 0px 9px;
+        }
+        
+        .bits .positions li {            
+            color: #666666; 
+        }
+        
+        .bits .bit-2 {
+            margin: 2px 10px 0 165px;
+        }
+        
+        .bits .bit-3 {
+            margin: 2px 10px 0 130px;
+        }
+        
+        .radio-menu {     
+            width: 73px;
+            height: 91px;
+            margin: 5px 0 0 11px;
+            border: 1px solid #8696AA;
+            padding: 5px 0 0 3px;
+        }
+        
+        .radio-menu ul li {
+            list-style-type: none; 
+            margin: 1px 0 0 0; 
+        }
+
+        .keypad {
+            float: left;
+            position: absolute;
+            width: 311px;
+            height: 195px;
+            margin: -94px 0 0 88px;
+            border: 1px dotted #8696AA;
+        }
+        
+        .keys li {
+            display: inline-block;
+            width: 34px;
+            height: 27px;
+            margin-right: 2px;
+            margin-top: 2px;
+            border: 1px solid #8696AA;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="title-bar">
+            <img id="icon" src="calculator-icon.png" />
+            <div class="title">Calculator</div> 
+            <img id="close-menu" src="close-menu.png" />
+        </div>
+        <div class="main">
+            <div class="menu">
+                <ul>
+                    <li>View</li>
+                    <li>Edit</li>
+                    <li>Help</li>
+                </ul>
+            </div>
+            <div class="display">0</div>
+            <div class="bits">
+                <ul>
+                    <li>0000</li><li>0000</li><li>0000</li><li>0000</li><li>0000</li><li>0000</li><li>0000</li><li>0000</li>
+                </ul>
+                <ul class="positions">
+                    <li class="bit-1">63</li><li class="bit-2">47</li><li class="bit-3">32</li>
+                </ul>
+                <ul>
+                    <li>0000</li><li>0000</li><li>0000</li><li>0000</li><li>0000</li><li>0000</li><li>0000</li><li>0000</li>
+                </ul>
+                <ul class="positions">
+                    <li class="bit-1">31</li><li class="bit-2">15</li><li class="bit-3"> 0</li>
+                </ul>
+            </div>            
+            <div class="radio-menu">
+                <ul>
+                    <li><input type="radio" name="hex"><label>Hex</label></li>
+                    <li><input type="radio" name="hex"><label>Dec</label></li>
+                    <li><input type="radio" name="hex"><label>Oct</label></li>
+                    <li><input type="radio" name="hex"><label>Bin</label></li>
+                </ul>
+            </div>
+            <div class="keypad">
+                <ul class="keys">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="radio-menu">
+                <ul>
+                    <li><input type="radio" name="word"><label>Qword</label></li>
+                    <li><input type="radio" name="word"><label>Dword</label></li>
+                    <li><input type="radio" name="word"><label>Word</label></li>
+                    <li><input type="radio" name="word"><label>Byte</label></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
