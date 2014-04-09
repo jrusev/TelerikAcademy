@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>Calculator</title>
     <style>
-        body, div, ul, li {
+        body, div, ul, li, button {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -117,24 +117,71 @@
             list-style-type: none; 
             margin: 1px 0 0 0; 
         }
+        
+        .radio-menu, button {
+            color: #1E395B;   
+        }
 
         .keypad {
             float: left;
             position: absolute;
             width: 311px;
             height: 195px;
-            margin: -94px 0 0 88px;
-            border: 1px dotted #8696AA;
+            margin: -93px 0 0 89px;
+            //border: 1px dotted #8696AA;
         }
         
-        .keys li {
+        .keypad button {
             display: inline-block;
             width: 34px;
             height: 27px;
             margin-right: 2px;
             margin-top: 2px;
+            margin-bottom: 3px;
             border: 1px solid #8696AA;
             border-radius: 2px;
+            text-align: center;
+            vertical-align: middle;
+            background-color: #D9E4F1;
+        }
+        
+        .keypad .func-equal-sign {
+            height: 59px;
+            vertical-align: top;
+            position: absolute;
+            margin-left: 3px;
+        }
+        
+        .keypad .digit-zero-sign {
+            width: 73px;
+        }     
+        
+        strong {
+         font-size: 22px;   
+        }
+   
+        .keypad button[class^="func"] {
+            font: 12px/1.2 Segoe UI, sans-serif; 
+            background: -webkit-linear-gradient(#F6FAFE 0%,#E2EAF3 49%,#D5E0ED 50%,#D7E2EF 100%);
+            background:    -moz-linear-gradient(#F6FAFE 0%,#E2EAF3 49%,#D5E0ED 50%,#D7E2EF 100%);
+            background:      -o-linear-gradient(#F6FAFE 0%,#E2EAF3 49%,#D5E0ED 50%,#D7E2EF 100%);
+            background:         linear-gradient(#F6FAFE 0%,#E2EAF3 49%,#D5E0ED 50%,#D7E2EF 100%);
+        }
+        
+        .keypad button[class^="digit"] {
+            font: 16px/1.2 Segoe UI, sans-serif; 
+            background: -webkit-linear-gradient(#FFFFFF 0%,#EDF3F8 49%,#E7EDF5 50%,#F1F9FE 100%);
+            background:    -moz-linear-gradient(#FFFFFF 0%,#EDF3F8 49%,#E7EDF5 50%,#F1F9FE 100%);
+            background:      -o-linear-gradient(#FFFFFF 0%,#EDF3F8 49%,#E7EDF5 50%,#F1F9FE 100%);
+            background:         linear-gradient(#FFFFFF 0%,#EDF3F8 49%,#E7EDF5 50%,#F1F9FE 100%);
+        }
+        
+        .keypad button:hover {
+            border: 1px solid #F5D50F;            
+            background: -webkit-linear-gradient(#FEF4E9 0%,#FCE4C8 49%,#FBD075 50%,#FCF7C7 100%);
+            background:    -moz-linear-gradient(#FEF4E9 0%,#FCE4C8 49%,#FBD075 50%,#FCF7C7 100%);
+            background:      -o-linear-gradient(#FEF4E9 0%,#FCE4C8 49%,#FBD075 50%,#FCF7C7 100%);
+            background:         linear-gradient(#FEF4E9 0%,#FCE4C8 49%,#FBD075 50%,#FCF7C7 100%);
         }
     </style>
 </head>
@@ -177,56 +224,64 @@
                 </ul>
             </div>
             <div class="keypad">
-                <ul class="keys">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
+                <div class="row">
+                    <button>&nbsp;</button>
+                    <button class="func">Mod</button>
+                    <button>A</button>
+                    <button>MC</button>
+                    <button>MR</button>
+                    <button>MS</button>
+                    <button>M+</button>
+                    <button>M-</button>
+                </div>
+                <div class="row">
+                    <button class="func">(</button>
+                    <button class="func">)</button>
+                    <button>B</button>
+                    <button class="func bold">&larr;</button>
+                    <button class="func">CE</button>
+                    <button class="func">C</button>
+                    <button class="func">&plusmn;</button>
+                    <button>&radic;</button>
+                </div>
+                <div class="row">
+                    <button class="func">RoL</button>
+                    <button class="func">RoR</button>
+                    <button>C</button>
+                    <button class="digit">7</button>
+                    <button class="digit">8</button>
+                    <button class="digit">9</button>
+                    <button class="func">/</button>
+                    <button>%</button>
+                </div>
+                <div class="row">
+                    <button class="func">Or</button>
+                    <button class="func">Xor</button>
+                    <button>D</button>
+                    <button class="digit">4</button>
+                    <button class="digit">5</button>
+                    <button class="digit">6</button>
+                    <button class="func">*</button>
+                    <button>1/x</button>
+                </div>
+                 <div class="row">
+                    <button class="func">Lsh</button>
+                    <button class="func">Rsh</button>
+                    <button>E</button>
+                    <button class="digit">1</button>
+                    <button class="digit">2</button>
+                    <button class="digit">3</button>
+                    <button class="func">-</button>
+                    <button class="func-equal-sign"><strong>=</strong></button>
+                </div>
+                 <div class="row">
+                    <button class="func">Not</button>
+                    <button class="func">And</button>
+                    <button>F</button>
+                    <button class="digit-zero-sign">0</button>
+                    <button>.</button>
+                    <button class="func">+</button>                   
+                </div>                
             </div>
             <div class="radio-menu">
                 <ul>
