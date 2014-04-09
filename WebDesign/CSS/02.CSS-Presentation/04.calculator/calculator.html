@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<!-- Works only in Chrome! -->
     <meta charset="utf-8" />
     <title>Calculator</title>
     <style>
@@ -8,6 +9,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+			-moz-box-sizing:border-box; /* Firefox */
             font-family: Segoe UI, sans-serif;             
         }
         
@@ -84,7 +86,7 @@
         
         .bits {
             width: 385px;
-            height: 61px;
+            //height: 61px;
             margin: 5px auto 0;
             border: 1px solid #8696AA;
         }    
@@ -129,8 +131,8 @@
         .keypad {
             float: left;
             position: absolute;
-            width: 311px;
-            height: 195px;
+            //width: 311px;
+            //height: 195px;
             margin: -93px 0 0 89px;
             //border: 1px dotted #8696AA;
         }
