@@ -1,0 +1,114 @@
+body, h1, h2, nav, section aside, ul {
+    padding: 0;  
+    margin: 0;
+}
+
+body {
+    background-color: #f1f1f1;  
+    font-family: verdana;
+    font-size: 0.85em;    
+}
+
+strong {
+    font-weight: bold;
+    text-transform:uppercase;
+}
+
+header, section, aside {
+    display: inline-block;
+    vertical-align: top;    
+}
+
+h2 {
+    background-color: gray;
+    color: white;
+    font-size: 1.3em;
+    padding: 3px;
+}
+
+ul {
+    list-style-type: none;   
+}
+
+li {
+    color: black;   
+    font-weight: normal;
+}
+
+nav > ul > li {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+li.bordo {
+    color: #900B09; 
+    margin-bottom: 15px;
+}
+
+a {
+    color:  #900B09;  
+}
+
+nav {
+    width: 200px;  
+    padding: 25px 0px 0px 5px;
+}
+
+section {
+    width: 667px;
+    background-color: white; 
+    border: 1px solid gray;   
+    padding: 25px 0px 15px 5px;
+}
+
+section img {
+    float: left;
+    margin-right: 20px;
+}
+
+section .first {
+    font-weight: bold;   
+}
+
+section article {
+    margin-top: 20px; 
+    padding: 10px;
+}
+
+.buttons {
+    border-bottom:1.5px solid #9f9f9f;
+    padding: 10px 0 10px 0;
+}
+
+.buttonsBottom {
+    border-bottom:1.5px solid #9f9f9f;
+    border-top:1.5px solid #9f9f9f;
+    padding: 10px 0 10px 0;
+}
+
+.prev, .next {
+    width:90px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+aside {
+    width: 200px;
+    text-align: center;   
+    padding: 5px 0px 0px 5px;
+    background-color: white; 
+}
+
+aside div {
+    border: 1px solid gray;
+    margin: 2px;
+    padding: 5px;
+}
+
+aside input[type="search"] {
+    width: 120px;   
+}
+
+aside a {
+    display: inline-block;
+}
