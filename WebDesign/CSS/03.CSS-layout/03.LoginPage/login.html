@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Login</title>
+    <style>
+        body, header, div, form, section, h1, fieldset, p, input {            
+            margin: 0;
+            padding: 0;        
+        }
+        
+        .wrapper {
+            width: 663px;
+            height: 300px;
+            background-color: #3B3B3B;
+            border-radius: 5px;
+        }
+        
+        header {
+            border-radius: 5px;
+            background-color: #3B3B3B;  
+            color: white;  
+            font: normal 1.5em cambria;
+            padding: 10px 0 25px 10px;
+            text-align: center;
+            
+            background: -webkit-linear-gradient(#3B3B3B 0%,#3B3B3B 50%,#2D2D2D 100%);
+            background:    -moz-linear-gradient(#3B3B3B 0%,#3B3B3B 50%,#2D2D2D 100%);
+            background:      -o-linear-gradient(#3B3B3B 0%,#3B3B3B 50%,#2D2D2D 100%);
+            background:         linear-gradient(#3B3B3B 0%,#3B3B3B 50%,#2D2D2D 100%);
+        }     
+        
+        header img {
+            float: left;
+        }
+        
+        header input[type="submit"] {
+            background: url(images/btn-go.png);  
+            width: 57px;
+            height: 29px;
+            border: none;
+            color: white;
+            margin: 0 0 0 15px;   
+        }
+        
+        header input[type="text"] {
+            margin: 0 20px 0 0;   
+        }
+        
+        header label {
+            padding-right: 5px;   
+        }
+        
+        fieldset {
+            border: none;   
+        }
+        
+        div.about {
+            font-family: verdana;
+            font-size: 0.8em;
+            color: #888888;
+            padding: 15px 45px 15px 15px;
+        }
+        
+        div.about h1 {
+            padding: 0 0 20px 0;
+            color: #FBD417;
+            font: normal 2.3em cambria;
+        }  
+        
+        div.about strong {
+            font-weight: normal;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <img src="images/monitor.png" alt="icon" />
+            <form>
+                <fieldset>
+                    <label>members login:</label>
+                    <input type="text" placeholder="Your name" />
+                    <input type="email" placeholder="Email ID" />
+                    <input type="submit" value="GO" />      
+                </fieldset>
+            </form>
+        </header>
+        <div class="about">
+            <h1>about total management?</h1>
+            <p>Total Management is a free, tableless, W3C-compliant web design layout by Template World. This template has been tested and proven compatible with all major browser environments and operating systems. You are free to modify the design to suit your tastes in any way you like.</p>
+
+            <p>We only ask you to not remove <strong>"Design by Template World"</strong> and the link http://www.templateworld.com from the footer of the template.</p>
+
+            <p>If you are interested in seeing more of our free web template designs feel free to visit our website, Template World. We intend to add at least 25 new free templates in the coming month.</p>
+        </div>
+    </div>
+</body>
+</html>
