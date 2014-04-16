@@ -1,0 +1,84 @@
+body, nav, aside, li, ul, fieldset, legend, h1, h2, p {
+    margin: 0;
+    padding: 0;
+    margin: 0 auto;    
+}
+
+body {
+    font-family: Corbel;
+    width: 900px;
+    // border: 1px solid red;
+}
+
+hr {
+    border: 1px solid black; 
+    width: 90%;
+}
+
+nav {
+    text-align: center;  
+}
+
+nav a {
+    color: #00AFF0;   
+    font-weight: bold;
+    font-size: 1.7em;
+}
+
+section {
+    font-size: 1.4em;   
+    padding: 10px 0 0 10px;
+}
+
+img {
+    float: left;
+    padding: 5px 5px 5px 0;
+    
+}
+
+section ul {
+    width: 640px;
+    padding: 10px;
+    border: 2px solid black;  
+}
+
+li {
+    list-style-type: none;
+    display: inline-block;
+    margin: 5px;
+}
+
+fieldset {
+    width: 280px;
+    border: 2px solid black;
+    padding: 0 0 10px 20px;
+} 
+
+p {
+    float: left;
+    line-height: 1.5em;   
+}
+
+p:first-of-type {
+    margin-top: 20px;   
+}
+
+section, aside {
+    display: inline-block;
+}
+
+aside {
+    margin: 100px 0 0 0;
+    padding: 10px 10px 0 20px;    
+    text-align: center;
+    position: absolute;
+} 
+
+label {
+    font-size: 1.4em;    
+}
+
+input[class="slider"] {
+    padding: 5px;
+    margin-bottom: 20px
+}
