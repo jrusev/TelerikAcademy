@@ -6,8 +6,7 @@ body, nav, aside, li, ul, fieldset, legend, h1, h2, p {
 
 body {
     font-family: Corbel;
-    width: 900px;
-    // border: 1px solid red;
+    width: 920px;
 }
 
 hr {
@@ -32,8 +31,7 @@ section {
 
 img {
     float: left;
-    padding: 5px 5px 5px 0;
-    
+    padding: 5px 5px 5px 0;    
 }
 
 section ul {
@@ -75,10 +73,12 @@ aside {
 } 
 
 label {
-    font-size: 1.4em;    
+    font-size: 1.4em;  
+    display: block;
 }
 
 input[class="slider"] {
     padding: 5px;
-    margin-bottom: 20px
+    margin-bottom: 20px;
+    width: 150px;
 }

@@ -26,7 +26,7 @@
                     <img src="MacBook.png" alt="laptop"/>    
                     <p>64GB SSD</p>
                     <p>2GB DDR</p>
-                    <p class="centerAlign">1300 USD</p>
+                    <p>1300 USD</p>
                     <p>Intel Core i5</p>                
                 </fieldset>
             </li>
@@ -36,7 +36,7 @@
                     <img src="MacBook.png" alt="laptop"/>    
                     <p>64GB SSD</p>
                     <p>2GB DDR</p>
-                    <p class="centerAlign">1300 USD</p>
+                    <p>1300 USD</p>
                     <p>Intel Core i5</p>                
                 </fieldset>
             </li>
@@ -46,7 +46,7 @@
                     <img src="MacBook.png" alt="laptop"/>    
                     <p>64GB SSD</p>
                     <p>2GB DDR</p>
-                    <p class="centerAlign">1300 USD</p>
+                    <p>1300 USD</p>
                     <p>Intel Core i5</p>               
                 </fieldset>
             </li>
@@ -56,7 +56,7 @@
                     <img src="MacBook.png" alt="laptop"/>    
                     <p>64GB SSD</p>
                     <p>2GB DDR</p>
-                    <p class="centerAlign">1300 USD</p>
+                    <p>1300 USD</p>
                     <p>Intel Core i5</p>                
                 </fieldset>
             </li>
@@ -66,7 +66,7 @@
                     <img src="MacBook.png" alt="laptop"/>    
                     <p>64GB SSD</p>
                     <p>2GB DDR</p>
-                    <p class="centerAlign">1300 USD</p>
+                    <p>1300 USD</p>
                     <p>Intel Core i5</p>               
                 </fieldset>
             </li>
@@ -76,7 +76,7 @@
                     <img src="MacBook.png" alt="laptop"/>    
                     <p>64GB SSD</p>
                     <p>2GB DDR</p>
-                    <p class="centerAlign">1300 USD</p>
+                    <p>1300 USD</p>
                     <p>Intel Core i5</p>                
                 </fieldset>
             </li>
@@ -84,17 +84,22 @@
     </section>
     <aside>                        
         <form action="/" method="post">
-            <label for="min-price">Min price: 500 USD</label><br />
-            <input class="slider" type="range" name="min-price" min="500" max="1500" step="100" value="1000" /><br />
-            
-            <label for="max-price">Max price: 1500 USD</label><br />
-            <input class="slider" type="range" name="max-price" min="500" max="1500" step="100" value="1000" /><br />
-            
-            <label for="min-ram">Min RAM: 4 GB</label><br />
-            <input class="slider" type="range" name="min-ram" min="4" max="16" step="1" value="10" /><br />
-            
-            <label for="max-ram">Max RAM: 16 GB</label><br />
-            <input class="slider" type="range" name="max-ram" min="4" max="16" step="1" value="10" />
+            <div>
+                <label for="min-price">Min price: 500 USD</label>
+                <input class="slider" type="range" name="min-price" min="500" max="1500" step="100" value="1000" />
+            </div>            
+            <div>
+                <label for="max-price">Max price: 1500 USD</label>
+                <input class="slider" type="range" name="max-price" min="500" max="1500" step="100" value="1000" />
+            </div>            
+            <div>
+                <label for="min-ram">Min RAM: 4 GB</label>
+                <input class="slider" type="range" name="min-ram" min="4" max="16" step="1" value="10" />
+            </div>            
+            <div>
+                <label for="max-ram">Max RAM: 16 GB</label>
+                <input class="slider" type="range" name="max-ram" min="4" max="16" step="1" value="10" />
+            </div>
         </form>                
     </aside>
 </body>
