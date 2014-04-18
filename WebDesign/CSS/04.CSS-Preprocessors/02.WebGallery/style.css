@@ -7,7 +7,7 @@ body {
 body label img {
   width: 128px;
   height: 96px;
-  cursor:pointer;
+  cursor: pointer;
 }
 body input,
 body input + img {
