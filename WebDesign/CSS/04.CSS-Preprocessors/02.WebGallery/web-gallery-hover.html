@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Web Gallery</title>
+    <style>
+        body label img {
+            width: 128px;
+            height: 96px;
+            cursor: pointer;
+        }
+        body label + img {
+            display: none;
+        }
+        body label:hover + img {
+            display: block;
+            position: absolute;
+            width: 640px;
+        }
+    </style>
+</head>
+<body>
+	<label><img src="images/img-01.jpg"></label><img src="images/img-01.jpg">
+	<label><img src="images/img-02.jpg"></label><img src="images/img-02.jpg">
+	<label><img src="images/img-03.jpg"></label><img src="images/img-03.jpg">
+	<label><img src="images/img-04.jpg"></label><img src="images/img-04.jpg">
+	<label><img src="images/img-05.jpg"></label><img src="images/img-05.jpg">
+	<label><img src="images/img-06.jpg"></label><img src="images/img-06.jpg">
+</body>
+</html>
