@@ -1,0 +1,19 @@
+body {
+    width: 800px;
+    height: 600px;
+    margin: 20px auto 0; 
+    
+    label img {
+        width: 128px;
+        height: 96px;        
+    }
+    
+    input, input + img {
+        display: none;
+    }
+    
+    input:checked + img {
+        display: block;
+        width: 640px;
+    }
+}
