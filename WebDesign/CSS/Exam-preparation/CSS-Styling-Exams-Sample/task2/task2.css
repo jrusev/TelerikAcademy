@@ -1,0 +1,93 @@
+body, div, form, legend, label, input, nav, fieldset, button {
+    margin: 0;
+    padding: 0;
+}
+
+.invisible {
+    display: none;   
+}
+
+a.current {
+    font-weight: bold; 
+}
+
+a:not(.current):hover {
+    color: gray;   
+}
+
+body {
+    font: 19px verdana;   
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#wrapper {
+    padding: 0px 20px 20px 50px;   
+}
+
+fieldset {
+    width: 350px;
+    background: -webkit-linear-gradient(#FFFFFF, #002D44,#77D1FF);
+    background:    -moz-linear-gradient(#002D44,#77D1FF);
+    background:      -o-linear-gradient(#002D44,#77D1FF);
+    background:         linear-gradient(#FFFFFF, #FEFEFE 5%,#595959);
+    border: 5px solid black;
+    border-radius: 5px;    
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 80px 10px 10px; 
+    text-align: right;
+    margin-top: 0px;
+}
+
+legend {
+    display: block;
+    padding: 0px 10px 5px 10px;
+    font-style: italic;
+    font-size: 27px; 
+    background-color: white;
+}
+
+label {
+    margin: 0px 0px 0px 0px;    
+}
+
+input {
+    background: -webkit-linear-gradient(#002D44,#77D1FF);
+    background:    -moz-linear-gradient(#002D44,#77D1FF);
+    background:      -o-linear-gradient(#002D44,#77D1FF);
+    background:         linear-gradient(#020202,#CACACA);
+    border-radius: 15px;
+    padding: 10px;
+    border: none;
+    margin-bottom: 5px;
+    color: white;
+    margin-right: 0px;
+    
+}
+
+button {
+    background: -webkit-linear-gradient(#000000,#808080 50%, #FCFCFC);
+    background:    -moz-linear-gradient(#000000,#808080 50%, #FCFCFC);
+    background:      -o-linear-gradient(#000000,#808080 50%, #FCFCFC);
+    background:         linear-gradient(#000000,#808080 50%, #FCFCFC);
+    border-radius: 15px;
+    padding: 5px 10px 5px 10px;
+    border: 2px solid black;
+    font: 19px arial;
+    float: right;
+    margin-right: 0px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+button:hover {
+    background: -webkit-linear-gradient(#000000,#666666 50%, #CACACA);
+    background:    -moz-linear-gradient(#000000,#666666 50%, #CACACA);
+    background:      -o-linear-gradient(#000000,#666666 50%, #CACACA);
+    background:         linear-gradient(#000000,#666666 50%, #CACACA);
+}
+
