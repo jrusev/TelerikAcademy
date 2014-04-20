@@ -1,0 +1,97 @@
+body, div ul {
+    margin: 0;
+    padding: 0;
+    font-family: Cambria, 'Times New Roman', 'Nimbus Roman No9 L', 'Freeserif', Times, serif;
+}
+
+a {
+    text-decoration: none;   
+    color: black;
+}
+
+#wrapper {
+    width: 960px;
+} 
+
+.tab-strip {
+    width: 340px; 
+    height: 230px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 15px;
+}
+
+.tab-strip {
+    position: relative; 
+}
+
+.tab-strip li .tab-content {
+    display: none; 
+}
+
+.tab-strip li.current .tab-content {
+    display: block;
+    position: absolute; 
+    left: 20px;
+    margin: 15px 0px;
+}
+
+.tab-content ul li {
+    list-style-type: disc;
+}
+
+.tab-content ul li ul li {
+    list-style-type: lower-latin;
+    margin-left: 25px;
+}
+
+.tab-strip > li {
+    display: inline-block;
+}
+
+li + li .tab-btn {
+    border-left: 1px solid black;
+}
+
+.tab-btn {
+    font-size: 22px;
+    display: block;
+    padding: 5px 15px;
+    border-bottom: 1px solid black;
+    
+    background: -webkit-linear-gradient(#002D44,#77D1FF);
+    background:    -moz-linear-gradient(#002D44,#77D1FF);
+    background:      -o-linear-gradient(#002D44,#77D1FF);
+    background:         linear-gradient(#EDEDED,#ABABAB);
+    
+    border-radius: 0px 5px 5px 5px;
+}
+
+.tab-btn:hover {
+    background: #EEEEEE;
+}
+
+li.current .tab-btn {
+    font-weight: bold; 
+    border-bottom: none;
+    background: initial;
+}
+
+
+table, tr, td, th {
+    border: 1px solid black;
+    border-collapse: collapse;
+    background-color: #EEEEEE;
+}
+
+th {
+    padding: 5px 15px; 
+    background: -webkit-linear-gradient(#002D44,#77D1FF);
+    background:    -moz-linear-gradient(#002D44,#77D1FF);
+    background:      -o-linear-gradient(#002D44,#77D1FF);
+    background:         linear-gradient(#ABABAB,#EEEEEE);    
+}
+
+td {
+    padding: 5px 5px;   
+}

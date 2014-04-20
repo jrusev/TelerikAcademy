@@ -1,0 +1,81 @@
+body, div, aside, ul, li {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;    
+}
+
+#wrapper {
+    width: 960px;
+}   
+
+a {
+    text-decoration: none; 
+    color: black;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.sidebar {
+    margin: 10px 20px;
+    width: 185px;
+    border-radius: 10px;
+    padding: 5px 15px 5px 15px;
+    background: -webkit-linear-gradient(#002D44,#77D1FF);
+    background:    -moz-linear-gradient(#002D44,#77D1FF);
+    background:      -o-linear-gradient(#002D44,#77D1FF);
+    background:         linear-gradient(#D29BFF,#8977FF);
+    font-size: 22px;
+    text-align: center;
+}
+
+.sidebar > li {    
+    padding: 5px 5px 5px 0px;
+    border-bottom: 1px solid #9D00FF;
+    position: relative;
+    text-align: center;
+}
+
+.sidebar > li:last-of-type {
+    border-bottom: none;
+}
+
+li:hover {
+    border: 1px solid #9D00FF;
+    border-radius: 5px;
+}
+
+.sidebar li ul {
+    display: none;
+}
+
+.sidebar li:hover ul {
+    display: block;
+    position: absolute;
+    left: 190px;
+    top: -5px;    
+    width: 205px;
+    border-radius: 10px;    
+    background-color: #B5AAFF; 
+    font-size: 18px;
+    padding: 5px 10px 5px 20px;
+}
+
+.sidebar li:hover ul li {
+    padding: 5px 5px 5px 5px;
+    border-top: 1px solid #9D00FF;
+    text-align: center;
+}
+
+.sidebar li:hover ul li:first-of-type {
+    border-top: none;
+    background: url('imgs/arrow.png') no-repeat;
+    background-position: 0px 10px;
+}
+
+
+.sidebar li:hover ul li:hover {
+    border: 1px solid #9D00FF;
+    border-radius: 5px;
+}

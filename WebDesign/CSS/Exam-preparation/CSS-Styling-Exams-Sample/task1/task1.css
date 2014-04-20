@@ -41,10 +41,11 @@ nav > ul > li.selected {
 li.selected > ul > li {
     display: inline-block;  
 }
-
+    
 li.selected > ul {
     position: absolute;  
-    margin: 0px 0px 0px -10px;
+    margin: 0px 0px 0px 10px;
+    left: 40px;
 }
 
 ul li {
@@ -55,7 +56,7 @@ li.selected > ul > li:hover {
     background: -webkit-linear-gradient(#FFFFFF,#77D1FF);
     background:    -moz-linear-gradient(#FFFFFF,#77D1FF);
     background:      -o-linear-gradient(#FFFFFF,#77D1FF);
-    background:         linear-gradient(#115B81,#19668E);
+    background:         linear-gradient(rgba(8, 59, 88, 0.50),#19668E);
     border-radius: 15px;   
 }
     
@@ -85,7 +86,7 @@ li.selected > ul > li:hover > ul {
     background:         linear-gradient(#FFFFFF,#77D1FF);
     border-radius: 15px;
     margin: 0 0 0 -10px;
-    padding: 20px;
+    padding: 15px 20px 15px 25px;
 }
 
 #wrapper {

@@ -1,0 +1,120 @@
+body, div, h1, ul, li, p, input, button {
+    margin: 0;
+    padding: 0;
+    font-family: Cambria, 'Times New Roman', 'Nimbus Roman No9 L', 'Freeserif', Times, serif;
+    color: #555555;
+}
+
+#wrapper {
+    width: 960px;
+}
+
+#wrapper > div {    
+    width: 380px;
+    height: 463px;
+    border: 1px solid black;
+    border-radius: 15px;
+    background: -webkit-linear-gradient(#002D44,#77D1FF);
+    background:    -moz-linear-gradient(#002D44,#77D1FF);
+    background:      -o-linear-gradient(#002D44,#77D1FF);
+    background:         linear-gradient(#EEEEEE,#AAAAAA);
+    margin: 30px; 
+    text-align: center;
+}
+
+h1 {
+    font-size: 29px;  
+    margin: 15px 0 10px 0; 
+}
+
+li {
+    list-style-type: none;  
+    border-radius: 15px;
+    border: 1px solid black;
+    
+    width: 230px;
+    margin-bottom: 5px;
+    padding: 5px 0px;
+}
+
+.me-item {
+    background: -webkit-linear-gradient(#002D44,#77D1FF);
+    background:    -moz-linear-gradient(#002D44,#77D1FF);
+    background:      -o-linear-gradient(#002D44,#77D1FF);
+    background:         linear-gradient(#29EDFF,#C0FAFF);
+    margin-left: 133px;    
+}
+
+.toshko-item {
+    background: -webkit-linear-gradient(#002D44,#77D1FF);
+    background:    -moz-linear-gradient(#002D44,#77D1FF);
+    background:      -o-linear-gradient(#002D44,#77D1FF);
+    background:         linear-gradient(#DFFFD2,#6FFF3B);
+    margin-left: 15px;
+}
+
+li span:first-of-type {
+    font-weight: bold;
+    display: block;
+    text-align: left;
+    margin-left: 15px;
+    font-size: 18px;
+}
+
+.toshko-item span:first-of-type {
+    text-align: right;
+    margin-right: 15px;
+}
+
+p {
+    margin-left: 15px;
+    text-align: left;
+}
+
+.date {
+    font-family: Consolas; 
+    font-size: 0.8em;
+    display: block;
+}
+
+.me-item .date {
+    margin-left: 80px;
+}
+
+.toshko-item .date {
+    margin-left: 15px;
+    text-align: left;
+}
+
+input[type="text"] {
+    width: 245px;
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+    text-align: left;
+    font-family: Arial;
+    padding: 5px 15px;
+    background-color: #EEEEEE;
+    margin-top: 1px;
+}
+
+button {
+    font-size: 18px;
+    font-family: Arial;
+    color: black;
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: none;
+    
+    background: -webkit-linear-gradient(#002D44,#77D1FF);
+    background:    -moz-linear-gradient(#002D44,#77D1FF);
+    background:      -o-linear-gradient(#002D44,#77D1FF);
+    background:         linear-gradient(#EDEDED,#AAAAAA);
+    
+    vertical-align: middle;
+    
+}
+
+button:hover {
+    background: #EEEEEE;   
+}
