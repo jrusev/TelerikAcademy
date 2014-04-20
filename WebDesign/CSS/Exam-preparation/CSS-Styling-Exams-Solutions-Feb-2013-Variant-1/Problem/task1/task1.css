@@ -60,6 +60,10 @@ li:hover {
     background-color: #B5AAFF; 
     font-size: 18px;
     padding: 5px 10px 5px 20px;
+    
+    background-image: url('imgs/arrow.png');
+    background-repeat: no-repeat;
+    background-position: 5px 15px;
 }
 
 .sidebar li:hover ul li {
@@ -70,8 +74,6 @@ li:hover {
 
 .sidebar li:hover ul li:first-of-type {
     border-top: none;
-    background: url('imgs/arrow.png') no-repeat;
-    background-position: 0px 10px;
 }
 
 
