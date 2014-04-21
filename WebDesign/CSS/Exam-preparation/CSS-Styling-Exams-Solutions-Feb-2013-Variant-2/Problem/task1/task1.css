@@ -1,0 +1,100 @@
+body, div, ul, li, a, h1, p, table, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    width: 960px;
+    font-family: Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+    font-size: 18px;
+    color: #444444;
+}
+
+a {
+    text-decoration: none;
+    color: #444444;
+}
+
+li {
+    list-style-type: none;   
+}
+
+.accordion {
+    width: 400px;
+    margin: 50px 50px;
+}
+
+.accordion li {
+    font-size: 1.3em;   
+    font-weight: bold;
+    text-align: center;
+    padding: 0px;
+    border: 1px solid black;  
+    
+    background: -webkit-linear-gradient(#002D44,#77D1FF);
+    background:    -moz-linear-gradient(#002D44,#77D1FF);
+    background:      -o-linear-gradient(#002D44,#77D1FF);
+    background:         linear-gradient( #EEEEEE 7px,#AAAAAA 21px);
+}
+
+.accordion li:hover {
+    background: #AAAAAA;
+}
+
+.accordion > li > .accordion-content {
+    display: none;
+}
+
+.accordion > li.current > .accordion-content {
+    display: block;
+    text-align: left;
+    font-size: 0.75em;
+    font-weight: normal;
+    padding: 5px 15px;;
+    
+}
+
+.accordion-content h1 {
+    font-size: 1.65em;
+    text-align: center;
+    color: #5E5E5E;
+    padding-top: 5px;
+}
+
+.accordion-content p {
+    text-align: justify;
+    padding-top: 5px;
+}
+
+table, th, td, tr {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+table {
+    margin: 15px auto;   
+}
+
+th {
+    background: -webkit-linear-gradient(#002D44,#77D1FF);
+    background:    -moz-linear-gradient(#002D44,#77D1FF);
+    background:      -o-linear-gradient(#002D44,#77D1FF);
+    background:         linear-gradient(#ECECEC,#898989);  
+}
+
+tr:nth-of-type(odd) td {
+    background: -webkit-linear-gradient(#002D44,#77D1FF);
+    background:    -moz-linear-gradient(#002D44,#77D1FF);
+    background:      -o-linear-gradient(#002D44,#77D1FF);
+    background:         linear-gradient(#CBCBCB,#898989); 
+    color: #FFFFFF;
+}
+
+tr:nth-of-type(even) td {
+    background: -webkit-linear-gradient(#002D44,#77D1FF);
+    background:    -moz-linear-gradient(#002D44,#77D1FF);
+    background:      -o-linear-gradient(#002D44,#77D1FF);
+    background:         linear-gradient(#898989,#CBCBCB); 
+    color: #FFFFFF;
+}

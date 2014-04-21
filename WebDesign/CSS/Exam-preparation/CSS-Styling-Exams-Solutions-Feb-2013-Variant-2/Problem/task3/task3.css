@@ -1,0 +1,82 @@
+body, div, fieldset, legend, label, input, button {
+    margin: 0;
+    padding: 0;
+    color: #333333;
+}
+
+#wrapper {
+    width: 960px; 
+    font-family: Verdana, Geneva, 'DejaVu Sans', sans-serif;
+    font-size: 16px;
+    color: #333333;
+}
+
+form {
+    width: 380px;
+    border: 1px solid black;
+    border-radius: 15px;
+    margin: 25px;    
+    background: -webkit-linear-gradient(#002D44,#77D1FF);
+    background:    -moz-linear-gradient(#002D44,#77D1FF);
+    background:      -o-linear-gradient(#002D44,#77D1FF);
+    background:         linear-gradient(#68D1FF,#8CFFFB);    
+    padding: 15px;
+    text-align: right;;
+}
+
+fieldset {
+    text-align: right;
+    border: 3px solid black;
+    border-radius: 5px;
+    border-color: #333333;
+    padding: 5px 15px;
+}
+
+fieldset:last-of-type {
+    margin-bottom: 5px;
+}
+
+legend {
+    font-size: 1.3em;
+    font-style: italic;
+    padding: 0 15px;
+}
+
+input {
+    padding: 5px 15px; 
+    border: 1px solid #008FCE;
+    border-radius: 5px;    
+    background: -webkit-linear-gradient(#002D44,#77D1FF);
+    background:    -moz-linear-gradient(#002D44,#77D1FF);
+    background:      -o-linear-gradient(#002D44,#77D1FF);
+    background:         linear-gradient(#69D2FF,#8BFEFB); 
+    
+    margin-top: 1px;
+}
+
+input[type="number"] {
+    width: 25px; 
+    padding: 5px 15px 5px 5px;
+}
+
+input[type="radio"] {
+    width: auto; 
+    padding: 0;
+}
+
+button, input[type="reset"] {
+    padding: 5px 15px;
+    background: -webkit-linear-gradient(#002D44,#77D1FF);
+    background:    -moz-linear-gradient(#002D44,#77D1FF);
+    background:      -o-linear-gradient(#002D44,#77D1FF);
+    background:         linear-gradient(#36C2FF,#8BFEFB);    
+    border: none;
+    border-bottom: 1px solid black;
+    border-radius: 5px;    
+    font-size: 1.2em;
+    margin-top: 15px;    
+}
+
+button:hover, input[type="reset"]:hover {
+    background: #9BE1FF;    
+}

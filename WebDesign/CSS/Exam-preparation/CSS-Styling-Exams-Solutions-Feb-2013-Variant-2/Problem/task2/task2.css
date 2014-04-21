@@ -1,0 +1,100 @@
+body, div, ul, li, a, img, span {
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    width: 960px;   
+    font-family: 'Courier New', Courier, 'Nimbus Mono L', monospace;
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+    color: #777777;    
+}
+
+ul {
+    list-style-type: none;      
+}
+
+img {
+    width: 15px;
+}
+
+.notification-list {
+    margin: 25px;
+    width: 473px;
+    position: relative;
+}
+
+.notification-list > li {
+    display: inline-block;
+    padding: 5px 15px;
+    font-size: 1.2em;
+    border: 1px solid black;
+    border: 1px solid black;
+    
+    background: -webkit-linear-gradient(#002D44,#77D1FF);
+    background:    -moz-linear-gradient(#002D44,#77D1FF);
+    background:      -o-linear-gradient(#002D44,#77D1FF);
+    background:         linear-gradient(#ABABAB 10%,#DDDDDD 90%);
+}
+
+.notification-list > li + li {
+    border-left: none;
+}
+
+
+.notification-list > li:first-of-type {
+    border-top-left-radius: 15px;
+}
+
+.notification-list > li:last-of-type {
+    border-top-right-radius: 15px;
+    padding-right: 18px;
+}
+
+.notification-list li .content {
+    display: none;   
+}
+
+.notification-list li:hover .content {
+    width: 470px;
+    display: block;
+    position: absolute;
+    border: 1px solid black;
+    border-top: none;
+    left: 0px;
+    top: 33px;
+    font-size: 0.85em;
+    
+    background: -webkit-linear-gradient(#002D44,#77D1FF);
+    background:    -moz-linear-gradient(#002D44,#77D1FF);
+    background:      -o-linear-gradient(#002D44,#77D1FF);
+    background:         linear-gradient(#DDDDDD, #CCCCCC);
+    
+    padding: 0 0;
+    
+}
+
+.notification-list li:hover {
+    border-bottom: 1px solid #DDDDDD;   
+}
+
+.content ul li {
+    text-align: left;
+    padding: 5px 15px;   
+}
+
+.content img {
+    margin-right: 5px;   
+}
+
+strong {
+    color: #5E5E5E;   
+}
+
+.content a:hover {
+    text-decoration: underline;   
+}
