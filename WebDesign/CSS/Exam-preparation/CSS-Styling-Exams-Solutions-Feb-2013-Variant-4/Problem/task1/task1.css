@@ -1,0 +1,59 @@
+body, div, h1, img, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Constantina, Georgia, 'Nimbus Roman No9 L', serif;
+    font-size: 16px;
+}
+
+#wrapper {
+    width: 960px;   
+}
+
+#wrapper div {
+    border: 1px solid black;
+    border-radius: 15px;
+    margin: 25px;
+    background: -webkit-linear-gradient(#002D44,#77D1FF);
+    background:    -moz-linear-gradient(#002D44,#77D1FF);
+    background:      -o-linear-gradient(#002D44,#77D1FF);
+    background:         linear-gradient(#DE28FF 15%,#F9DBFF 75%);
+    width: 863px;
+    padding: 0 35px;
+    position: relative;
+}
+
+h1 {
+    margin-top: 15px;
+    font-size: 1.8em;
+}
+
+.postedby {
+    margin: 5px 15px;    
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 5px 0px 5px 15px;
+    width: 380px;
+}
+ 
+.info {
+    margin-top: 21px; 
+    margin-bottom: 31px;
+    text-align: justify;
+}
+
+.left-arrow {
+    float: left;
+    position: absolute;
+    left: 0px;
+    top: 83px;
+}
+
+.right-arrow {
+    float: right; 
+    position: absolute;
+    right: 0px;
+    top: 83px;
+}

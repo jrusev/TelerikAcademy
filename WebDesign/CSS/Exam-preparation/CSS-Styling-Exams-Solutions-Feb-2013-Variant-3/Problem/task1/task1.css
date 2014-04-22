@@ -1,0 +1,104 @@
+body, div, ul, li, span, a {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'DejaVu Sans Condensed', sans-serif;
+    font-size: 16px;
+    color: #00A1F8;
+}
+
+#wrapper {
+    width: 960px   
+}
+
+a {
+    text-decoration: none;
+    color: #00A1F8;
+}
+
+li {
+   list-style-type: none; 
+}
+
+.msg-bar {
+    margin: 205px 50px;  
+    position: relative;    
+}
+
+.msg-bar > li {
+    display: inline-block;
+    padding: 5px 15px;
+    border: 1px solid black;
+    font-size: 1.00em;
+    background: -webkit-linear-gradient(#002D44,#77D1FF);
+    background:    -moz-linear-gradient(#002D44,#77D1FF);
+    background:      -o-linear-gradient(#002D44,#77D1FF);
+    background:         linear-gradient(#AAFFEF,#13FFD2);
+    text-align: center;  
+}
+
+.msg-bar >li .msg-bar-content {
+    display: none;
+    position: absolute;
+    border: 1px solid black;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom: none;
+    left: 0;
+    top: -160px;
+    width: 460px;
+    background-color: #AAFFEF;
+    padding: 5px 0;
+}
+
+.msg-bar >li:hover {
+    background: #00DDB3;   
+    border-top: none;
+}
+
+.msg-bar >li:hover .msg-bar-content {
+    display: block;
+}
+
+.msg-bar-content ul li {
+    display: block;  
+    margin: 5px 15px;    
+}
+
+.msg-bar-content li span {
+    display: block;
+    padding: 5px;
+}
+
+.msg-bar-content li span:first-of-type {
+    border: 1px solid black;
+    border-radius: 20px;
+    text-align: right;
+    float: left;
+    padding: 5px 15px 5px 25px;
+    margin-right: 10px;
+}
+
+.msg-bar-content li span:last-of-type {
+    border-bottom: 1px solid black;
+    text-align: right;  
+    margin-left: 100px;
+    padding-right: 15px;
+}
+
+.msg-bar-content li:last-of-type span:last-of-type {
+    border-bottom: none;
+}
+
+.me-item .user {
+    background: url(imgs/me.png) no-repeat;
+    background-position: 5px;
+   
+}
+
+.other-item .user {
+    background: url(imgs/male.png) no-repeat;
+    background-position: 5px;
+}

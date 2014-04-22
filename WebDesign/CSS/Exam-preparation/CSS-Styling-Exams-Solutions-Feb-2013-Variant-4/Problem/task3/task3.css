@@ -1,0 +1,122 @@
+body, div, hgroup, h1, h2, h3, p, a {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family:  Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif ; 
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+    color: #c82d30;
+}
+
+#wrapper {
+    width: 960px;  
+    margin: 20px;
+}
+
+#wrapper > div {
+    width: 140px;
+    display: inline-block;
+    border: 2px solid #D3D7DA;
+    margin-right: -4px;
+    vertical-align: top;
+    padding: 5px 4px 0px 4px;
+}
+
+#wrapper > div:nth-of-type(even) {
+    height: 275px;
+    background: -webkit-linear-gradient(#002D44,#77D1FF);
+    background:    -moz-linear-gradient(#002D44,#77D1FF);
+    background:      -o-linear-gradient(#002D44,#77D1FF);
+    background:         linear-gradient(#FFFFFF,#F1F2F3);    
+}
+
+#wrapper > div:nth-of-type(odd) {
+    height: 255px;
+    border-left: none;
+    border-right: none;
+}
+
+#wrapper > div:first-of-type {
+    border-left: 2px solid #D3D7DA;
+}
+
+#wrapper > div:last-of-type {
+    border-right: 2px solid #D3D7DA;
+}
+
+h2, h3 {
+    font-size: 1.0em;
+}
+
+hgroup {
+    display: block;
+    margin: 5px 0; 
+    text-align: left;
+    padding-left: 40px;    
+    height: 45px;
+    position: relative;
+}
+
+#wrapper > div:nth-of-type(1) hgroup {
+    background: url(imgs/install.png) no-repeat;
+    background-position: 0px 4px;
+}
+
+#wrapper > div:nth-of-type(2) hgroup {
+    background: url(imgs/tuneUp.png) no-repeat;
+    background-position: 0px 4px;
+}
+
+#wrapper > div:nth-of-type(3) hgroup {
+    background: url(imgs/manage.png) no-repeat;
+    background-position: 0px 4px;
+}
+
+#wrapper > div:nth-of-type(4) hgroup {
+    background: url(imgs/openSource.png) no-repeat;
+    background-position: 0px 4px;
+}
+
+#wrapper > div:nth-of-type(5) hgroup {
+    background: url(imgs/twitter.png) no-repeat;
+    background-position: 0px 4px;
+}
+
+#wrapper > div:nth-of-type(6) hgroup {
+    background: url(imgs/about.png) no-repeat;
+    background-position: 0px 4px;
+}
+
+h2 {
+    position: absolute;
+    display: block;
+    top: 20px;
+}
+
+p {
+    margin-top: 11px; 
+    margin-bottom: 5px;
+}
+
+div > a {
+    display: block;
+}
+
+.yellowBox  {
+    border: 1px solid yellow;
+    background-color: #FFFFDD;
+}
+
+.yellowBox a {
+    display: inline;
+}
+
+a span {
+    text-transform:uppercase;
+}
+    

@@ -1,0 +1,72 @@
+body, div, img, ul, li, a, span {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif; 
+    font-size: 16px;
+}
+
+#wrapper {
+    width: 960px;   
+}
+
+li {
+    list-style-type: none;
+    border-bottom: 1px solid black;
+    text-align: center;
+    margin-bottom: 5px;
+} 
+
+a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    display: block;
+}
+
+#wrapper > div {
+    width: 700px;
+    margin: 15px;  
+    background-color: #CCCCCC;
+    border-radius: 5px;
+    position: relative;
+}
+
+.holder {
+    padding: 10px;
+}
+
+.holder img {
+    border-radius: 5px;
+    width: 550px;
+}
+
+.playlist {
+    float: right;
+    position: absolute;
+    left: 570px;
+    top: 15px; 
+}
+
+.playlist li {
+    text-align: center;
+    display: block;
+    padding: 0 2px 0 8px;
+}
+
+.playlist li:hover a {
+    text-decoration: underline;
+}
+
+li img {
+    border-radius: 10px;
+}
+
+span { 
+    display: block;
+    margin-top: -5px;
+    margin-bottom: 5px;
+    
+}

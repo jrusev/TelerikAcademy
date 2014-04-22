@@ -1,0 +1,100 @@
+body, div, form, fieldset, legend, label, input, button {
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    width: 960px;   
+}
+
+body {
+    font-family: Cambria, 'Palatino Linotype', 'Book Antiqua', 'URW Palladio L', serif;
+    font-size: 18px;
+}
+
+form {
+    width: 425px;
+    border: 1px solid #444444;
+    border-radius: 15px;
+    margin: 30px 30px;
+    background: -webkit-linear-gradient(#002D44,#77D1FF);
+    background:    -moz-linear-gradient(#002D44,#77D1FF);
+    background:      -o-linear-gradient(#002D44,#77D1FF);
+    background:         linear-gradient(#EBFF5B,#444444);
+    color: white;
+    padding: 15px 15px;
+    text-align: right;
+}
+
+fieldset {
+    border: 4px solid #555555;
+    border-radius: 5px;
+    text-align: right; 
+    padding: 5px 15px;
+    margin: 0 5px;    
+}
+
+legend {
+    font-size: 1.3em;  
+    font-style: italic;
+    font-weight: bold;
+    padding: 0px 15px;    
+}
+
+fieldset input {
+    padding: 5px 15px;  
+    border: 3px solid #444444;
+    border-radius: 5px;
+    background: -webkit-linear-gradient(#002D44,#77D1FF);
+    background:    -moz-linear-gradient(#002D44,#77D1FF);
+    background:      -o-linear-gradient(#002D44,#77D1FF);
+    background:         linear-gradient(#EBFF5B,#444444);
+    color: white;
+    width: 170px;
+    margin-top: 5px;
+    height: 20px 
+}
+S
+fieldset label {
+    display: inline-block;   
+}
+
+fieldset:last-of-type {
+    margin-bottom: 10px; 
+}
+
+input[type="number"] {
+    width: 45px;
+    padding: 5px 0 5px 5px;
+    text-align: left;
+}
+
+button, input[type="reset"] {
+    display: inline-block;
+    font-size: 1.2em;
+    padding: 5px 15px;
+    border-radius: 10px;
+    border: none;
+    border-bottom: 1px solid black;
+    margin-top: 15px;
+    
+    background: -webkit-linear-gradient(#002D44,#77D1FF);
+    background:    -moz-linear-gradient(#002D44,#77D1FF);
+    background:      -o-linear-gradient(#002D44,#77D1FF);
+    background:         linear-gradient(#E3FD28,#464644);
+    
+    color: #333333;
+}
+
+button:hover, input[type="reset"]:hover {
+    background: #F1FF8E;
+}
+
+input[type="radio"] {
+    display: none;  
+}
+
+input:checked + label {
+    font-weight: bold;
+    font-size: 1.1em;
+}
