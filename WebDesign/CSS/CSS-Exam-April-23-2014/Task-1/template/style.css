@@ -1,0 +1,82 @@
+body, div, header, h1, nav, ul, li, a, article, p {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #575E5B;
+}
+
+#wrapper {
+	width: 960px;
+	margin: 0 auto;
+    padding: 0px 5px;
+}
+
+.clear {
+	clear: both;
+}
+
+
+a {
+    text-decoration: none;
+    color: #C6C6C6;
+}
+
+header {
+    padding: 15px 15px; 
+    background: url(images/header-bg.png);
+}
+
+header h1 {
+    font-size: 16px;
+    text-transform: uppercase;
+    float: left;
+}
+
+nav  {
+    float: right;  
+    margin-top: 2px;
+}
+
+nav ul li {
+    display: inline-block;
+    list-style-type: none;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+#searchBar {
+    background-color: black; 
+    padding: 8px;
+    padding-left: 8px;
+}
+
+#archives {
+    font-size: 16px;   
+}
+
+#archives {
+    color: #C6C6C6;
+    float: left;
+}
+
+#search {
+    float: right;  
+    margin-top: 2px;
+}
+
+
+#searchBar, nav, a, p  {
+    font-size: 14px;      
+}
+
+#content h1 {
+    font-size: 24px; 
+    padding: 15px 0;
+}
+
+p {
+   padding-bottom: 15px; 
+}

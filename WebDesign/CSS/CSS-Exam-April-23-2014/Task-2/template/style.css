@@ -1,0 +1,92 @@
+html, body, div, ul, a, p, li, h3 {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Courier New', Courier, 'Nimbus Mono L', monospace;   
+    font-size: 16px;
+}
+
+#wrapper {
+    width: 960px;   
+}
+
+.menu {
+    margin: 5px;   
+}
+
+a {
+    text-decoration: none;      
+}
+
+.menu > li  {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    
+    background: -webkit-linear-gradient(#25DCF2,#7994E2);
+    background:    -moz-linear-gradient(#25DCF2,#7994E2);
+    background:      -o-linear-gradient(#25DCF2,#7994E2);
+    background:         linear-gradient(#25DCF2,#7994E2);
+    
+    vertical-align: top;
+}
+
+.menu > li:hover {
+    font-size: 1.5em;
+    padding: 10px 45px;
+}
+
+.menu li .content {
+    display: none;
+    position: absolute;
+    
+}
+
+.menu li:hover .content {
+    display: block;
+}
+
+.content {
+    padding: 20px 20px 10px 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-left: -25px;
+    
+    background: -webkit-linear-gradient(#FEFFFF,#A0D8EF);
+    background:    -moz-linear-gradient(#FEFFFF,#A0D8EF);
+    background:      -o-linear-gradient(#FEFFFF,#A0D8EF);
+    background:         linear-gradient(#FEFFFF,#A0D8EF);    
+}
+   
+p {
+    font-size: 16px; 
+    margin-top: 18px;
+    margin-bottom: 16px
+}
+
+h3 {
+    margin-top: 9px;
+    font-size: 0.8em;  
+    text-decoration: underline;
+}
+
+.bold {
+    font-weight: bold;   
+}
+
+.content ul {
+    margin-top: 20px;   
+}
+
+.content li {
+    list-style-type: square;
+    font-size: 16px; 
+}
+
+.content ul li a:hover {
+    text-decoration: underline;
+}
+

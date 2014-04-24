@@ -1,0 +1,110 @@
+html, body, div, h1, h2, ul, li, span, input, button {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 18px;  
+    font-family: Arial;
+    color: #2AA0BD;
+}
+
+#root {
+    width: 610px;
+    text-align: center;
+    padding: 4px 7px;
+}
+
+li {
+    list-style-type: none;   
+}
+
+h1 {
+    padding: 4px;
+    font-style: italic;
+    font-size: 1.9em;
+}
+
+.chat-container {
+    display: inline-block;
+    width: 300px;
+    height: 500px;
+    background: -webkit-linear-gradient(#4AE871 50%,#F1FFBC 75%);
+    background:    -moz-linear-gradient(#4AE871 50%,#F1FFBC 75%);
+    background:      -o-linear-gradient(#4AE871 50%,#F1FFBC 75%);
+    background:         linear-gradient(#4AE871 50%,#F1FFBC 75%);
+    border-radius: 5px;
+    margin-top: 19px;
+    border: 1px solid #CCCCCC;
+}
+
+h2 {
+    margin-top: 22px;  
+    margin-bottom: 40px;
+}
+
+.me {
+    text-align: left;
+}
+
+.other {
+    text-align: right;   
+}
+
+strong {
+    font-style: italic;
+    display: block;
+    font-size: 16px;    
+}
+
+.messages {
+    margin: 0 14px; 
+    height: 369px
+}
+
+.messages ul li {
+    border-bottom: 1px solid #333333;  
+    display: block;
+    padding: 1px 0;    
+}
+
+.messages ul li:last-of-type {
+    border-bottom: none;  
+}
+
+.sent-message {
+        
+}
+
+input {
+    font-size: 1.1em;
+    padding: 0px 0px;
+    width: 170px;
+    margin-left: -10px;
+    padding: 0 15px;
+    color: #2AA0BD;
+} 
+
+input, button {
+    height: 34px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border: 1px solid #CCCCCC;
+    background-color:transparent;
+}
+
+button {
+    font-size: 1.1em;
+    color: #2AA0BD;
+    padding: 4px 5px;
+    height: 36px;
+    width: 75px;
+}
+
+button:hover {
+    background: -webkit-linear-gradient(#4AE871 50%,#F1FFBC 75%);
+    background:    -moz-linear-gradient(#4AE871 50%,#F1FFBC 75%);
+    background:      -o-linear-gradient(#4AE871 50%,#F1FFBC 75%);
+    background:         linear-gradient(#4AE871 50%,#F1FFBC 75%);
+}
+    
