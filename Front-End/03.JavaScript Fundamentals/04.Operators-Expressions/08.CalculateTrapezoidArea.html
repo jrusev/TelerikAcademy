@@ -1,0 +1,20 @@
+<script>
+    // Write an expression that calculates trapezoid's area by given sides a and b and height h.
+
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).    
+    function trapezoidArea(a, b, h) {
+        return (a + b) * h / 2 ;   
+    }
+    
+    var a, b, h;
+    
+    a = 2;
+    b = 3;
+    h = 4;
+    console.log('The area of trapezoid (' + a + ' x ' + b + ' x ' + h + ') is ' + trapezoidArea(a, b, h));
+    
+    a = 2.2;
+    b = 3.3;
+    h = 4.4;
+    console.log('The area of trapezoid (%f x %f x %f) is %f', a, b, h, trapezoidArea(a, b, h));
+</script>

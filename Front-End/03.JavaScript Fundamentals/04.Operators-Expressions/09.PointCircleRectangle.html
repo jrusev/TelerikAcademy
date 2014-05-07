@@ -1,0 +1,32 @@
+<script>
+    // Write an expression that checks for given point (x, y) if it is within the circle K( (1,1), 3)
+    // and out of the rectangle R(top=1, left=-1, width=6, height=2).
+
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).    
+    function isInCircle(px, py, kx, ky, kr) {
+        return Math.pow(px - kx, 2) + Math.pow(py - ky, 2) < Math.pow(kr, 2)
+    }
+    
+    function isOutOfRectangle(px, py, rx, ry, rw, rh) {
+        return px < rx || (px > rx + rw) || py > ry || py < ry - rh
+    }
+    
+    var px = 0;
+    var py = 2;
+
+    var kx = 1;
+    var ky = 1;
+    var kr = 3;
+
+    var rx = -1;
+    var ry = 1;
+    var rw = 6;
+    var rh = 2;    
+    
+    console.log('Is in circle and out of rectangle p(%d,%d): %s',
+                px,
+                py,
+                isInCircle(px, py, kx, ky, kr)
+                &&
+                isOutOfRectangle(px, py, rx, ry, rw, rh));
+</script>

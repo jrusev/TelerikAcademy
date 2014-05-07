@@ -1,0 +1,27 @@
+<script>
+    // Write an expression that checks for given integer if its third digit (right-to-left) is 7. E. g. 1732 -> true.
+    
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).
+    var num;
+    
+    // Using convert to string
+    function checkThirdDigit(num) {
+        var asStr = "" + num;
+        if (asStr.length < 3)
+            return false;
+        return asStr[asStr.length - 3] == 7;
+    }
+    console.log('Check if the third digit (right-to-left) of a given integer is 7:');
+    
+    num = 1732;
+    console.log(num + ' -> ' + checkThirdDigit(num));  
+    
+    num = 7;
+    console.log(num + ' -> ' + checkThirdDigit(num));    
+    
+    num = 7111;
+    console.log(num + ' -> ' + checkThirdDigit(num));  
+    
+    num = 700;
+    console.log(num + ' -> ' + checkThirdDigit(num)); 
+</script>

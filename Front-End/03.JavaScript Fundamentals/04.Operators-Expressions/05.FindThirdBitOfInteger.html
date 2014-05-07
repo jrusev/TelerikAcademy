@@ -1,0 +1,16 @@
+<script>
+    // Write a boolean expression for finding if the bit 3 (counting from 0) of a given integer is 1 or 0.
+    
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).
+    function checkBitThree(num) {
+        return (num >> 3) & 1; 
+    }
+    
+    function printBit(num) {
+      console.log('Bit 3 of ' + num + ' (x' + num.toString(2) +') is ' + checkBitThree(num)); 
+    }
+    
+    printBit(7);
+    printBit(8);
+    printBit(12);
+</script>

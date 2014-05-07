@@ -1,0 +1,17 @@
+<script>
+    // Write an expression that checks if given point (x, y) is within a circle K(O, 5).
+    
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).
+    var r = 5;
+    
+    function inCircle(x, y, r) {
+        return (x * x + y * y < r * r); 
+    }
+    
+    function printInCircle(x,y) {
+        console.log('Point (%d,%d) is%s within a circle with radius %d', x, y, inCircle(x, y, r) ? '' : ' not', r)
+    }
+    
+    printInCircle(1,2);
+    printInCircle(10,20);
+</script>

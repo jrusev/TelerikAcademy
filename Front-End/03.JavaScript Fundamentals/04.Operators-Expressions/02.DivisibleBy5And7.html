@@ -1,0 +1,12 @@
+<script>
+    // Write a boolean expression that checks for given integer if it can be divided (without remainder) by 7 and 5 in the same time.
+    
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).
+    function divisibleBy(num, div1, div2) {
+        var isDivisible = (num % div1 === 0) && (num % div2 === 0);
+        console.log(num + ' is ' + (isDivisible ? '' : 'not ') + 'divisible by 5 and 7 at the same time.');
+    }    
+
+    divisibleBy(21, 5, 7);
+    divisibleBy(70, 5, 7);
+</script>

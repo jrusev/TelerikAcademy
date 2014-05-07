@@ -1,0 +1,17 @@
+<script>
+    // Write an expression that checks if given positive integer number n (n ≤ 100) is prime. E.g. 37 is prime.
+
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).    
+    function isPrime(num) {
+        var limit = Math.sqrt(num);
+        for (var i = 2; i <= limit; i++ ) {
+            if (num % i === 0)
+                return false;
+        }
+        return true;      
+    }
+
+    console.log(37 + ' is prime: ' + isPrime(37));
+    console.log(24 + ' is prime: ' + isPrime(24)); 
+    console.log(9 + ' is prime: ' + isPrime(9));     
+</script>
