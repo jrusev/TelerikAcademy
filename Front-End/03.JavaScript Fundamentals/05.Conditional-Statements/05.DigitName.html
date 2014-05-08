@@ -1,0 +1,28 @@
+<script>
+    // Write a script that asks for a digit and depending on the input shows the name of that digit (in English) using a switch statement.
+
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).
+    
+    function digitName(digit) {
+        var name;
+        switch (digit) {
+            case 0: name = 'Zero'; break;
+            case 1: name = 'One'; break;
+            case 2: name = 'Two'; break;
+            case 3: name = 'Three'; break;
+            case 4: name = 'Four'; break;
+            case 5: name = 'Five'; break;
+            case 6: name = 'Six'; break;
+            case 7: name = 'Seven'; break;
+            case 8: name = 'Eight'; break;
+            case 9: name = 'Nine'; break;
+            default: console.log('Error!'); return;
+        } 
+        
+        console.log('%d -> %s', digit, name);
+    }
+    
+    for (var d = 0; d <= 9; d++) {
+        digitName(d);
+    }   
+</script>

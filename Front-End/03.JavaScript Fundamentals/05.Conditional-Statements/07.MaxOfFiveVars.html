@@ -1,0 +1,17 @@
+<script>
+    // Write a script that finds the greatest of given 5 variables.
+
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).
+    var nums = [5];
+    
+    function findMax(nums) {
+        var max = nums[0];
+        for (var i = 1; i < nums.length; i++)
+            if (nums[i] > max) max = nums[i];
+        
+        console.log(nums.join(', ') + ' -> max = ' + max);
+    }
+    
+    nums = [2, 3,-4, 14, 10];
+    findMax(nums);
+</script>

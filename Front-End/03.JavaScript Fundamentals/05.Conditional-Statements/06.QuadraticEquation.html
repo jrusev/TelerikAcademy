@@ -1,0 +1,35 @@
+<script>
+    // Write a script that enters the coefficients a, b and c of a quadratic equation
+	//	a*x^2 + b*x + c = 0
+    // ...and calculates and prints its real roots.
+
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).
+    function solveQuadratic(a, b, c) {
+        console.log('%f*x^2 + %f*x + %f = 0', a, b, c);
+        
+        if (a == 0) {
+            console.log('This is not a quadratic equation!');
+            return;
+        }
+        
+        var D = (b * b) - (4 * a * c);
+        var x1, x2;
+
+        if (D < 0) {
+            console.log("The equation has no real roots.");
+        }
+        else if (D == 0) {
+            x1 = -b / (2 * a);
+            console.log("The equation has one real root x = %f.", x1);
+        }
+        else {
+            x1 = (-b + Math.sqrt(D)) / (2 * a);
+            x2 = (-b - Math.sqrt(D)) / (2 * a);
+            console.log("The real roots are x1 = %f and x2 = %f.", x1, x2);
+        }        
+    }
+    
+    solveQuadratic(2, 4, -30);
+    solveQuadratic(2, 4, 2);
+    solveQuadratic(0, 1, 2);    
+</script>

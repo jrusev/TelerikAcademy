@@ -1,0 +1,51 @@
+<script>
+    // Sort 3 real values in descending order using nested if statements.
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).
+    
+    function sortThree(a, b, c) {
+        // We will create an array with 3 elements, which will store the numbers in descending order
+        var arr = [3]; // arr[0] > arr[1] > arr[2]
+        if (a > b) {
+            if (a > c) {
+                arr[0] = a; // a>b, a>c
+                if (b>c) {
+                    arr[1] = b;
+                    arr[2] = c;               
+                }
+                else {
+                    arr[1] = c;
+                    arr[2] = b;
+                }
+            }
+            else {
+                arr[0] = c; // a>b, c>a
+                arr[1] = a;
+                arr[2] = b;
+            }
+        }
+        else {
+            if (b > c) {
+                arr[0] = b; // b>a, b>c
+                if (a > c) {
+                    arr[1] = a;
+                    arr[2] = c;
+                }
+                else {
+                    arr[1] = c;
+                    arr[2] = a;
+                }
+            }
+            else {
+                arr[0] = c; // b>a, c>b
+                arr[1] = b;
+                arr[2] = a;
+            }
+        }
+ 
+        console.log('(%f, %f, %f) -> (%f, %f, %f)', a, b, c, arr[0], arr[1], arr[2]);
+    }
+    
+    console.log('Sort 3 real numbers in descending order:');
+    sortThree(0.3, 2.14, 8);
+    sortThree(99, 8, 23.6);
+</script>
