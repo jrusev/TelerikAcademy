@@ -1,6 +1,73 @@
 <script>
     // Write a script that converts a number in the range [0...999] to a text corresponding to its English pronunciation.
 
-    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12). 
+    
+    function getDigit(num, d) {
+        return Math.floor(num / (Math.pow(10, d)) % 10)
+    }
 
+    // [0;99] converts to text all numbers from 0 to 99
+    function Num2Text_0_99(num)  {
+        var digitText;
+        var digitUnits = getDigit(num, 0);
+        var digitTens = getDigit(num, 1);
+
+        if (num <= 9) {
+            digitText = Digit2Text(digitUnits);
+        }
+        else if (num <= 19) {
+            digitText = Num2Text_10_19(num);
+        }
+        else if (num <= 99) {
+            digitText = (digitUnits == 0) ? Tens2Text(digitTens) : (Tens2Text(digitTens) + " " + Digit2Text(digitUnits));
+        }
+        else { // 100 - 999
+            digitText = "??";
+        }
+        return digitText;
+    }
+
+    // [0;9]
+    function Digit2Text(singleDigit) { 
+        var units = ['zero','one','two','three','four','five','six','seven','eight','nine'];
+        return units[singleDigit];
+    }
+
+    // [10;19]
+    function Num2Text_10_19(number10_19) {
+        var teens = ['ten','eleven', 'twelve','thirteen','fourteen','fifteen','sixteen', 'seventeen', 'eighteen', 'nineteen'];
+        return teens[number10_19 - 10];
+    }
+
+    // [2;9] for the first digit of numbers from 20 to 99
+    function Tens2Text(singleDigit) {
+        var tens = ['twenty','thirty','fourty','fifty','fifty','seventy','eighty','ninety'  ];
+        return tens[singleDigit-2];
+    }
+
+    // [1;9] for the hundreds digit
+    function Digit2Text100(singleDigit) {
+        var hundreds = ['one hundred','two hundred','three hundred','four hundred','five hundred','six hundred','seven hundred','eight hundred','nine hundred'];
+        return hundreds[singleDigit -1];
+    }
+    
+    for (var number = 0; number <= 999; number++) {        
+        var digitUnits = getDigit(number, 0);
+        var digitTens = getDigit(number, 1);
+        var digitHundreds = getDigit(number, 2);
+
+        if (number <= 99) {
+            console.log(Num2Text_0_99(number));
+        }
+        else { // 100 - 999
+            var tens = number % 100; // for example (235 % 100 = 35)
+            if (tens == 0) {
+                console.log(Digit2Text100(digitHundreds));
+            }
+            else {
+                console.log("%s and %s", Digit2Text100(digitHundreds), Num2Text_0_99(tens));
+            }
+        }
+    }
 </script>
