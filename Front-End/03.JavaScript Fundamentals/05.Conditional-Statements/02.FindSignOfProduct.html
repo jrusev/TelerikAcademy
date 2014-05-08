@@ -1,0 +1,16 @@
+<script>
+    // Write a script that shows the sign (+ or -) of the product of three real numbers without calculating it.
+
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).
+    console.log('Display the sign of the product of three numbers:');
+    
+    function signOfProduct(a, b, c) {
+        console.log('a = %d; b = %d; c = %d; -> %s',
+                    a, b, c, (a < 0 ^ b < 0 ^ c < 0) ? '(-)' : '(+)');  
+    }
+    
+    signOfProduct(2, 3, 4);
+    signOfProduct(2, 3, -4);
+    signOfProduct(-2, 3, -4);
+    signOfProduct(-2, -3, -4);
+</script>

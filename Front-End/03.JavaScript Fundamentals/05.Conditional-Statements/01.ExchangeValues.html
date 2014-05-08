@@ -1,0 +1,24 @@
+<script>
+    // Write an if statement that examines two integer variables and exchanges their values if the first one is greater than the second one.
+
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).    
+    var pair = {}; // an object to hold the two variables
+    
+    // To do the swap in a function, we need to pass an object,
+    // which holds the two vars, because arguments are passed by value
+    function swap(obj) {
+        if (obj.a > obj.b) {            
+            var tmp = obj.a;
+            obj.a = obj.b;
+            obj.b = tmp;
+        }
+    }
+    
+    // The two variables
+    pair.a = 6;
+    pair.b = 2; 
+    
+    console.log('a = ' + pair.a + '; b = ' + pair.b);  
+    swap(pair);
+    console.log('a = ' + pair.a + '; b = ' + pair.b); 
+</script>

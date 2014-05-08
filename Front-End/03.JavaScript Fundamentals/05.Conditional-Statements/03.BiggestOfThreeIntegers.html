@@ -1,0 +1,21 @@
+<script>
+    // Write a script that finds the biggest of three integers using nested if statements.
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).
+    
+    function bigOfThree(a, b, c) {
+        var max;
+        if (a > b) {
+            if (a > c) max = a;
+            else max = c;     
+        }
+        else {
+            if (b > c) max = b;     
+            else max = c;    
+        }        
+        console.log('(%d, %d, %d) -> max = %d', a, b, c, max);        
+    }
+
+    bigOfThree(1, 2, 3);
+    bigOfThree(4, 1, 3);
+    bigOfThree(-2, 8, 0);
+</script>
