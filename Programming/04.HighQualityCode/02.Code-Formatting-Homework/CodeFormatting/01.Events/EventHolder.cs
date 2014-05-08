@@ -4,8 +4,8 @@ using Wintellect.PowerCollections;
 
 public class EventHolder
 {
-    private MultiDictionary<string, Event> dictByTitle;
-    private OrderedBag<Event> orderedByDate;
+    private readonly MultiDictionary<string, Event> dictByTitle;
+    private readonly OrderedBag<Event> orderedByDate;
 
     public EventHolder()
     {
