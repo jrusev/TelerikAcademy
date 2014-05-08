@@ -3,26 +3,24 @@ using System.Text;
 
 public class Event : IComparable
 {
+    private readonly DateTime date;
+    private readonly string title;
+    private readonly string location;
+
     public Event(DateTime date, string title, string location)
     {
-        this.Date = date;
-        this.Title = title;
-        this.Location = location;
+        this.date = date;
+        this.title = title;
+        this.location = location;
     }
-
-    public DateTime Date { get; private set; }
-
-    public string Title { get; private set; }
-
-    public string Location { get; private set; }
 
     public int CompareTo(object obj)
     {
         Event other = obj as Event;
 
-        int compareByDate = this.Date.CompareTo(other.Date);
-        int compareByTitle = this.Title.CompareTo(other.Title);
-        int compareByLocation = this.Location.CompareTo(other.Location);
+        int compareByDate = this.date.CompareTo(other.date);
+        int compareByTitle = this.title.CompareTo(other.title);
+        int compareByLocation = this.location.CompareTo(other.location);
 
         if (compareByDate == 0)
         {
@@ -44,11 +42,11 @@ public class Event : IComparable
     public override string ToString()
     {
         StringBuilder toString = new StringBuilder();
-        toString.Append(this.Date.ToString("yyyy-MM-ddTHH:mm:ss"));        
-        toString.Append(" | " + this.Title);
-        if (this.Location != null && this.Location != string.Empty)
+        toString.Append(this.date.ToString("yyyy-MM-ddTHH:mm:ss"));        
+        toString.Append(" | " + this.title);
+        if (this.location != null && this.location != string.Empty)
         {
-            toString.Append(" | " + this.Location);
+            toString.Append(" | " + this.location);
         }
             
         return toString.ToString();
