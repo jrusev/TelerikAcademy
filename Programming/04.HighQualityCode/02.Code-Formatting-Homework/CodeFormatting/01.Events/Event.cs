@@ -41,14 +41,14 @@ public class Event : IComparable
 
     public override string ToString()
     {
-        StringBuilder toString = new StringBuilder();
-        toString.Append(this.date.ToString("yyyy-MM-ddTHH:mm:ss"));        
-        toString.Append(" | " + this.title);
+        StringBuilder result = new StringBuilder();
+        result.Append(this.date.ToString("yyyy-MM-ddTHH:mm:ss"));        
+        result.Append(" | " + this.title);
         if (this.location != null && this.location != string.Empty)
         {
-            toString.Append(" | " + this.location);
+            result.Append(" | " + this.location);
         }
             
-        return toString.ToString();
+        return result.ToString();
     }
 }
