@@ -1,0 +1,20 @@
+<script>
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).
+    
+    // Write a script that finds the max and min number from a sequence of numbers
+    var nums = [2, 11, 83, -2, 10];
+    
+    function minMax(nums) {
+        var min, max, i;
+        min = max = nums[0];
+        for (i = 0; i < nums.length; i++) {
+            min = Math.min(nums[i], min);
+            max = Math.max(nums[i], max);
+        }
+
+        console.log(nums);
+        console.log("min = %d, max = %d", min, max);
+    }
+    
+    minMax(nums);
+</script>
