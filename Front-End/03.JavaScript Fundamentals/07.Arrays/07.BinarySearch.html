@@ -1,0 +1,37 @@
+<script>
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).
+    
+    // Write a program that finds the index of given element in a sorted array of integers
+    // by using the binary search algorithm.
+    var arr = [2, 5, 7, 12, 18, 22];
+    var item, index;
+
+    function binarySearch(item) {
+        var min, max, mid;
+        min = 0;
+        max = arr.length;    
+        while (min < max) {
+            mid = min + Math.floor((max - min) / 2); 
+            if (item == arr[mid]) {
+                break;   
+            }
+
+            if (item < arr[mid]) {
+                max = mid;        
+            }
+            else {
+                min = mid;        
+            }        
+        } 
+        
+        return mid;
+    }
+    
+    console.log(arr);
+    
+    for (var i = 0; i < arr.length; i++) {
+        item = arr[i];
+        index = binarySearch(item);
+        console.log("searched item %d -> index = %d", item, index);
+    }
+</script>
