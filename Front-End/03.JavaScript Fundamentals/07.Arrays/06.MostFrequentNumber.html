@@ -1,0 +1,30 @@
+<script>
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).
+    
+    // Write a program that finds the most frequent number in an array.
+    // Example: {4, 1, 1, 4, 2, 3, 4, 4, 1, 2, 4, 9, 3} -> 4 (5 times)    
+    function mostFreqNum(arr) {
+        var count = {};    
+        var maxKey = arr[0];
+        var i, key;
+        
+        for (i = 0; i < arr.length; i++) {
+            key = arr[i];
+            if (count[key] == undefined) {
+                count[key] = 1;
+            }
+            else {
+                count[key]++;                
+            }
+
+            if (count[key] > count[maxKey]) {
+                maxKey = key;
+            }
+        }
+
+        console.log(arr);
+        console.log("Most frequent number: %d (%d times)", maxKey, count[maxKey]);  
+    }
+    
+    mostFreqNum([4, 1, 1, 4, 2, 3, 4, 4, 1, 2, 4, 9, 3]);
+</script>
