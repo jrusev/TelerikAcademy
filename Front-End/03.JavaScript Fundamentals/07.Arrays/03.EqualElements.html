@@ -1,0 +1,36 @@
+<script>
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).
+    
+    // Write a script that finds the maximal sequence of equal elements in an array.
+	// Example: {2, 1, 1, 2, 3, 3, 2, 2, 2, 1} -> {2, 2, 2}.
+    var arr = [2, 1, 1, 2, 3, 3, 2, 2, 2, 1];
+    var maxSequence = [];
+    
+    function getMaxSequence(arr) {
+        var i, len, maxLen, maxIndex;
+        maxLen = 0;
+
+        for (i = 1; i < arr.length; i++) {
+            if (arr[i] === arr[i - 1]) {
+                len++;
+                if (len > maxLen) {
+                    maxLen = len;
+                    maxIndex = i - maxLen + 1;
+                }
+            } else {
+                len = 1;
+            }
+        }
+
+        var seq = [];
+        for (i = maxIndex; i < maxIndex + maxLen; i++) {
+            seq.push(arr[i]);
+        } 
+        
+        return seq;
+    }
+    
+    console.log(arr.toString());
+    maxSequence = getMaxSequence(arr);
+    console.log("Max sequence of equal elements: %s", maxSequence.toString());
+</script>
