@@ -1,0 +1,28 @@
+<script>
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).
+    
+    // Write a script that compares two char arrays lexicographically (letter by letter).
+
+    function compareArrays(arr1, arr2) {
+        var shorter = arr1.length < arr2.length ? arr1.length : arr2.length;
+        var i;
+        for (i = 0; i < shorter; i++) {
+            if (arr1[i] == arr2[i]) continue;
+            return arr1[i] > arr2[i] ? 1 : -1;
+        }
+        
+        return arr1.length === arr2.length ? 0 : arr1.length > arr2.length ? 1 : -1
+    }
+    
+    function printComparison(arr1, arr2) {        
+        var result = compareArrays(arr1, arr2);
+        // may not print correctly in IE !
+        console.log("%o %s %o", arr1, result == 0 ? "=" : result == 1 ? ">" : "<" , arr2)
+    }
+    
+    console.log("Compare two char arrays lexicographically (letter by letter):");
+    printComparison(['a'], ['b']);
+    printComparison(['a', 'b'], ['a', 'c']);
+    printComparison(['a', 'b'], ['a', 'b', 'c']);
+    printComparison(['a', 'b', 'c'], ['a', 'b', 'c']);
+</script>
