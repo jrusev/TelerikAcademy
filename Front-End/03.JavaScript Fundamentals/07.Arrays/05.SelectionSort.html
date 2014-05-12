@@ -13,8 +13,12 @@
     function sort(arr) {
         var i, j, min;
         for (i = 0; i < arr.length; i++) {
-            for (j = i + 1, min = i; j < arr.length; j++)            
-                if (arr[j] < arr[min]) min = j;
+            min = i;
+            for (j = i + 1; j < arr.length; j++) {
+                if (arr[j] < arr[min])
+                    min = j;
+            }
+                
             if (min != i)
                 swap(arr, i, min);        
         }
