@@ -21,16 +21,11 @@
                 len = 1;
             }
         }
-
-        var seq = [];
-        for (i = maxIndex; i < maxIndex + maxLen; i++) {
-            seq.push(arr[i]);
-        } 
         
-        return seq;
+        return arr.slice(maxIndex, maxIndex + maxLen);
     }
     
-    console.log(arr.toString());
+    console.log(arr);
     maxSequence = getMaxSequence(arr);
     console.log("Max sequence of equal elements: %s", maxSequence.toString());
 </script>
