@@ -1,0 +1,30 @@
+<script>
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).
+    
+    // Write a function that returns the last digit of given integer as an English word.
+    // Examples: 512 -> "two", 1024 -> "four", 12309 -> "nine"    
+    
+    function lastDigit(num) {
+        var str = '' + num;
+        return parseInt(str[str.length - 1]);
+    }
+    
+    function digitToText(digit) { 
+        var units = ['zero','one','two','three','four','five','six','seven','eight','nine'];
+        return units[digit];
+    }
+    
+    function lastDigitToText(num) {
+        var digit = lastDigit(num);
+        return digitToText(digit);  
+    }
+    
+    function printResult(num) {
+        console.log(num + " -> " + lastDigitToText(num));  
+    }
+    
+    console.log("Last digit of given integer as an English word:");
+    printResult(512);
+    printResult(1024);
+    printResult(12309);
+</script>
