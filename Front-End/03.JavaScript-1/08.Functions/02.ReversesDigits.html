@@ -1,0 +1,14 @@
+<script>
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).
+    
+    // Write a function that reverses the digits of given decimal number. Example: 256 -> 652
+    function reverseString(s) {
+        return s.split('').reverse().join('');
+    }
+    
+    function printResult(num) {
+        console.log(num + " -> " + reverseString(num.toString()));
+    }    
+
+    printResult(256);
+</script>
