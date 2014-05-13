@@ -1,0 +1,36 @@
+<script>
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).
+    
+    // Write a function that checks if the element at given position in given array of integers
+    // is bigger than its two neighbors (when such exist).
+    
+    var arr = [2, 3, 5, 4, 6, 6, 7];
+    console.log(arr);
+    
+    function biggerThanNeighbors(arr, index)
+    {
+        if (arr.Length < 2) {
+            // empty array or just one element
+            return false; 
+        }
+        else if (index == 0) {
+            // first element
+            return arr[index] > arr[index + 1]; 
+        }
+        else if (index == arr.Length - 1) {
+            // last element
+            return arr[index] > arr[index - 1];
+        }
+        else {
+            return (arr[index] > arr[index + 1]) && (arr[index] > arr[index - 1]);
+        }
+    }
+    
+    function testElementAt(arr, index) {
+        var isBigger = biggerThanNeighbors(arr, index);
+        console.log("The element at postion %d is %s than its neighbor(s).", index, isBigger ? "bigger" : "not bigger");  
+    }    
+    
+    testElementAt(arr, 1); // arr[1]
+    testElementAt(arr, 2); // arr[2]
+</script>
