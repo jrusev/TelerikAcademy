@@ -7,6 +7,7 @@
     var query, text;
     
     function countWord(query, text, sensitive) {
+        var sensitive = sensitive || false;
         var words = text.match(/\b[^\s]+\b/g);
         var count = 0;
         var i, word;
@@ -22,16 +23,27 @@
         return count;
     }
     
-    text = "Write a function that finds all occurrences of a word in a text (case sensitive or case insensitive). OK?";    
+    text = "Write a function that finds all occurrences of a word in a text (Case sensitive or case insensitive). A word?";    
     console.log(text);
     // console.log(text.split(/\W+/));
     // console.log(text.match(/\S+/g));
+    // console.log(text.split(/[\s.,;!?:"]+/));
     // console.log(text.match(/\w+/g));
     console.log(text.match(/\b[^\s]+\b/g));    
     
-    query = "case";
-    console.log("'%s' appears %d times", query, countWord(query, text, false));
+    query = "Case";
+    console.log("'%s' appears %d times", query, countWord(query, text, true)); // case sensitive
     
     query = "a";
-    console.log("'%s' appears %d times", query, countWord(query, text, false));
+    console.log("'%s' appears %d times", query, countWord(query, text)); // case insensitive
+    
+    // And now a simple function which uses regex directly to find the word:    
+    function countWordInText(word, text, caseSensitive) {
+        var regExp = new RegExp('\\b' + word + '\\b', 'g' + (caseSensitive ? '' : 'i'));
+        var match = text.match(regExp);
+        return match ? match.length : -1;
+    }
+
+    query = "A";
+    console.log("'%s' appears %d times", query, countWordInText(query, text, true)); // case sensitive
 </script>
