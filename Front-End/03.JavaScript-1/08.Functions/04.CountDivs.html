@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Write a function to count the number of divs on the web page. -->
+    <title>Count divs</title>
+    <style>
+        div {
+			width: 100px;
+            border: 1px solid black;
+        }
+    </style>    
+</head>
+<body>
+    <p>Write a function to count the number of divs on the web page.</p>
+	<div>div</div>
+	<div>div</div>
+	<div>div</div>
+	<div>div</div>
+	<div>div</div>
+    <p id="result"></p>
+	<script>
+        function countDivs() {
+            var divs = document.getElementsByTagName('div');
+            return divs.length;
+        }
+
+        function printResult() {
+            document.getElementById('result').innerHTML = "The number of divs is " + countDivs();
+        }
+		
+		printResult();
+    </script>
+</body>
+</html>
