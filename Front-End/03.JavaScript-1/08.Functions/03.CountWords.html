@@ -1,0 +1,37 @@
+<script>
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).
+    
+    // Write a function that finds all the occurrences of word in a text.
+    // The search can be case sensitive or case insensitive. Use function overloading.    
+    
+    var query, text;
+    
+    function countWord(query, text, sensitive) {
+        var words = text.match(/\b[^\s]+\b/g);
+        var count = 0;
+        var i, word;
+        
+        query = sensitive ? query : query.toLowerCase();        
+        for (i = 0; i < words.length; i++) {
+            word = sensitive ? words[i] : words[i].toLowerCase();
+            if (word == query) {
+                count++;   
+            }
+        }
+        
+        return count;
+    }
+    
+    text = "Write a function that finds all occurrences of a word in a text (case sensitive or case insensitive). OK?";    
+    console.log(text);
+    // console.log(text.split(/\W+/));
+    // console.log(text.match(/\S+/g));
+    // console.log(text.match(/\w+/g));
+    console.log(text.match(/\b[^\s]+\b/g));    
+    
+    query = "case";
+    console.log("'%s' appears %d times", query, countWord(query, text, false));
+    
+    query = "a";
+    console.log("'%s' appears %d times", query, countWord(query, text, false));
+</script>
