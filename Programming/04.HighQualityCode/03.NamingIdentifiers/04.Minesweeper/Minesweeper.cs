@@ -5,16 +5,16 @@
 
     public class MineSweeper
     {
-        private const int MaxPoints = 35;
+        private const int ТotalEmptyCells = 35;
 
         public static void Main()
         {
             string command = string.Empty;
             var gameField = CreateEmptyField();
             var mines = PlaceMines();
-            int points = 0;
+            int cellsOpened = 0;
             bool boom = false;
-            var winners = new List<Score>(6);
+            var topPlayers = new List<Player>(6);
             int row = 0;
             int col = 0;
             bool startGame = true;            
@@ -45,7 +45,7 @@
                 switch (command)
                 {
                     case "top":
-                        Ranking(winners);
+                        PrintScoreBoard(topPlayers);
                         break;
                     case "restart":
                         gameField = CreateEmptyField();
@@ -62,11 +62,11 @@
                         {
                             if (mines[row, col] == '-')
                             {
-                                NextTurn(gameField, mines, row, col);
-                                points++;
+                                UpdateField(gameField, mines, row, col);
+                                cellsOpened++;
                             }
 
-                            if (MaxPoints == points)
+                            if (cellsOpened == ТotalEmptyCells)
                             {
                                 gameFinished = true;
                             }
@@ -89,33 +89,33 @@
                 if (boom)
                 {
                     DrawField(mines);
-                    Console.Write("\nHrrrrrr! Umria gerojski s {0} to4ki. " + "Daj si niknejm: ", points);
+                    Console.Write("\nHrrrrrr! Umria gerojski s {0} to4ki. " + "Daj si niknejm: ", cellsOpened);
                     string nickname = Console.ReadLine();
-                    var score = new Score(nickname, points);
-                    if (winners.Count < 5)
+                    var player = new Player(nickname, cellsOpened);
+                    if (topPlayers.Count < 5)
                     {
-                        winners.Add(score);
+                        topPlayers.Add(player);
                     }
                     else
                     {
-                        for (int i = 0; i < winners.Count; i++)
+                        for (int i = 0; i < topPlayers.Count; i++)
                         {
-                            if (winners[i].Points < score.Points)
+                            if (topPlayers[i].Points < player.Points)
                             {
-                                winners.Insert(i, score);
-                                winners.RemoveAt(winners.Count - 1);
+                                topPlayers.Insert(i, player);
+                                topPlayers.RemoveAt(topPlayers.Count - 1);
                                 break;
                             }
                         }
                     }
 
-                    winners.Sort((Score r1, Score r2) => r2.Name.CompareTo(r1.Name));
-                    winners.Sort((Score r1, Score r2) => r2.Points.CompareTo(r1.Points));
-                    Ranking(winners);
+                    topPlayers.Sort((Player r1, Player r2) => r2.Name.CompareTo(r1.Name));
+                    topPlayers.Sort((Player r1, Player r2) => r2.Points.CompareTo(r1.Points));
+                    PrintScoreBoard(topPlayers);
 
                     gameField = CreateEmptyField();
                     mines = PlaceMines();
-                    points = 0;
+                    cellsOpened = 0;
                     boom = false;
                     startGame = true;
                 }
@@ -126,12 +126,12 @@
                     DrawField(mines);
                     Console.WriteLine("Daj si imeto, batka: ");
                     string name = Console.ReadLine();
-                    var score = new Score(name, points);
-                    winners.Add(score);
-                    Ranking(winners);
+                    var score = new Player(name, cellsOpened);
+                    topPlayers.Add(score);
+                    PrintScoreBoard(topPlayers);
                     gameField = CreateEmptyField();
                     mines = PlaceMines();
-                    points = 0;
+                    cellsOpened = 0;
                     gameFinished = false;
                     startGame = true;
                 }
@@ -142,14 +142,14 @@
             Console.Read();
         }
 
-        private static void Ranking(List<Score> points)
+        private static void PrintScoreBoard(List<Player> players)
         {
             Console.WriteLine("\nPoints:");
-            if (points.Count > 0)
+            if (players.Count > 0)
             {
-                for (int i = 0; i < points.Count; i++)
+                for (int i = 0; i < players.Count; i++)
                 {
-                    Console.WriteLine("{0}. {1} --> {2} kutii", i + 1, points[i].Name, points[i].Points);
+                    Console.WriteLine("{0}. {1} --> {2} kutii", i + 1, players[i].Name, players[i].Points);
                 }
 
                 Console.WriteLine();
@@ -160,11 +160,11 @@
             }
         }
 
-        private static void NextTurn(char[,] cell, char[,] bombs, int row, int col)
+        private static void UpdateField(char[,] cell, char[,] mines, int row, int col)
         {
-            char numberOfBombs = NumberOfBombs(bombs, row, col);
-            bombs[row, col] = numberOfBombs;
-            cell[row, col] = numberOfBombs;
+            char adjacentMines = CountAdjacentMines(mines, row, col);
+            mines[row, col] = adjacentMines;
+            cell[row, col] = adjacentMines;
         }
 
         private static void DrawField(char[,] board)
@@ -249,7 +249,7 @@
             return gameField;
         }
 
-        private static char NumberOfBombs(char[,] field, int row, int col)
+        private static char CountAdjacentMines(char[,] field, int row, int col)
         {
             int count = 0;
             int rows = field.GetLength(0);
@@ -320,34 +320,6 @@
             }
 
             return char.Parse(count.ToString());
-        }
-
-        public class Score
-        {
-            private string name;
-            private int points;
-
-            public Score()
-            {
-            }
-
-            public Score(string name, int points)
-            {
-                this.name = name;
-                this.points = points;
-            }
-
-            public string Name
-            {
-                get { return this.name; }
-                set { this.name = value; }
-            }
-
-            public int Points
-            {
-                get { return this.points; }
-                set { this.points = value; }
-            }
         }
     }
 }
