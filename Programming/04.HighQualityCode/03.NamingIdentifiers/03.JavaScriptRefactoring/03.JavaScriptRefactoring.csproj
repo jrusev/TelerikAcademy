@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="browser-check.html" />
     <Content Include="script.js" />
   </ItemGroup>
   <ItemGroup>
