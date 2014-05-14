@@ -2,24 +2,23 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
 
     public class MineSweeper
     {
+        private const int MaxPoints = 35;
+
         public static void Main()
         {
             string command = string.Empty;
-            char[,] gameField = DrawNewGameField();
-            char[,] mines = PlaceMines();
-            int count = 0;
+            var gameField = CreateEmptyField();
+            var mines = PlaceMines();
+            int points = 0;
             bool boom = false;
             var winners = new List<Score>(6);
             int row = 0;
             int col = 0;
-            bool startGame = true;
-            const int Max = 35;
-            bool flag2 = false;
+            bool startGame = true;            
+            bool gameFinished = false;
 
             do
             {
@@ -49,7 +48,7 @@
                         Ranking(winners);
                         break;
                     case "restart":
-                        gameField = DrawNewGameField();
+                        gameField = CreateEmptyField();
                         mines = PlaceMines();
                         DrawField(gameField);
                         boom = false;
@@ -64,12 +63,12 @@
                             if (mines[row, col] == '-')
                             {
                                 NextTurn(gameField, mines, row, col);
-                                count++;
+                                points++;
                             }
 
-                            if (Max == count)
+                            if (MaxPoints == points)
                             {
-                                flag2 = true;
+                                gameFinished = true;
                             }
                             else
                             {
@@ -90,21 +89,20 @@
                 if (boom)
                 {
                     DrawField(mines);
-                    Console.Write(
-                        "\nHrrrrrr! Umria gerojski s {0} to4ki. " + "Daj si niknejm: ", count);
-                    string niknejm = Console.ReadLine();
-                    var t = new Score(niknejm, count);
+                    Console.Write("\nHrrrrrr! Umria gerojski s {0} to4ki. " + "Daj si niknejm: ", points);
+                    string nickname = Console.ReadLine();
+                    var score = new Score(nickname, points);
                     if (winners.Count < 5)
                     {
-                        winners.Add(t);
+                        winners.Add(score);
                     }
                     else
                     {
                         for (int i = 0; i < winners.Count; i++)
                         {
-                            if (winners[i].Points < t.Points)
+                            if (winners[i].Points < score.Points)
                             {
-                                winners.Insert(i, t);
+                                winners.Insert(i, score);
                                 winners.RemoveAt(winners.Count - 1);
                                 break;
                             }
@@ -115,26 +113,26 @@
                     winners.Sort((Score r1, Score r2) => r2.Points.CompareTo(r1.Points));
                     Ranking(winners);
 
-                    gameField = DrawNewGameField();
+                    gameField = CreateEmptyField();
                     mines = PlaceMines();
-                    count = 0;
+                    points = 0;
                     boom = false;
                     startGame = true;
                 }
 
-                if (flag2)
+                if (gameFinished)
                 {
                     Console.WriteLine("\nBRAVOOOS! Otvri 35 kletki bez kapka kryv.");
                     DrawField(mines);
                     Console.WriteLine("Daj si imeto, batka: ");
                     string name = Console.ReadLine();
-                    var score = new Score(name, count);
+                    var score = new Score(name, points);
                     winners.Add(score);
                     Ranking(winners);
-                    gameField = DrawNewGameField();
+                    gameField = CreateEmptyField();
                     mines = PlaceMines();
-                    count = 0;
-                    flag2 = false;
+                    points = 0;
+                    gameFinished = false;
                     startGame = true;
                 }
             }
@@ -171,14 +169,14 @@
 
         private static void DrawField(char[,] board)
         {
-            int boardRows = board.GetLength(0);
-            int boardCols = board.GetLength(1);
+            int rows = board.GetLength(0);
+            int cols = board.GetLength(1);
             Console.WriteLine("\n    0 1 2 3 4 5 6 7 8 9");
             Console.WriteLine("   ---------------------");
-            for (int i = 0; i < boardRows; i++)
+            for (int i = 0; i < rows; i++)
             {
                 Console.Write("{0} | ", i);
-                for (int j = 0; j < boardCols; j++)
+                for (int j = 0; j < cols; j++)
                 {
                     Console.Write(string.Format("{0} ", board[i, j]));
                 }
@@ -190,7 +188,7 @@
             Console.WriteLine("   ---------------------\n");
         }
 
-        private static char[,] DrawNewGameField()
+        private static char[,] CreateEmptyField()
         {
             int boardRows = 5;
             int boardColumns = 10;
@@ -220,54 +218,36 @@
                 }
             }
 
-            List<int> list = new List<int>();
-            while (list.Count < 15)
+            var bombCells = new List<int>();
+            while (bombCells.Count < 15)
             {
-                Random random = new Random();
-                int asfd = random.Next(50);
-                if (!list.Contains(asfd))
+                var random = new Random();
+                int cell = random.Next(50);
+                if (!bombCells.Contains(cell))
                 {
-                    list.Add(asfd);
+                    bombCells.Add(cell);
                 }
             }
 
-            foreach (int i2 in list)
+            foreach (var cell in bombCells)
             {
-                int kol = i2 / cols;
-                int red = i2 % cols;
-                if (red == 0 && i2 != 0)
+                int col = cell / cols;
+                int row = cell % cols;
+                if (row == 0 && cell != 0)
                 {
-                    kol--;
-                    red = cols;
+                    col--;
+                    row = cols;
                 }
                 else
                 {
-                    red++;
+                    row++;
                 }
 
-                gameField[kol, red - 1] = '*';
+                gameField[col, row - 1] = '*';
             }
 
             return gameField;
         }
-
-        ////private static void smetki(char[,] field)
-        ////{
-        ////    int kol = field.GetLength(0);
-        ////    int red = field.GetLength(1);
-
-        ////    for (int i = 0; i < kol; i++)
-        ////    {
-        ////        for (int j = 0; j < red; j++)
-        ////        {
-        ////            if (field[i, j] != '*')
-        ////            {
-        ////                char kolkoo = NumberOfBombs(field, i, j);
-        ////                field[i, j] = kolkoo;
-        ////            }
-        ////        }
-        ////    }
-        ////}
 
         private static char NumberOfBombs(char[,] field, int row, int col)
         {
