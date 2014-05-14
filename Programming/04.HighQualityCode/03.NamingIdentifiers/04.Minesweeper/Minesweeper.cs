@@ -5,7 +5,7 @@
 
     public class MineSweeper
     {
-        private const int ТotalEmptyCells = 35;
+        private const int MaxEmptyCells = 35;
 
         public static void Main()
         {
@@ -66,7 +66,7 @@
                                 cellsOpened++;
                             }
 
-                            if (cellsOpened == ТotalEmptyCells)
+                            if (cellsOpened == MaxEmptyCells)
                             {
                                 gameFinished = true;
                             }
