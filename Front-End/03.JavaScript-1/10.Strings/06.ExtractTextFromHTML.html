@@ -1,0 +1,26 @@
+<script>
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).
+    
+    // Write a function that extracts the content of a html page given as text.
+    // The function should return anything that is in a tag, without the tags.
+
+    var str = "<html><head><title>Sample site</title></head><body><div>text<div>more text</div>and more...</div>in body</body></html>";
+
+    function extractText(str) {
+        var i,
+            result = [];
+        for (i = 0; i < str.length; i++) {
+            if (str[i] === '<') {
+                while (str[++i] !== '>') {}
+            }
+            else {
+                result.push(str[i]);   
+            }
+        }
+        
+        return result.join('');
+    }
+    
+    console.log(str);
+    console.log(extractText(str)); // 'Sample sitetextmore textand more...in body'
+</script>
