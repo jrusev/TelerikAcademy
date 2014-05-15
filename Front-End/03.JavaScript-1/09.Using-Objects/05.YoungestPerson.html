@@ -1,0 +1,38 @@
+<script>
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).
+    
+    // Write a function that finds the youngest person in a given array of persons and prints his/hers full name.
+    // Each person has properties firstname, lastname and age, as shown:
+    // var persons = [ { fname : 'Gosho', lname: 'Petrov', age: 32 }, { fname : 'Bay', lname: 'Ivan', age: 81},… ];
+    var persons;
+
+    function makePerson(fname, lname, age) {
+        return {
+            fname: fname,
+            lname: lname,
+            age: age,
+            toString: function () {return this.fname + ' ' + this.lname + ', ' + this.age; }
+        };
+    }
+
+    function findYoungest(persons) {
+        var minAgeIndex = 0;
+        var i;
+        for (i = 1; i < persons.length; i++) {
+            if (persons[i].age < persons[minAgeIndex].age) {
+                minAgeIndex = i;
+            }
+        }
+
+        return persons[minAgeIndex];
+    }
+
+    persons = [
+        makePerson('Bay', 'Ivan', 81),
+        makePerson('Marry', 'Poppins', 25),
+        makePerson('Gosho', 'Petrov', 32)
+    ];
+
+    console.log(persons.join("; "));
+    console.log("The youngest person is " + findYoungest(persons));
+</script>

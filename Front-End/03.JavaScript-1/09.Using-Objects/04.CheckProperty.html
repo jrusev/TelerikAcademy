@@ -1,0 +1,18 @@
+<script>
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).
+    
+    // Write a function that checks if a given object contains a given property
+    // var obj  = …;
+    // var hasProp = hasProperty(obj, 'length');
+    var arr, prop1, prop2;
+
+    function hasProperty(obj, prop) {
+        return obj.hasOwnProperty(prop);
+    }
+    
+    arr = [];
+    prop1 = 'length';
+    prop2 = 'volume';
+    console.log("Array has property '%s' -> %s", prop1, hasProperty(arr, prop1));
+    console.log("Array has property '%s' -> %s", prop2, hasProperty(arr, prop2));
+</script>
