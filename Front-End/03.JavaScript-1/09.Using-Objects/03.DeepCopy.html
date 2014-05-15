@@ -3,6 +3,39 @@
     
     // Write a function that makes a deep copy of an object.
     // The function should work for both primitive and reference types.
-    
+    var orig, copy;
 
+    orig = {
+        x: 1,
+        obj: {
+            x: 1,
+            f: function () {
+                return 'I am the original.';
+            }
+        }
+    };
+
+    function deepCopy(obj) {
+        if (typeof obj !== 'object') {
+            return obj;
+        }
+
+        var result = {};
+        var prop;
+
+        for (prop in obj) {
+            result[prop] = deepCopy(obj[prop]);
+        }
+        
+        return result;
+    }
+
+    copy = deepCopy(orig);
+
+    orig.obj.f = function () {
+        return 'I was changed.';
+    };
+
+    console.log(orig.obj.f());
+    console.log(copy.obj.f());  
 </script>
