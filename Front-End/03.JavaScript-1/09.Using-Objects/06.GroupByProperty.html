@@ -15,22 +15,25 @@
         };
     }
 
-    function groupByProperty(arr, prop) {
-        var group = [];
-        var key, value, i;
-        for (i = 0; i < arr.length; i++) {
-            value = arr[i];
-            key = value[prop];
-            group[key] = value;
-        }
+    function groupByProperty(persons, prop) {
+        var group = {};
+        var key;
 
-        return group;
+        persons.forEach(function(person) {
+            key = person[prop];
+            // Create new empty array if the key does not exist
+            group[key] = group[key] || [];            
+            group[key].push(person);
+        });
+
+        return group;   
     }
 
     persons = [
         makePerson('Bay', 'Ivan', 81),
         makePerson('Marry', 'Poppins', 25),
-        makePerson('Gosho', 'Petrov', 32)
+        makePerson('Gosho', 'Petrov', 25),
+        makePerson('Bay', 'Pesho', 35)
     ];
 
     console.log(persons.join(" | "));
@@ -38,6 +41,6 @@
     var groupedByFname = groupByProperty(persons, 'fname');
     var groupedByAge = groupByProperty(persons, 'age');
     
-    console.log("groupedByFname['Marry'] = " + groupedByFname['Marry']);
-    console.log("groupedByAge[25] = " + groupedByAge[25]);
+    console.log("groupedByFname['Bay'] = " + groupedByFname['Bay'].join(" | "));
+    console.log("groupedByAge[25] = " + groupedByAge[25].join(" | "));
 </script>
