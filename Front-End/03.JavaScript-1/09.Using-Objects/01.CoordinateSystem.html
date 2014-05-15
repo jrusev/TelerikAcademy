@@ -1,0 +1,42 @@
+<script>
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).
+    
+    // Write functions for working with shapes in standard Planar coordinate system:
+    //   Points are represented by coordinates P(X, Y)
+    //   Lines are represented by two points, marking their beginning and ending:
+    //     L(P1(X1,Y1), P2(X2,Y2))
+    //   Calculate the distance between two points
+    //   Check if three segment lines can form a triangle
+    
+    function calcDist(a, b) {
+        return Math.sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
+    }
+
+    function Point(x, y) {
+        this.x = x;
+        this.y = y;
+        this.toString = function () { return "(" + x + ", " + y + ")"; };
+    }
+
+    function Line(p1, p2) {
+        this.p1 = p1;
+        this.p2 = p2;
+        this.length = calcDist(p1, p2);
+        this.toString = function () { return "[" + p1 + ", " + p2 + "]"; };
+    }
+
+    function isTriangle(a, b, c) {
+        return a.length + b.length > c.length &&
+            a.length + c.length > b.length &&
+            b.length + c.length > a.length;
+    }
+
+    var a = new Line(new Point(0, 0), new Point(0, 1));
+    var b = new Line(new Point(0, 0), new Point(1, 0));
+    var c = new Line(new Point(0, 1), new Point(1, 0));
+
+    console.log("line a = " + a);
+    console.log("line b = " + b);
+    console.log("line c = " + c);
+    console.log("The lines can form a trinagle: " + isTriangle(a, b, c));
+</script>
