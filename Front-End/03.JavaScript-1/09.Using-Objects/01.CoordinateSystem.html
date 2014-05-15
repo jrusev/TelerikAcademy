@@ -15,14 +15,18 @@
     function Point(x, y) {
         this.x = x;
         this.y = y;
-        this.toString = function () { return "(" + x + ", " + y + ")"; };
+        this.toString = function () {
+            return "(" + this.x + ", " + this.y + ")";
+        };
     }
 
     function Line(p1, p2) {
         this.p1 = p1;
         this.p2 = p2;
-        this.length = calcDist(p1, p2);
-        this.toString = function () { return "[" + p1 + ", " + p2 + "]"; };
+        this.length = calcDist(this.p1, this.p2);
+        this.toString = function () {
+            return "[" + this.p1 + ", " + this.p2 + "]";
+        };
     }
 
     function isTriangle(a, b, c) {
