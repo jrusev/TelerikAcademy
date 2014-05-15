@@ -1,0 +1,52 @@
+<script>
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).
+    
+    // Write a function that changes a given text in all regions (regions can be nested):
+    //   <upcase>text</upcase> to uppercase.
+    //   <lowcase>text</lowcase> to lowercase
+    //   <mixcase>text</mixcase> to mix casing(random)
+    
+    var str = "We are <mixcase>living</mixcase> in a <upcase>yellow submarine</upcase>. We <mixcase>don't</mixcase> have <lowcase>ANYTHING</lowcase> else.";
+
+    function changeCase(str) {
+        var tagsLen = { 'm': 7, 'u': 6, 'l': 7},
+            stack = [],
+            i,
+            result = [];
+        for (i = 0; i < str.length; i++) {
+            if (str[i] === '<') {
+                if (str[i + 1] === '/') {
+                    i += tagsLen[stack.pop()] + 2;
+                }
+                else {
+                    stack.push(str[i + 1]);
+                    i += tagsLen[str[i + 1]] + 1;
+                }
+            }
+            else {
+                var tag = stack[stack.length - 1];
+                switch (tag) {
+                case 'm':
+                    if (Math.random() < 0.5)
+                        result.push(str[i].toUpperCase());
+                    else
+                        result.push(str[i].toLowerCase());
+                    break;
+                case 'u':
+                    result.push(str[i].toUpperCase());
+                    break;
+                case 'l':
+                    result.push(str[i].toLowerCase());
+                    break;
+                default:
+                    result.push(str[i]);
+                }
+            }
+        }
+
+        return result.join('');
+    }
+
+    console.log(str);
+    console.log(changeCase(str));   
+</script>
