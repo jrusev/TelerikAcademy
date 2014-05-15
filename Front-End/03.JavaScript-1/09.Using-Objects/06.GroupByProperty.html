@@ -1,0 +1,43 @@
+<script>
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).
+    
+    // Write a function that groups an array of persons by age, first or last name.
+    // The function must return an associative array, with keys - the groups, and values -arrays with persons in this groups.
+
+    var persons;
+
+    function makePerson(fname, lname, age) {
+        return {
+            fname: fname,
+            lname: lname,
+            age: age,
+            toString: function () {return this.fname + ' ' + this.lname + ', ' + this.age; }
+        };
+    }
+
+    function groupByProperty(arr, prop) {
+        var group = [];
+        var key, value, i;
+        for (i = 0; i < arr.length; i++) {
+            value = arr[i];
+            key = value[prop];
+            group[key] = value;
+        }
+
+        return group;
+    }
+
+    persons = [
+        makePerson('Bay', 'Ivan', 81),
+        makePerson('Marry', 'Poppins', 25),
+        makePerson('Gosho', 'Petrov', 32)
+    ];
+
+    console.log(persons.join(" | "));
+    
+    var groupedByFname = groupByProperty(persons, 'fname');
+    var groupedByAge = groupByProperty(persons, 'age');
+    
+    console.log("groupedByFname['Marry'] = " + groupedByFname['Marry']);
+    console.log("groupedByAge[25] = " + groupedByAge[25]);
+</script>
