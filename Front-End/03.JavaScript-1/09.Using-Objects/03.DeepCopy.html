@@ -6,10 +6,10 @@
     var orig, copy;
 
     orig = {
-        x: 1,
-        obj: {
-            x: 1,
-            f: function () {
+        primitive: 1,
+        object: {
+            primitive: 1,
+            print: function () {
                 return 'I am the original.';
             }
         }
@@ -32,10 +32,10 @@
 
     copy = deepCopy(orig);
 
-    orig.obj.f = function () {
+    orig.object.print = function () {
         return 'I was changed.';
     };
 
-    console.log(orig.obj.f());
-    console.log(copy.obj.f());  
+    console.log(orig.object.print()); // 'I was changed.'
+    console.log(copy.object.print()); // 'I am the original.'
 </script>
