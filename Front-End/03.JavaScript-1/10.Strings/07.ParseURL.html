@@ -6,13 +6,13 @@
     
     function parseURL(url) { 
         var splitted = url.split('//');
-        var str1 = splitted[1];
-        var index1 = str1.indexOf('/');
+        var address = splitted[1];
+        var slash = address.indexOf('/');
 
         return {
             protocol: splitted[0].split(':')[0],
-            server: str1.split('/')[0],
-            resource: str1.substring(index1, str1.length)
+            server: address.substring(0, slash),
+            resource: address.substring(slash)
         };  
     }
 
