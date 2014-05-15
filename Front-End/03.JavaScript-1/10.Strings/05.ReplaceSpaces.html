@@ -6,4 +6,15 @@
     var str = "Write a function that replaces non breaking white-spaces in a text with &nbsp;";
     console.log(str);
     console.log(str.split(' ').join('&nbsp;'));
+    
+    // Second solution
+    function replace(text, oldStr, newStr) {
+        while (text.indexOf(oldStr) >= 0) {
+            text = text.replace(oldStr, newStr);
+        }
+
+        return text;
+    }
+    
+    console.log(replace(str, ' ', '&nbsp;'));
 </script>
