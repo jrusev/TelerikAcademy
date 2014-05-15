@@ -10,14 +10,11 @@
         var i,
             result = [];
         for (i = 0; i < str.length; i++) {
-            if (str[i] === '<') {
-                while (str[++i] !== '>') {}
-            }
-            else {
+            if (str[i] === '<')
+                i = str.indexOf(">", i);
+            else
                 result.push(str[i]);   
-            }
-        }
-        
+        }        
         return result.join('');
     }
     
