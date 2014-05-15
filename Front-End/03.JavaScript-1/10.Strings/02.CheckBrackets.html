@@ -1,0 +1,30 @@
+<script>
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).
+    
+    // Write a JavaScript function to check if in a given expression the brackets are put correctly.
+    // Example of correct expression: ((a+b)/5-d).
+    // Example of incorrect expression: )(a+b)).
+    var expr;
+
+    function okBrackets(expr) {
+        'use strict';
+        var stack = 0,
+            i;
+        for (i = 0; i < expr.length && stack >= 0; i++) {
+            if (expr[i] === '(') {
+                stack++;
+            }
+            else if (expr[i] === ')') {
+                stack--;
+            }
+        }
+
+        return !stack;
+    }
+
+    expr = '((a+b)/5-d)';
+    console.log(expr + ' -> ' + (okBrackets(expr) ? 'correct' : 'incorrect'));
+
+    expr = ')(a+b))';
+    console.log(expr + ' -> ' + (okBrackets(expr) ? 'correct' : 'incorrect'));
+</script>
