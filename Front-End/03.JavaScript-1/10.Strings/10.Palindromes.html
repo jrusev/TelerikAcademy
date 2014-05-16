@@ -3,15 +3,6 @@
     
     var text = "Write a program that extracts from a given text level all palindromes, e.g. ABBA lamal exe noon";
 
-    function printPalindromes(text) {
-        var words = text.split(' ');
-
-        words.forEach( function (w) {
-            if (isPalindrome(w))
-               console.log(w);
-        });
-    }
-
     function isPalindrome(word) {
         var halfLen = word.length >> 1;
         var isPalindr = word.length > 1;
@@ -22,6 +13,15 @@
                 isPalindr = false;
 
         return isPalindr;
+    }
+
+    function printPalindromes(text) {
+        var words = text.split(' ');
+
+        words.forEach(function (w) {
+            if (isPalindrome(w))
+               console.log(w);
+        });
     }
 
     console.log(text);
