@@ -1,0 +1,60 @@
+<script>
+    function Solve(args) {
+        var N = parseInt(args[0]),
+            sum = 0,
+            maxSum = -Infinity,
+            i;
+        for (i = 0; i < N; i++) {
+            sum += parseInt(args[i + 1]);
+            maxSum = Math.max(sum, maxSum);
+            sum = sum < 0 ? 0 : sum;
+        }
+        return maxSum;
+    }
+
+    function Solve2(args) {
+        args.shift();
+        var sum = Number.NEGATIVE_INFINITY,
+            maxSum = sum;
+        args.forEach(function(el) {
+            sum = +el + Math.max(sum, 0);
+            maxSum = Math.max(sum, maxSum);
+        });
+        return maxSum;
+    }
+    
+    console.log(Solve([
+        '8',
+        '1',
+        '6',
+        '-9',
+        '4',
+        '4',
+        '-2',
+        '10',
+        '-1',
+    ])); // 16
+
+    console.log(Solve([
+        '6',
+        '1',
+        '3',
+        '-5',
+        '8',
+        '7',
+        '-6',
+    ])); // 15
+
+    console.log(Solve([
+        '9',
+        '-9',
+        '-8',
+        '-8',
+        '-7',
+        '-6',
+        '-5',
+        '-1',
+        '-7',
+        '-6',
+    ])); // -1
+</script>
