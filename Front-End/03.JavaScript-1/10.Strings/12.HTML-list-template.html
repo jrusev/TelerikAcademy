@@ -16,11 +16,11 @@
         function generateList(people, template) {
             var ul = '<ul>',
                 i;
-            
+
             for (i = 0; i < people.length; i++) {
                 ul += '<li>';
 
-                ul += template.replace(/-\{(.*?)\}-/g, function(match, prop) {
+                ul += template.replace(/-\{(.*?)\}-/g, function (match, prop) {
                     return people[i][prop];
                 });
 
@@ -31,7 +31,7 @@
             return ul;
         }
 
-        var people = [ { name: 'Peter', age: 14 }, { name: 'George',  age: 28 } , { name: 'Marry',  age: 17 } ];        
+        var people = [ { name: 'Peter', age: 14 }, { name: 'George',  age: 28 }, { name: 'Marry',  age: 17 } ];
         var template = document.getElementById('list-item');
         template.outerHTML = generateList(people, template.innerHTML);
     </script>
