@@ -1,0 +1,45 @@
+<script>
+    function Solve(args) {
+        var nmj = args.shift().split(' ');
+        var rows = +nmj[0];
+        var cols = +nmj[1];
+        var numJumps = +nmj[2];
+
+        var initialRowCol = args.shift().split(' ');
+        var row = +initialRowCol[0];
+        var col = +initialRowCol[1];
+
+        var jumps = args.map(function (str) {
+            var split = str.split(' ');
+            return { dRow: +split[0], dCol: +split[1] };
+        });
+
+        var count = 0;
+        var sum = 0;
+        var visited = [];
+        var cell;
+
+        while (row >= 0 && row < rows && col >= 0 && col < cols) {
+            cell = row * cols + col + 1;
+            
+            if (visited[cell])
+                return 'caught ' + count;
+
+            sum += cell;            
+            visited[cell] = true;
+
+            row += jumps[count % numJumps].dRow;
+            col += jumps[count % numJumps].dCol;
+            count++;
+        }
+        return 'escaped ' + sum;
+    }
+    
+    console.log(Solve([
+        '6 7 3',
+        '0 0',
+        '2 2',
+        '-2 2',
+        '3 -1'
+    ])); // escaped 89
+</script>
