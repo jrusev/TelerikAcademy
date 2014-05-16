@@ -1,0 +1,35 @@
+<script>
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).
+    
+    // Write a program that extracts from a given text all palindromes, e.g. "ABBA", "lamal", "exe".
+
+    var text = "Write a program that extracts from a given text level all palindromes, e.g. ABBA lamal exe noon";
+    
+    function getPalindromes(text) {
+        var words = text.split(' ');
+        var palindromes = [];
+        var i, j;
+        
+        // Check each word individually
+        for (i = 0; i < words.length; i++) {
+            var word = words[i];            
+            var halfLen = word.length >> 1;
+            var isPalindrome = words[i].length > 1;
+            
+            for (j = 0; j < halfLen && isPalindrome; j++) {
+                if (word[j] !== word[word.length - 1 - j]) 
+                    isPalindrome = false;
+                
+            }
+            
+            if (isPalindrome)
+               palindromes.push(word); 
+               
+        }
+        
+        return palindromes;
+    }
+    
+    console.log(text);
+    console.log(getPalindromes(text));
+</script>
