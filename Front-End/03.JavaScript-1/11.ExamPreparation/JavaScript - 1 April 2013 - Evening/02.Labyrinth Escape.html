@@ -1,16 +1,56 @@
 <script>
-    function Solve(agrs) {
-        //args[0] contains M and N separated by a single space (" ")
-        //args[1] contains R and C – the start position (the star position is zero-based)
-        //args[2] to args[N+2] contain exactly M characters(only the letters 'l', 'r', 'u' or 'd')
-        
-        var mn = args[0].split(" ").map(Number);
-        var M = mn[0];
-        var N = mn[1];
-        
-        
-        return mn;
+function Solve(args) {
+    var rowsCols = args[0].split(" ").map(Number);
+    var rows = rowsCols[0];
+    var cols = rowsCols[1];
+
+    var intialRowCol = args[1].split(" ").map(Number);
+    var startRow = intialRowCol[0];
+    var startCol = intialRowCol[1];
+
+    var moves = [];
+    var matrix = [];
+    var row, col;
+
+    for (row = 0; row < rows; row++) {
+        moves[row] = args[row + 2];
+        matrix[row] = [];
+        for (col = 0; col < cols; col++) {
+            matrix[row][col] = row * cols + col + 1;
+        }
     }
+
+    var dRow = { l:  0, r: 0, u: -1, d: 1 };
+    var dCol = { l: -1, r: 1, u:  0, d: 0 };
+    var cells = 0;
+    var sum = 0;
+    var isOut = false;
+
+    row = startRow;
+    col = startCol;
+
+    while (true) {
+        sum += matrix[row][col];
+        cells++;            
+        matrix[row][col] = -1;
+
+        var move = moves[row][col];
+        row += dRow[move];
+        col += dCol[move];
+
+        if (row < 0 || row >= rows || col < 0 || col >= cols) {
+            isOut = true;
+            break;
+        }
+
+        if (matrix[row][col] < 0) {
+            // lost!
+            break;
+        }
+    }
+
+    return isOut ? ("out " + sum) : ("lost " + cells);
+}
     
     console.log(Solve([
         "3 4",
