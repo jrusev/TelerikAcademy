@@ -1,0 +1,29 @@
+<script>
+    // PLEASE CHECK THE OUTPUT IN THE BROWSER CONSOLE (F12).
+    
+    // Write a function that formats a string using placeholders:
+    // Example: 
+    // var str = stringFormat('Hello {0}!', 'Peter'); -> 'Hello Peter!'
+    //
+    // var frmt = '{0}, {1}, {0} text {2}';
+    // var str = stringFormat(frmt, 1, 'Pesho', 'Gosho'); -> '1, Pesho, 1 text Gosho'
+    
+    function stringFormat() {
+        var format = arguments[0];
+        var i;
+        
+        for (i = 1; i < arguments.length; i++) {
+            var placeHolder = '{' + (i - 1) + '}';
+            format = format.split(placeHolder).join(arguments[i]);  
+        }
+        
+        return format;        
+    }
+    
+    console.log("stringFormat('Hello {0}!', 'Peter')" + ' -> '+ stringFormat('Hello {0}!', 'Peter'));
+    console.log('');
+    
+    var frmt = '{0}, {1}, {0} text {2}'; 
+    console.log("var frmt = '{0}, {1}, {0} text {2}';");
+    console.log("stringFormat(frmt, 1, 'Pesho', 'Gosho')" + ' -> '+ stringFormat(frmt, 1, 'Pesho', 'Gosho'));
+</script>
