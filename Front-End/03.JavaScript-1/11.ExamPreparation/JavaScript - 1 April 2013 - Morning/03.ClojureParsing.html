@@ -1,0 +1,120 @@
+<script>
+    function Solve(args) {
+        var funcs = {};
+        var divisionByZero = false;
+        
+        function value(operand) {
+            return (funcs[operand] == undefined) ? +operand : funcs[operand];
+        }
+        
+        function trimBrackets(expr) {
+            var endIndex = expr[expr.length - 1] === ')' ? (expr.length - 1) : expr.length;
+            return expr.substring(1, endIndex).trim(); 
+        }
+        
+        function def(line) {
+            // 'func (+ 23 4 8 4 5 7)'
+            var beginDef = line.indexOf(' ');
+            var name = line.substring(0, beginDef);
+            var expr = line.substring(beginDef).trim();
+            
+            //console.log(name + ' = ' + expr);            
+            if (expr[0] === '(')
+                funcs[name] = calc(trimBrackets(expr)); // no defs here                
+            else
+                funcs[name] = value(expr); // a single operand                
+        }
+        
+        function calc(expr) {
+            // '+ 1 func'
+            var operation = expr[0];
+            expr = expr.substring(1).trim();
+            var operands = expr.match(/\S+/g).map(value);
+            return operands.reduce(function (a, b) {
+                if (operation === '+')
+                    return a + b;
+                if (operation === '-')
+                    return a - b;
+                if (operation === '*')
+                    return a * b;
+                if (operation === '/') {
+                    if (b === 0)
+                        divisionByZero = true;
+                    else 
+                        return ~~(a / b); // integer divsion
+                }
+            });          
+        }
+        
+        function solveLine(line) {
+            if (line[0] === 'd')
+                def(line.substring(3).trim()); 
+            else
+                return calc(line);
+        }        
+        
+        function readInput(args) {
+            var result;
+            for (var i = 0; i < args.length; i++) {
+                var line = trimBrackets(args[i]);
+                result = solveLine(line);
+                //console.log(line + ' -> ' + result);
+                if (divisionByZero)
+                    return 'Division by zero! At Line:' + (i + 1);
+            }
+            return result;
+        }        
+    
+        return readInput(args);
+    }
+    
+    console.log(Solve([
+        '(def func 10)',
+        '(def newFunc (+  func 2))',
+        '(def sumFunc (+ func func newFunc 0 0 0))',
+        '(* sumFunc 2)'
+    ])); // 64
+    
+    console.log(Solve([
+        '(def func (+ 5 2))',
+        '(def func2 (/  func 5 2 1 0))',
+        '(def func3 (/ func 2))',
+        '(+ func3 func)'
+    ])); // Division by zero! At Line:2 
+    
+    // Test 2
+    console.log(Solve([
+        '(def     go6o    (/ -7 1 1 1 1) )',
+        '(def asd (/ 0 5))',
+        '(def func2 asd  )',
+        '(           +        4          2      func2)'
+    ])); // 6
+    
+    // Test 11
+    console.log(Solve([
+        '(def joros 30)',
+        '(def newFunc 91)',
+        '(/ newFunc  )'
+    ])); // 91
+    
+    console.log(Solve([
+        '(def myFunc 5)',
+        '(def myNewFunc (+  myFunc  myFunc 2))',
+        '(def MyFunc (* 2  myNewFunc))',
+        '(/   MyFunc  myFunc)'
+    ])); // 4
+    
+    console.log(Solve(['(+ 1 2)'])); // 3
+    console.log(Solve(['(+ 5 2 7 1)'])); // 15
+    console.log(Solve(['(- 4 2)'])); // 2
+    console.log(Solve(['(- 4)'])); // 4
+    console.log(Solve(['(/ 2)'])); // 2
+    console.log(Solve(['(* 5 7)'])); // 35
+    console.log(Solve(['(/ 10 3)'])); // 3
+    console.log(Solve(['(/ 10 3 2)'])); // 1
+    console.log(Solve(['(/ 5 0)'])); // Division by zero! At Line:1
+    console.log(Solve(['(def NewFunc 5)'])); // undefined
+    console.log(Solve(['(     +           -4   1         )'])); // -3
+    console.log(Solve(['(/ 5 -3)'])); // -1
+    console.log(Solve(['(/ 0)'])); // 0
+</script>
