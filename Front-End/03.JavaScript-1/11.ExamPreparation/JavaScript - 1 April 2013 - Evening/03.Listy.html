@@ -1,0 +1,126 @@
+<script>
+    function Solve(args) {
+        var funcs = {};
+
+        function parseList(str) {
+            // 'var1, 6,50'
+            var split = str.split(',').map(function (el) {
+                return el.trim();
+            });
+            // ['var1', '6', '50']
+            var asArrayOfNums = [];
+            split.forEach(function (el) {
+                var parsed = parseInt(el, 10);
+                if (isNaN(parsed))
+                    asArrayOfNums = asArrayOfNums.concat(funcs[el]);
+                else
+                    asArrayOfNums.push(parsed);
+            });
+
+            return asArrayOfNums;
+        }
+
+        function trimBrackets(str) {
+            return str.substring(1, str.length - 1);
+        }
+
+        function solveOperation(expr) {
+            // 'sum   [5, 3, 7,2, 6,3  ]'
+            var oper = expr.substr(0, 3); // 'sum'
+            var arrStr = expr.substring(3).trim(); // '[5, 3, 7,2, 6,3  ]'
+            var arr = parseList(trimBrackets(arrStr)); // [5, 3, 7, 2, 6, 3]
+            var result = arr.reduce(function (a, b) {
+                if (oper === 'sum')
+                    return a + b;
+                if (oper === 'min')
+                    return Math.min(a, b);
+                if (oper === 'max')
+                    return Math.max(a, b);
+                if (oper === 'avg')
+                    return a + b;
+            });
+            return (oper === 'avg') ? ~~(result / arr.length) : result;
+        }
+
+        function def(expr) {
+            // 'func sum [5, 3, 7, 2, 6, 3]'
+            // 'func[1, 2, 3 ,4]'
+            var bracket = expr.indexOf('[');
+            var tokens = expr.substring(0, bracket).trim().match(/\S+/g);
+            var inBrackets = expr.substring(bracket);
+
+            var funcName = tokens[0];
+            var operation = tokens[1];
+
+            if (operation === undefined)
+                funcs[funcName] = parseList(trimBrackets(inBrackets)); // '[5, 3, 7, 2, 6, 3]'
+            else
+                funcs[funcName] = solveOperation(operation + inBrackets); // 'sum[5, 3, 7, 2, 6, 3]'    
+        }
+
+        function solveLine(line) {
+            // '[newFunc]'
+            // 'def func sum[1, 2, 3, -6]'
+            // 'sum[func6, func4]'
+            if (line[0] === '[')
+                return parseList(trimBrackets(line))[0];
+
+            var op = line.substr(0, 3);
+            var expr = line.substring(3).trim();
+            if (op === 'def')
+                return def(expr); // 'func sum[1, 2, 3, -6]'
+            else
+                return solveOperation(line); // 'sum[func6, func4]'
+
+        }
+
+        function getResult(lines) {
+            var result;
+            lines.forEach(function (line) {
+                result = solveLine(line);
+            });
+            return result;
+        }
+
+        return getResult(args);
+    }
+    
+    console.log(Solve([
+        'def func sum[5, 3, 7, 2, 6, 3]',
+        'def func2 [5, 3, 7, 2, 6, 3]',
+        'def func3 min[func2]',
+        'def func4 max[5, 3, 7, 2, 6, 3]',
+        'def func5 avg[5, 3, 7, 2, 6, 3]',
+        'def func6 sum[func2, func3, func4 ]',
+        'sum[func6, func4]'
+    ])); // 42    
+    
+    console.log(Solve([
+        'def func sum[1, 2, 3, -6]',
+        'def newList [func, 10, 1]',
+        'def newFunc sum[func, 100, newList]',
+        '[newFunc]'
+    ])); // 111
+    
+    console.log(Solve([
+        'def     var7   sum   [    2,3,12 ,            4,   1         ]',
+        '[var7]'
+    ])); // 22   
+    
+    console.log(Solve([
+        'def var1 [1, 2, 6, 8]',
+        'def var2 sum[1, 5, -10, 20]',
+        'def var3 max[5, 2, 4, var2, 2]',
+        'def var4 min[var1, 6, 50]',
+        'def var5 avg[var1]',
+        'def var6 sum[var1, var1, 1]',
+        '[var6]'
+    ])); // 35    
+    
+    console.log(Solve([
+        'def var1[1, 2, 3 ,4]',
+        'def var2 sum[var1, 20, 70]',
+        'def var3 min[var1]',
+        'avg[var2, var3]'
+    ])); // 50
+</script>
