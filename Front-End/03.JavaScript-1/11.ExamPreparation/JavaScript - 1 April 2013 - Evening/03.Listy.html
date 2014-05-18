@@ -3,32 +3,24 @@
         var funcs = {};
 
         function parseList(str) {
-            // 'var1, 6,50'
-            var split = str.split(',').map(function (el) {
-                return el.trim();
-            });
-            // ['var1', '6', '50']
-            var asArrayOfNums = [];
-            split.forEach(function (el) {
-                var parsed = parseInt(el, 10);
+            // '[5, 3, 7, 2, 6, 3]'
+            var arrOfStrings = str.substring(1, str.length - 1).split(',');            
+            var arrayOfNums = [];
+            arrOfStrings.forEach(function (str) {
+                var parsed = parseInt(str, 10);
                 if (isNaN(parsed))
-                    asArrayOfNums = asArrayOfNums.concat(funcs[el]);
+                    arrayOfNums = arrayOfNums.concat(funcs[str.trim()]);
                 else
-                    asArrayOfNums.push(parsed);
+                    arrayOfNums.push(parsed);
             });
-
-            return asArrayOfNums;
+            return arrayOfNums;
         }
 
-        function trimBrackets(str) {
-            return str.substring(1, str.length - 1);
-        }
-
-        function solveOperation(expr) {
+        function executeOper(expr) {
             // 'sum   [5, 3, 7,2, 6,3  ]'
             var oper = expr.substr(0, 3); // 'sum'
             var arrStr = expr.substring(3).trim(); // '[5, 3, 7,2, 6,3  ]'
-            var arr = parseList(trimBrackets(arrStr)); // [5, 3, 7, 2, 6, 3]
+            var arr = parseList(arrStr); // [5, 3, 7, 2, 6, 3]
             var result = arr.reduce(function (a, b) {
                 if (oper === 'sum')
                     return a + b;
@@ -43,35 +35,28 @@
         }
 
         function def(expr) {
-            // 'func sum [5, 3, 7, 2, 6, 3]'
-            // 'func[1, 2, 3 ,4]'
+            // 'func sum [5, 3, 7, 2, 6, 3]' or 'func[1, 2, 3 ,4]'
             var bracket = expr.indexOf('[');
             var tokens = expr.substring(0, bracket).trim().match(/\S+/g);
             var inBrackets = expr.substring(bracket);
 
             var funcName = tokens[0];
-            var operation = tokens[1];
-
-            if (operation === undefined)
-                funcs[funcName] = parseList(trimBrackets(inBrackets)); // '[5, 3, 7, 2, 6, 3]'
-            else
-                funcs[funcName] = solveOperation(operation + inBrackets); // 'sum[5, 3, 7, 2, 6, 3]'    
+            var oper = tokens[1];
+            //                        'sum[5, 3, 7, 2, 6, 3]'         '[5, 3, 7, 2, 6, 3]'
+            funcs[funcName] = oper ? executeOper(oper + inBrackets) : parseList(inBrackets); 
         }
 
         function solveLine(line) {
-            // '[newFunc]'
-            // 'def func sum[1, 2, 3, -6]'
-            // 'sum[func6, func4]'
+            // '[newFunc]' or 'def func sum[1, 2, 3, -6]' or 'sum[func6, func4]'
             if (line[0] === '[')
-                return parseList(trimBrackets(line))[0];
+                return parseList(line)[0];
 
             var op = line.substr(0, 3);
             var expr = line.substring(3).trim();
             if (op === 'def')
                 return def(expr); // 'func sum[1, 2, 3, -6]'
             else
-                return solveOperation(line); // 'sum[func6, func4]'
-
+                return executeOper(line); // 'sum[func6, func4]'
         }
 
         function getResult(lines) {
