@@ -1,0 +1,49 @@
+<script>
+    function Solve(args) {
+        
+        function getCoins(valley, pattern) {
+            // [1, 2, -3]
+            var pos = 0;
+            var result = 0;
+            var p = 0;
+            var used = [];
+            
+            while (true) {
+                if (pos < 0 || pos >= valley.length || used[pos] == true) {
+                    return result;
+                }             
+                
+                result += valley[pos]; 
+                used[pos] = true;
+                pos += pattern[p++ % pattern.length];
+            }            
+        }
+        
+        function getResult(args) {
+            var maxCoins = -Infinity;
+
+            var valley = args.shift().split(',').map(Number);        
+            //console.log(valley);
+
+            var n = args.shift();
+            while (args.length > 0) {
+                var pattern = args.shift().split(', ').map(Number);
+                var coins = getCoins(valley, pattern);
+                //console.log(pattern + ' -> ' + coins);
+                maxCoins = Math.max(coins, maxCoins);
+            }
+
+            return maxCoins;   
+        }
+        
+        return getResult(args);
+    }
+    
+    console.log(Solve([
+        '1, 3, -6, 7, 4 ,1, 12',
+        '3',
+        '1, 2, -3',
+        '1, 3, -2',
+        '1, -1'
+    ]));
+</script>

@@ -1,0 +1,38 @@
+<script>
+    function Solve2(args) {
+        var digit = args.shift();
+        args.shift(); // n
+        var result = '';
+        args.forEach(function (num) {
+            var binary = (+num).toString(2); // to binary
+            var digits = [].filter.call(binary, function(bit) {                
+                return bit === digit;
+            }).length;
+            result += digits + '\n';            
+        });        
+        return result;        
+    }
+    
+    function Solve(args) {
+        var digit = args.shift();
+        args.shift(); // n
+        var result = '';
+        args.forEach(function (num) {
+            var binary = (+num).toString(2);
+            var digits = binary.length - binary.split(digit).join('').length;
+            result += digits + '\n';            
+        });        
+        return result;        
+    }
+    
+    console.log(Solve([
+        '0',
+        '6',
+        '1',
+        '4',
+        '16',
+        '64',
+        '256',
+        '1024'
+    ]));
+</script>
