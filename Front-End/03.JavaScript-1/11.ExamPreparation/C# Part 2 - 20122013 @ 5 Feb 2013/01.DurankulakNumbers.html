@@ -1,0 +1,25 @@
+<script>
+    function Solve(args) {
+        function convertDigit(digit) {
+            if (digit.length === 1)
+                return digit.charCodeAt() - 65;
+            return (digit[0].charCodeAt() - 96) * 26 + convertDigit(digit[1]);
+        }
+        
+        function convertNumber(str) {  
+            var result = 0;            
+            for (var i = 0; i < str.length; i++) {    
+                var digit = str[i] + (str[i].charCodeAt() >= 97 ? str[++i] : '')
+                result = result * 168 + convertDigit(digit);                
+            }            
+            return result;
+        }
+        
+        return convertNumber(args[0]);        
+    }
+    
+    console.log(Solve(['U']));
+    console.log(Solve(['bM']));
+    console.log(Solve(['BaG']));
+    console.log(Solve(['CfI']));
+</script>

@@ -1,0 +1,38 @@
+<script>
+    function Solve(args) {
+        var dict = {
+            '-!' : 0,
+            '**' : 1,
+            '!!!' : 2,
+            '&&' : 3,
+            '&-' : 4,
+            '!-' : 5,
+            '*!!!' : 6,
+            '&*!' : 7,
+            '!!**!-' : 8
+        };
+        
+        var str = args[0];
+        var result = 0;
+        var digitValue;
+        
+        while (str.length) {            
+            for (var symbol in dict) {
+                if (str.indexOf(symbol) === 0) {
+                    digitValue = dict[symbol]; 
+                    break;
+                }
+            } 
+            
+            result = result * 9 + digitValue;
+            str = str.substring(symbol.length);
+        }        
+        
+        return result;
+    }
+    
+    console.log(Solve(['*!!!']));
+    console.log(Solve(['***!!!']));
+    console.log(Solve(['!!!**!-']));
+    console.log(Solve(['!!**!--!!-']));
+</script>
