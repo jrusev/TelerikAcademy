@@ -1,0 +1,56 @@
+<script>
+    function Solve(args) {
+        var rowsCols = args.shift().split(' ');
+        var rows = rowsCols[0];
+        var cols = rowsCols[1];
+        var moves = [];
+        var nums = [];
+        var row, col;
+
+        for (row = 0; row < rows; row++ ) {
+            moves[row] = args.shift();
+            var startNum = Math.pow(2, row);
+            nums[row] = [];
+            for (col = 0; col < cols; col++) {
+                nums[row].push(startNum - col);   
+            }               
+        }
+
+        var dRow = [0, -2, -1, 1, 2,  2,  1, -1, -2];
+        var dCol = [0,  1,  2, 2, 1, -1, -2, -2, -1];
+
+        var sum = 0;
+        var count = 0;
+        row = rows - 1;
+        col = cols - 1;
+
+        while (row >= 0 && row < rows && col >= 0 && col < cols) {
+            if (nums[row][col] === 'X')
+                return 'Sadly the horse is doomed in ' + count + ' jumps';   
+
+            sum += nums[row][col];
+            nums[row][col] = 'X';
+
+            var move = +moves[row][col];
+            row += dRow[move];
+            col += dCol[move];
+            count++;
+        }
+
+        return 'Go go Horsy! Collected ' + sum  + ' weeds';
+    }
+    
+    console.log(Solve([
+        '3 5',
+        '54561',
+        '43328',
+        '52388'
+    ])); // Go go Horsy! Collected 1 weeds
+    
+    console.log(Solve([
+        '3 5',
+        '54361',
+        '43326',
+        '52888'
+    ])); // Sadly the horse is doomed in 8 jumps
+</script>

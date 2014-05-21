@@ -1,0 +1,219 @@
+<script>
+    function Solve(args) {
+        var n = args.shift();
+        var i, tokens = [], model = {};
+        for (i = 0; i < n; i++) {
+            tokens = args.shift().split('-');
+            var propValue = tokens[1];
+            if (propValue.indexOf(';') > -1)
+                propValue = propValue.split(';');
+            model[tokens[0]] = propValue;            
+        }
+        
+        var m = args.shift();
+        var templates = {};
+        
+        // start templates
+        var line = args.shift();
+        while (line.indexOf('<nk-template') > -1) {
+            tokens = line.split('"');
+            var templateName = tokens[1];
+            templates[templateName] = [];
+            
+            line = args.shift();
+            
+            while (line.indexOf('</nk-template>') < 0) {
+                templates[templateName].push(line.substring(4));
+                line = args.shift();
+            }
+            
+            line = args.shift();
+        }
+
+        args.unshift(line);
+        // start HTML
+        var buffer = '';
+        var result = buffer;
+        var propName;
+        var propValue;
+        var indent = '    ';
+        var renderLines = true;
+        var multiLineMode = false;
+        var iterator = '';
+        var collection = '';
+        var repeat = false;
+        var repeatingLines;
+        var repeatCounter = 0;
+        var iterationCounter = 0;
+        
+        function parseProperty(tagStart, tagEnd) {
+            var bufferTo, nameEnd, parsed;
+
+            bufferTo = line.indexOf(tagStart);
+            buffer += line.substring(0, bufferTo);
+            line = line.substring(bufferTo + tagStart.length);
+            nameEnd = line.indexOf(tagEnd);
+            parsed = line.substring(0, nameEnd);
+            
+            return parsed;
+        }
+        
+        while (args.length) {
+                        
+            buffer = '';
+            
+            if (repeat) {        
+                if (repeatCounter === collection.length * repeatingLines.length) {
+                    repeat = false;
+                    multiLineMode = false;
+                    continue;
+                }
+                
+                line = repeatingLines[repeatCounter % repeatingLines.length];   
+                repeatCounter++;
+            }
+            else {
+                line = args.shift();
+            }
+            
+            if (line.indexOf('</nk-if>') > -1) {
+                multiLineMode = false;
+                renderLines = true;
+                continue; 
+            }
+            
+            if (line.indexOf('</nk-repeat>') > -1) {
+                multiLineMode = false;                    
+                continue; 
+            }
+            
+            if (!renderLines) {
+                continue;                   
+            }            
+            
+            if (line.indexOf('<nk-template') > -1) {
+                propName = parseProperty('<nk-template render="', '" />');
+                propValue = templates[propName]; // array of strings
+                buffer = '';
+                propValue.forEach(function (str) {
+                    buffer += indent + str + '\n';
+                });
+                
+                buffer = buffer.substring(0, buffer.length - 1);
+            }
+            else if (line.indexOf('<nk-if') > -1) {
+                propName = parseProperty('<nk-if condition="', '">');
+                propValue = model[propName]; // 'true' or 'flase'                
+                renderLines = propValue === 'true';
+                multiLineMode = true;
+                continue;
+            }
+            else if (line.indexOf('<nk-repeat') > -1) {                
+                propName = parseProperty('<nk-repeat for="', '">');
+                tokens = propName.split(' ');
+                iterator = tokens[0]; // 'student'
+                var collectionName = tokens[2];
+                collection = model[tokens[2]]; // students
+                
+                // store the repeated lines
+                line = args.shift();
+                repeatingLines = [];
+                while (line.indexOf('</nk-repeat>') < 0) {
+                    repeatingLines.push(line);
+                    line = args.shift();
+                }  
+                
+                repeat = true;
+                multiLineMode = true;                
+                repeatCounter = 0;
+                iterationCounter = 0;                            
+                continue;                
+            }
+            else {
+                // '    <h1><nk-model>title</nk-model></h1>'
+                while (line.indexOf("{{") > -1) {                    
+                    buffer += line.substring(0, line.indexOf('}}') + 2);
+                    line = line.substring(buffer.length);                    
+                    buffer = buffer.replace("{{", '').replace("}}", '');
+                }                
+                
+                while (line.indexOf('<nk-model>') > -1) {
+                    propName = parseProperty('<nk-model>', '</nk-model>');
+                    
+                    if (repeat && model[propName] === undefined) {
+                        propValue = model[collectionName][iterationCounter++];
+                    }
+                    else {
+                        propValue = model[propName];
+                    }
+                    
+                    buffer += propValue;
+                    line = line.substring(propName.length + '</nk-model>'.length); // '</h1>'                 
+                }
+                
+                buffer += line;
+            }
+            
+            if (multiLineMode) {
+                buffer = buffer.substring(indent.length);   
+            }
+            
+            result += buffer + '\n';            
+        }        
+        
+        return result;
+    }
+
+    console.log(Solve([
+        '6',
+        'title-Telerik Academy',
+        'showSubtitle-true',
+        'subTitle-Free training',
+        'showMarks-false',
+        'marks-3;4;5;6',
+        'students-Ivan;Gosho;Pesho',
+        '42',
+        '<nk-template name="menu">',
+        '    <ul id="menu">',
+        '        <li>Home</li>',
+        '        <li>About us</li>',
+        '    </ul>',
+        '</nk-template>',
+        '<nk-template name="footer">',
+        '    <footer>',
+        '        Copyright Telerik Academy 2014',
+        '    </footer>',
+        '</nk-template>',
+        '<!DOCTYPE html>',
+        '<html>',
+        '<head>',
+        '    <title>Telerik Academy</title>',
+        '</head>',
+        '<body>',
+        '    <nk-template render="menu" />',
+        '',
+        '    <h1><nk-model>title</nk-model></h1>',
+        '    <nk-if condition="showSubtitle">',
+        '        <h2><nk-model>subTitle</nk-model></h2>',
+        '        <div>{{<nk-model>subTitle</nk-model>}} ;)</div>',
+        '    </nk-if>',
+        '',
+        '    <ul>',
+        '        <nk-repeat for="student in students">',
+        '            <li>',
+        '                <nk-model>student</nk-model>',
+        '            </li>',
+        '            <li>Multiline <nk-model>title</nk-model></li>',
+        '        </nk-repeat>',
+        '    </ul>',
+        '    <nk-if condition="showMarks">',
+        '        <div>',
+        '            <nk-model>marks</nk-model> ',
+        '        </div>',
+        '    </nk-if>',
+        '',
+        '    <nk-template render="footer" />',
+        '</body>',
+        '</html>'
+    ]));
+</script>
