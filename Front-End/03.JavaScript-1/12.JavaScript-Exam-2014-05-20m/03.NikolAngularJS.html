@@ -44,7 +44,6 @@
         var repeat = false;
         var repeatingLines;
         var repeatCounter = 0;
-        var iterationCounter = 0;
         
         function parseProperty(tagStart, tagEnd) {
             var bufferTo, nameEnd, parsed;
@@ -89,7 +88,13 @@
             
             if (!renderLines) {
                 continue;                   
-            }            
+            }
+            
+            while (line.indexOf("{{") > -1) {                    
+                buffer += line.substring(0, line.indexOf('}}') + 2);
+                line = line.substring(buffer.length);                    
+                buffer = buffer.replace("{{", '').replace("}}", '');
+            }    
             
             if (line.indexOf('<nk-template') > -1) {
                 propName = parseProperty('<nk-template render="', '" />');
@@ -125,23 +130,16 @@
                 
                 repeat = true;
                 multiLineMode = true;                
-                repeatCounter = 0;
-                iterationCounter = 0;                            
+                repeatCounter = 0;                 
                 continue;                
             }
             else {
-                // '    <h1><nk-model>title</nk-model></h1>'
-                while (line.indexOf("{{") > -1) {                    
-                    buffer += line.substring(0, line.indexOf('}}') + 2);
-                    line = line.substring(buffer.length);                    
-                    buffer = buffer.replace("{{", '').replace("}}", '');
-                }                
-                
+                // '    <h1><nk-model>title</nk-model></h1>'                
                 while (line.indexOf('<nk-model>') > -1) {
                     propName = parseProperty('<nk-model>', '</nk-model>');
                     
                     if (repeat && model[propName] === undefined) {
-                        propValue = model[collectionName][iterationCounter++];
+                        propValue = model[collectionName][~~((repeatCounter - 1) / repeatingLines.length)];
                     }
                     else {
                         propValue = model[propName];
@@ -163,6 +161,78 @@
         
         return result;
     }
+    
+    // Test 001
+    console.log(Solve([
+        '0',
+        '15',
+        '<div>',
+        '    <p>',
+        '    {{<nk-if condition="pesho">}}',
+        '        {{escaped}} dude',
+        '    </p>',
+        '    <p>',
+        '    {{<nk-template render="pesho">}}',
+        '    </p>',
+        '    <p>',
+        '    {{<nk-repeat for="pesho in peshos">}}',
+        '        {{escaped}} in comment',
+        '    </p>',
+        '</div>'    
+    ]));
+    
+    // Test 006
+    console.log(Solve([
+        '2',
+        'someNumbers-1;2;3;4;5',
+        'someTechs-asp.net;mvc;angular;node;c sharp',
+        '14',
+        '<div>',
+        '    <span>Some bulsh*t text</span>',
+        '    <br />',
+        '    <nk-repeat for="number in someNumbers">',
+        '        <span><nk-model>number</nk-model> da ima</span>',
+        '        <span>only <nk-model>number</nk-model></span>',
+        '    </nk-repeat>',
+        '    <br />',
+        '    <div>',
+        '        <span>More bulsh*t text</span>',
+        '        <nk-repeat for="tech in someTechs">',
+        '            <span><nk-model>tech</nk-model> is cool</span>',
+        '            <span>and <nk-model>tech</nk-model> is mama</span>',
+        '        </nk-repeat>',
+        '    <div>',
+        '</div>'
+    ]));
+    
+    
+    // Test 007
+    console.log(Solve([
+        '4',
+        'someNumbersHere-1;2;3;4;5',
+        'someTechsHere-asp.net;mvc;angular;node;c sharp',
+        'kolio-nikolay',
+        'minkov-donchoviq',
+        '14',
+        '<div>',
+        '    <span>Some bulsh*t text</span>',
+        '    <br />',
+        '    <nk-repeat for="someNumber in someNumbersHere">',
+        '        <span><nk-model>someNumber</nk-model> da ima</span>',
+        '        <span>only <nk-model>someNumber</nk-model></span>',
+        '        <strong><nk-model>kolio</nk-model></strong>',
+        '    </nk-repeat>',
+        '    <br />',
+        '    <div>',
+        '        <span>More bulsh*t text</span>',
+        '        <nk-repeat for="someTech in someTechsHere">',
+        '            <span><nk-model>someTech</nk-model> is cool</span>',
+        '            <span>and <nk-model>someTech</nk-model> is mama</span>',
+        '            <strong><nk-model>minkov</nk-model></strong>',
+        '        </nk-repeat>',
+        '    <div>',
+        '</div>' 
+    ]));
 
     console.log(Solve([
         '6',

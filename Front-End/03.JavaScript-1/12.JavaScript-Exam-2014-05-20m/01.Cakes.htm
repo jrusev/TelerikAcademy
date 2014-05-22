@@ -1,19 +1,16 @@
 <script>
-	function Solve(args) {
-		var S = args[0];
-		var c1 = args[1];
-		var c2 = args[2];
-		var c3 = args[3];
-		var x, y, minRem = +Infinity;        
-		var xMax = ~~(S / c1);
-		for (x = 0; x <= xMax; x++) {
-			var r1 = S - x * c1;
-			var yMax = ~~(r1 / c2);
-			for (y = 0; y <= yMax; y++)
-				minRem = Math.min((r1 - y * c2) % c3, minRem);
-		}        
-		return S - minRem;
-	}
+    function Solve(args) {
+        var S = args[0], c1 = args[1], c2 = args[2], c3 = args[3];
+        var x, y, minRem = +Infinity;        
+        var xMax = ~~(S / c1);
+        for (x = 0; x <= xMax; x++) {
+            var r1 = S - x * c1;
+            var yMax = ~~(r1 / c2);
+            for (y = 0; y <= yMax; y++)
+                minRem = Math.min((r1 - y * c2) % c3, minRem);
+        }        
+        return S - minRem;
+    }
 	
     function Solve2(args) {
         var S = args[0];
