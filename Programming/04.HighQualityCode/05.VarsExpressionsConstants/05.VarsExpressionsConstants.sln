@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.RotatedSize", "01.RotatedSize\01.RotatedSize.csproj", "{F9C3A0EC-3044-4C83-9A8F-50843CD9213E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.PrintStatistics", "02.PrintStatistics\02.PrintStatistics.csproj", "{AD809074-9098-4A91-9B35-7914D56C3A8B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F9C3A0EC-3044-4C83-9A8F-50843CD9213E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9C3A0EC-3044-4C83-9A8F-50843CD9213E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9C3A0EC-3044-4C83-9A8F-50843CD9213E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD809074-9098-4A91-9B35-7914D56C3A8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD809074-9098-4A91-9B35-7914D56C3A8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD809074-9098-4A91-9B35-7914D56C3A8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD809074-9098-4A91-9B35-7914D56C3A8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
