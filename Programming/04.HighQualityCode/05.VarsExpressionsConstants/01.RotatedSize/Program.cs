@@ -1,7 +1,19 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Program.cs" company="Telerik Academy">
+//     Copyright (c) 2014 Telerik Academy. All rights reserved.
+// </copyright>
+// <summary>Test for the Size class.</summary>
+//-----------------------------------------------------------------------
+using System;
 
+/// <summary>
+/// A class which demonstrates the use of the <see cref="Size"/> class.
+/// </summary>
 public class Program
 {
+    /// <summary>
+    /// The entry point of the program.
+    /// </summary>
     public static void Main()
     {
         var size = new Size(3, 4);        
@@ -14,6 +26,12 @@ public class Program
         Console.WriteLine(rotated);
     }
 
+    /// <summary>
+    /// Rotates a shape with given width and height.
+    /// </summary>
+    /// <param name="size">The <see cref="Size"/> to rotate.</param>
+    /// <param name="rotationRads">The degree of rotation in radians.</param>
+    /// <returns>The dimension of the shape after rotation.</returns>
     public static Size RotateSize(Size size, double rotationRads)
     {
         double width = Math.Abs(Math.Cos(rotationRads) * size.Width) + Math.Abs(Math.Sin(rotationRads) * size.Height);
