@@ -19,25 +19,29 @@ public class Chef
 
     private Bowl GetBowl()
     {
+        Console.WriteLine("Get bowl");
         return new Bowl();
     }
 
     private Carrot GetCarrot()
     {
+        Console.WriteLine("Get carrot");
         return new Carrot();
     }
 
     private void Cut(Vegetable vegetable)
     {
+        Console.WriteLine("Cut {0}", vegetable);
     }
 
-    private void Peel(Vegetable potato)
+    private void Peel(Vegetable vegetable)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Peel {0}", vegetable);
     }
 
     private Potato GetPotato()
     {
+        Console.WriteLine("Get potato");
         return new Potato();
     }
 }
