@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.Cooking", "01.Cooking\01.Cooking.csproj", "{4625F81C-0246-4E77-919E-72291D4596A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.ConditionalStatements", "02.ConditionalStatements\02.ConditionalStatements.csproj", "{9213FD2D-C0A0-4597-A893-5E3FD3B3ED5D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{4625F81C-0246-4E77-919E-72291D4596A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4625F81C-0246-4E77-919E-72291D4596A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4625F81C-0246-4E77-919E-72291D4596A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9213FD2D-C0A0-4597-A893-5E3FD3B3ED5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9213FD2D-C0A0-4597-A893-5E3FD3B3ED5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9213FD2D-C0A0-4597-A893-5E3FD3B3ED5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9213FD2D-C0A0-4597-A893-5E3FD3B3ED5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
