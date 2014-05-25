@@ -28,6 +28,7 @@ public class Program
         }
         else
         {
+            // TODO: throw three different exceptions for each case
             throw new ApplicationException("Cannot cook potato!");
         }
     }
