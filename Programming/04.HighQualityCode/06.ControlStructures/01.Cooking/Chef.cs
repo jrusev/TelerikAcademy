@@ -4,19 +4,16 @@ public class Chef
 {
     public void Cook()
     {
-        IVegetable potato = this.GetPotato();
-        IVegetable carrot = this.GetCarrot();
-        Bowl bowl;
+        Vegetable potato = this.GetPotato();
         this.Peel(potato);
-
-        this.Peel(carrot);
-        bowl = this.GetBowl();
-
         this.Cut(potato);
+
+        Vegetable carrot = this.GetCarrot();        
+        this.Peel(carrot);        
         this.Cut(carrot);
 
+        var bowl = this.GetBowl();
         bowl.Add(carrot);
-
         bowl.Add(potato);
     }
 
@@ -30,11 +27,11 @@ public class Chef
         return new Carrot();
     }
 
-    private void Cut(IVegetable vegetable)
+    private void Cut(Vegetable vegetable)
     {
     }
 
-    private void Peel(IVegetable potato)
+    private void Peel(Vegetable potato)
     {
         throw new NotImplementedException();
     }

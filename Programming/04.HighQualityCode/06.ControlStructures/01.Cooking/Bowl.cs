@@ -1,6 +1,6 @@
 ﻿public class Bowl
 {
-    public void Add(IVegetable vegetable)
+    public void Add(Vegetable vegetable)
     {
     }
 }

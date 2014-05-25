@@ -1,3 +1,3 @@
-﻿public class Carrot : IVegetable
+﻿public class Carrot : Vegetable
 {
 }
