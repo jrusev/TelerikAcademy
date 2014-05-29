@@ -22,6 +22,6 @@ public class Student
 
     public bool IsOlderThan(Student other)
     {
-        return this.BirthDate > other.BirthDate;
+        return this.BirthDate < other.BirthDate;
     }
 }
