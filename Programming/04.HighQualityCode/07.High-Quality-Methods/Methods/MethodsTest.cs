@@ -1,8 +1,8 @@
 ﻿using System;
 
-class MethodsTest
+public class MethodsTest
 {
-    static void Main()
+    public static void Main()
     {
         Console.WriteLine(Methods.CalcTriangleArea(3, 4, 5));
 
@@ -26,7 +26,6 @@ class MethodsTest
         stella.Town = "Vidin";
         stella.OtherInfo = "gamer, high results";
 
-        Console.WriteLine("{0} older than {1} -> {2}",
-            peter.FirstName, stella.FirstName, peter.IsOlderThan(stella));
+        Console.WriteLine("{0} older than {1} -> {2}", peter.FirstName, stella.FirstName, peter.IsOlderThan(stella));
     }
 }

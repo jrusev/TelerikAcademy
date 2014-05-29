@@ -21,18 +21,18 @@ public static class Methods
 
     public static double CalcDistance(double x1, double y1, double x2, double y2)
     {
-        double distance = Math.Sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+        double distance = Math.Sqrt(((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1)));
         return distance;
     }
 
     public static bool IsHorizontal(double x1, double y1, double x2, double y2)
     {
-        return (y1 == y2);
+        return y1 == y2;
     }
 
     public static bool IsVertical(double x1, double y1, double x2, double y2)
     {
-        return (x1 == x2);
+        return x1 == x2;
     }
 
     public static string FormatAsFloat(object number)
@@ -64,9 +64,9 @@ public static class Methods
             case 7: return "seven";
             case 8: return "eight";
             case 9: return "nine";
-        }
-
-        throw new ArgumentException("Invalid digit!");
+            default:
+                throw new ArgumentOutOfRangeException("The number is not a digit!");
+        }        
     }
 
     public static int FindMax(params int[] elements)
