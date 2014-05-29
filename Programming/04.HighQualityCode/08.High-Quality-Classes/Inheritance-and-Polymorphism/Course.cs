@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-
-namespace InheritanceAndPolymorphism
+﻿namespace InheritanceAndPolymorphism
 {
+    using System.Collections.Generic;
+    using System.Text;
+
     public abstract class Course
     {
         private readonly List<string> students;
@@ -34,6 +32,20 @@ namespace InheritanceAndPolymorphism
             return new List<string>(this.students);
         }
 
+        public override string ToString()
+        {
+            StringBuilder result = new StringBuilder();
+            result.AppendFormat("{0} {{ Name = {1}", this.GetType().Name, this.Name);
+            if (this.TeacherName != null)
+            {
+                result.AppendFormat("; Teacher = {0}", this.TeacherName);
+            }
+
+            result.AppendFormat("; Students = {0}", this.GetStudentsAsString());
+            result.Append(" }");
+            return result.ToString();
+        }
+
         private string GetStudentsAsString()
         {
             if (this.students.Count == 0)
@@ -44,19 +56,6 @@ namespace InheritanceAndPolymorphism
             {
                 return "{ " + string.Join(", ", this.students) + " }";
             }
-        }
-
-        public override string ToString()
-        {
-            StringBuilder result = new StringBuilder();
-            result.AppendFormat("{0} {{ Name = {1}", this.GetType().Name, this.Name);
-            if (this.TeacherName != null)
-            {
-                result.AppendFormat("; Teacher = {0}", this.TeacherName);
-            }
-            result.AppendFormat("; Students = {0}", this.GetStudentsAsString());
-            result.Append(" }");
-            return result.ToString();
         }
     }
 }
