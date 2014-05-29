@@ -1,24 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace InheritanceAndPolymorphism
 {
-    class CoursesExamples
+    class TestCourses
     {
         static void Main()
         {
-            LocalCourse localCourse = new LocalCourse("Databases");
+            var localCourse = new LocalCourse("Databases");
             Console.WriteLine(localCourse);
 
             localCourse.Lab = "Enterprise";
             Console.WriteLine(localCourse);
 
-            localCourse.Students = new List<string>() { "Peter", "Maria" };
+            localCourse.AddStudent("Peter");
+            localCourse.AddStudent("Maria");
             Console.WriteLine(localCourse);
 
             localCourse.TeacherName = "Svetlin Nakov";
-            localCourse.Students.Add("Milena");
-            localCourse.Students.Add("Todor");
+            localCourse.AddStudent("Milena");
+            localCourse.AddStudent("Todor");
             Console.WriteLine(localCourse);
 
             OffsiteCourse offsiteCourse = new OffsiteCourse(
