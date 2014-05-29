@@ -14,7 +14,7 @@ namespace Abstraction
         {
         }
 
-        public override double Radius
+        public double Radius
         {
             get
             {

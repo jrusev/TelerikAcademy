@@ -2,10 +2,8 @@
 
 namespace Abstraction
 {
-    class Circle : Figure
+    public class Circle : Figure
     {
-        public double Radius { get; set; }
-
         public Circle()
         {
         }
@@ -15,12 +13,15 @@ namespace Abstraction
             this.Radius = radius;
         }
 
+        public double Radius { get; set; }
+
         public override double Width
         {
             get
             {
                 throw new NotImplementedException("Circle does not have Width");
             }
+
             set
             {
                 throw new NotImplementedException("Circle does not have Width");
@@ -33,6 +34,7 @@ namespace Abstraction
             {
                 throw new NotImplementedException("Circle does not have Height");
             }
+
             set
             {
                 throw new NotImplementedException("Circle does not have Height");
