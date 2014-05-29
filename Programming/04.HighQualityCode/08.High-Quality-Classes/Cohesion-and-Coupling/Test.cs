@@ -6,13 +6,13 @@
     {
         public static void Main()
         {
-            Console.WriteLine(FileNameUtils.GetFileExtension("example"));
-            Console.WriteLine(FileNameUtils.GetFileExtension("example.pdf"));
-            Console.WriteLine(FileNameUtils.GetFileExtension("example.new.pdf"));
+            Console.WriteLine(FileUtils.GetFileExtension("example"));
+            Console.WriteLine(FileUtils.GetFileExtension("example.pdf"));
+            Console.WriteLine(FileUtils.GetFileExtension("example.new.pdf"));
 
-            Console.WriteLine(FileNameUtils.GetFileNameWithoutExtension("example"));
-            Console.WriteLine(FileNameUtils.GetFileNameWithoutExtension("example.pdf"));
-            Console.WriteLine(FileNameUtils.GetFileNameWithoutExtension("example.new.pdf"));
+            Console.WriteLine(FileUtils.GetFileNameWithoutExtension("example"));
+            Console.WriteLine(FileUtils.GetFileNameWithoutExtension("example.pdf"));
+            Console.WriteLine(FileUtils.GetFileNameWithoutExtension("example.new.pdf"));
 
             Console.WriteLine("-------------------------");
 

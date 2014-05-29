@@ -1,13 +1,15 @@
 ﻿namespace CohesionAndCoupling
 {
-    public static class FileNameUtils
+    using System;
+
+    public static class FileUtils
     {
         public static string GetFileExtension(string fileName)
         {
             int indexOfLastDot = fileName.LastIndexOf(".");
-            if (indexOfLastDot == -1)
+            if (indexOfLastDot < 0)
             {
-                return null;
+                return string.Empty;
             }
 
             string extension = fileName.Substring(indexOfLastDot + 1);
@@ -17,7 +19,7 @@
         public static string GetFileNameWithoutExtension(string fileName)
         {
             int indexOfLastDot = fileName.LastIndexOf(".");
-            if (indexOfLastDot == -1)
+            if (indexOfLastDot < 0)
             {
                 return fileName;
             }

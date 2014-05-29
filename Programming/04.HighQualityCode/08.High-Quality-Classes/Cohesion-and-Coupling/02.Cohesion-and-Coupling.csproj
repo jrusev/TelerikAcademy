@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cuboid.cs" />
-    <Compile Include="FileNameUtils.cs" />
+    <Compile Include="FileUtils.cs" />
     <Compile Include="Test.cs" />
     <Compile Include="GeometryUtils.cs" />
   </ItemGroup>
