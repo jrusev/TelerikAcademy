@@ -1,5 +1,6 @@
 ﻿using System;
 
+// TODO: There are at least three groups of methods that can be put in separate classes.
 public static class Methods
 {
     public static double CalcTriangleArea(double a, double b, double c)
