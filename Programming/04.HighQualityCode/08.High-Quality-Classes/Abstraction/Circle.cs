@@ -5,14 +5,13 @@
     public class Circle : Figure
     {
         public Circle(double radius)
-            : base()
         {
             this.Radius = radius;
         }
 
         public double Radius { get; private set; }
 
-        public double Perimeter
+        public override double Perimeter
         {
             get
             {
@@ -21,7 +20,7 @@
             }
         }
 
-        public double Surface
+        public override double Area
         {
             get
             {

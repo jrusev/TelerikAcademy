@@ -5,11 +5,16 @@
     public class Rectangle : Figure
     {
         public Rectangle(double width, double height)
-            : base(width, height)
         {
+            this.Width = width;
+            this.Height = height;
         }
 
-        public double Perimeter
+        public double Width { get; private set; }
+
+        public double Height { get; private set; }
+
+        public override double Perimeter
         {
             get
             {
@@ -18,7 +23,7 @@
             }
         }
 
-        public double Surface
+        public override double Area
         {
             get
             {
