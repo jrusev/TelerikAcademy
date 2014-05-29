@@ -14,10 +14,9 @@ public class MethodsTest
         Console.WriteLine(Methods.FormatAsPercent(0.75));
         Console.WriteLine(Methods.FormatWithPadding(2.30, 8));
 
-        double x1 = 3, y1 = -1, x2 = 3, y2 = 2.5;
-        Console.WriteLine(Methods.CalcDistance(x1, y1, x2, y2));
-        Console.WriteLine("Horizontal? " + Methods.IsHorizontal(x1, y1, x2, y2));
-        Console.WriteLine("Vertical? " + Methods.IsVertical(x1, y1, x2, y2));
+        Console.WriteLine(Methods.CalcDistance(3, -1, 3, 2.5));
+        Console.WriteLine("Horizontal? " + Methods.IsHorizontal(3, -1, 3, 2.5));
+        Console.WriteLine("Vertical? " + Methods.IsVertical(3, -1, 3, 2.5));
 
         var peter = new Student("Peter", "Ivanov", new DateTime(1992, 03, 17));
         peter.Town = "Sofia";
