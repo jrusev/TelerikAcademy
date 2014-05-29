@@ -16,5 +16,13 @@
                 this.Perimeter,
                 this.Area);
         }
+
+        protected void ThrowIfNegative(double param, string paramName)
+        {
+            if (param <= 0)
+            {
+                throw new ArgumentOutOfRangeException(paramName, "Value must be positive, got " + param);
+            }
+        }
     }
 }

@@ -4,12 +4,26 @@
 
     public class Circle : Figure
     {
+        private double radius;
+
         public Circle(double radius)
         {
             this.Radius = radius;
         }
 
-        public double Radius { get; private set; }
+        public double Radius
+        {
+            get
+            {
+                return this.radius;
+            }
+
+            private set
+            {
+                this.ThrowIfNegative(value, "radius");
+                this.radius = value;
+            }
+        }
 
         public override double Perimeter
         {
