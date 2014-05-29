@@ -15,8 +15,8 @@
         public override string ToString()
         {
             var result = new StringBuilder();
+            result.AppendFormat("{0} {{ Name = {1}", this.GetType().Name, this.Name);
             result.Append(base.ToString());
-            result.Length -= 2; // removes the " }" at the end
             if (this.Town != null)
             {
                 result.AppendFormat("; Lab = {0}", this.Town);

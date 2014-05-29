@@ -17,7 +17,7 @@
             localCourse.AddStudent("Maria");
             Console.WriteLine(localCourse);
 
-            localCourse.TeacherName = "Svetlin Nakov";
+            localCourse.Teacher = "Svetlin Nakov";
             localCourse.AddStudent("Milena");
             localCourse.AddStudent("Todor");
             Console.WriteLine(localCourse);
