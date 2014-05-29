@@ -1,11 +1,13 @@
 ﻿namespace InheritanceAndPolymorphism
 {
+    using System;
     using System.Collections.Generic;
     using System.Text;
 
     public abstract class Course
     {
         private readonly IList<string> students;
+        private string name;
 
         public Course(string courseName, string teacherName = null, IList<string> students = null)
         {
@@ -14,7 +16,23 @@
             this.students = students ?? new List<string>();
         }
 
-        public string Name { get; private set; }
+        public string Name
+        {
+            get
+            {
+                return this.name;
+            }
+
+            private set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("Name cannot be null or empty!", "name");
+                }
+
+                this.name = value;
+            }
+        }
 
         public string Teacher { get; set; }
 
