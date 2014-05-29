@@ -1,20 +1,27 @@
 ﻿using System;
 
-namespace Methods
+public class Student
 {
-    class Student
+    public Student(string firstName, string lastName, DateTime birthDate)
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string OtherInfo { get; set; }
+        this.FirstName = firstName;
+        this.LastName = lastName;
+        this.BirthDate = birthDate;
+    }
 
-        public bool IsOlderThan(Student other)
-        {
-            DateTime firstDate =
-                DateTime.Parse(this.OtherInfo.Substring(this.OtherInfo.Length - 10));
-            DateTime secondDate =
-                DateTime.Parse(other.OtherInfo.Substring(other.OtherInfo.Length - 10));
-            return firstDate > secondDate;
-        }
+    // TODO: add checks
+    public string FirstName { get; private set; }
+
+    public string LastName { get; private set; }
+
+    public DateTime BirthDate { get; private set; }
+
+    public string Town { get; set; }
+
+    public string OtherInfo { get; set; }
+
+    public bool IsOlderThan(Student other)
+    {
+        return this.BirthDate > other.BirthDate;
     }
 }
