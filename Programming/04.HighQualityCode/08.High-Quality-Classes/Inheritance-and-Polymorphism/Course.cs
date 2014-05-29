@@ -27,7 +27,7 @@
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentException("Name cannot be null or empty!", "name");
+                    throw new ArgumentException("Course name cannot be null or empty!");
                 }
 
                 this.name = value;
@@ -38,6 +38,11 @@
 
         public void AddStudent(string student)
         {
+            if (string.IsNullOrWhiteSpace(student))
+            {
+                throw new ArgumentException("Student name cannot be null or empty!");
+            }
+
             this.students.Add(student);
         }
 
