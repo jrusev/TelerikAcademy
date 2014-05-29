@@ -1,12 +1,9 @@
-﻿using System;
-
-namespace Abstraction
+﻿namespace Abstraction
 {
+    using System;
+
     public abstract class Figure
     {
-        public virtual double Width { get; set; }
-        public virtual double Height { get; set; }
-
         public Figure()
         {
         }
@@ -16,5 +13,9 @@ namespace Abstraction
             this.Width = width;
             this.Height = height;
         }
+
+        public virtual double Width { get; private set; }
+
+        public virtual double Height { get; private set; }
     }
 }
