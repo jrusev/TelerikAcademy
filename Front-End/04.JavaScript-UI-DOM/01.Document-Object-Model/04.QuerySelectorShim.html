@@ -1,0 +1,37 @@
+<!-- Write a script that shims querySelector and querySelectorAll in older browsers -->
+<!DOCTYPE html>
+<html>
+<head>    
+    <title>querySelector shim</title>
+</head>
+<body>
+    <script>        
+        ;(function() {
+            'use strict';
+            
+            if (typeof document.querySelector == "undefined") {                
+    
+                document.querySelector = function(selectors) {
+                    return document.getElementById(selectors.substr(1));
+                };
+                
+                document.querySelectorAll = function(selectors) {
+                    var startsWith = selectors[0];
+                    if (startsWith === "#") {
+                        // e.g. document.querySelector('#myID')
+                        return document.querySelector(selectors);
+                    }
+                    else if (startsWith === '.') {
+                        // e.g. document.querySelector(".myclass");
+                        return document.getElementsByClassName(selectors.substr(1));
+                    }
+                    else {
+                        // a full solution would require to analyse the query with regex 
+                        return document.getElementsByTagName(selectors);
+                    }
+                }; 
+            }
+        }())
+    </script>
+</body>
+</html>
