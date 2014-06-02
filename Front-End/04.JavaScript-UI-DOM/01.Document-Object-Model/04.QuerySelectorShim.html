@@ -17,18 +17,14 @@
                 
                 document.querySelectorAll = function(selectors) {
                     var startsWith = selectors[0];
-                    if (startsWith === "#") {
-                        // e.g. document.querySelector('#myID')
+                    if (startsWith === "#")
                         return document.querySelector(selectors);
-                    }
-                    else if (startsWith === '.') {
-                        // e.g. document.querySelector(".myclass");
-                        return document.getElementsByClassName(selectors.substr(1));
-                    }
-                    else {
-                        // a full solution would require to analyse the query with regex 
-                        return document.getElementsByTagName(selectors);
-                    }
+                    
+                    if (startsWith === '.')
+                        return document.getElementsByClassName(selectors.substr(1));                    
+                               
+                    // a complete solution would require to analyse the query with regex 
+                    return document.getElementsByTagName(selectors);
                 }; 
             }
         }())
