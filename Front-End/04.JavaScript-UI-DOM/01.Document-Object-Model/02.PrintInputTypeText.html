@@ -1,0 +1,22 @@
+<!--
+Create a function that gets the value of <input type="text"> ands prints its value to the console.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Select Inner Divs</title>
+</head>
+<body>
+    <p>Create a function that gets the value of &lt;input type="text"> ands prints its value to the console.</p>
+    <input type="text" id="text-input" autofocus="autofocus" placeholder="Type some text here..."/>
+    <button onclick="showContent()">Check the console!</button>
+    <script>        
+        function showContent() {
+            var textInput = document.getElementById('text-input'); 
+            console.clear();
+            console.log(textInput.value);  
+        }
+    </script>
+</body>
+</html>
