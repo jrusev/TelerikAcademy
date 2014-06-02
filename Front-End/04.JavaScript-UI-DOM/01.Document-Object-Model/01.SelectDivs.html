@@ -27,7 +27,7 @@ Create a function using getElementsByTagName()
         console.log('With getElementsByTagName:')
         var allDivs = document.getElementsByTagName('div');
         for (var i = 0, length = allDivs.length; i < length; i++)
-            if (allDivs[i].parentNode.tagName == 'DIV')
+            if (allDivs[i].parentNode.tagName === 'DIV')
                 console.log(allDivs[i].textContent.split('\n')[0])
         
         console.log('With querySelectorAll:')
