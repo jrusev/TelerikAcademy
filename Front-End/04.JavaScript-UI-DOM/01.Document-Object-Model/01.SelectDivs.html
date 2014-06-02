@@ -1,0 +1,41 @@
+<!--
+Write a script that selects all the div nodes that are directly inside other div elements.
+Create a function using querySelectorAll()
+Create a function using getElementsByTagName()
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Select Inner Divs</title>
+</head>
+<body>
+    <p>Write a script that selects all the div nodes that are directly inside other div elements.</p>
+    <p>Check results in the console...</p>
+    <div>01 (outer)
+        <div>02 (inner)</div>
+        <div>03 (inner)</div>
+        <div>04 (inner)
+            <div>05 (inner)</div>
+        </div>    
+    </div>
+    <div>06 (outer)</div>
+    <script>
+    ;(function() {
+        'use strict';
+        
+        console.log('With getElementsByTagName:')
+        var allDivs = document.getElementsByTagName('div');
+        for (var i = 0, length = allDivs.length; i < length; i++)
+            if (allDivs[i].parentNode.tagName == 'DIV')
+                console.log(allDivs[i].innerText)
+        
+        console.log('With querySelectorAll:')
+        var innerDivs = document.querySelectorAll('div > div');
+        for (i = 0; i < innerDivs.length; i++)
+                console.log(innerDivs[i].innerText)
+                
+    }())
+    </script>
+</body>
+</html>
