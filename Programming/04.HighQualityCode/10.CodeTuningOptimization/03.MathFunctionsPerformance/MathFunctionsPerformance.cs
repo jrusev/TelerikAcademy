@@ -10,54 +10,54 @@ class MathFunctionsPerformance
 
     static void Main()
     {
-        unchecked
+        TestSquareRoot();
+        TestLog();
+        TestSin();
+    }
+
+    private static void TestSin()
+    {
+        DisplayTestResult("Sin float", () =>
         {
-            {
-                DisplayTestResult("Square root float", () =>
-                {
-                    for (float i = 1; i < RepeatCount; i++)
-                        Math.Sqrt(i);
-                });
+            for (float i = 1; i < RepeatCount; i++)
+                Math.Sin(i);
+        });
 
-                DisplayTestResult("Square root double", () =>
-                {
-                    for (double i = 1; i < RepeatCount; i++)
-                        Math.Sqrt(i);
-                });
-            }
+        DisplayTestResult("Sin double", () =>
+        {
+            for (double i = 1; i < RepeatCount; i++)
+                Math.Sin(i);
+        });
+    }
 
-            Console.WriteLine();
+    private static void TestLog()
+    {
+        DisplayTestResult("Ln float", () =>
+        {
+            for (float i = 1; i < RepeatCount; i++)
+                Math.Log(i);
+        });
 
-            {
-                DisplayTestResult("Ln float", () =>
-                {
-                    for (float i = 1; i < RepeatCount; i++)
-                        Math.Log(i);
-                });
+        DisplayTestResult("Ln double", () =>
+        {
+            for (double i = 1; i < RepeatCount; i++)
+                Math.Log(i);
+        });
+    }
 
-                DisplayTestResult("Ln double", () =>
-                {
-                    for (double i = 1; i < RepeatCount; i++)
-                        Math.Log(i);
-                });
-            }
+    private static void TestSquareRoot()
+    {
+        DisplayTestResult("Square root float", () =>
+        {
+            for (float i = 1; i < RepeatCount; i++)
+                Math.Sqrt(i);
+        });
 
-            Console.WriteLine();
-
-            {
-                DisplayTestResult("Sin float", () =>
-                {
-                    for (float i = 1; i < RepeatCount; i++)
-                        Math.Sin(i);
-                });
-
-                DisplayTestResult("Sin double", () =>
-                {
-                    for (double i = 1; i < RepeatCount; i++)
-                        Math.Sin(i);
-                });
-            }
-        }
+        DisplayTestResult("Square root double", () =>
+        {
+            for (double i = 1; i < RepeatCount; i++)
+                Math.Sqrt(i);
+        });
     }
 
     static void DisplayTestResult(string title, Action action)
