@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 class OperatorsPerformance
 {
-    const int RepeatCount = 100000000;
+    const int RepeatCount = 10000000;
 
     static readonly Stopwatch stopwatch = new Stopwatch();
 
