@@ -10,226 +10,234 @@ class OperatorsPerformance
 
     static void Main()
     {
-        unchecked
+        TestAddition();
+        Console.WriteLine();
+
+        TestSubtraction();
+        Console.WriteLine();
+
+        TestIncrement();
+        Console.WriteLine();
+
+        TestMultiplication();
+        Console.WriteLine();
+
+        TestDivision();
+    }
+
+    private static void TestDivision()
+    {
+        DisplayTestResult("Divide int", () =>
         {
-            {
-                DisplayTestResult("Add int", () =>
-                {
-                    int count = 0;
+            int count = int.MaxValue;
 
-                    for (int i = 1; i < RepeatCount; i++)
-                        count += i;
-                });
+            for (int i = 1; i < RepeatCount; i++)
+                count /= i;
+        });
 
-                DisplayTestResult("Add long", () =>
-                {
-                    long count = 0;
+        DisplayTestResult("Divide long", () =>
+        {
+            long count = long.MaxValue;
 
-                    for (int i = 1; i < RepeatCount; i++)
-                        count += i;
-                });
+            for (int i = 1; i < RepeatCount; i++)
+                count /= i;
+        });
 
-                DisplayTestResult("Add float", () =>
-                {
-                    float count = 0;
+        DisplayTestResult("Divide float", () =>
+        {
+            float count = float.MaxValue;
 
-                    for (int i = 1; i < RepeatCount; i++)
-                        count += i;
-                });
+            for (int i = 1; i < RepeatCount; i++)
+                count /= i;
+        });
 
-                DisplayTestResult("Add double", () =>
-                {
-                    double count = 0;
+        DisplayTestResult("Divide double", () =>
+        {
+            double count = double.MaxValue;
 
-                    for (int i = 1; i < RepeatCount; i++)
-                        count += i;
-                });
+            for (int i = 1; i < RepeatCount; i++)
+                count /= i;
+        });
 
-                DisplayTestResult("Add decimal", () =>
-                {
-                    decimal count = 0;
+        DisplayTestResult("Divide decimal", () =>
+        {
+            decimal count = decimal.MaxValue;
 
-                    for (int i = 1; i < RepeatCount; i++)
-                        count += i;
-                });
-            }
+            for (int i = 1; i < RepeatCount; i++)
+                count /= i;
+        });
+    }
 
-            Console.WriteLine();
+    private static void TestMultiplication()
+    {
+        DisplayTestResult("Multiply int", () =>
+        {
+            int count = 1;
 
-            {
-                DisplayTestResult("Subract int", () =>
-                {
-                    int count = 0;
+            for (int i = 1; i < RepeatCount; i++)
+                count *= i;
+        });
 
-                    for (int i = 1; i < RepeatCount; i++)
-                        count--;
-                });
+        DisplayTestResult("Multiply long", () =>
+        {
+            long count = 1;
 
-                DisplayTestResult("Subract long", () =>
-                {
-                    long count = 0;
+            for (int i = 1; i < RepeatCount; i++)
+                count *= i;
+        });
 
-                    for (int i = 1; i < RepeatCount; i++)
-                        count--;
-                });
+        DisplayTestResult("Multiply float", () =>
+        {
+            float count = 1;
 
-                DisplayTestResult("Subract float", () =>
-                {
-                    float count = 0;
+            for (int i = 1; i < RepeatCount; i++)
+                count *= i;
+        });
 
-                    for (int i = 1; i < RepeatCount; i++)
-                        count--;
-                });
+        DisplayTestResult("Multiply double", () =>
+        {
+            double count = 1;
 
-                DisplayTestResult("Subract double", () =>
-                {
-                    double count = 0;
+            for (int i = 1; i < RepeatCount; i++)
+                count *= i;
+        });
 
-                    for (int i = 1; i < RepeatCount; i++)
-                        count--;
-                });
+        DisplayTestResult("Multiply decimal", () =>
+        {
+            decimal count = 1;
 
-                DisplayTestResult("Subract decimal", () =>
-                {
-                    decimal count = 0;
+            for (int i = 1; i < RepeatCount; i++)
+                count *= 1.000000000001m;
+        });
+    }
 
-                    for (int i = 1; i < RepeatCount; i++)
-                        count--;
-                });
-            }
+    private static void TestIncrement()
+    {
+        DisplayTestResult("Increment int", () =>
+        {
+            int count = 0;
 
-            Console.WriteLine();
+            for (int i = 1; i < RepeatCount; i++)
+                count++;
+        });
 
-            {
-                DisplayTestResult("Increment int", () =>
-                {
-                    int count = 0;
+        DisplayTestResult("Increment long", () =>
+        {
+            long count = 0;
 
-                    for (int i = 1; i < RepeatCount; i++)
-                        count++;
-                });
+            for (int i = 1; i < RepeatCount; i++)
+                count++;
+        });
 
-                DisplayTestResult("Increment long", () =>
-                {
-                    long count = 0;
+        DisplayTestResult("Increment float", () =>
+        {
+            float count = 0;
 
-                    for (int i = 1; i < RepeatCount; i++)
-                        count++;
-                });
+            for (int i = 1; i < RepeatCount; i++)
+                count++;
+        });
 
-                DisplayTestResult("Increment float", () =>
-                {
-                    float count = 0;
+        DisplayTestResult("Increment double", () =>
+        {
+            double count = 0;
 
-                    for (int i = 1; i < RepeatCount; i++)
-                        count++;
-                });
+            for (int i = 1; i < RepeatCount; i++)
+                count++;
+        });
 
-                DisplayTestResult("Increment double", () =>
-                {
-                    double count = 0;
+        DisplayTestResult("Increment decimal", () =>
+        {
+            decimal count = 0;
 
-                    for (int i = 1; i < RepeatCount; i++)
-                        count++;
-                });
+            for (int i = 1; i < RepeatCount; i++)
+                count++;
+        });
+    }
 
-                DisplayTestResult("Increment decimal", () =>
-                {
-                    decimal count = 0;
+    private static void TestSubtraction()
+    {
+        DisplayTestResult("Subract int", () =>
+        {
+            int count = 0;
 
-                    for (int i = 1; i < RepeatCount; i++)
-                        count++;
-                });
-            }
+            for (int i = 1; i < RepeatCount; i++)
+                count--;
+        });
 
-            Console.WriteLine();
+        DisplayTestResult("Subract long", () =>
+        {
+            long count = 0;
 
-            {
-                DisplayTestResult("Multiply int", () =>
-                {
-                    int count = 1;
+            for (int i = 1; i < RepeatCount; i++)
+                count--;
+        });
 
-                    for (int i = 1; i < RepeatCount; i++)
-                        count *= i;
-                });
+        DisplayTestResult("Subract float", () =>
+        {
+            float count = 0;
 
-                DisplayTestResult("Multiply long", () =>
-                {
-                    long count = 1;
+            for (int i = 1; i < RepeatCount; i++)
+                count--;
+        });
 
-                    for (int i = 1; i < RepeatCount; i++)
-                        count *= i;
-                });
+        DisplayTestResult("Subract double", () =>
+        {
+            double count = 0;
 
-                DisplayTestResult("Multiply float", () =>
-                {
-                    float count = 1;
+            for (int i = 1; i < RepeatCount; i++)
+                count--;
+        });
 
-                    for (int i = 1; i < RepeatCount; i++)
-                        count *= i;
-                });
+        DisplayTestResult("Subract decimal", () =>
+        {
+            decimal count = 0;
 
-                DisplayTestResult("Multiply double", () =>
-                {
-                    double count = 1;
+            for (int i = 1; i < RepeatCount; i++)
+                count--;
+        });
+    }
 
-                    for (int i = 1; i < RepeatCount; i++)
-                        count *= i;
-                });
+    private static void TestAddition()
+    {
+        DisplayTestResult("Add int", () =>
+        {
+            int count = 0;
 
-                DisplayTestResult("Multiply decimal", () =>
-                {
-                    decimal count = 1;
+            for (int i = 1; i < RepeatCount; i++)
+                count += i;
+        });
 
-                    for (int i = 1; i < RepeatCount; i++)
-                        count *= 1.000000000001m;
-                });
-            }
+        DisplayTestResult("Add long", () =>
+        {
+            long count = 0;
 
-            Console.WriteLine();
+            for (int i = 1; i < RepeatCount; i++)
+                count += i;
+        });
 
-            {
-                DisplayTestResult("Divide int", () =>
-                {
-                    int count = int.MaxValue;
+        DisplayTestResult("Add float", () =>
+        {
+            float count = 0;
 
-                    for (int i = 1; i < RepeatCount; i++)
-                        count /= i;
-                });
+            for (int i = 1; i < RepeatCount; i++)
+                count += i;
+        });
 
-                DisplayTestResult("Divide long", () =>
-                {
-                    long count = long.MaxValue;
+        DisplayTestResult("Add double", () =>
+        {
+            double count = 0;
 
-                    for (int i = 1; i < RepeatCount; i++)
-                        count /= i;
-                });
+            for (int i = 1; i < RepeatCount; i++)
+                count += i;
+        });
 
-                DisplayTestResult("Divide float", () =>
-                {
-                    float count = float.MaxValue;
+        DisplayTestResult("Add decimal", () =>
+        {
+            decimal count = 0;
 
-                    for (int i = 1; i < RepeatCount; i++)
-                        count /= i;
-                });
-
-                DisplayTestResult("Divide double", () =>
-                {
-                    double count = double.MaxValue;
-
-                    for (int i = 1; i < RepeatCount; i++)
-                        count /= i;
-                });
-
-                DisplayTestResult("Divide decimal", () =>
-                {
-                    decimal count = decimal.MaxValue;
-
-                    for (int i = 1; i < RepeatCount; i++)
-                        count /= i;
-                });
-            }
-        }
+            for (int i = 1; i < RepeatCount; i++)
+                count += i;
+        });
     }
 
     static void DisplayTestResult(string title, Action action)
