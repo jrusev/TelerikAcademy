@@ -16,12 +16,14 @@
             document.body.appendChild(canvas);
 
             var ctx = canvas.getContext("2d");
-            var x = ctx.canvas.width / 2;
-            var y = ctx.canvas.height / 2;
+            ctx.fillStyle = 'black';
+
             var dX = 2;
             var dY = 2;
             var radius = 15;
-            ctx.fillStyle = 'black';
+
+            var x = ctx.canvas.width / 2;;
+            var y = ctx.canvas.height / 2;
 
             setInterval(function () {
                 ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -29,10 +31,8 @@
                 ctx.arc(x, y, radius, 0, 2 * Math.PI);
                 ctx.fill();
 
-                if (x <= 0 + radius) dX *= -1;
-                if (y <= 0 + radius) dY *= -1;
-                if (x >= ctx.canvas.width - radius) dX *= -1;
-                if (y > ctx.canvas.height - radius) dY *= -1;
+                if ((x <= 0 + radius) || (x >= ctx.canvas.width - radius)) dX *= -1;
+                if ((y <= 0 + radius) || (y > ctx.canvas.height - radius)) dY *= -1;
                 x += dX;
                 y += dY;
 
