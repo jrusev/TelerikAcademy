@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Canvas Drawing</title>
+</head>
+
+<body>
+    <script>
+        window.onload = function main() {
+            var context = getContext();
+            drawHouse(context);
+            drawBike(context);
+            drawSnowman(context);
+        }
+
+        function getContext() {
+            var canvas = document.createElement("canvas");
+            canvas.width = 800;
+            canvas.height = 600;
+            document.body.appendChild(canvas);
+
+            return canvas.getContext('2d');
+        }
+
+        function drawHouse(ctx) {
+            var fillColor = "rgb(151, 91, 91)";
+            var strokeColor = 'black';
+
+            ctx.fillStyle = fillColor;
+            ctx.strokeStyle = strokeColor;
+
+            ctx.lineWidth = 2;
+            ctx.fillRect(510, 300, 240, 180);
+            ctx.strokeRect(510, 300, 240, 180);
+
+            ctx.beginPath()
+            ctx.moveTo(510, 299);
+            ctx.lineTo(630, 160);
+            ctx.lineTo(750, 299);
+            ctx.stroke();
+            ctx.fill();
+
+            ctx.lineWidth = 2;
+            ctx.fillRect(680, 200, 25, 70);
+            ctx.strokeRect(680, 200, 25, 70);
+            ctx.fillRect(675, 265, 45, 15);
+            ctx.lineWidth = 4;
+
+            drawEllipse(ctx, 681, 196, 23, 5);
+            ctx.fill();
+
+            ctx.fillStyle = strokeColor;
+            ctx.strokeStyle = fillColor;
+            ctx.fillRect(525, 320, 90, 60);
+            ctx.beginPath();
+            ctx.moveTo(525, 350);
+            ctx.lineTo(615, 350);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(570, 320);
+            ctx.lineTo(570, 380);
+            ctx.stroke();
+
+
+            ctx.fillRect(645, 320, 90, 60);
+            ctx.beginPath();
+            ctx.moveTo(690, 320);
+            ctx.lineTo(690, 380);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(645, 350);
+            ctx.lineTo(735, 350);
+            ctx.stroke();
+
+            ctx.fillRect(645, 390, 90, 60);
+            ctx.beginPath();
+            ctx.moveTo(690, 390);
+            ctx.lineTo(690, 450);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(645, 420);
+            ctx.lineTo(735, 420);
+            ctx.stroke();
+
+            ctx.fillStyle = fillColor;
+            ctx.strokeStyle = strokeColor;
+            drawEllipse(ctx, 541, 393, 63, 35);
+
+            ctx.fillRect(540, 410, 65, 40);
+            ctx.fill();
+
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(540, 410);
+            ctx.lineTo(540, 480);
+            ctx.stroke();
+
+
+            ctx.beginPath();
+            ctx.moveTo(605, 410);
+            ctx.lineTo(605, 480);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(572, 393);
+            ctx.lineTo(572, 480);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.arc(582, 452, 4, 0, 7);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.arc(563, 452, 4, 0, 7);
+            ctx.stroke();
+        }
+
+        function drawBike(ctx) {
+            var strokeColor = "rgb(50, 120, 140)";
+            var fillColor = "rgb(140, 200, 220)";
+
+            ctx.strokeStyle = strokeColor;
+            ctx.fillStyle = fillColor;
+
+            ctx.beginPath();
+            ctx.lineWidth = 2;
+            ctx.arc(170, 510, 50, 0, 7);
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.lineWidth = 2;
+            ctx.moveTo(170, 510);
+            ctx.lineTo(230, 450);
+            ctx.lineTo(350, 450);
+            ctx.lineTo(250, 510);
+            ctx.lineTo(215, 425);
+            ctx.lineTo(235, 425);
+            ctx.lineTo(195, 425);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(250, 510);
+            ctx.lineTo(170, 510);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.lineWidth = 2;
+            ctx.arc(360, 510, 50, 0, 7);
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(360, 510);
+            ctx.lineTo(340, 410);
+            ctx.lineTo(370, 380);
+            ctx.moveTo(340, 410);
+            ctx.lineTo(300, 425);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.arc(250, 510, 15, 0.5, 7);
+            ctx.lineTo(275, 530);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.arc(250, 510, 15, 0, 4);
+            ctx.lineTo(225, 480);
+            ctx.stroke();
+        }
+
+        function drawSnowman(ctx) {
+            var strokeColor = "rgb(40,80,100)";
+            var fillColor = "rgb(140, 200, 220)";
+
+            ctx.strokeStyle = strokeColor;
+            ctx.fillStyle = fillColor;
+
+            ctx.lineWidth = 4;
+            drawEllipse(ctx, 165, 275, 115, 105);
+            ctx.fill();
+            drawEllipse(ctx, 185, 340, 55, 20);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.lineWidth = 2;
+            ctx.moveTo(210, 330);
+            ctx.lineTo(195, 330);
+            ctx.lineTo(210, 300);
+            ctx.stroke();
+
+            ctx.lineWidth = 4;
+            drawEllipse(ctx, 180, 305, 15, 12);
+            ctx.fill();
+
+            ctx.lineWidth = 4;
+            drawEllipse(ctx, 220, 305, 15, 12);
+            ctx.fill();
+
+            ctx.lineWidth = 4;
+
+            ctx.strokeStyle = strokeColor;
+            ctx.fillStyle = strokeColor;
+
+            drawEllipse(ctx, 222, 308, 5, 8);
+            ctx.fill();
+
+            drawEllipse(ctx, 182, 308, 5, 8);
+            ctx.fill();
+
+            ctx.fillStyle = "rgb(52, 107, 147)";
+            ctx.strokeStyle = "rgb(32, 32, 32)";
+
+            drawEllipse(ctx, 155, 265, 130, 30);
+            ctx.fill();
+
+            drawEllipse(ctx, 190, 255, 70, 25);
+            ctx.fill();
+
+            ctx.fillRect(190, 200, 70, 65);
+            ctx.lineWidth = 2;
+            ctx.strokeRect(190, 200, 70, 65);
+            ctx.lineWidth = 4;
+            ctx.fillRect(191, 260, 68, 10);
+
+            drawEllipse(ctx, 190, 190, 70, 25);
+            ctx.fill();
+        }
+
+         // From: http://stackoverflow.com/a/2173084
+        function drawEllipse(ctx, x, y, w, h) {
+            var kappa = .5522848,
+                ox = (w / 2) * kappa, // control point offset horizontal
+                oy = (h / 2) * kappa, // control point offset vertical
+                xe = x + w, // x-end
+                ye = y + h, // y-end
+                xm = x + w / 2, // x-middle
+                ym = y + h / 2; // y-middle
+
+            ctx.beginPath();
+            ctx.moveTo(x, ym);
+            ctx.bezierCurveTo(x, ym - oy, xm - ox, y, xm, y);
+            ctx.bezierCurveTo(xm + ox, y, xe, ym - oy, xe, ym);
+            ctx.bezierCurveTo(xe, ym + oy, xm + ox, ye, xm, ye);
+            ctx.bezierCurveTo(xm - ox, ye, x, ym + oy, x, ym);
+            ctx.closePath();
+            ctx.stroke();
+        }
+    </script>
+</body>
+
+</html>
