@@ -20,7 +20,8 @@ public class AssertionsHomework
         Console.WriteLine(BinarySearch(arr, 1000));
     }
 
-    public static void SelectionSort<T>(T[] arr) where T : IComparable<T>
+    public static void SelectionSort<T>(T[] arr) 
+        where T : IComparable<T>
     {
         // Better throw an exception, not assertion!
         Debug.Assert(arr != null, "Array is null!");
@@ -36,8 +37,9 @@ public class AssertionsHomework
     }
 
     public static int BinarySearch<T>(T[] arr, T value)
-    where T : IComparable<T>
+        where T : IComparable<T>
     {
+        // Better throw an exception, not assertion!
         Debug.Assert(arr != null, "Array is null!");
 
         return BinarySearch(arr, value, 0, arr.Length - 1);
