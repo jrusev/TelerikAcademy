@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.SolarSystem", "01.SolarS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.OperatorsPerformance", "02.OperatorsPerformance\02.OperatorsPerformance.csproj", "{32B3D0DD-1529-4BBF-959A-D20F685175D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.MathOperationsPerformance", "03.MathOperationsPerformance\03.MathOperationsPerformance.csproj", "{922684C1-005A-469C-A78B-8AA2A8C2F29C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.MathFunctionsPerformance", "03.MathOperationsPerformance\03.MathFunctionsPerformance.csproj", "{922684C1-005A-469C-A78B-8AA2A8C2F29C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
