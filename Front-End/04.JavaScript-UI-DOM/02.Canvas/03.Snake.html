@@ -23,21 +23,20 @@
             var intervalID;
             var snake, apples;
             var dirs = {
-                right: 0,
-                left: 1,
-                up: 2,
-                down: 3
+                right: [1, 0],
+                left: [-1, 0],
+                up: [0, -1],
+                down: [0, 1]
             };
 
             function main() {
-                var snakeLength = 5;
-                snake = new Snake(snakeLength, cellSize, cellSize);
+                snake = new Snake(5, cellSize, cellSize);
                 apples = [];
                 for (var i = 0; i < numApples; i++) {
                     apples.push(new Apple());
                 }
 
-                bindControls(snake);
+                document.addEventListener('keydown', controlSnake, false);
                 intervalID = setInterval(gameLoop, 1000 / 10);
             }
 
@@ -73,18 +72,8 @@
                     this.body.splice(this.body.length - 1, 1);
                     this.body.unshift(new Cell(this.head.x, this.head.y));
 
-                    if (this.direction == dirs.right) {
-                        this.head.x += cellSize;
-                    }
-                    if (this.direction == dirs.left) {
-                        this.head.x -= cellSize;
-                    }
-                    if (this.direction == dirs.up) {
-                        this.head.y -= cellSize;
-                    }
-                    if (this.direction == dirs.down) {
-                        this.head.y += cellSize;
-                    }
+                    this.head.x += this.direction[0] * cellSize;
+                    this.head.y += this.direction[1] * cellSize;
                 }
             }
 
@@ -128,23 +117,21 @@
                 }
             }
 
-            var bindControls = function (snake) {
-                document.onkeydown = function (event) {
-                    event = event || window.event;
-                    var keyCode = event.keyCode;
+            function controlSnake(event) {
+                event = event || window.event;
+                var keyCode = event.keyCode;
 
-                    if (keyCode === 37 && snake.direction !== dirs.right) // left
-                        snake.direction = dirs.left;
+                if (keyCode === 37 && snake.direction !== dirs.right) // left
+                    snake.direction = dirs.left;
 
-                    if (keyCode === 38 && snake.direction !== dirs.down) // up
-                        snake.direction = dirs.up;
+                if (keyCode === 38 && snake.direction !== dirs.down) // up
+                    snake.direction = dirs.up;
 
-                    if (keyCode === 39 && snake.direction !== dirs.left) // right
-                        snake.direction = dirs.right;
+                if (keyCode === 39 && snake.direction !== dirs.left) // right
+                    snake.direction = dirs.right;
 
-                    if (keyCode === 40 && snake.direction !== dirs.up) // down
-                        snake.direction = dirs.down;
-                }
+                if (keyCode === 40 && snake.direction !== dirs.up) // down
+                    snake.direction = dirs.down;
             }
 
             main();
