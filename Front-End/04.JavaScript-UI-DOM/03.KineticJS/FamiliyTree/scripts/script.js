@@ -16,29 +16,27 @@ function main() {
         height: 1400
     });
 
-    var layer = new Kinetic.Layer({
-        draggable: true
-    });
+    var layer = new Kinetic.Layer();
 
     var data = familyData.map(function (item) {
-        return new Node(item.mother, item.father, item.children);
+        return new Family(item.mother, item.father, item.children);
     });
 
-    var tree = buldTree(data);
+    var tree = buildTree(data);
     var root = findRoot(data, tree);
 
     drawTree(layer, root);
     stage.add(layer);
 }
 
-function Node(mother, father, children) {
+function Family(mother, father, children) {
     this.mother = mother;
     this.father = father;
     this.children = children || [];
     this.isFemale = false;
 }
 
-Node.prototype.hasChild = function (personName) {
+Family.prototype.hasChild = function (personName) {
     for (var i = 0; i < this.children.length; i++) {
         var child = this.children[i];
         if (child.mother === personName || child.father === personName) {
@@ -47,7 +45,7 @@ Node.prototype.hasChild = function (personName) {
     }
 };
 
-function buldTree(data) {
+function buildTree(data) {
     var tree = [];
 
     for (var i = 0; i < data.length; i++) {
@@ -60,14 +58,14 @@ function buldTree(data) {
         for (var i = 0; i < family.children.length; i++) {
             var childName = family.children[i];
 
-            if (tree[childName] && !(childName instanceof Node)) {
+            if (tree[childName] && !(childName instanceof Family)) {
                 family.children[i] = tree[childName];
 
                 if (tree[childName].mother === childName) {
                     tree[childName].isFemale = true;
                 }
-            } else if (!(childName instanceof Node)) {
-                var leaf = new Node(null, childName);
+            } else if (!(childName instanceof Family)) {
+                var leaf = new Family(null, childName);
                 tree[childName] = leaf;
                 family.children[i] = leaf;
             }
@@ -77,32 +75,32 @@ function buldTree(data) {
     return tree;
 }
 
-function findRoot(tree, dictionary) {
+function findRoot(data, tree) {
     var root = null;
 
-    for (var i = 0; i < tree.length; i++) {
-        var mother = tree[i].mother;
-        var father = tree[i].father;
+    for (var i = 0; i < data.length; i++) {
+        var mother = data[i].mother;
+        var father = data[i].father;
         var isRoot = true;
 
-        for (var j = 0; j < tree.length; j++) {
+        for (var j = 0; j < data.length; j++) {
             if (i == j) {
                 continue;
             }
 
-            if (tree[j].hasChild(mother) || tree[j].hasChild(father)) {
+            if (data[j].hasChild(mother) || data[j].hasChild(father)) {
                 isRoot = false;
                 break;
             }
         }
 
         if (isRoot) {
-            root = tree[i];
+            root = data[i];
             break;
         }
     }
 
-    return dictionary[root.mother];
+    return tree[root.mother];
 }
 
 function drawTree(layer, root) {
