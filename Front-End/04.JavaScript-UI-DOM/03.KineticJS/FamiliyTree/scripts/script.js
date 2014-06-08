@@ -6,7 +6,7 @@ var boxMarginX = boxWidth + boxHeight / 2;
 var boxMarginY = 80;
 var initialX = 500;
 
-var treeColor = 'rgb(0, 158, 179)';
+var treeColor = 'blue';
 var fontSize = 10;
 
 function main() {
@@ -18,12 +18,13 @@ function main() {
 
     var layer = new Kinetic.Layer();
 
-    var data = familyData.map(function (item) {
+    var families = familyData.map(function (item) {
         return new Family(item.mother, item.father, item.children);
     });
 
-    var tree = buildTree(data);
-    var root = findRoot(data, tree);
+    var rootMother = findRoot(familyData);
+    var tree = buildTree(families);
+    var root = tree[rootMother];
 
     drawTree(layer, root);
     stage.add(layer);
@@ -36,20 +37,26 @@ function Family(mother, father, children) {
     this.isFemale = false;
 }
 
-Family.prototype.hasChild = function (personName) {
-    for (var i = 0; i < this.children.length; i++) {
-        var child = this.children[i];
-        if (child.mother === personName || child.father === personName) {
-            return true;
+function findRoot(familyData) {
+    var children = [];
+    for (var i = 0; i < familyData.length; i++) {
+        children.push.apply(children, familyData[i].children);
+    }
+
+    for (var i = 0; i < familyData.length; i++) {
+        if (children.indexOf(familyData[i].mother) < 0 && children.indexOf(familyData[i].father)) {
+            return familyData[i].mother;
         }
     }
-};
 
-function buildTree(data) {
+    throw new Error("The tree has no root!");
+}
+
+function buildTree(families) {
     var tree = [];
 
-    for (var i = 0; i < data.length; i++) {
-        tree[data[i].mother] = tree[data[i].father] = data[i];
+    for (var i = 0; i < families.length; i++) {
+        tree[families[i].mother] = tree[families[i].father] = families[i];
     }
 
     for (var parent in tree) {
@@ -73,34 +80,6 @@ function buildTree(data) {
     }
 
     return tree;
-}
-
-function findRoot(data, tree) {
-    var root = null;
-
-    for (var i = 0; i < data.length; i++) {
-        var mother = data[i].mother;
-        var father = data[i].father;
-        var isRoot = true;
-
-        for (var j = 0; j < data.length; j++) {
-            if (i == j) {
-                continue;
-            }
-
-            if (data[j].hasChild(mother) || data[j].hasChild(father)) {
-                isRoot = false;
-                break;
-            }
-        }
-
-        if (isRoot) {
-            root = data[i];
-            break;
-        }
-    }
-
-    return tree[root.mother];
 }
 
 function drawTree(layer, root) {
