@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
+// Write a program to compare the performance of add, subtract, increment, multiply, divide for int, long, float, double and decimal values.
 class OperatorsPerformance
 {
     const int RepeatCount = 10000000;
