@@ -10,82 +10,87 @@
     <script>
         (function () {
             var canvas = document.createElement('canvas');
-            canvas.width = 480;
-            canvas.height = 320;
+            canvas.width = 640;
+            canvas.height = 400;
             canvas.style.border = '2px solid black';
             document.body.appendChild(canvas);
 
-            var cellSize = 10;
+            var cellSize = 20;
             var fieldWidth = canvas.clientWidth;
             var fieldHeight = canvas.clientHeight;
             var ctx = canvas.getContext('2d');
             var numApples = 3;
             var intervalID;
+            var snake, apples;
+            var dirs = {
+                right: 0,
+                left: 1,
+                up: 2,
+                down: 3
+            };
 
             function main() {
-                ctx.clearRect(0, 0, fieldWidth, fieldHeight);
-                var snake = new Snake(6, 40, 20);
-                var wormBody = snake.getWormBody();
-                keyboardControlWorm(snake);
-                var gameObjects = [];
-                gameObjects['worm'] = snake;
-                gameObjects['apples'] = [];
+                var snakeLength = 5;
+                snake = new Snake(snakeLength, cellSize, cellSize);
+                apples = [];
                 for (var i = 0; i < numApples; i++) {
-                    gameObjects['apples'].push(makeApple());
+                    apples.push(new Apple());
                 }
 
-                intervalID = setInterval(function () {
-                    ctx.clearRect(0, 0, fieldWidth, fieldHeight);
-                    drawCells([snake.head], 'green');
-                    drawCells(wormBody, 'black');
-                    drawCells(gameObjects['apples'], 'red');
-                    snake.move();
-                    detectCollision(gameObjects);
-                }, 1000 / 10);
+                bindControls(snake);
+                intervalID = setInterval(gameLoop, 1000 / 10);
             }
 
-            function endGame() {
-                clearInterval(intervalID);
-                alert('Well... snake died.');
-            }
-
-            function makeApple() {
-                var x = Math.round((Math.random() * fieldWidth - cellSize) / cellSize) * cellSize;
-                var y = Math.round((Math.random() * fieldHeight - cellSize) / cellSize) * cellSize;
-                return new Cell(x, y);
+            function gameLoop() {
+                ctx.fillStyle = 'black';
+                ctx.fillRect(0, 0, fieldWidth, fieldHeight);
+                drawCells([snake.head], 'red');
+                drawCells(snake.body, 'green');
+                drawCells(apples, 'yellow');
+                snake.move();
+                if (noCollision(snake, apples)) {
+                    eatApples(snake, apples);
+                } else {
+                    clearInterval(intervalID);
+                    alert('Well... snake died.');
+                }
             }
 
             function Cell(x, y) {
-                if (x % cellSize !== 0 || y % cellSize !== 0) {
-                    throw new Error("The block coordinates must be within the canvas grid!");
-                }
-
                 this.x = x;
                 this.y = y;
             }
 
             function Snake(startLength, startX, startY) {
                 this.head = new Cell(startX, startY);
-                wormBody = new Array(startLength - 1);
+                this.body = new Array(startLength - 1);
                 for (var i = 0; i < startLength - 1; i++) {
-                    wormBody[i] = new Cell(startX - cellSize * (i + 1), startY);
+                    this.body[i] = new Cell(startX - cellSize * (i + 1), startY);
                 }
 
-                this.getWormBody = function () {
-                    return wormBody;
-                }
-
-                this.direction = {
-                    x: 1,
-                    y: 0
-                }
-
+                this.direction = dirs.right;
                 this.move = function () {
-                    wormBody.splice(wormBody.length - 1, 1);
-                    wormBody.unshift(new Cell(this.head.x, this.head.y));
-                    this.head.x += this.direction.x * cellSize;
-                    this.head.y += this.direction.y * cellSize;
+                    this.body.splice(this.body.length - 1, 1);
+                    this.body.unshift(new Cell(this.head.x, this.head.y));
+
+                    if (this.direction == dirs.right) {
+                        this.head.x += cellSize;
+                    }
+                    if (this.direction == dirs.left) {
+                        this.head.x -= cellSize;
+                    }
+                    if (this.direction == dirs.up) {
+                        this.head.y -= cellSize;
+                    }
+                    if (this.direction == dirs.down) {
+                        this.head.y += cellSize;
+                    }
                 }
+            }
+
+            function Apple() {
+                this.x = Math.round((Math.random() * fieldWidth - cellSize) / cellSize) * cellSize;
+                this.y = Math.round((Math.random() * fieldHeight - cellSize) / cellSize) * cellSize;
             }
 
             function drawCells(cells, color) {
@@ -95,68 +100,50 @@
                 }
             }
 
-            var detectCollision = function (gameElements) {
-                var wormHead = gameElements['worm'].head;
-                var wormBody = gameElements['worm'].getWormBody();
-                var apples = gameElements['apples'];
-                var hitVerticalWall = (wormHead.x < 0 || wormHead.x > fieldWidth);
-                var hitHorizontalWall = (wormHead.y < 0 || wormHead.y > fieldHeight);
-                if (hitVerticalWall || hitHorizontalWall) {
-                    endGame();
-                    return;
+            function noCollision(snake, apples) {
+                var head = snake.head;
+                var body = snake.body;
+                if (head.x < 0 || head.x > fieldWidth || head.y < 0 || head.y > fieldHeight) {
+                    return false;
                 }
-
-                for (var i = 0; i < wormBody.length; i++) {
-                    if (wormHead.x === wormBody[i].x && wormHead.y === wormBody[i].y) {
-                        endGame();
-                        return;
+                for (var i = 0; i < body.length; i++) {
+                    if (head.x === body[i].x && head.y === body[i].y) {
+                        return false;
                     }
                 }
+                return true;
+            }
 
+            function eatApples(snake, apples) {
+                var head = snake.head;
+                var body = snake.body;
                 for (var i = 0; i < apples.length; i++) {
-                    if (apples[i].x === wormHead.x && apples[i].y === wormHead.y) {
-                        var newTailX = wormBody[wormBody.length - 1].x * 2 - wormBody[wormBody.length - 2].x;
-                        var newTailY = wormBody[wormBody.length - 1].y * 2 - wormBody[wormBody.length - 2].y;
-                        wormBody.push(new Cell(newTailX, newTailY));
+                    if (apples[i].x === head.x && apples[i].y === head.y) {
+                        var tailX = body[body.length - 1].x * 2 - body[body.length - 2].x;
+                        var tailY = body[body.length - 1].y * 2 - body[body.length - 2].y;
+                        body.push(new Cell(tailX, tailY));
                         apples.splice(i, 1);
-                        apples.push(makeApple());
+                        apples.push(new Apple());
                     }
                 }
             }
 
-            var keyboardControlWorm = function (worm) {
+            var bindControls = function (snake) {
                 document.onkeydown = function (event) {
                     event = event || window.event;
-                    switch (event.keyCode) {
-                        // left
-                    case 37:
-                        if (worm.direction.x != 1 && worm.direction.y != 0) {
-                            worm.direction.x = -1;
-                            worm.direction.y = 0;
-                        }
-                        break;
-                        // up
-                    case 38:
-                        if (worm.direction.x != 0 && worm.direction.y != 1) {
-                            worm.direction.x = 0;
-                            worm.direction.y = -1;
-                        }
-                        break;
-                        // right
-                    case 39:
-                        if (worm.direction.x != -1 && worm.direction.y != 0) {
-                            worm.direction.x = 1;
-                            worm.direction.y = 0;
-                        }
-                        break;
-                        // down
-                    case 40:
-                        if (worm.direction.x != 0 && worm.direction.y != -1) {
-                            worm.direction.x = 0;
-                            worm.direction.y = 1;
-                        }
-                        break;
-                    }
+                    var keyCode = event.keyCode;
+
+                    if (keyCode === 37 && snake.direction !== dirs.right) // left
+                        snake.direction = dirs.left;
+
+                    if (keyCode === 38 && snake.direction !== dirs.down) // up
+                        snake.direction = dirs.up;
+
+                    if (keyCode === 39 && snake.direction !== dirs.left) // right
+                        snake.direction = dirs.right;
+
+                    if (keyCode === 40 && snake.direction !== dirs.up) // down
+                        snake.direction = dirs.down;
                 }
             }
 
