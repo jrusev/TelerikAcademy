@@ -10,23 +10,23 @@ class MathFunctionsPerformance
 
     static void Main()
     {
-        TestSquareRoot();
+        TestSqrt();
         TestLog();
         TestSin();
     }
 
-    private static void TestSin()
+    private static void TestSqrt()
     {
-        DisplayTestResult("Sin float", () =>
+        DisplayTestResult("Square root float", () =>
         {
             for (float i = 1; i < RepeatCount; i++)
-                Math.Sin(i);
+                Math.Sqrt(i);
         });
 
-        DisplayTestResult("Sin double", () =>
+        DisplayTestResult("Square root double", () =>
         {
             for (double i = 1; i < RepeatCount; i++)
-                Math.Sin(i);
+                Math.Sqrt(i);
         });
     }
 
@@ -45,18 +45,18 @@ class MathFunctionsPerformance
         });
     }
 
-    private static void TestSquareRoot()
+    private static void TestSin()
     {
-        DisplayTestResult("Square root float", () =>
+        DisplayTestResult("Sin float", () =>
         {
             for (float i = 1; i < RepeatCount; i++)
-                Math.Sqrt(i);
+                Math.Sin(i);
         });
 
-        DisplayTestResult("Square root double", () =>
+        DisplayTestResult("Sin double", () =>
         {
             for (double i = 1; i < RepeatCount; i++)
-                Math.Sqrt(i);
+                Math.Sin(i);
         });
     }
 
