@@ -2,33 +2,36 @@
 
 public class SimpleMathExam : Exam
 {
-    public int ProblemsSolved { get; private set; }
+    public const int TotalProblems = 2;
 
     public SimpleMathExam(int problemsSolved)
     {
-        if (problemsSolved < 0)
+        if (problemsSolved < 0 || problemsSolved > TotalProblems)
         {
-            problemsSolved = 0;
-        }
-        if (problemsSolved > 10)
-        {
-            problemsSolved = 10;
+            if (problemsSolved > TotalProblems)
+            {
+                throw new ArgumentOutOfRangeException(
+                    "problemsSolved",
+                    string.Format("Problems solved must be between 0 and {0}.", TotalProblems));
+            }
         }
 
         this.ProblemsSolved = problemsSolved;
     }
 
+    public int ProblemsSolved { get; private set; }
+
     public override ExamResult Check()
     {
-        if (ProblemsSolved == 0)
+        if (this.ProblemsSolved == 0)
         {
             return new ExamResult(2, 2, 6, "Bad result: nothing done.");
         }
-        else if (ProblemsSolved == 1)
+        else if (this.ProblemsSolved == 1)
         {
             return new ExamResult(4, 2, 6, "Average result: nothing done.");
         }
-        else if (ProblemsSolved == 2)
+        else if (this.ProblemsSolved == 2)
         {
             return new ExamResult(6, 2, 6, "Average result: nothing done.");
         }

@@ -2,23 +2,49 @@
 using System.Collections.Generic;
 using System.Text;
 
-class ExceptionsHomework
+public class ExceptionsHomework
 {
     public static T[] Subsequence<T>(T[] arr, int startIndex, int count)
     {
+        if (arr == null)
+        {
+            throw new ArgumentNullException("arr");
+        }
+
+        if (startIndex < 0 || startIndex >= arr.Length)
+        {
+            throw new ArgumentOutOfRangeException("startIndex", "Start index is out of range!");
+        }
+
+        if (count < 0 || count > arr.Length - startIndex)
+        {
+            throw new ArgumentOutOfRangeException("count", "Count should be between 0 and (arr.Length - startIndex)!");
+        }
+
         List<T> result = new List<T>();
         for (int i = startIndex; i < startIndex + count; i++)
         {
             result.Add(arr[i]);
         }
+
         return result.ToArray();
     }
 
     public static string ExtractEnding(string str, int count)
     {
+        if (str == null)
+        {
+            throw new ArgumentNullException("str", "String cannot be null!");
+        }
+
+        if (count < 0)
+        {
+            throw new ArgumentOutOfRangeException("count", "Count cannot be less than zero!");
+        }
+
         if (count > str.Length)
         {
-            return "Invalid count!";
+            throw new ArgumentOutOfRangeException("count", "Count cannot be greater than the length of the string!");
         }
 
         StringBuilder result = new StringBuilder();
@@ -26,55 +52,74 @@ class ExceptionsHomework
         {
             result.Append(str[i]);
         }
+
         return result.ToString();
     }
 
-    public static void CheckPrime(int number)
+    public static bool IsPrime(int number)
     {
+        if (number < 1)
+        {
+            throw new ArgumentOutOfRangeException("number", "Number should be positive integer!");
+        }
+
+        if (number == 1)
+        {
+            return false;
+        }
+
         for (int divisor = 2; divisor <= Math.Sqrt(number); divisor++)
         {
             if (number % divisor == 0)
             {
-                throw new Exception("The number is not prime!");
+                return false;
             }
         }
+
+        return true;
     }
 
-    static void Main()
+    public static void Main()
     {
         var substr = Subsequence("Hello!".ToCharArray(), 2, 3);
         Console.WriteLine(substr);
 
         var subarr = Subsequence(new int[] { -1, 3, 2, 1 }, 0, 2);
-        Console.WriteLine(String.Join(" ", subarr));
+        Console.WriteLine(string.Join(" ", subarr));
 
         var allarr = Subsequence(new int[] { -1, 3, 2, 1 }, 0, 4);
-        Console.WriteLine(String.Join(" ", allarr));
+        Console.WriteLine(string.Join(" ", allarr));
 
         var emptyarr = Subsequence(new int[] { -1, 3, 2, 1 }, 0, 0);
-        Console.WriteLine(String.Join(" ", emptyarr));
+        Console.WriteLine(string.Join(" ", emptyarr));
 
         Console.WriteLine(ExtractEnding("I love C#", 2));
         Console.WriteLine(ExtractEnding("Nakov", 4));
         Console.WriteLine(ExtractEnding("beer", 4));
-        Console.WriteLine(ExtractEnding("Hi", 100));
 
         try
         {
-            CheckPrime(23);
+            Console.WriteLine(ExtractEnding("Hi", 100));
+        }
+        catch (ArgumentOutOfRangeException ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
+        if (IsPrime(23))
+        {
             Console.WriteLine("23 is prime.");
         }
-        catch (Exception ex)
+        else
         {
             Console.WriteLine("23 is not prime");
         }
 
-        try
+        if (IsPrime(33))
         {
-            CheckPrime(33);
             Console.WriteLine("33 is prime.");
         }
-        catch (Exception ex)
+        else
         {
             Console.WriteLine("33 is not prime");
         }

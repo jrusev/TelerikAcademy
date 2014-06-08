@@ -2,27 +2,24 @@
 
 public class CSharpExam : Exam
 {
-    public int Score { get; private set; }
+    private const int MinScore = 0;
+    private const int MaxScore = 100;
 
     public CSharpExam(int score)
     {
-        if (score < 0)
+        if (!(MinScore <= score && score <= MaxScore))
         {
-            throw new NullReferenceException();
+            throw new ArgumentOutOfRangeException("score", string.Format("Score must be in the range between {0} and {1}.", MinScore, MaxScore));
         }
 
         this.Score = score;
     }
 
+    // No need for validation here - the setter is private
+    public int Score { get; private set; }
+
     public override ExamResult Check()
     {
-        if (Score < 0 || Score > 100)
-        {
-            throw new InvalidOperationException();
-        }
-        else
-        {
-            return new ExamResult(this.Score, 0, 100, "Exam results calculated by score.");
-        }
+        return new ExamResult(this.Score, MinScore, MaxScore, "Exam results calculated by score.");
     }
 }
