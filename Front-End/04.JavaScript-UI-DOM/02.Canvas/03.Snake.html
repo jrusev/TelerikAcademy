@@ -1,0 +1,168 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Snake.js</title>
+</head>
+
+<body>
+
+    <script>
+        (function () {
+            var canvas = document.createElement('canvas');
+            canvas.width = 480;
+            canvas.height = 320;
+            canvas.style.border = '2px solid black';
+            document.body.appendChild(canvas);
+
+            var cellSize = 10;
+            var fieldWidth = canvas.clientWidth;
+            var fieldHeight = canvas.clientHeight;
+            var ctx = canvas.getContext('2d');
+            var numApples = 3;
+            var intervalID;
+
+            function main() {
+                ctx.clearRect(0, 0, fieldWidth, fieldHeight);
+                var snake = new Snake(6, 40, 20);
+                var wormBody = snake.getWormBody();
+                keyboardControlWorm(snake);
+                var gameObjects = [];
+                gameObjects['worm'] = snake;
+                gameObjects['apples'] = [];
+                for (var i = 0; i < numApples; i++) {
+                    gameObjects['apples'].push(makeApple());
+                }
+
+                intervalID = setInterval(function () {
+                    ctx.clearRect(0, 0, fieldWidth, fieldHeight);
+                    drawCells([snake.head], 'green');
+                    drawCells(wormBody, 'black');
+                    drawCells(gameObjects['apples'], 'red');
+                    snake.move();
+                    detectCollision(gameObjects);
+                }, 1000 / 10);
+            }
+
+            function endGame() {
+                clearInterval(intervalID);
+                alert('Well... snake died.');
+            }
+
+            function makeApple() {
+                var x = Math.round((Math.random() * fieldWidth - cellSize) / cellSize) * cellSize;
+                var y = Math.round((Math.random() * fieldHeight - cellSize) / cellSize) * cellSize;
+                return new Cell(x, y);
+            }
+
+            function Cell(x, y) {
+                if (x % cellSize !== 0 || y % cellSize !== 0) {
+                    throw new Error("The block coordinates must be within the canvas grid!");
+                }
+
+                this.x = x;
+                this.y = y;
+            }
+
+            function Snake(startLength, startX, startY) {
+                this.head = new Cell(startX, startY);
+                wormBody = new Array(startLength - 1);
+                for (var i = 0; i < startLength - 1; i++) {
+                    wormBody[i] = new Cell(startX - cellSize * (i + 1), startY);
+                }
+
+                this.getWormBody = function () {
+                    return wormBody;
+                }
+
+                this.direction = {
+                    x: 1,
+                    y: 0
+                }
+
+                this.move = function () {
+                    wormBody.splice(wormBody.length - 1, 1);
+                    wormBody.unshift(new Cell(this.head.x, this.head.y));
+                    this.head.x += this.direction.x * cellSize;
+                    this.head.y += this.direction.y * cellSize;
+                }
+            }
+
+            function drawCells(cells, color) {
+                ctx.fillStyle = color;
+                for (var i = 0; i < cells.length; i++) {
+                    ctx.fillRect(cells[i].x, cells[i].y, cellSize, cellSize);
+                }
+            }
+
+            var detectCollision = function (gameElements) {
+                var wormHead = gameElements['worm'].head;
+                var wormBody = gameElements['worm'].getWormBody();
+                var apples = gameElements['apples'];
+                var hitVerticalWall = (wormHead.x < 0 || wormHead.x > fieldWidth);
+                var hitHorizontalWall = (wormHead.y < 0 || wormHead.y > fieldHeight);
+                if (hitVerticalWall || hitHorizontalWall) {
+                    endGame();
+                    return;
+                }
+
+                for (var i = 0; i < wormBody.length; i++) {
+                    if (wormHead.x === wormBody[i].x && wormHead.y === wormBody[i].y) {
+                        endGame();
+                        return;
+                    }
+                }
+
+                for (var i = 0; i < apples.length; i++) {
+                    if (apples[i].x === wormHead.x && apples[i].y === wormHead.y) {
+                        var newTailX = wormBody[wormBody.length - 1].x * 2 - wormBody[wormBody.length - 2].x;
+                        var newTailY = wormBody[wormBody.length - 1].y * 2 - wormBody[wormBody.length - 2].y;
+                        wormBody.push(new Cell(newTailX, newTailY));
+                        apples.splice(i, 1);
+                        apples.push(makeApple());
+                    }
+                }
+            }
+
+            var keyboardControlWorm = function (worm) {
+                document.onkeydown = function (event) {
+                    event = event || window.event;
+                    switch (event.keyCode) {
+                        // left
+                    case 37:
+                        if (worm.direction.x != 1 && worm.direction.y != 0) {
+                            worm.direction.x = -1;
+                            worm.direction.y = 0;
+                        }
+                        break;
+                        // up
+                    case 38:
+                        if (worm.direction.x != 0 && worm.direction.y != 1) {
+                            worm.direction.x = 0;
+                            worm.direction.y = -1;
+                        }
+                        break;
+                        // right
+                    case 39:
+                        if (worm.direction.x != -1 && worm.direction.y != 0) {
+                            worm.direction.x = 1;
+                            worm.direction.y = 0;
+                        }
+                        break;
+                        // down
+                    case 40:
+                        if (worm.direction.x != 0 && worm.direction.y != -1) {
+                            worm.direction.x = 0;
+                            worm.direction.y = 1;
+                        }
+                        break;
+                    }
+                }
+            }
+
+            main();
+        })();
+    </script>
+</body>
+
+</html>
