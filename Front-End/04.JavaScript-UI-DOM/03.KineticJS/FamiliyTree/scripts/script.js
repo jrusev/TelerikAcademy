@@ -145,7 +145,7 @@ function drawParentToChild(leftParentX, leftParentY, childX, childY, layer) {
 }
 
 function drawBox(layer, posX, posY, text, radius) {
-    var nodeText = new Kinetic.Text({
+    var boxText = new Kinetic.Text({
         x: posX,
         y: posY,
         width: boxWidth,
@@ -156,16 +156,16 @@ function drawBox(layer, posX, posY, text, radius) {
         align: 'center'
     });
 
-    var nodeFigure = new Kinetic.Rect({
+    var boxRectangle = new Kinetic.Rect({
         x: posX,
         y: posY,
         width: boxWidth,
         stroke: treeColor,
         strokeWidth: 1,
-        height: nodeText.height(),
+        height: boxText.height(),
         cornerRadius: radius
     });
 
-    layer.add(nodeFigure);
-    layer.add(nodeText);
+    layer.add(boxRectangle);
+    layer.add(boxText);
 }
