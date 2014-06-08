@@ -7,7 +7,7 @@ namespace SolarSystem
     class OrbitsCalculator : INotifyPropertyChanged
     {
         private DateTime _startTime;
-        private double _startDays;
+        //private double _startDays;
         private DispatcherTimer _timer;
 
         const double EarthYear = 365.25;
