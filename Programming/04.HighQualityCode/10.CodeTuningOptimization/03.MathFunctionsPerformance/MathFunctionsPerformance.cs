@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-// Write a program to compare the performance of Math.Sqrt(), Math.Log() and Math.Sin() for float, double and decimal values.
+// Write a program to compare the performance of Math.Sqrt(), Math.Log() and Math.Sin() for float and double.
 class MathFunctionsPerformance
 {
     const int RepeatCount = 10000000;
