@@ -1,43 +1,23 @@
-<?xml version="1.0" standalone="no" ?>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 
 <head>
+    <meta charset="utf-8" />
     <title>Super Mario</title>
 </head>
 
 <body>
-    <div id="container" style="position: absolute"></div>
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="600">
-
-        <image x="0" y="0" width="600" height="600" xlink:href="images/Trees.png">
-
-            <animateTransform attributeName="transform" begin="0s" dur="20s" type="translate" from="600 0" to="0 0" repeatCount="indefinite" />
-
+    <div id="kinetic-container" style="position: absolute"></div>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="655" height="273">
+        <image x="0" y="0" width="655" height="273" xlink:href="images/background.png">
+            <animateTransform attributeName="transform" begin="0s" dur="16s" type="translate" from="655 0" to="0 0" repeatCount="indefinite" />
         </image>
-
-        <image x="0" y="0" width="600" height="600" xlink:href="images/Trees.png">
-
-            <animateTransform attributeName="transform" begin="0s" dur="20s" type="translate" from="0 0" to="-600 0" repeatCount="indefinite" />
-
-        </image>
-
-        <image x="600" y="0" width="600" height="600" xlink:href="images/Trees.png">
-
-            <animateTransform attributeName="transform" begin="0s" dur="20s" type="translate" from="1200 0" to="600 0" repeatCount="indefinite" />
-
-        </image>
-
-        <image x="600" y="0" width="600" height="600" xlink:href="images/Trees.png">
-
-            <animateTransform attributeName="transform" begin="0s" dur="20s" type="translate" from="600 0" to="0 0" repeatCount="indefinite" />
-
+        <image x="0" y="0" width="655" height="273" xlink:href="images/background.png">
+            <animateTransform attributeName="transform" begin="0s" dur="16s" type="translate" from="0 0" to="-655 0" repeatCount="indefinite" />
         </image>
     </svg>
-
-    <script src="scripts/kinetic-v5.1.0.min.js">
-    </script>
-    <script src="scripts/SuperMario.js">
-    </script>
+    <script src="scripts/kinetic-v5.1.0.min.js"></script>
+    <script src="scripts/SuperMario.js"></script>
 </body>
 
 </html>

@@ -1,18 +1,18 @@
 (function () {
     var stage = new Kinetic.Stage({
-        container: 'container',
-        width: 1200,
-        height: 600
+        container: 'kinetic-container',
+        width: 655,
+        height: 273
     });
 
     var layer = new Kinetic.Layer();
 
-    var imageObj = new Image();
-    imageObj.onload = function () {
+    var img = new Image();
+    img.onload = function () {
         var mario = new Kinetic.Sprite({
-            x: 300,
-            y: 450,
-            image: imageObj,
+            x: 280,
+            y: 142,
+            image: img,
             animation: 'idle',
             animations: {
                 idle: [
@@ -33,15 +33,10 @@
             frameIndex: 0
         });
 
-        // add the shape to the layer
         layer.add(mario);
-
-        // add the layer to the stage
         stage.add(layer);
-
-        // start sprite animation
         mario.start();
     };
 
-    imageObj.src = "./images/SuperMario.png";
+    img.src = "./images/SuperMario.png";
 }());
