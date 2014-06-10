@@ -13,10 +13,10 @@
             x: 280,
             y: 142,
             image: img,
-            animation: 'idle',
+            animation: 'walk',
             animations: {
-                idle: [
-                    // x, y, width, height (8 frames)
+                walk: [
+                    // x, y, width, height
                     10, 0, 75, 120,
                     85, 0, 75, 120,
                     175, 0, 75, 120,
