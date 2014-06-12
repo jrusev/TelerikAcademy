@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Poker.Tests", "PokerTests\Poker.Tests.csproj", "{57D4C8F4-7686-47B4-ADEB-C97BCFFD3908}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Poker.Tests", "Poker.Tests\Poker.Tests.csproj", "{57D4C8F4-7686-47B4-ADEB-C97BCFFD3908}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Poker.Demo", "PokerDemo\Poker.Demo.csproj", "{26EEDF54-F7A1-4008-AD12-2B659F9858BD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Poker.Demo", "Poker.Demo\Poker.Demo.csproj", "{26EEDF54-F7A1-4008-AD12-2B659F9858BD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Poker.Common", "Poker.Common\Poker.Common.csproj", "{3CABBBAB-060A-4B9B-B6E0-5FD3CE018434}"
 EndProject
