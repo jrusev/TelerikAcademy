@@ -6,3 +6,9 @@ git push origin master // качва всичко от локалното хранинлище (master) в отдале
 git log --oneline // не е задължително - дава ти историята на логовете, трябва да си виждаш твоите (значи са на сървъра)
 
 Shift+ Z,Z -> ако екрана е блокирал, като изписва дълъг списък (примерно след git status), го отблокира и показва промпта
+
+git clone git@github.com:mimirerelala/Dairou.git
+git remote set-url origin git@github.com:mimirerelala/Dairou.git
+
+
+
