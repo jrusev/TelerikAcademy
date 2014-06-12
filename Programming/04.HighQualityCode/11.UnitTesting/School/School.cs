@@ -4,13 +4,11 @@ using System.Collections.Generic;
 public class School
 {
     private readonly List<Student> students;
-    private readonly Student[] studentsById;
     private readonly List<Course> courses;
 
     public School()
     {
         this.students = new List<Student>();
-        this.studentsById = new Student[Student.MaxID - Student.MinID];
         this.courses = new List<Course>();
     }
 
@@ -24,34 +22,42 @@ public class School
 
     public IEnumerable<Course> Courses
     {
-        get 
-        { 
+        get
+        {
             return this.courses;
         }
     }
 
     public Student RegisterStudent(string name)
     {
-        for (int i = 0; i < this.studentsById.Length; i++)
+        if (this.students.Count > (Student.MaxID - Student.MinID))
         {
-            if (this.studentsById[i] != null)
-            {
-                var id = Student.MinID + i;
-                var student = new Student(name, id);
-
-                this.studentsById[i] = student;
-                this.students.Add(student);
-                return student;
-            }
+            throw new InvalidOperationException("All available ID numbers are occupied!");
         }
 
-        throw new InvalidOperationException("All available ID numbers are occupied!");
+        var id = Student.MinID + this.students.Count;
+        var student = new Student(name, id);
+        this.students.Add(student);
+        return student;       
     }
 
-    public Course CreateCourse(string name)
+    public void AddCourse(Course course)
     {
-        var course = new Course(name);
+        if (course == null)
+        {
+            throw new ArgumentNullException("course");
+        }
+
         this.courses.Add(course);
-        return course;
+    }
+
+    public bool RemoveCourse(Course course)
+    {
+        if (course == null)
+        {
+            throw new ArgumentNullException("course");
+        }
+
+        return this.courses.Remove(course);
     }
 }

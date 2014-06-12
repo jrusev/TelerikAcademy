@@ -5,7 +5,7 @@ public class Course
 {
     public const int MaxStudents = 30;
 
-    private readonly IList<Student> students = new List<Student>();
+    private readonly IList<Student> students;
 
     public Course(string name)
     {
@@ -15,6 +15,7 @@ public class Course
         }
 
         this.Name = name;
+        this.students = new List<Student>();
     }
 
     public string Name { get; private set; }
@@ -25,24 +26,6 @@ public class Course
         { 
             return this.students;
         }
-    }
-
-    public int StudentCount
-    {
-        get 
-        { 
-            return this.students.Count;
-        }
-    }
-
-    public bool IsStudentEnrolled(Student student)
-    {
-        if (student == null)
-        {
-            throw new ArgumentNullException("student");
-        }
-
-        return this.students.Contains(student);
     }
 
     public void AddStudent(Student student)
