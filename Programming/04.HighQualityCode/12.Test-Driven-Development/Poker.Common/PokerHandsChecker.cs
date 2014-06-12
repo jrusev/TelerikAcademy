@@ -18,16 +18,6 @@ namespace Poker
             return true;
         }
 
-        // bonus from me
-        //public bool IsStraightFlushRoyal(IHand hand)
-        //{
-        //    return hand.AreCardsSameSuit() &&
-        //           hand.AreCardsConsecutive() && 
-        //           hand.HighestCard().Face == CardFace.Ace;
-
-        //}
-
-
         // notes:
         // * if the hand contains any cards of the same face,
         // the cards can't be of the same suit
@@ -166,22 +156,23 @@ namespace Poker
                     return 0;
                 return -1;
             }
+
             if (secondHand == null)
             {
                 return 1;
             }
+
             if (!IsValidHand(firstHand))
             {
                 if (!IsValidHand(secondHand))
                     return 0;
                 return -1;
             }
+
             if (!IsValidHand(secondHand))
             {
                 return 1;
             }
-
-
 
             // we could also map each hand type to an integer
             foreach (var predicate in this.PredicatesList)
@@ -216,19 +207,19 @@ namespace Poker
 
                     return Utils.CompareSequences(seq1, seq2, c => (int)c.Suit);
                 }
+
                 if (isFirst)
                 {
                     return 1;
                 }
+
                 if (isSecond)
                 {
                     return -1;
                 }
             }
 
-            Debug.Assert(false, "should not happen");
             throw new ApplicationException("assertion failed");
-
         }
     }
 }
