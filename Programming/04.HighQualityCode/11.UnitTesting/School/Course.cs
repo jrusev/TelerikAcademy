@@ -9,7 +9,7 @@ public class Course
 
     public Course(string name)
     {
-        if (string.IsNullOrEmpty(name))
+        if (string.IsNullOrWhiteSpace(name))
         {
             throw new ArgumentException("Name must be not be null or empty!");
         }
@@ -20,7 +20,7 @@ public class Course
 
     public string Name { get; private set; }
 
-    public IEnumerable<Student> Students
+    public IList<Student> Students
     {
         get
         { 

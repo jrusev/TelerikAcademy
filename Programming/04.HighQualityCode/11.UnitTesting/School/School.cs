@@ -12,19 +12,19 @@ public class School
         this.courses = new List<Course>();
     }
 
-    public IEnumerable<Student> Students
+    public IList<Student> Students
     {
         get
         {
-            return this.students;
+            return new List<Student>(this.students);
         }
     }
 
-    public IEnumerable<Course> Courses
+    public IList<Course> Courses
     {
         get
         {
-            return this.courses;
+            return new List<Course>(this.courses);
         }
     }
 
