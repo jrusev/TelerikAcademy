@@ -6,7 +6,9 @@
     <title>Tag Cloud</title>
     <style>
         div {
-            width: 200px;
+            width: 255px;
+            border: 1px solid black;
+            padding: 5px;
         }
     </style>
 </head>
@@ -20,20 +22,19 @@
             function generateTagCloud(tags, minFontSize, maxFontSize) {
                 var i, max = 0;
                 var dict = {};
-                var buffer = document.createDocumentFragment();
                 for (i = 0; i < tags.length; i++) {
                     var tag = tags[i].toLowerCase();
                     dict[tag] = dict[tag] ? dict[tag] + 1 : 1;
                     max = Math.max(max, dict[tag]);
                 }
 
-                // console.log(tags);
-                // console.log(dict);
+                console.log(dict);
 
+                var buffer = document.createDocumentFragment();
                 for (word in dict) {
                     var span = document.createElement('span');
                     span.style.fontSize = minFontSize + ~~((maxFontSize - minFontSize) * (dict[word] / max)) + 'px';
-                    span.innerHTML = word + "&nbsp;";
+                    span.innerHTML = word + " ";
                     buffer.appendChild(span);
                 }
                 return buffer;
