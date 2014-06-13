@@ -7,40 +7,26 @@
 </head>
 
 <body>
+    <textarea id="textarea"></textarea>
+    <button id="btn-add">Add</button>
+    <button id="btn-hide">Hide/Show All</button>
+    <button id="btn-delete">Delete</button>
     <script>
         (function () {
-            var textArea = document.createElement('textarea');
-            document.body.appendChild(textArea);
-
-            var buttonAdd = document.createElement('button');
-            buttonAdd.innerHTML = 'Add';
-            buttonAdd.addEventListener('click', addItem);
-            document.body.appendChild(buttonAdd);
-
-            var buttonHide = document.createElement('button');
-            buttonHide.innerHTML = 'Hide/Show All';
-            buttonHide.addEventListener('click', toggleHideShowAll);
-            document.body.appendChild(buttonHide);
-
-            var buttonDelete = document.createElement('button');
-            buttonDelete.innerHTML = 'Delete';
-            buttonDelete.addEventListener('click', onclickDelete);
-            document.body.appendChild(buttonDelete);
+            document.getElementById('btn-add').addEventListener('click', addItem);
+            document.getElementById('btn-hide').addEventListener('click', toggleHideShowAll);
+            document.getElementById('btn-delete').addEventListener('click', onclickDelete);
 
             var taskList = document.createElement('ul');
             document.body.appendChild(taskList);
 
-            function addItem(evt) {
-                var taskName = textArea.value;
+            var textArea = document.getElementById('textarea');
 
+            function addItem(evt) {
                 var task = document.createElement('li');
                 task.style.listStyleType = 'none';
                 task.addEventListener('click', onclickTask);
-
-                var label = document.createElement('label');
-                label.innerHTML = '<input type="checkbox" />' + taskName;
-
-                task.appendChild(label);
+                task.innerHTML = '<label><input type="checkbox" />' + textArea.value + '</label>';
                 taskList.appendChild(task);
             }
 
