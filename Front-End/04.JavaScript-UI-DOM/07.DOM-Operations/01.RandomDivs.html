@@ -7,12 +7,13 @@
     <style>
         div {
             text-align: center;
+            border-style: solid;
+            position: absolute;
         }
     </style>
 </head>
 
 <body>
-    <div id="wrapper"></div>
     <script>
         (function () {
 
@@ -20,8 +21,6 @@
                 var buffer = document.createDocumentFragment();
 
                 var div = document.createElement('div');
-                div.style.position = 'absolute';
-
                 var strong = document.createElement('strong');
                 strong.innerHTML = 'div';
                 div.appendChild(strong);
@@ -30,18 +29,19 @@
 
                     div.style.width = randomSize(20, 100);
                     div.style.height = randomSize(20, 100);
-                    div.style.backgroundColor = randColor();
-                    div.style.color = randColor();
                     div.style.left = randomSize(0, 800);
                     div.style.top = randomSize(0, 600);
                     div.style.borderRadius = randomSize(0, 10);
-                    div.style.borderColor = randColor();
                     div.style.borderWidth = randomSize(1, 20);
+
+                    div.style.color = randColor();
+                    div.style.backgroundColor = randColor();
+                    div.style.borderColor = randColor();
 
                     buffer.appendChild(div.cloneNode(true));
                 }
 
-                document.getElementById('wrapper').appendChild(buffer);
+                document.body.appendChild(buffer);
             }
 
             function randomIntFromInterval(min, max) {
