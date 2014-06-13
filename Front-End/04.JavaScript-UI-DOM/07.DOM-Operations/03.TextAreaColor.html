@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Text Area Colors</title>
+</head>
+
+<body>
+    <textarea>Change the font and background color...</textarea>
+    <div>
+        <input type="color" onchange="changeFontColor(this)">Font Color</input>
+        <input type="color" onchange="changeBackColor(this)">Back Color</input>
+    </div>
+
+    <script>
+        // Create a text area and two inputs with type="color"
+         // Make the font color of the text area as the value of the first color input
+         // Make the background color of the text area as the value of the second input
+
+        function changeFontColor(input) {
+            document.querySelector("textarea").style.color = input.value;
+        };
+
+        function changeBackColor(input) {
+            document.querySelector("textarea").style.background = input.value;
+        };
+    </script>
+</body>
+
+</html>
