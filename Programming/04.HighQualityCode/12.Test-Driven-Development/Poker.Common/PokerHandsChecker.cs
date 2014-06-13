@@ -13,13 +13,6 @@ namespace Poker
             return hand.Cards.Distinct().Count() == 5;
         }
 
-        // notes:
-        // * if the hand contains any cards of the same face,
-        // the cards can't be of the same suit
-        // * if the cards are of the same suit, the hand
-        // can't contain same face
-        // * the methods don't check IsValidHand()
-
         bool EnsureValidHand(IHand hand, bool throwArgumentException)
         {
             if (!IsValidHand(hand))
