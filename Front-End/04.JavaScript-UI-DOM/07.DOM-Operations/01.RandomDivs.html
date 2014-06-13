@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Random Divs</title>
+</head>
+
+<body>
+    <div id="wrapper"></div>
+    <script>
+        (function () {
+
+            function generateRandomDivs(num) {
+                var buffer = document.createDocumentFragment();
+
+                var div = document.createElement('div');
+                div.style.position = 'absolute';
+
+                for (var i = 0; i < num; i += 1) {
+
+                    div.style.width = randomSize(20, 100);
+                    div.style.height = randomSize(20, 100);
+                    div.style.backgroundColor = randColor();
+                    div.style.color = randColor();
+                    div.style.left = randomSize(0, 800);
+                    div.style.top = randomSize(0, 600);
+                    // A strong element with text "div" inside the div
+                    div.style.borderRadius = randomSize(0, 10);
+                    div.style.borderColor = randColor();
+                    div.style.borderWidth = randomSize(1, 20);
+
+                    buffer.appendChild(div.cloneNode());
+                }
+
+                document.getElementById('wrapper').appendChild(buffer);
+            }
+
+            function randomIntFromInterval(min, max) {
+                return Math.floor(Math.random() * (max - min + 1) + min);
+            }
+
+            function randomSize(min, max) {
+                return randomIntFromInterval(min, max) + 'px';
+            }
+
+            function randColor() {
+                var red = randomIntFromInterval(0, 255);
+                var green = randomIntFromInterval(0, 255);
+                var blue = randomIntFromInterval(0, 255);
+                return 'rgb(' + red + ',' + green + ',' + blue + ')';
+            }
+
+            generateRandomDivs(10);
+        })();
+    </script>
+</body>
+
+</html>
