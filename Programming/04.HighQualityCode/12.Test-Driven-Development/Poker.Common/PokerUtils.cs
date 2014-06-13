@@ -17,17 +17,6 @@
             return (CardFace)(face + 1);
         }
 
-        public static CardFace? GetNextLowerFace(this CardFace face)
-        {
-            if (face == CardFace.Two)
-            {
-                return null;
-            }
-
-            var asInt = (int)face;
-            return (CardFace)(face + 1);
-        }
-
         public static IEnumerable<ICard> CardsAscending(this IHand hand)
         {
             return hand.Cards.OrderBy(c => c.Face);
@@ -38,19 +27,14 @@
             return hand.Cards.Max();
         }
 
-        public static ICard LowestCard(this IHand hand)
-        {
-            return hand.Cards.Max();
-        }
-
         public static IEnumerable<IGrouping<CardFace, ICard>> CardsByFace(this IHand hand)
         {
             return hand.Cards.GroupBy(c => c.Face);
         }
 
-        public static bool HasXOfKind(this IHand hand, int x)
+        public static bool IsFaceRepeated(this IHand hand, int times)
         {
-            return hand.CardsByFace().Any(g => g.Count() == x);
+            return hand.CardsByFace().Any(g => g.Count() == times);
         }
 
         public static int TimesXOfKind(this IHand hand, int x)
@@ -86,26 +70,26 @@
             return hand.Cards.GroupBy(c => c.Suit).Count() == 1;
         }
 
-        public static int CompareFace(this ICard card1, ICard card2)
-        {
-            if (card1 == null)
-            {
-                if (card2 == null)
-                {
-                    // Two null references compare equal to each other.
-                    return 0;
-                }
+        //public static int CompareFace(this ICard card1, ICard card2)
+        //{
+        //    if (card1 == null)
+        //    {
+        //        if (card2 == null)
+        //        {
+        //            // Two null references compare equal to each other.
+        //            return 0;
+        //        }
 
-                return -1;
-            }
+        //        return -1;
+        //    }
 
-            if (card2 == null)
-            {
-                return 1;
-            }
+        //    if (card2 == null)
+        //    {
+        //        return 1;
+        //    }
 
-            return card1.Face.CompareTo(card2.Face);
-        }
+        //    return card1.Face.CompareTo(card2.Face);
+        //}
 
         internal static CardFace ReadFace(char ch)
         {

@@ -5,30 +5,27 @@ namespace Poker
 {
     public class PokerHandsChecker : IPokerHandsChecker
     {
+        internal const bool ThrowIfInvalidHand = false;
+
         public bool IsValidHand(IHand hand)
         {
             if (hand == null)
                 throw new ArgumentNullException("hand");
 
-            return hand.Cards.Distinct().Count() == 5;
-        }
-
-        bool EnsureValidHand(IHand hand, bool throwArgumentException)
-        {
-            if (!IsValidHand(hand))
+            // we want to handle repeating faces or hands with less cards differently
+            if (hand.Cards.Distinct().Count() != 5)
             {
-                if (throwArgumentException)
+                if (ThrowIfInvalidHand)
                     throw new ArgumentException("not a valid poker hand:" + hand);
                 return false;
             }
+
             return true;
         }
 
-        internal const bool THROW_ARG_EX = false;
-
         public bool IsStraightFlush(IHand hand)
         {
-            if (!EnsureValidHand(hand, THROW_ARG_EX))
+            if (!IsValidHand(hand))
                 return false;
 
             return hand.AreCardsSameSuit() &&
@@ -37,25 +34,24 @@ namespace Poker
 
         public bool IsFourOfAKind(IHand hand)
         {
-            if (!EnsureValidHand(hand, THROW_ARG_EX))
+            if (!IsValidHand(hand))
                 return false;
 
-            return hand.HasXOfKind(4);
+            return hand.IsFaceRepeated(4);
         }
 
         public bool IsFullHouse(IHand hand)
         {
-            if (!EnsureValidHand(hand, THROW_ARG_EX))
+            if (!IsValidHand(hand))
                 return false;
 
-            return hand.HasXOfKind(2) &&
-                   hand.HasXOfKind(3);
-
+            return hand.IsFaceRepeated(2) &&
+                   hand.IsFaceRepeated(3);
         }
 
         public bool IsFlush(IHand hand)
         {
-            if (!EnsureValidHand(hand, THROW_ARG_EX))
+            if (!IsValidHand(hand))
                 return false;
 
             return hand.AreCardsSameSuit() &&
@@ -64,7 +60,7 @@ namespace Poker
 
         public bool IsStraight(IHand hand)
         {
-            if (!EnsureValidHand(hand, THROW_ARG_EX))
+            if (!IsValidHand(hand))
                 return false;
 
             return hand.AreCardsConsecutive() &&
@@ -73,19 +69,17 @@ namespace Poker
 
         public bool IsThreeOfAKind(IHand hand)
         {
-            if (!EnsureValidHand(hand, THROW_ARG_EX))
+            if (!IsValidHand(hand))
                 return false;
-            // can't be 2x2, 3, 4, same suit, or consecutive
 
-            return hand.HasXOfKind(3) &&
-                  !hand.HasXOfKind(2); ;
+            return hand.IsFaceRepeated(3) &&
+                  !hand.IsFaceRepeated(2); ;
         }
 
         public bool IsTwoPair(IHand hand)
         {
-            if (!EnsureValidHand(hand, THROW_ARG_EX))
+            if (!IsValidHand(hand))
                 return false;
-            // can't be 3, 4, same suit, or consecutive
 
             return hand.TimesXOfKind(2) == 2;
         }
@@ -93,30 +87,27 @@ namespace Poker
         public bool IsOnePair(IHand hand)
         {
 
-            if (!EnsureValidHand(hand, THROW_ARG_EX))
+            if (!IsValidHand(hand))
                 return false;
-            // can't be 4, same suit, or consecutive
 
             return hand.TimesXOfKind(2) == 1 &&
-                  !hand.HasXOfKind(3);
+                  !hand.IsFaceRepeated(3);
 
         }
 
         public bool IsHighCard(IHand hand)
         {
-            if (!EnsureValidHand(hand, THROW_ARG_EX))
+            if (!IsValidHand(hand))
                 return false;
 
-            return !hand.HasXOfKind(2) &&
-                   !hand.HasXOfKind(3) &&
-                   !hand.HasXOfKind(4) &&
+            return !hand.IsFaceRepeated(2) &&
+                   !hand.IsFaceRepeated(3) &&
+                   !hand.IsFaceRepeated(4) &&
                    !hand.AreCardsSameSuit() &&
                    !hand.AreCardsConsecutive();
-
         }
 
-        internal List<Func<IHand, bool>>
-            PredicatesList
+        internal List<Func<IHand, bool>> PredicatesList
         {
             get
             {
@@ -137,7 +128,6 @@ namespace Poker
 
         public int CompareHands(IHand firstHand, IHand secondHand)
         {
-            // "null is smaller than a non-null object by definition"
             if (firstHand == null)
             {
                 if (secondHand == null)
@@ -162,7 +152,6 @@ namespace Poker
                 return 1;
             }
 
-            // we could also map each hand type to an integer
             foreach (var predicate in this.PredicatesList)
             {
                 var isFirst = predicate(firstHand);
@@ -177,8 +166,7 @@ namespace Poker
                         return firstHand.HighestCard().Face.CompareTo(
                                secondHand.HighestCard().Face);
                     }
-        
-                        // x of kind
+
                     var x = 0;
                     if (predicate == this.IsFourOfAKind)
                         x = 4;
