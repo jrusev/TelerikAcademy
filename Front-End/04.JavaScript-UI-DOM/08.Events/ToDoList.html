@@ -32,21 +32,15 @@
 
             function addItem(evt) {
                 var taskName = textArea.value;
+
                 var task = document.createElement('li');
                 task.style.listStyleType = 'none';
                 task.addEventListener('click', onclickTask);
 
-                var checkbox = document.createElement('input');
-                checkbox.type = "checkbox";
-                checkbox.id = taskName;
-
                 var label = document.createElement('label');
-                label.innerHTML = taskName;
-                label.htmlFor = taskName;
+                label.innerHTML = '<input type="checkbox" />' + taskName;
 
-                task.appendChild(checkbox);
                 task.appendChild(label);
-
                 taskList.appendChild(task);
             }
 
@@ -58,19 +52,20 @@
             }
 
             function onclickTask(evt) {
-                var checkBox = this.firstChild;
-                if (checkBox.checked)
-                    this.lastChild.style.textDecoration = "line-through";
+                var label = this.firstChild;
+                var checkbox = label.firstChild;
+                if (checkbox.checked)
+                    label.style.textDecoration = "line-through";
                 else
-                    this.lastChild.style.textDecoration = "";
+                    label.style.textDecoration = "";
             }
 
             function onclickDelete(evt) {
                 for (var i = 0, len = taskList.children.length; i < len; i++) {
-                    var item = taskList.children[i];
-                    var checkBox = item.firstChild;
+                    var listItem = taskList.children[i];
+                    var checkBox = listItem.firstChild.firstChild;
                     if (checkBox.checked) {
-                        taskList.removeChild(item);
+                        taskList.removeChild(listItem);
                         i--;
                         len--;
                     }
