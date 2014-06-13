@@ -22,7 +22,6 @@ namespace PokerTests
             Assert.AreEqual(card3, hand.Cards[3 - 1]);
             Assert.AreEqual(card4, hand.Cards[4 - 1]);
             Assert.AreEqual(card5, hand.Cards[5 - 1]);
-
         }
 
         [TestMethod]

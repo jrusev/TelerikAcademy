@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace Poker
 {
     public class PokerHandsChecker : IPokerHandsChecker
@@ -86,13 +87,11 @@ namespace Poker
 
         public bool IsOnePair(IHand hand)
         {
-
             if (!IsValidHand(hand))
                 return false;
 
             return hand.TimesXOfKind(2) == 1 &&
                   !hand.IsFaceRepeated(3);
-
         }
 
         public bool IsHighCard(IHand hand)

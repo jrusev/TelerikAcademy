@@ -30,7 +30,5 @@ namespace PokerTests
 
             Assert.AreEqual(toString, "Eight of Hearts");
         }
-
-
     }
 }

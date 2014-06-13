@@ -114,7 +114,6 @@ namespace PokerTests
             Assert.IsTrue(result);
         }
 
-
         [TestMethod]
         public void IsFlushOk()
         {
@@ -122,7 +121,6 @@ namespace PokerTests
             var result = checker.IsFlush(hand);
             Assert.IsTrue(result);
         }
-
 
         [TestMethod]
         public void IsThreeOfAKindOk()
@@ -185,7 +183,6 @@ namespace PokerTests
                     result = false;
                     break;
                 }
-
             }
 
             Assert.IsTrue(result);
