@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>ToDo List</title>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script>
+        // Create a TODO list with the following UI controls
+         // Form input for new Item
+         // Button for adding the new Item
+         // Button for deleting some item
+         // Show and Hide Button
+
+        (function () {
+            var textArea = document.createElement('textarea');
+            document.body.appendChild(textArea);
+
+            var buttonAdd = document.createElement('button');
+            buttonAdd.innerHTML = 'Add';
+            buttonAdd.addEventListener('click', addItem);
+            document.body.appendChild(buttonAdd);
+
+            var buttonHide = document.createElement('button');
+            buttonHide.innerHTML = 'Hide/Show All';
+            buttonHide.addEventListener('click', toggleHideShowAll);
+            document.body.appendChild(buttonHide);
+
+            var taskList = document.createElement('ul');
+            document.body.appendChild(taskList);
+
+            function addItem(evt) {
+                var taskName = textArea.value;
+                var task = document.createElement('li');
+                task.innerHTML = taskName;
+                taskList.appendChild(task);
+            }
+
+            function toggleHideShowAll() {
+                if (taskList.style.display === 'none')
+                    taskList.style.display = '';
+                else
+                    taskList.style.display = 'none'
+            }
+        })();
+    </script>
+</body>
+
+</html>
