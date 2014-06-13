@@ -22,11 +22,6 @@
             return hand.Cards.OrderBy(c => c.Face);
         }
 
-        //public static ICard HighestCard(this IHand hand)
-        //{
-        //    return hand.Cards.Max();
-        //}
-
         public static IEnumerable<IGrouping<CardFace, ICard>> CardsByFace(this IHand hand)
         {
             return hand.Cards.GroupBy(c => c.Face);
@@ -41,12 +36,6 @@
         {
             return hand.CardsByFace().Where(g => g.Count() == x).Count();
         }
-
-        //public static IEnumerable<IGrouping<CardFace, ICard>>
-        //GetXOfKind(this IHand hand, int x)
-        //{
-        //    return hand.CardsByFace().Where(g => g.Count() == x);
-        //}
 
         public static bool AreCardsConsecutive(this IHand hand)
         {
@@ -69,27 +58,6 @@
         {
             return hand.Cards.GroupBy(c => c.Suit).Count() == 1;
         }
-
-        //public static int CompareFace(this ICard card1, ICard card2)
-        //{
-        //    if (card1 == null)
-        //    {
-        //        if (card2 == null)
-        //        {
-        //            // Two null references compare equal to each other.
-        //            return 0;
-        //        }
-
-        //        return -1;
-        //    }
-
-        //    if (card2 == null)
-        //    {
-        //        return 1;
-        //    }
-
-        //    return card1.Face.CompareTo(card2.Face);
-        //}
 
         internal static CardFace ReadFace(char ch)
         {
@@ -159,21 +127,5 @@
                 new[] { ' ' },
                 StringSplitOptions.RemoveEmptyEntries).Select(s => (ICard)ReadCard(s)).ToList());
         }
-
-        //internal static int CompareSequences<T>(IEnumerable<T> seq1, IEnumerable<T> seq2, Func<T, int> f)
-        //{
-        //    var en1 = seq1.GetEnumerator();
-        //    var en2 = seq2.GetEnumerator();
-        //    while (en1.MoveNext() && en2.MoveNext())
-        //    {
-        //        var cmp = f(en1.Current).CompareTo(f(en2.Current));
-        //        if (cmp != 0)
-        //        {
-        //            return cmp;
-        //        }
-        //    }
-
-        //    return 0;
-        //}
     }
 }
