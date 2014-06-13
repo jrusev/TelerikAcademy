@@ -181,7 +181,7 @@ namespace Poker
                     var seq1 = firstHand.GetXOfKind(x).OrderByDescending(g => g.Key).SelectMany(g => g);
                     var seq2 = secondHand.GetXOfKind(x).OrderByDescending(g => g.Key).SelectMany(g => g);
 
-                    return Utils.CompareSequences(seq1, seq2, c => (int)c.Suit);
+                    return PokerUtils.CompareSequences(seq1, seq2, c => (int)c.Suit);
                 }
 
                 if (isFirst)
