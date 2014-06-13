@@ -4,6 +4,11 @@
 <head>
     <meta charset="utf-8">
     <title>Random Divs</title>
+    <style>
+        div {
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,6 +22,10 @@
                 var div = document.createElement('div');
                 div.style.position = 'absolute';
 
+                var strong = document.createElement('strong');
+                strong.innerHTML = 'div';
+                div.appendChild(strong);
+
                 for (var i = 0; i < num; i += 1) {
 
                     div.style.width = randomSize(20, 100);
@@ -25,12 +34,11 @@
                     div.style.color = randColor();
                     div.style.left = randomSize(0, 800);
                     div.style.top = randomSize(0, 600);
-                    // A strong element with text "div" inside the div
                     div.style.borderRadius = randomSize(0, 10);
                     div.style.borderColor = randColor();
                     div.style.borderWidth = randomSize(1, 20);
 
-                    buffer.appendChild(div.cloneNode());
+                    buffer.appendChild(div.cloneNode(true));
                 }
 
                 document.getElementById('wrapper').appendChild(buffer);
