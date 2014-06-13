@@ -7,10 +7,11 @@
 </head>
 
 <body>
-    <textarea id="textarea"></textarea>
+    <input type="text" id="text-input" placeholder="Add task here...">
     <button id="btn-add">Add</button>
     <button id="btn-hide">Hide/Show All</button>
     <button id="btn-delete">Delete</button>
+
     <script>
         (function () {
             document.getElementById('btn-add').addEventListener('click', addItem);
@@ -20,13 +21,12 @@
             var taskList = document.createElement('ul');
             document.body.appendChild(taskList);
 
-            var textArea = document.getElementById('textarea');
-
             function addItem(evt) {
+                var taskName = document.getElementById('text-input').value;
                 var task = document.createElement('li');
                 task.style.listStyleType = 'none';
                 task.addEventListener('click', onclickTask);
-                task.innerHTML = '<label><input type="checkbox" />' + textArea.value + '</label>';
+                task.innerHTML = '<label><input type="checkbox" />' + taskName + '</label>';
                 taskList.appendChild(task);
             }
 
