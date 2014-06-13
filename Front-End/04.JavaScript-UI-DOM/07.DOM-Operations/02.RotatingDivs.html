@@ -1,0 +1,58 @@
+<!-- Write a script that creates 5 div elements and moves them in circular path with interval of 100 milliseconds -->
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Rotating Divs</title>
+    <style>
+        div {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        (function () {
+            function generateDivs(num) {
+                for (var i = 0; i < num; i += 1) {
+                    var div = document.createElement('div');
+                    div.startX = 100 + Math.random() * 500 | 0;
+                    div.startY = 100 + Math.random() * 200 | 0;
+                    div.angle = Math.random() * 360 | 0;
+                    div.radius = 50 + Math.random() * 50 | 0;
+                    div.style.backgroundColor = randColor();
+
+                    document.body.appendChild(div);
+                }
+            }
+
+            function randColor() {
+                return 'rgb(' + ~~(Math.random() * 255) + ',' + ~~(Math.random() * 255) + ',' + ~~(Math.random() * 255) + ')';
+            }
+
+            function rotateDivs() {
+                var x, y;
+                var divs = document.getElementsByTagName('div');
+                for (var i = 0, len = divs.length; i < len; i += 1) {
+                    var div = divs[i];
+                    div.angle++;
+                    x = Math.sin(div.angle * Math.PI / 180) * div.radius;
+                    y = Math.cos(div.angle * Math.PI / 180) * div.radius;
+
+                    div.style.left = div.startX + x + 'px';
+                    div.style.top = div.startY + y + 'px';
+                }
+                window.requestAnimationFrame(rotateDivs);
+            }
+
+            generateDivs(5);
+            rotateDivs();
+        })();
+    </script>
+</body>
+
+</html>
