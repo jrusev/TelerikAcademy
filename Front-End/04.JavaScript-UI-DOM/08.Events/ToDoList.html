@@ -7,14 +7,7 @@
 </head>
 
 <body>
-    <div id="container"></div>
     <script>
-        // Create a TODO list with the following UI controls
-         // Form input for new Item
-         // Button for adding the new Item
-         // Button for deleting some item
-         // Show and Hide Button
-
         (function () {
             var textArea = document.createElement('textarea');
             document.body.appendChild(textArea);
@@ -29,13 +22,31 @@
             buttonHide.addEventListener('click', toggleHideShowAll);
             document.body.appendChild(buttonHide);
 
+            var buttonDelete = document.createElement('button');
+            buttonDelete.innerHTML = 'Delete';
+            buttonDelete.addEventListener('click', onclickDelete);
+            document.body.appendChild(buttonDelete);
+
             var taskList = document.createElement('ul');
             document.body.appendChild(taskList);
 
             function addItem(evt) {
                 var taskName = textArea.value;
                 var task = document.createElement('li');
-                task.innerHTML = taskName;
+                task.style.listStyleType = 'none';
+                task.addEventListener('click', onclickTask);
+
+                var checkbox = document.createElement('input');
+                checkbox.type = "checkbox";
+                checkbox.id = taskName;
+
+                var label = document.createElement('label');
+                label.innerHTML = taskName;
+                label.htmlFor = taskName;
+
+                task.appendChild(checkbox);
+                task.appendChild(label);
+
                 taskList.appendChild(task);
             }
 
@@ -44,6 +55,26 @@
                     taskList.style.display = '';
                 else
                     taskList.style.display = 'none'
+            }
+
+            function onclickTask(evt) {
+                var checkBox = this.firstChild;
+                if (checkBox.checked)
+                    this.lastChild.style.textDecoration = "line-through";
+                else
+                    this.lastChild.style.textDecoration = "";
+            }
+
+            function onclickDelete(evt) {
+                for (var i = 0, len = taskList.children.length; i < len; i++) {
+                    var item = taskList.children[i];
+                    var checkBox = item.firstChild;
+                    if (checkBox.checked) {
+                        taskList.removeChild(item);
+                        i--;
+                        len--;
+                    }
+                }
             }
         })();
     </script>
