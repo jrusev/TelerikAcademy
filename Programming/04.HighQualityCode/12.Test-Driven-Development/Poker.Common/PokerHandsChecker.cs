@@ -1,21 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
 namespace Poker
 {
     public class PokerHandsChecker : IPokerHandsChecker
     {
         public bool IsValidHand(IHand hand)
         {
-            if (hand.Cards.Count != 5)
-                return false;
+            if (hand == null)
+                throw new ArgumentNullException("hand");
 
-            // duplicate cards?
-            if (hand.Cards.Duplicates().Count() != 0)
-                return false;
-
-            return true;
+            return hand.Cards.Distinct().Count() == 5;
         }
 
         // notes:

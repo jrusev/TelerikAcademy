@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Poker;
+using System;
 using System.Linq;
 namespace PokerTests
 {
@@ -65,6 +66,13 @@ namespace PokerTests
 
             Assert.IsFalse(result);
 
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void IsValidHandWithNull()
+        {
+            var result = checker.IsValidHand(null);
         }
 
         [TestMethod]

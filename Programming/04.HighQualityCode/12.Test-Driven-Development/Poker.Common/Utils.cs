@@ -6,15 +6,6 @@ namespace Poker
 
     internal static class Utils
     {
-        public static IEnumerable<T> Duplicates<T>(this IEnumerable<T> seq)
-        {
-            return from card in seq
-                   group card by card
-                       into g
-                       where g.Count() > 1
-                       select g.First();
-        }
-
         // assumes the sequences are of equal length
         internal static int CompareSequences<T>(IEnumerable<T> seq1, IEnumerable<T> seq2, Func<T, int> f)
         {
