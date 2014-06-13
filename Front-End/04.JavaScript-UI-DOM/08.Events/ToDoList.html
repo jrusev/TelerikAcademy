@@ -47,15 +47,9 @@
             }
 
             function onclickDelete(evt) {
-                for (var i = 0, len = taskList.children.length; i < len; i++) {
-                    var listItem = taskList.children[i];
-                    var checkBox = listItem.firstChild.firstChild;
-                    if (checkBox.checked) {
-                        taskList.removeChild(listItem);
-                        i--;
-                        len--;
-                    }
-                }
+                var checked = document.querySelectorAll("input[type=checkbox]:checked");
+                for (var i = 0, len = checked.length; i < len; i++)
+                    taskList.removeChild(checked[i].parentElement.parentElement);
             }
         })();
     </script>
