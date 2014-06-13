@@ -107,95 +107,25 @@ namespace Poker
                    !hand.AreCardsConsecutive();
         }
 
-        internal List<Func<IHand, bool>> PredicatesList
+        public int CompareHands(IHand hand1, IHand hand2)
         {
-            get
-            {
-                return new List<Func<IHand, bool>> 
-                { 
-                    IsStraightFlush,
-                    IsFourOfAKind,
-                    IsFullHouse,
-                    IsFlush,
-                    IsStraight,
-                    IsThreeOfAKind,
-                    IsTwoPair,
-                    IsOnePair,
-                    IsHighCard
-                };
-            }
+            throw new NotImplementedException();
         }
 
-        public int CompareHands(IHand firstHand, IHand secondHand)
+        internal List<Func<IHand, bool>> GetHandCheckFunctions()
         {
-            if (firstHand == null)
-            {
-                if (secondHand == null)
-                    return 0;
-                return -1;
-            }
-
-            if (secondHand == null)
-            {
-                return 1;
-            }
-
-            if (!IsValidHand(firstHand))
-            {
-                if (!IsValidHand(secondHand))
-                    return 0;
-                return -1;
-            }
-
-            if (!IsValidHand(secondHand))
-            {
-                return 1;
-            }
-
-            foreach (var predicate in this.PredicatesList)
-            {
-                var isFirst = predicate(firstHand);
-                var isSecond = predicate(secondHand);
-                if (isFirst && isSecond)
-                {
-                    if (predicate == this.IsStraightFlush ||
-                       predicate == this.IsStraight ||
-                        predicate == this.IsFlush ||
-                        predicate == this.IsHighCard)
-                    {
-                        return firstHand.HighestCard().Face.CompareTo(
-                               secondHand.HighestCard().Face);
-                    }
-
-                    var x = 0;
-                    if (predicate == this.IsFourOfAKind)
-                        x = 4;
-
-                    if (predicate == this.IsThreeOfAKind)
-                        x = 3;
-
-                    if (predicate == this.IsTwoPair ||
-                        predicate == this.IsOnePair)
-                        x = 2;
-
-                    var seq1 = firstHand.GetXOfKind(x).OrderByDescending(g => g.Key).SelectMany(g => g);
-                    var seq2 = secondHand.GetXOfKind(x).OrderByDescending(g => g.Key).SelectMany(g => g);
-
-                    return PokerUtils.CompareSequences(seq1, seq2, c => (int)c.Suit);
-                }
-
-                if (isFirst)
-                {
-                    return 1;
-                }
-
-                if (isSecond)
-                {
-                    return -1;
-                }
-            }
-
-            throw new ApplicationException("assertion failed");
+            return new List<Func<IHand, bool>> 
+            { 
+                IsStraightFlush,
+                IsFourOfAKind,
+                IsFullHouse,
+                IsFlush,
+                IsStraight,
+                IsThreeOfAKind,
+                IsTwoPair,
+                IsOnePair,
+                IsHighCard
+            };
         }
     }
 }

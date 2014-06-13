@@ -16,8 +16,8 @@ namespace PokerTests
             var hand = PokerUtils.ReadHand("");
             var result = checker.IsValidHand(hand);
             Assert.IsFalse(result);
-
         }
+
         [TestMethod]
         public void IsValidHandHandlesLessThanFive()
         {
@@ -32,7 +32,6 @@ namespace PokerTests
             var hand = PokerUtils.ReadHand("A♠ Q♥ 0♣ J♦ K♥ 2♠");
             var result = checker.IsValidHand(hand);
             Assert.IsFalse(result);
-
         }
 
         [TestMethod]
@@ -41,7 +40,6 @@ namespace PokerTests
             var hand = PokerUtils.ReadHand("A♠ A♠ 0♣ J♦ K♥ 2♠");
             var result = checker.IsValidHand(hand);
             Assert.IsFalse(result);
-
         }
 
         [TestMethod]
@@ -50,7 +48,6 @@ namespace PokerTests
             var hand = PokerUtils.ReadHand("A♠ A♠");
             var result = checker.IsValidHand(hand);
             Assert.IsFalse(result);
-
         }
 
         [TestMethod]
@@ -165,20 +162,19 @@ namespace PokerTests
         [TestMethod]
         public void HandTypesAreMutuallyExclusive()
         {
-            var predicates = checker.PredicatesList;
-            predicates.Add(h => !checker.IsValidHand(h));
+            var handTypeChecks = checker.GetHandCheckFunctions();
+            handTypeChecks.Add(h => !checker.IsValidHand(h));
             var hands = new[] { "A♠ 2♥ 3♣ 9♦ Q♥", "2♠ 2♥ 3♣ 4♦ 6♥", "2♠ 2♥ 3♣ 3♦ 6♥", "2♠ 2♥ 2♣ 3♦ 6♥", "2♠ 5♠ 7♠ 9♠ J♠", "2♠ 3♥ 4♣ 5♦ 6♥", "2♠ 2♥ 2♣ 3♦ 3♥", "2♠ 2♥ 2♣ 2♦ 6♥", "2♠ 3♠ 4♠ 5♠ 6♠", "2♠ 2♥ 2♣ 2♦ 5♥", "A♠ 2♥ 3♣ 4♦ 5♥", "A♠ Q♥ 0♣ J♦ K♥", "A♠ A♠", "A♠ A♠ 0♣ J♦ K♥ 2♠", "" };
 
-            bool ok = true;
+            bool result = true;
             foreach (var hand in hands.Select(h => PokerUtils.ReadHand(h)))
             {
-
                 // How many conditions are true for this hand
-                var countTrue = predicates.Select(p => p(hand)).Where(b => b).Count();
+                var countTrue = handTypeChecks.Select(p => p(hand)).Where(b => b).Count();
                 countTrue = 0;
-                foreach (var p in predicates)
+                foreach (var check in handTypeChecks)
                 {
-                    if (p(hand))
+                    if (check(hand))
                     {
                         countTrue += 1;
                     }
@@ -186,73 +182,13 @@ namespace PokerTests
 
                 if (countTrue != 1)
                 {
-                    ok = false;
+                    result = false;
                     break;
                 }
 
             }
 
-            Assert.IsTrue(ok);
-
-        }
-
-        // FIXME: doesn't test tiebreak resolution
-        [TestMethod]
-        public void CompareOk()
-        {
-            var predicates = checker.PredicatesList;
-
-            var hands = new[] { "A♠ 2♥ 3♣ 9♦ Q♥", "2♠ 2♥ 3♣ 4♦ 6♥", "2♠ 2♥ 3♣ 3♦ 6♥", "2♠ 2♥ 2♣ 3♦ 6♥", "2♠ 5♠ 7♠ 9♠ J♠", "2♠ 3♥ 4♣ 5♦ 6♥", "2♠ 2♥ 2♣ 3♦ 3♥", "2♠ 2♥ 2♣ 2♦ 6♥", "2♠ 3♠ 4♠ 5♠ 6♠", "2♠ 2♥ 2♣ 2♦ 5♥", "A♠ 2♥ 3♣ 4♦ 5♥", "A♠ Q♥ 0♣ J♦ K♥", "A♠ A♠", "A♠ A♠ 0♣ J♦ K♥ 2♠", "" };
-
-            bool ok = true;
-            foreach (var hand1 in hands.Select(h => PokerUtils.ReadHand(h)))
-                foreach (var hand2 in hands.Select(h => PokerUtils.ReadHand(h)))
-                {
-                    if (!checker.IsValidHand(hand1) ||
-                        !checker.IsValidHand(hand2))
-                        continue;
-
-                    // the indices of the two hands in the predicate list
-                    int ii, jj;
-                    for (ii = 0; ii < predicates.Count; ii++)
-                    {
-                        if (predicates[ii](hand1))
-                            break;
-                    }
-
-                    for (jj = 0; jj < predicates.Count; jj++)
-                    {
-                        if (predicates[jj](hand2))
-                            break;
-                    }
-
-                    var cmp = checker.CompareHands(hand1, hand2);
-                    if (cmp == 0)
-                    {
-                        if (ii != jj)
-                            ok = false;
-
-                        continue;
-                    }
-
-                    // the higher the index, the weaker the hand
-                    if (cmp == -1)
-                    {
-                        if (ii < jj)
-                            ok = false;
-
-                        continue;
-                    }
-                    else
-                    {
-                        if (ii > jj)
-                            ok = false;
-
-                        continue;
-                    }
-                }
-
-            Assert.IsTrue(ok);
+            Assert.IsTrue(result);
         }
     }
 }
