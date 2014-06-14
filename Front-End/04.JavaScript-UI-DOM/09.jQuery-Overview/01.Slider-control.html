@@ -64,21 +64,21 @@
                 return (prev.length) ? prev : this.nextAll().last();
             };
 
-            var slideNext = function () {
+            var showNext = function () {
                 $('.current').removeClass('current').hide().nextOrFirst().addClass('current').show();
             };
 
-            var slidePrev = function () {
+            var showPrev = function () {
                 $('.current').removeClass('current').hide().prevOrLast().addClass('current').show();
             };
 
             var slideShow = function () {
-                slideNext();
+                showNext();
                 timeoutID = setTimeout(slideShow, 2000);
             }
 
-            $('#btn-next').click(slideNext);
-            $('#btn-prev').click(slidePrev);
+            $('#btn-next').click(showNext);
+            $('#btn-prev').click(showPrev);
             $('#btn-slide').click(function () {
                 if (timeoutID) {
                     clearTimeout(timeoutID);
