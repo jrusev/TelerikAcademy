@@ -3,36 +3,39 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Table template</title>
+    <title>Dynamic Select</title>
     <script src='scripts\handlebars-v1.3.0.js'></script>
-    <script src='scripts\courses-data.js'></script>
 </head>
 
 <body>    
     <script id="template" type="text/x-handlebars-template">
-        <table>
-            <tr>
-                <th>No</th>
-                <th>Title</th>
-                <th>Date #1</th>
-                <th>Date #2</th>
-            </tr>
-            {{#each rows}}
-            <tr>
-                <td>{{number}}</td>
-                <td>{{title}}</td>
-                <td>{{firstDate}}</td>
-                <td>{{secondDate}}</td>
-            </tr>
-            {{/each}}
-        </table>
+        <select>
+            {{#each items}}<option value="{{value}}">{{text}}</option>{{/each}}
+        </select>
     </script>
     <script>
         (function () {
+            
+            var items = [
+                {
+                  value: 1,
+                  text: 'One'
+                }, {
+                  value: 2,
+                  text: 'Two'
+                }, {
+                  value: 3,
+                  text: 'Three'
+                }, {
+                  value: 4,
+                  text: 'Four'
+                }
+            ];
+
             var source = document.getElementById('template').innerHTML;
             var template = Handlebars.compile(source);
             var context = {
-                rows: data()
+                items: items
             };
             var container = document.body;
             container.innerHTML += template(context);
