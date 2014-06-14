@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Slider Control</title>
+    <script src='scripts\jquery-1.11.1.min.js'></script>
+    <style>
+        ul {
+            padding: 0;
+            width: 200px;
+        }
+        li {
+            display: none;
+            list-style-type: none;
+        }
+        li.current {
+            display: list-item;
+        }
+        img {
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li class="current">
+            <img alt="Flag of Argentina" src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/200px-Flag_of_Argentina.svg.png">
+        </li>
+        <li>
+            <img alt="Flag of Brazil" src="http://upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/200px-Flag_of_Brazil.svg.png">
+        </li>
+        <li>
+            <img alt="Flag of Germany" src="http://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/200px-Flag_of_Germany.svg.png">
+        </li>
+        <li>
+            <img alt="Portugal" src="http://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/200px-Flag_of_Portugal.svg.png">
+        </li>
+    </ul>
+    <button id="btn-next">Next</button>
+    <button id="btn-prev">Previous</button>
+    <button id="btn-slide">Slideshow</button>
+    <script>
+        (function () {
+
+            var timeoutID = false;
+
+            $.fn.nextOrFirst = function () {
+                var next = this.next();
+                return (next.length) ? next : this.prevAll().last();
+            };
+
+            $.fn.prevOrLast = function () {
+                var prev = this.prev();
+                return (prev.length) ? prev : this.nextAll().last();
+            };
+
+            var slideNext = function () {
+                $('.current').toggleClass('current').nextOrFirst().toggleClass('current');
+            };
+
+            var slidePrev = function () {
+                $('.current').toggleClass('current').prevOrLast().toggleClass('current');
+            };
+
+            function slideShow() {
+                slideNext();
+                timeoutID = setTimeout(slideShow, 2000);
+            }
+
+            $('#btn-next').click(slideNext);
+            $('#btn-prev').click(slidePrev);
+            $('#btn-slide').click(function () {
+                if (timeoutID)
+                    clearTimeout(timeoutID);
+                else
+                    slideShow();
+            });
+
+        })();
+    </script>
+</body>
+
+</html>
