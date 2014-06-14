@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <title>Slider Control</title>
     <script src='scripts\jquery-1.11.1.min.js'></script>
+    <script src='scripts\handlebars-v1.3.0.js'></script>
     <style>
         img {
             width: 200px;
@@ -14,30 +15,43 @@
 </head>
 
 <body>
-    <div id="container"></div>
+    <div id="slider"></div>
     <button id="btn-next">Next</button>
     <button id="btn-prev">Previous</button>
     <button id="btn-slide">Slideshow</button>
+    
+    <script type="text/x-handlebars-template" id="slider-template">
+        {{#slides}}
+        <div class="slide">
+            <img alt="{{alt}}" src="{{src}}">
+        </div>
+        {{/slides}}
+    </script>
+    
     <script>
         (function () {
 
             var timeoutID = false;
-            var slides = [
-                '<img alt="Flag of Argentina" src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/200px-Flag_of_Argentina.svg.png">',
-                '<img alt="Flag of Brazil" src="http://upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/200px-Flag_of_Brazil.svg.png">',
-                '<img alt="Flag of Germany" src="http://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/200px-Flag_of_Germany.svg.png">',
-                '<img alt="Portugal" src="http://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/200px-Flag_of_Portugal.svg.png">'
+            var images = [
+                { 
+                    alt: "Flag of Argentina",
+                    src: "http://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/200px-Flag_of_Argentina.svg.png"
+                }, {
+                    alt: "Flag of Brazil",
+                    src: "http://upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/200px-Flag_of_Brazil.svg.png"                    
+                }, {
+                    alt: "Flag of Germany",
+                    src: "http://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/200px-Flag_of_Germany.svg.png"                   
+                }, {
+                    alt: "Flag of Portugal",
+                    src: "http://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/200px-Flag_of_Portugal.svg.png"                    
+                }                
             ];
-
-            for (i = 0; i < slides.length; i++) {
-                $('#container').append(
-                    $('<div>')
-                    .addClass('slide')
-                    .html(slides[i])
-                    .hide()
-                );
-            }
-
+            
+            var template = Handlebars.compile($('#slider-template').html());
+            $('#slider').html(template({slides: images}));  
+            
+            $('.slide').hide();
             $('.slide').first().addClass('current').show();
 
             $.fn.nextOrFirst = function () {
@@ -58,7 +72,7 @@
                 $('.current').removeClass('current').hide().prevOrLast().addClass('current').show();
             };
 
-            function slideShow() {
+            var slideShow = function () {
                 slideNext();
                 timeoutID = setTimeout(slideShow, 2000);
             }
