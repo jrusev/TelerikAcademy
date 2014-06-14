@@ -4,8 +4,9 @@
 <head>
     <meta charset="utf-8" />
     <title>Slider Control</title>
-    <script src='scripts\jquery-1.11.1.min.js'></script>
-    <script src='scripts\handlebars-v1.3.0.js'></script>
+    <script src='scripts/jquery-1.11.1.min.js'></script>
+    <script src='scripts/handlebars-v1.3.0.js'></script>
+    <script src='scripts/slider-data.js'></script>
     <style>
         img {
             width: 200px;
@@ -32,24 +33,9 @@
         (function () {
 
             var timeoutID = false;
-            var images = [
-                { 
-                    alt: "Flag of Argentina",
-                    src: "http://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/200px-Flag_of_Argentina.svg.png"
-                }, {
-                    alt: "Flag of Brazil",
-                    src: "http://upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/200px-Flag_of_Brazil.svg.png"                    
-                }, {
-                    alt: "Flag of Germany",
-                    src: "http://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/200px-Flag_of_Germany.svg.png"                   
-                }, {
-                    alt: "Flag of Portugal",
-                    src: "http://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/200px-Flag_of_Portugal.svg.png"                    
-                }                
-            ];
             
             var template = Handlebars.compile($('#slider-template').html());
-            $('#slider').html(template({slides: images}));  
+            $('#slider').html(template({slides: images()}));  
             
             $('.slide').hide();
             $('.slide').first().addClass('current').show();
