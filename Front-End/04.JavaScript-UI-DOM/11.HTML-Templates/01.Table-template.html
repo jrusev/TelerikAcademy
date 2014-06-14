@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Table template</title>
+    <script src='scripts\handlebars-v1.3.0.js'></script>
+    <script src='scripts\courses-data.js'></script>
+</head>
+
+<body>    
+    <script id="template" type="text/x-handlebars-template">
+        <table>
+            <tr>
+                <th>number</th>
+                <th>title</th>
+                <th>firstDate</th>
+                <th>secondDate</th>
+            </tr>
+            {{#each rows}}
+            <tr>
+                <td>{{number}}</td>
+                <td>{{title}}</td>
+                <td>{{firstDate}}</td>
+                <td>{{secondDate}}</td>
+            </tr>
+            {{/each}}
+        </table>
+    </script>
+    <script>
+        (function () {
+            var source = document.getElementById('template').innerHTML;
+            var template = Handlebars.compile(source);
+            var context = {
+                rows: data()
+            };
+            var container = document.body;
+            container.innerHTML += template(context);
+        })();
+    </script>
+</body>
+
+</html>
