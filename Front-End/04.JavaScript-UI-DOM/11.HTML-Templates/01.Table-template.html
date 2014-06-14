@@ -6,16 +6,38 @@
     <title>Table template</title>
     <script src='scripts\handlebars-v1.3.0.js'></script>
     <script src='scripts\courses-data.js'></script>
+    <style>
+        table {
+            border-collapse: collapse;
+            font-family: Calibri;
+        }
+        table, tr, td, th {
+            border: 1px solid black;
+        }
+        th {
+            background-color: #A6A6A6;
+            color: white;
+        }
+        td {
+            padding: 3px;
+        }
+        td.course-number {
+            text-align: center;
+        }
+        tr:nth-child(odd) {
+            background-color: #D9D9D9;
+        }
+    </style>
 </head>
 
 <body>    
     <script id="template" type="text/x-handlebars-template">
         <table>
             <tr>
-                <th>number</th>
-                <th>title</th>
-                <th>firstDate</th>
-                <th>secondDate</th>
+                <th>No</th>
+                <th>Title</th>
+                <th>Date #1</th>
+                <th>Date #2</th>
             </tr>
             {{#each rows}}
             <tr>
