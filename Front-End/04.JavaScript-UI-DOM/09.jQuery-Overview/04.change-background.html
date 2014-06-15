@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Change background</title>
+    <script src='scripts/jquery-1.11.1.min.js'></script>
+</head>
+
+<body>
+    <script>
+        // Implement functionality to change the background color of a web page
+         // i.e. select a color from a color picker and set this color as the background color of the page
+
+        $('<input>').attr('type', 'color').appendTo('body').change(function () {
+            var color = $(this).val();
+            $('body').css('background-color', color);
+        });
+    </script>
+</body>
+
+</html>
