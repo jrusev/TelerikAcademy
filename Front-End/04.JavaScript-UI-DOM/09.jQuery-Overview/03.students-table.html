@@ -1,6 +1,5 @@
 <!doctype html>
 <html>
-
 <head>
     <meta charset="utf-8" />
     <title>Students table</title>
@@ -15,12 +14,11 @@
         }
     </style>
 </head>
-
 <body>
     <script>
-        // By given an array of students, generate a table that represents these students
-        // Each student has first name, last name and grade. Use jQuery
-        (function () {   
+        // By given an array of students, generate a table that represents these students.
+         // Each student has first name, last name and grade. Use jQuery.
+        (function () {
             
             var students = [
                 {fname: 'Peter', lname: 'Ivanov', grade: '3'},
@@ -28,17 +26,16 @@
                 {fname: 'Gergana', lname: 'Borisova', grade: '12'},
                 {fname: 'Boyko', lname: 'Petrov', grade: '7'}
             ];
-            
-            $('body').append('<table/>');            
+
+            $('body').append('<table/>');
             $table = $('table');
-            $table.append('<tr><th>'+ 'First name' +'</th><th>' + 'Last name' +'</th><th>' + 'Grade' + '</th></tr>'); 
-            
-            for (var i = 0; i < students.length; i+=1) {
-                  $table.append('<tr><td>'+ students[i].fname +'</td><td>' +students[i].lname+'</td><td>' +students[i].grade+ '</td></tr>'); 
+            $table.append('<tr><th>' + 'First name' + '</th><th>' + 'Last name' + '</th><th>' + 'Grade' + '</th></tr>');
+
+            for (var i = 0; i < students.length; i += 1) {
+                $table.append('<tr><td>' + students[i].fname + '</td><td>' + students[i].lname + '</td><td>' + students[i].grade + '</td></tr>');
             }
 
         })();
     </script>
 </body>
-
 </html>
