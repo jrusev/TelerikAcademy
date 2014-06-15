@@ -28,7 +28,7 @@
                 $select.hide();
 
                 $container = $('<div>').addClass('dropdown-list-container');
-                $ul = $('<ul>').addClass('dropdown-list-options');
+                $ul = $('<ul>').addClass('dropdown-list-options').css('cursor', 'pointer');
                 $container.append($ul);
 
                 $select.children().each(function (index) {
@@ -39,7 +39,6 @@
                         .attr('data-value', index)
                         .text($option.text())
                         .click(select)
-                        .css('cursor', 'pointer')
                         .appendTo($ul);
                 });
 
