@@ -18,7 +18,7 @@
         (function ($) {
             $.fn.dropdown = function () {
                 var $select = $(this);
-                $select.css('display', 'none');
+                //$select.css('display', 'none');
 
                 $container = $('<div>').addClass('dropdown-list-container');
                 $ul = $('<ul>').addClass('dropdown-list-options');
@@ -31,8 +31,21 @@
                         .addClass('dropdown-list-option')
                         .attr('data-value', index)
                         .text($option.text())
-                        .appendTo($ul);
+                        .appendTo($ul)
+                        .click(select);
                 });
+
+                function select() {
+                    $li = $(this);
+                    $li.siblings().removeClass('selected');
+                    $li.addClass('selected');
+
+                    $select.children().prop('selected', false);
+                    var value = +$li.attr('data-value') + 1; // 1, 2, 3...
+
+                    var attr = "[value='" + value + "']";
+                    var optionText = $select.find(attr).prop('selected', true);
+                }
 
                 return $container;
             }
