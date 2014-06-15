@@ -22,6 +22,9 @@ var images = function () {
         }, {
             alt: "Flag of Spain",
             src: "http://upload.wikimedia.org/wikipedia/en/thumb/9/9a/Flag_of_Spain.svg/200px-Flag_of_Spain.svg.png"                    
+        }, {
+            alt: "Flag of England",
+            src: "http://upload.wikimedia.org/wikipedia/en/thumb/b/be/Flag_of_England.svg/200px-Flag_of_England.svg.png"                    
         }
     ];
 }
