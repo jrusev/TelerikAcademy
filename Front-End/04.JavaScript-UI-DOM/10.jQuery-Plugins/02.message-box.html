@@ -27,8 +27,8 @@
                     $mbox.text(message).fadeIn(1000, function () {
                         clearTimeout(timeoutID);
                         timeoutID = setTimeout(function () {
-                            $mbox.hide();
-                        }, 3000);
+                            $mbox.fadeOut(500);
+                        }, 2000);
                     });
                 }
 
