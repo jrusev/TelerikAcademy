@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8" />
     <title>ListView plugin</title>
-    <script src='scripts/handlebars-v1.3.0.js'></script>
     <script src='scripts/jquery-1.11.1.min.js'></script>
     <script src='data/listview-data.js'></script> 
     <style>
@@ -18,7 +17,7 @@
 </head>
 
 <body>    
-    <!-- template -->
+    <!-- Extend the previous task to set the template inside the DOM element, instead of setting it with data-template -->
     
     <table>
       <thead>
@@ -36,7 +35,6 @@
     <!-- end template -->
 
     <script>
-        // Extend the previous task to set the template inside the DOM element, instead of setting it with data-template
         (function () {
             
             (function ($) {
@@ -58,8 +56,7 @@
                 }
             }(jQuery));              
   
-            $('#students-table').listview(students);
-            
+            $('#students-table').listview(students);            
         })();
     </script>
 </body>
