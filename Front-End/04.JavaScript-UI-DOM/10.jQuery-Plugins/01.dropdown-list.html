@@ -18,14 +18,14 @@
         <option value="2">Two</option>
         <option value="3">Three</option>
     </select>
-    <P>Click on a list item and see how the select option changes (the select is left visible on purpose).</P>
+    <P>Click on a list item and see the selected option (#dropdown option:selected) in the console.</P>
 
     <script>
         // Create a jQuery plugin for creating dropdown list
         (function ($) {
             $.fn.dropdown = function () {
                 var $select = $(this);
-                //$select.css('display', 'none');
+                $select.hide();
 
                 $container = $('<div>').addClass('dropdown-list-container');
                 $ul = $('<ul>').addClass('dropdown-list-options');
@@ -48,18 +48,22 @@
                     $li.siblings().removeClass('selected');
                     $li.addClass('selected');
 
-                    $select.children().prop('selected', false);
+                    $select.children().removeAttr('selected')
                     var value = +$li.attr('data-value') + 1; // 1, 2, 3...
 
                     var attr = "[value='" + value + "']";
-                    var optionText = $select.find(attr).prop('selected', true);
+                    var optionText = $select.find(attr).attr('selected', 'selected');
+
+                    console.log($('#dropdown option:selected').text());
                 }
+
+                $container.insertAfter($select);
 
                 return $container;
             }
         }(jQuery));
 
-        $('#dropdown').dropdown().insertAfter($('select'));
+        $('#dropdown').dropdown();
     </script>
 </body>
 
