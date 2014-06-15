@@ -38,14 +38,14 @@
             }
         }(jQuery));
 
-        var msgBox = $('#message-box').messageBox();
+        var $msgBox = $('#message-box').messageBox();
 
         $('#btn-success').click(function () {
-            msgBox.success('I\'m Feeling Lucky');
+            $msgBox.success('I\'m Feeling Lucky');
         });
 
         $('#btn-error').click(function () {
-            msgBox.error('I\'m Not Feeling Lucky');
+            $msgBox.error('I\'m Not Feeling Lucky');
         });
     </script>
 </body>
