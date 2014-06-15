@@ -31,8 +31,9 @@
                         .addClass('dropdown-list-option')
                         .attr('data-value', index)
                         .text($option.text())
-                        .appendTo($ul)
-                        .click(select);
+                        .click(select)
+                        .css('cursor', 'pointer')
+                        .appendTo($ul);
                 });
 
                 function select() {
