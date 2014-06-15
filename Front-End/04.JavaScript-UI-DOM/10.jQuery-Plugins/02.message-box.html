@@ -11,6 +11,7 @@
     <button id="btn-success">Success</button>
     <button id="btn-error">Error</button>
     <div id="message-box"></div>
+
     <script>
         // Create a jQuery plugin for fading in/fading out message box
          // Showing is done by setting the opacity of the message from 0 to 1 in an interval of 1 second
@@ -25,14 +26,15 @@
                     return $mbox.text(message).css('color', color).fadeIn(1000).delay(2000).fadeOut(500);
                 }
 
-                return {
-                    success: function (message) {
-                        return display(message, 'green');
-                    },
-                    error: function (message) {
-                        return display(message, 'red');
-                    }
+                $mbox.success = function (message) {
+                    return display(message, 'green');
                 }
+
+                $mbox.error = function (message) {
+                    return display(message, 'red');
+                }
+
+                return $mbox;
             }
         }(jQuery));
 
