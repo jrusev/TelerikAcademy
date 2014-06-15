@@ -41,21 +41,25 @@
             
             (function ($) {
                 $.fn.listview = function (data) {
-                    var $list = $(this);
-                    var templateId = '#' + $list.attr('data-template');
+                    var $list = $(this);                    
+                    var htmlString = '';
                     
-                    var source = $(templateId).html();                    
-                    source = '{{#collection}}' + source + '{{/collection}}';
+                    data.forEach(function (obj) {
+                        var template = $list.html();
+                        for (var prop in obj) {                            
+                            var replace = '{{' + prop + '}}';
+                            template = template.split(replace).join(obj[prop]);                            
+                        }
+                        htmlString += template;
+                    });
                     
-                    var template = Handlebars.compile(source);
-                    $list.html(template({collection: data}));
-
+                    $list.html(htmlString);
                     return $list;
                 }
-            }(jQuery));
+            }(jQuery));              
+  
+            $('#students-table').listview(students);
             
-            $('#books-list').listview(books);
-            $('#students-table').listview(students);            
         })();
     </script>
 </body>
