@@ -13,8 +13,7 @@
          // i.e. select a color from a color picker and set this color as the background color of the page
 
         $('<input>').attr('type', 'color').appendTo('body').change(function () {
-            var color = $(this).val();
-            $('body').css('background-color', color);
+            $('body').css('background-color', this.value);
         });
     </script>
 </body>
