@@ -50,8 +50,8 @@
                     $select.children().removeAttr('selected')
                     var value = +$li.attr('data-value') + 1; // 1, 2, 3...
 
-                    var attr = "[value='" + value + "']";
-                    $select.find(attr).attr('selected', 'selected');
+                    var selector = "[value='" + value + "']";
+                    $select.find(selector).attr('selected', 'selected');
 
                     console.log($('#dropdown option:selected').text());
                 }
