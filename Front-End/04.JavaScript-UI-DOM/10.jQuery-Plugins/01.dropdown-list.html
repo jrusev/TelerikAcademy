@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Dropdown List</title>
+    <script src='scripts/jquery-1.11.1.min.js'></script>
+</head>
+
+<body>
+    <select id="dropdown">
+        <option value="1">One</option>
+        <option value="2">Two</option>
+    </select>
+
+    <script>
+        // Create a jQuery plugin for creating dropdown list
+        (function ($) {
+            $.fn.dropdown = function () {
+                var $select = $(this);
+                $select.css('display', 'none');
+
+                $container = $('<div>').addClass('dropdown-list-container');
+                $ul = $container.append($('<ul>')).addClass('dropdown-list-options');
+
+                $select.children().each(function (index) {
+                    $option = $(this);
+                    console.log($option.text());
+
+                    $('<li>')
+                        .addClass('dropdown-list-option')
+                        .attr('data-value', index)
+                        .text($option.text())
+                        .appendTo($ul);
+                });
+
+                return $container;
+            }
+        }(jQuery));
+
+        $('#dropdown').dropdown().insertAfter($('select'));
+    </script>
+</body>
+
+</html>
