@@ -16,13 +16,16 @@
     <select id="dropdown">
         <option value="1">One</option>
         <option value="2">Two</option>
+        <option value="3">Three</option>
     </select>
+    <P>Click on a list item and see how the select option changes (the select is left visible on purpose).</P>
 
     <script>
         // Create a jQuery plugin for creating dropdown list
         (function ($) {
             $.fn.dropdown = function () {
                 var $select = $(this);
+                // I WILL LEAVE THE SELECT ELEMENT VISIBLE SO WE CAN SEE HOW THE SELECTION CHANGES!
                 //$select.css('display', 'none');
 
                 $container = $('<div>').addClass('dropdown-list-container');
