@@ -5,12 +5,11 @@
     <meta charset="utf-8" />
     <title>Message Box</title>
     <script src='scripts/jquery-1.11.1.min.js'></script>
-    <style>
-    </style>
 </head>
 
 <body>
-    <button id="btn-success">Show message</button>
+    <button id="btn-success">Success</button>
+    <button id="btn-error">Error</button>
     <div id="message-box"></div>
     <script>
         // Create a jQuery plugin for fading in/fading out message box
@@ -19,24 +18,21 @@
 
         (function ($) {
             $.fn.messageBox = function () {
-                var $mbox = $(this);
+                $mbox = $(this);
                 $mbox.hide();
-                var timeoutID = false;
 
-                $mbox.success = function (message) {
-                    $mbox.text(message).fadeIn(1000, function () {
-                        clearTimeout(timeoutID);
-                        timeoutID = setTimeout(function () {
-                            $mbox.fadeOut(500);
-                        }, 2000);
-                    });
+                function display(message, color) {
+                    return $mbox.text(message).css('color', color).fadeIn(1000).delay(2000).fadeOut(500);
                 }
 
-                $mbox.error = function (message) {
-                    $mbox.success(message);
+                return {
+                    success: function (message) {
+                        return display(message, 'green');
+                    },
+                    error: function (message) {
+                        return display(message, 'red');
+                    }
                 }
-
-                return $mbox;
             }
         }(jQuery));
 
@@ -44,6 +40,10 @@
 
         $('#btn-success').click(function () {
             msgBox.success('I\'m Feeling Lucky');
+        });
+
+        $('#btn-error').click(function () {
+            msgBox.error('I\'m Not Feeling Lucky');
         });
     </script>
 </body>
