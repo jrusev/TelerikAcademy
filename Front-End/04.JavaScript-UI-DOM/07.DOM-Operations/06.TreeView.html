@@ -11,6 +11,9 @@
         ul li:before {
             content: '» ';
         }
+        ul ul {
+            display: none;
+        }
     </style>
 </head>
 
@@ -47,26 +50,18 @@
         <li>Item</li>
     </ul>
     <script>
-        (function () {
-
-            var subItems = document.querySelectorAll('ul ul');
-
-            for (var i = 0; i < subItems.length; ++i)
-                subItems[i].style.display = "none";
-
-            var links = document.querySelectorAll('a');
-            for (var i = 0, len = links.length; i < len; i++) {
-                links[i].addEventListener('click', function () {
-                    var next = this.nextElementSibling;
-                    if (next) {
-                        if (next.style.display === "none")
-                            next.style.display = "";
-                        else
-                            next.style.display = "none";
-                    }
-                }, false);
-            }
-        })();
+        var links = document.querySelectorAll('a');
+        for (var i = 0; i < links.length; i++) {
+            links[i].addEventListener('click', function () {
+                var next = this.nextElementSibling;
+                if (next) {
+                    if (next.style.display === 'block')
+                        next.style.display = 'none';
+                    else
+                        next.style.display = "block";
+                }
+            }, false);
+        }
     </script>
 </body>
 
