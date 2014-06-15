@@ -4,6 +4,14 @@
 <head>
     <meta charset="utf-8">
     <title>TreeView</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+        ul li:before {
+            content: '» ';
+        }
+    </style>
 </head>
 
 <body>
@@ -14,118 +22,50 @@
                 <li>
                     <a href="#">Sub item</a>
                     <ul>
-                        <li><a href="#">Sub item</a>
-                        </li>
-                        <li><a href="#">Sub item</a>
-                        </li>
-                        <li><a href="#">Sub item</a>
-                        </li>
+                        <li>Sub subitem</li>
+                        <li>Sub subitem</li>
+                        <li>Sub subitem</li>
                     </ul>
                 </li>
                 <li>
                     <a href="#">Sub item</a>
                     <ul>
-                        <li><a href="#">Sub item</a>
-                        </li>
-                        <li><a href="#">Sub item</a>
-                        </li>
-                        <li><a href="#">Sub item</a>
-                        </li>
+                        <li>Sub subitem</li>
+                        <li>Sub subitem</li>
                     </ul>
                 </li>
-                <li>
-                    <a href="#">Sub item</a>
-                    <ul>
-                        <li><a href="#">Sub item</a>
-                        </li>
-                        <li><a href="#">Sub item</a>
-                        </li>
-                        <li><a href="#">Sub item</a>
-                        </li>
-                    </ul>
-                </li>
+                <li>Sub item</li>
             </ul>
         </li>
         <li>
             <a href="#">Item</a>
             <ul>
-                <li>
-                    <a href="#">Sub item</a>
-                    <ul>
-                        <li><a href="#">Sub item</a>
-                        </li>
-                        <li><a href="#">Sub item</a>
-                        </li>
-                        <li><a href="#">Sub item</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Sub item</a>
-                    <ul>
-                        <li><a href="#">Sub item</a>
-                        </li>
-                        <li><a href="#">Sub item</a>
-                        </li>
-                        <li><a href="#">Sub item</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Sub item</a>
-                    <ul>
-                        <li><a href="#">Sub item</a>
-                        </li>
-                        <li><a href="#">Sub item</a>
-                        </li>
-                        <li><a href="#">Sub item</a>
-                        </li>
-                    </ul>
-                </li>
+                <li>Sub item</li>
+                <li>Sub item</li>
             </ul>
         </li>
-        <li>
-            <a href="#">Item</a>
-            <ul>
-                <li>
-                    <a href="#">Sub item</a>
-                    <ul>
-                        <li><a href="#">Sub item</a>
-                        </li>
-                        <li><a href="#">Sub item</a>
-                        </li>
-                        <li><a href="#">Sub item</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Sub item</a>
-                    <ul>
-                        <li><a href="#">Sub item</a>
-                        </li>
-                        <li><a href="#">Sub item</a>
-                        </li>
-                        <li><a href="#">Sub item</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Sub item</a>
-                    <ul>
-                        <li><a href="#">Sub item</a>
-                        </li>
-                        <li><a href="#">Sub item</a>
-                        </li>
-                        <li><a href="#">Sub item</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
+        <li>Item</li>
     </ul>
     <script>
         (function () {
 
+            var subItems = document.querySelectorAll('ul ul');
+
+            for (var i = 0; i < subItems.length; ++i)
+                subItems[i].style.display = "none";
+
+            var links = document.querySelectorAll('a');
+            for (var i = 0, len = links.length; i < len; i++) {
+                links[i].addEventListener('click', function () {
+                    var next = this.nextElementSibling;
+                    if (next) {
+                        if (next.style.display === "none")
+                            next.style.display = "";
+                        else
+                            next.style.display = "none";
+                    }
+                }, false);
+            }
         })();
     </script>
 </body>
