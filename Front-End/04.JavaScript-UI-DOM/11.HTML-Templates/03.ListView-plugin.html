@@ -40,7 +40,7 @@
       </tbody>
     </table>
     
-    <script id="students-row-template" type="text/x-handlebars-template">
+    <script id="students-row-template" type="…">
       <tr class="student-row">
         <td>{{number}}</td>
         <td>{{name}}</td>
@@ -59,7 +59,7 @@
                     var templateId = '#' + $list.attr('data-template');
                     
                     var source = $(templateId).html();                    
-                    source = '{{#each collection}}' + source + '{{/each}}';
+                    source = '{{#collection}}' + source + '{{/collection}}';
                     
                     var template = Handlebars.compile(source);
                     $list.html(template({collection: data}));
