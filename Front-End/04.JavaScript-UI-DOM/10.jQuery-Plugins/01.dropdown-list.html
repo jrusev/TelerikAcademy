@@ -51,7 +51,7 @@
                     var value = +$li.attr('data-value') + 1; // 1, 2, 3...
 
                     var attr = "[value='" + value + "']";
-                    var optionText = $select.find(attr).attr('selected', 'selected');
+                    $select.find(attr).attr('selected', 'selected');
 
                     console.log($('#dropdown option:selected').text());
                 }
