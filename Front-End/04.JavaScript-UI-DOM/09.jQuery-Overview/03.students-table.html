@@ -27,14 +27,14 @@
                 {fname: 'Boyko', lname: 'Petrov', grade: '7'}
             ];
 
-            $('body').append('<table/>');
-            $table = $('table');
+            $table = $('<table />');
             $table.append('<tr><th>' + 'First name' + '</th><th>' + 'Last name' + '</th><th>' + 'Grade' + '</th></tr>');
 
             for (var i = 0; i < students.length; i += 1) {
                 $table.append('<tr><td>' + students[i].fname + '</td><td>' + students[i].lname + '</td><td>' + students[i].grade + '</td></tr>');
             }
-
+            
+            $('body').append($table);
         })();
     </script>
 </body>
