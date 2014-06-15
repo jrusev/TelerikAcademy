@@ -53,12 +53,12 @@
         var links = document.querySelectorAll('a');
         for (var i = 0; i < links.length; i++) {
             links[i].addEventListener('click', function () {
-                var next = this.nextElementSibling;
-                if (next) {
-                    if (next.style.display === 'block')
-                        next.style.display = 'none';
+                var ul = this.nextElementSibling;
+                if (ul) {
+                    if (ul.style.display === 'block')
+                        ul.style.display = 'none';
                     else
-                        next.style.display = 'block';
+                        ul.style.display = 'block';
                 }
             }, false);
         }
