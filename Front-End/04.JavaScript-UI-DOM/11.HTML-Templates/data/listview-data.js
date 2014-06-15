@@ -1,12 +1,9 @@
-var books = [{
-    title: 'Javascript: The Good Parts'
-}, {
-    title: 'Secrets of the Javascript Ninja'
-}, {
-    title: 'Core HTML5 Canvas'
-}, {
-    title: 'Javascript Patterns'
-}];
+var books = [
+    { id: 1, title: 'JavaScript: The good parts'},
+    { id: 2, title: 'Secrets of the JavaScript Ninja'},
+    { id: 3, title: 'Core HTML5 Canvas'},
+    { id: 4, title: 'JavaScript Patterns'},
+];
 
 var students = [{
     number: 1,
