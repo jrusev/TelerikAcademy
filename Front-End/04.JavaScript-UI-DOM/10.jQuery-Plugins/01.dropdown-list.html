@@ -21,11 +21,11 @@
                 $select.css('display', 'none');
 
                 $container = $('<div>').addClass('dropdown-list-container');
-                $ul = $container.append($('<ul>')).addClass('dropdown-list-options');
+                $ul = $('<ul>').addClass('dropdown-list-options');
+                $container.append($ul);
 
                 $select.children().each(function (index) {
                     $option = $(this);
-                    console.log($option.text());
 
                     $('<li>')
                         .addClass('dropdown-list-option')
