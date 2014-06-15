@@ -9,14 +9,6 @@
 </head>
 
 <body>    
-    <script id="template" type="text/x-handlebars-template">
-        <select>
-            {{#each items}}
-            <option value="{{value}}">{{text}}</option>
-            {{/each}}
-        </select>
-    </script>
-    
     <ul id="books-list" data-template="book-item-template"></ul>
     
     <script id="book-item-template" type="text/x-handlebars-template">
@@ -41,12 +33,16 @@
             }];
             
             (function ($) {
-                $.fn.listview = function () {
+                $.fn.listview = function (data) {
                     $list = $(this);
                     var templateID = $list.attr('data-template');
                     
-                    var template = Handlebars.compile($('#' + templateID).html());
-                    $list.html(template({books: books}));
+                    var source = $('#' + templateID).html();
+                    
+                    source = '{{#collection}}' + source + '{{/collection}}';
+                    
+                    var template = Handlebars.compile(source);
+                    $list.html(template({collection: data}));
 
                     return $list;
                 }
