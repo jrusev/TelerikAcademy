@@ -70,9 +70,8 @@ function createCalendar(containerId, events) {
         var calendar = document.createElement('ul');
         calendar.className += ' ' + classNames.calendar;
         day = createDay();
-        for (i = 0; i < numDays; i += 1) {
-            // 'Sun 1 June 2014'
-            date.setDate(i + 1);
+        for (i = 1; i <= numDays; i += 1) {
+            date.setDate(i);
             day.children[0].innerHTML = date.toDateString();
             calendar.appendChild(day.cloneNode(true));
         }
