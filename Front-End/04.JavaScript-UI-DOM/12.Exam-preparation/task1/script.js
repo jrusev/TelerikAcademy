@@ -59,9 +59,21 @@ function createCalendar(containerId, events) {
     function fillTasks(calendar, events) {
         events.forEach(function (event) {
             var date = +event.date;
-            var dayBox = calendar.children[date];
-            // duration: '60'
-            dayBox.children[1].innerHTML = event.hour + ' ' + event.title;
+            var dayBox = calendar.children[date - 1];
+
+            function addMinutes(time, minsToAdd) {
+                function z(n) {
+                    return (n < 10 ? '0' : '') + n;
+                };
+                var bits = time.split(':');
+                var mins = bits[0] * 60 + +bits[1] + +minsToAdd;
+
+                return z(mins % (24 * 60) / 60 | 0) + ':' + z(mins % 60);
+            }
+
+            var endTime = addMinutes(event.hour, event.duration);
+            //dayBox.children[1].innerHTML = event.hour + '-' + endTime + ' ' + event.title;
+            dayBox.children[1].innerHTML = event.hour + ': ' + event.title;
         });
     }
 
