@@ -93,6 +93,29 @@ function createCalendar(containerId, events) {
 
         day.appendChild(dateRow);
         day.appendChild(taskRow);
+
+        day.addEventListener('mouseover', function (evt) {
+            if (this.children[0].style.backgroundColor !== 'rgb(255, 255, 255)')
+                this.children[0].style.backgroundColor = 'rgb(153, 153, 153)';
+        });
+
+        day.addEventListener('mouseout', function (evt) {
+            if (this.children[0].style.backgroundColor !== 'rgb(255, 255, 255)')
+                this.children[0].style.backgroundColor = 'rgb(204, 204, 204)';
+        });
+
+        day.addEventListener('click', function (evt) {
+            var elements = document.getElementsByClassName(classNames.date);
+            var currentColor = this.children[0].style.backgroundColor;
+            for (var i = 0, len = elements.length; i < len; i++)
+                elements[i].style.backgroundColor = styles[classNames.date]['backgroundColor'];
+
+            if (currentColor === 'rgb(255, 255, 255)')
+                this.children[0].style.backgroundColor = 'rgb(204, 204, 204)';
+            else
+                this.children[0].style.backgroundColor = 'rgb(255, 255, 255)';
+        });
+
         return day;
     }
 }
