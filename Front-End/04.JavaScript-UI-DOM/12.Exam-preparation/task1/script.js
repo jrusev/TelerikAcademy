@@ -1,50 +1,14 @@
-var classNames = {
-    calendar: 'calendar',
-    day: 'day',
-    date: 'date',
-    task: 'task',
-};
-
-var styles = {
-    calendar: {
-        fontFamily: 'calibri',
-        fontSize: '0.8em',
-        width: 128 * 7 + 'px',
-    },
-    day: {
-        float: 'left',
-        listStyleType: 'none',
-        margin: '0 -1px -1px 0',
-        border: '1px solid black',
-        width: '120px',
-    },
-    date: {
-        borderBottom: '1px solid black',
-        textAlign: 'center',
-        fontWeight: 'bold',
-        backgroundColor: 'rgb(204, 204, 204)',
-    },
-    task: {
-        padding: '3px',
-        height: '100px',
-    }
-};
-
 function createCalendar(containerId, events) {
     var container = document.querySelector(containerId);
     var selectedBox = null;
-
-    var startDate = new Date(2014, 5, 1);
-    var calendar = createCalendar(startDate, 30);
-    container.appendChild(calendar);
+    var calendar = createCalendar(new Date(2014, 5, 1), 30);
     fillTasks(calendar, events);
-    applyStyles(calendar);
+    container.appendChild(calendar);
 
     function createCalendar(date, numDays) {
         var i, day;
         var dayTemplate = createDayTemplate();
         var calendar = document.createElement('ul');
-        calendar.className += ' ' + classNames.calendar;
         for (i = 1; i <= numDays; i += 1) {
             day = dayTemplate.cloneNode(true);
             date.setDate(i);
@@ -52,19 +16,31 @@ function createCalendar(containerId, events) {
             addEventListeners(day);
             calendar.appendChild(day);
         }
+
+        calendar.style.fontFamily = 'calibri';
+        calendar.style.fontSize = '0.8em';
+        calendar.style.width = 128 * 7 + 'px';
+
         return calendar;
     }
 
     function createDayTemplate() {
-        // this function is called only once
         var day = document.createElement('li');
-        day.className += ' ' + classNames.day;
+        day.style.float = 'left';
+        day.style.listStyleType = 'none';
+        day.style.margin = '0 -1px -1px 0';
+        day.style.border = '1px solid black';
+        day.style.width = '120px';
 
         var dateRow = document.createElement('div');
-        dateRow.className += ' ' + classNames.date;
+        dateRow.style.borderBottom = '1px solid black';
+        dateRow.style.textAlign = 'center';
+        dateRow.style.fontWeight = 'bold';
+        dateRow.style.backgroundColor = 'rgb(204, 204, 204)';
 
         var taskRow = document.createElement('div');
-        taskRow.className += ' ' + classNames.task;
+        taskRow.style.padding = '3px';
+        taskRow.style.height = '100px';
 
         day.appendChild(dateRow);
         day.appendChild(taskRow);
@@ -78,20 +54,6 @@ function createCalendar(containerId, events) {
             var dayBox = calendar.children[date - 1];
             dayBox.children[1].innerHTML = event.hour + ' - ' + event.title;
         });
-    }
-
-    function applyStyles(calendar) {
-        applyProps(classNames.calendar);
-        applyProps(classNames.day);
-        applyProps(classNames.date);
-        applyProps(classNames.task);
-
-        function applyProps(className) {
-            var elements = document.getElementsByClassName(className);
-            for (var i = 0, len = elements.length; i < len; i++)
-                for (var prop in styles[className])
-                    elements[i].style[prop] = styles[className][prop];
-        }
     }
 
     function addEventListeners(day) {
