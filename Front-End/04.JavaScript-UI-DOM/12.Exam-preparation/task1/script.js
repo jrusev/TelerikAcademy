@@ -85,9 +85,8 @@ function createCalendar(containerId, events) {
         for (i = 0; i < numDays; i += 1) {
             // 'Sun 1 June 2014'
             date.setDate(i + 1);
-            var dateStr = date.getDayName() + ' ' + date.getDate() + ' ' + date.getMonthName() + ' ' + date.getFullYear();
             day = createDay();
-            day.children[0].innerHTML = dateStr;
+            day.children[0].innerHTML = date.toDateString();
             calendar.appendChild(day);
         }
         return calendar;
@@ -132,15 +131,3 @@ function createCalendar(containerId, events) {
         return day;
     }
 }
-
-(function () {
-    var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
-    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-    Date.prototype.getMonthName = function () {
-        return months[this.getMonth()];
-    };
-    Date.prototype.getDayName = function () {
-        return days[this.getDay()];
-    };
-})();
