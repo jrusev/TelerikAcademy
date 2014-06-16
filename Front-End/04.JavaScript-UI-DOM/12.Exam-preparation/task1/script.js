@@ -43,10 +43,7 @@ function createCalendar(containerId, events) {
     applyStyles(calendar);
 
     function applyStyles(calendar) {
-        calendar.style.width = styles.calendar.width;
-        calendar.style.fontFamily = styles.calendar.fontFamily;
-        calendar.style.fontSize = styles.calendar.fontSize;
-
+        applyProps(classNames.calendar);
         applyProps(classNames.day);
         applyProps(classNames.date);
         applyProps(classNames.task);
