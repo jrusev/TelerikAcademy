@@ -39,7 +39,7 @@
             
             (function ($) {
                 $.fn.listview = function (data) {
-                    var $list = $(this);                    
+                    var $list = this;                    
                     var htmlString = '';
                     
                     data.forEach(function (obj) {

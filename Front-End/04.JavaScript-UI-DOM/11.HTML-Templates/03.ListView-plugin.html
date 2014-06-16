@@ -55,7 +55,7 @@
             
             (function ($) {
                 $.fn.listview = function (data) {
-                    var $list = $(this);
+                    var $list = this;
                     var templateId = '#' + $list.attr('data-template');
                     
                     var source = $(templateId).html();                    
