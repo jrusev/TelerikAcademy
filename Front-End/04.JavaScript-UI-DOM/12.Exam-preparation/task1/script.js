@@ -40,6 +40,7 @@ function createCalendar(containerId, events) {
     var calendar = createCalendar(startDate, 30);
     container.appendChild(calendar);
     fillTasks(calendar, events);
+    addEventListeners();
     applyStyles(calendar);
 
     function applyStyles(calendar) {
@@ -68,13 +69,12 @@ function createCalendar(containerId, events) {
         var i, day;
         var calendar = document.createElement('ul');
         calendar.className += ' ' + classNames.calendar;
-        //day = createDay();
+        day = createDay();
         for (i = 0; i < numDays; i += 1) {
             // 'Sun 1 June 2014'
             date.setDate(i + 1);
-            day = createDay();
             day.children[0].innerHTML = date.toDateString();
-            calendar.appendChild(day);
+            calendar.appendChild(day.cloneNode(true));
         }
         return calendar;
     }
@@ -93,28 +93,36 @@ function createCalendar(containerId, events) {
         day.appendChild(dateRow);
         day.appendChild(taskRow);
 
-        day.addEventListener('mouseover', function (evt) {
-            if (this.children[0].style.backgroundColor !== 'rgb(255, 255, 255)')
-                this.children[0].style.backgroundColor = 'rgb(153, 153, 153)';
-        });
-
-        day.addEventListener('mouseout', function (evt) {
-            if (this.children[0].style.backgroundColor !== 'rgb(255, 255, 255)')
-                this.children[0].style.backgroundColor = 'rgb(204, 204, 204)';
-        });
-
-        day.addEventListener('click', function (evt) {
-            var elements = document.getElementsByClassName(classNames.date);
-            var currentColor = this.children[0].style.backgroundColor;
-            for (var i = 0, len = elements.length; i < len; i++)
-                elements[i].style.backgroundColor = styles[classNames.date]['backgroundColor'];
-
-            if (currentColor === 'rgb(255, 255, 255)')
-                this.children[0].style.backgroundColor = 'rgb(204, 204, 204)';
-            else
-                this.children[0].style.backgroundColor = 'rgb(255, 255, 255)';
-        });
-
         return day;
+    }
+
+    function addEventListeners() {
+        var i, day;
+        var days = calendar.children;
+        for (i = 0, len = days.length; i < len; i++) {
+            day = days[i];
+
+            day.addEventListener('mouseover', function (evt) {
+                if (this.children[0].style.backgroundColor !== 'rgb(255, 255, 255)')
+                    this.children[0].style.backgroundColor = 'rgb(153, 153, 153)';
+            });
+
+            day.addEventListener('mouseout', function (evt) {
+                if (this.children[0].style.backgroundColor !== 'rgb(255, 255, 255)')
+                    this.children[0].style.backgroundColor = 'rgb(204, 204, 204)';
+            });
+
+            day.addEventListener('click', function (evt) {
+                var elements = document.getElementsByClassName(classNames.date);
+                var currentColor = this.children[0].style.backgroundColor;
+                for (var i = 0, len = elements.length; i < len; i++)
+                    elements[i].style.backgroundColor = styles[classNames.date]['backgroundColor'];
+
+                if (currentColor === 'rgb(255, 255, 255)')
+                    this.children[0].style.backgroundColor = 'rgb(204, 204, 204)';
+                else
+                    this.children[0].style.backgroundColor = 'rgb(255, 255, 255)';
+            });
+        }
     }
 }
