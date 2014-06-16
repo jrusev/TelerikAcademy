@@ -15,19 +15,16 @@ var styles = {
         float: 'left',
         listStyleType: 'none',
         margin: '0 -1px -1px 0',
+        border: '1px solid black',
+        width: '120px',
     },
     date: {
-        border: '1px solid black',
-        width: '120px',
-        padding: '3px',
-        borderBottom: 'none',
+        borderBottom: '1px solid black',
         textAlign: 'center',
         fontWeight: 'bold',
-        backgroundColor: '#CCCCCC',
+        backgroundColor: 'rgb(204, 204, 204)',
     },
     task: {
-        border: '1px solid black',
-        width: '120px',
         padding: '3px',
         height: '100px',
     }
