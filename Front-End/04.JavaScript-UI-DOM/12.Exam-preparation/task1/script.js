@@ -47,30 +47,15 @@ function createCalendar(containerId, events) {
         calendar.style.fontFamily = styles.calendar.fontFamily;
         calendar.style.fontSize = styles.calendar.fontSize;
 
-        var days = document.getElementsByClassName(classNames.day);
-        for (var i = 0, len = days.length; i < len; i++) {
-            days[i].style.float = styles.day.float;
-            days[i].style.listStyleType = styles.day.listStyleType;
-            days[i].style.margin = styles.day.margin;
-        }
+        applyProps(classNames.day);
+        applyProps(classNames.date);
+        applyProps(classNames.task);
 
-        var dates = document.getElementsByClassName(classNames.date);
-        for (var i = 0, len = dates.length; i < len; i++) {
-            dates[i].style.border = styles.date.border;
-            dates[i].style.width = styles.date.width;
-            dates[i].style.padding = styles.date.padding;
-            dates[i].style.borderBottom = styles.date.borderBottom;
-            dates[i].style.textAlign = styles.date.textAlign;
-            dates[i].style.fontWeight = styles.date.fontWeight;
-            dates[i].style.backgroundColor = styles.date.backgroundColor;
-        }
-
-        var tasks = document.getElementsByClassName(classNames.task);
-        for (var i = 0, len = tasks.length; i < len; i++) {
-            tasks[i].style.border = styles.task.border;
-            tasks[i].style.width = styles.task.width;
-            tasks[i].style.padding = styles.task.padding;
-            tasks[i].style.height = styles.task.height;
+        function applyProps(className) {
+            var elements = document.getElementsByClassName(className);
+            for (var i = 0, len = elements.length; i < len; i++)
+                for (var prop in styles[className])
+                    elements[i].style[prop] = styles[className][prop];
         }
     }
 
