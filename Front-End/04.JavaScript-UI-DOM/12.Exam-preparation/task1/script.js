@@ -1,0 +1,4 @@
+function createCalendar(containerId, events) {
+
+
+}

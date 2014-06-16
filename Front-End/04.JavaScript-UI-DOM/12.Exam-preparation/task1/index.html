@@ -1,29 +1,80 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Task 1 - Vanilla JavaScript</title>
+    <meta charset="UTF-8">
+    <title>Task 1 - Vanilla JavaScript</title>
+    <style>
+        .calendar {
+            font-family: 'calibri';
+            font-size: 0.8em;
+            width: 256px;
+        }
+        .day {            
+            float: left;
+            list-style-type: none;
+            margin: 0 -1px -1px 0;            
+        }
+        .date, .task {
+            border: 1px solid black;
+            width: 120px;
+            padding: 3px;
+        }
+        .date {
+            border-bottom: none;
+            text-align: center;
+            font-weight: bold;
+            background-color: #CCCCCC;
+        }
+        .task {
+            height: 100px;
+        }
+    </style>
 </head>
+
 <body>
-	<div id="root">
-		<h1>The Calendar</h1>
-		<div id="calendar-container">
-		</div>	
-	</div>
-	<script src="script.js"></script>
-	<script>
-		var events = [{
-			title: '22 Exam',
-			date: '22',
-			hour: '10:00',
-			duration: '60'
-		}, {
-			title: '9 Exam',
-			date: '9',
-			hour: '10:00',
-			duration: '60'
-		}];
-		createCalendar('#calendar-container', events);
-	</script>
+    <div id="root">
+        <h1>The Calendar</h1>
+        <div id="calendar-container">
+            <ul class="calendar">
+                <li class="day">
+                    <div class="date">Sun 1 June 2014</div>
+                    <div class="task">Task for June 1</div>
+                </li>
+                <li class="day">
+                    <div class="date">Mon 2 June 2014</div>
+                    <div class="task">Task for June 2</div>
+                </li>
+                <li class="day">
+                    <div class="date">Mon 3 June 2014</div>
+                    <div class="task">Task for June 3</div>
+                </li>
+                <li class="day">
+                    <div class="date">Mon 4 June 2014</div>
+                    <div class="task">Task for June 5</div>
+                </li>
+
+            </ul>
+        </div>
+        <div>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        var events = [{            
+            title: '22 Exam',
+            date: '22',
+            hour: '10:00',
+            duration: '60'
+            }, {
+            title: '9 Exam',
+            date: '9',
+            hour: '10:00',
+            duration: '60'
+        }];
+        createCalendar('#calendar-container', events);
+    </script>
 </body>
+
 </html>
