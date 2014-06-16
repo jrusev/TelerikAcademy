@@ -1,17 +1,16 @@
 $.fn.tabs = function () {
-    $container = $(this);
-    $container.addClass('tabs-container');    
+    $tabsControl = this;
+    $tabsControl.addClass('tabs-container');    
     
-    toggleVisibility($('.tab-item:first-of-type'));
+    setCurrent($tabsControl.find('.tab-item').first());
     
-    $('.tab-item').click(function() {
-        toggleVisibility($(this));
+    $tabsControl.find('.tab-item').click(function() {
+        setCurrent($(this));
     });
     
-    function toggleVisibility($current) {
-        $('.tab-item').removeClass('current');
-        $current.addClass('current');
-        $('.tab-item-content').hide();
-        $('.current .tab-item-content').show();
+    function setCurrent($current) {
+        $tabsControl.find('.tab-item').removeClass('current');
+        $tabsControl.find('.tab-item-content').hide();        
+        $current.addClass('current').find('.tab-item-content').show();
     }
 };
