@@ -9,7 +9,7 @@ var styles = {
     calendar: {
         fontFamily: 'calibri',
         fontSize: '0.8em',
-        width: '896px',
+        width: 128 * 7 + 'px',
     },
     day: {
         float: 'left',
