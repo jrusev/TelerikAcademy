@@ -81,27 +81,28 @@ function createCalendar(containerId, events) {
         var i, day;
         var calendar = document.createElement('ul');
         calendar.className += ' ' + classNames.calendar;
+        //day = createDay();
         for (i = 0; i < numDays; i += 1) {
             // 'Sun 1 June 2014'
             date.setDate(i + 1);
             var dateStr = date.getDayName() + ' ' + date.getDate() + ' ' + date.getMonthName() + ' ' + date.getFullYear();
-            day = createDay(dateStr);
+            day = createDay();
+            day.children[0].innerHTML = dateStr;
             calendar.appendChild(day);
         }
         return calendar;
     }
 
-    function createDay(date, task) {
+    function createDay() {
+        // this function is called only once
         var day = document.createElement('li');
         day.className += ' ' + classNames.day;
 
         var dateRow = document.createElement('div');
         dateRow.className += ' ' + classNames.date;
-        dateRow.innerHTML = date;
 
         var taskRow = document.createElement('div');
         taskRow.className += ' ' + classNames.task;
-        taskRow.innerHTML = task || '';
 
         day.appendChild(dateRow);
         day.appendChild(taskRow);
