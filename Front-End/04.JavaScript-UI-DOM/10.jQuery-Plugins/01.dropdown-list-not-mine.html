@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 1 Dropdown List</title>
+    <style>
+        li {
+            list-style-type: none;
+            width: 100px;
+            text-align: center;
+            border: 1px solid yellowgreen;
+        }
+        .selected {
+            color: red;
+        }
+    </style>
+    <script src="scripts/jquery-1.11.1.min.js"></script>
+    <script src="scripts/dropdown.js"></script>
+</head>
+<body>
+<select id="dropdown">
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+    <option value="4">Four</option>
+    <option value="5">Five</option>
+</select>
+<script>
+    $('#dropdown').dropdown();
+</script>
+</body>
+</html>
