@@ -13,7 +13,7 @@ public static class MatrixRotatingWalk
         PrintMatrix();
     }
 
-    public static void FillMatrix(int size)
+    public static int[,] FillMatrix(int size)
     {
         if (size < 1 || size > 100)
             throw new ArgumentOutOfRangeException("size", "Matrix size is out of range!");
@@ -40,6 +40,8 @@ public static class MatrixRotatingWalk
                 }
             }
         }
+
+        return matrix;
     }
 
     private static int GetNewDirection(int currRow, int currCol, int currDir)
