@@ -16,7 +16,9 @@ public static class MatrixRotatingWalk
     public static int[,] FillMatrix(int size)
     {
         if (size < 1 || size > 100)
+        {
             throw new ArgumentOutOfRangeException("size", "Matrix size is out of range!");
+        }            
 
         matrix = new int[size, size];
         int counter = 0;
