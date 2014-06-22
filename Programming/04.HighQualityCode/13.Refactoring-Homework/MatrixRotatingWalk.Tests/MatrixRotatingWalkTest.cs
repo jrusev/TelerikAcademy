@@ -7,7 +7,8 @@ public class MatrixRotatingWalkTest
     [TestMethod]
     public void Test_FillMatrix_6x6()
     {
-        var filledMatrix = MatrixRotatingWalk.FillMatrix(6);
+        int size = 6;
+        var filledMatrix = MatrixRotatingWalk.FillMatrix(size);
 
         var expected = new int[,]
         {
@@ -19,9 +20,9 @@ public class MatrixRotatingWalkTest
             {11,10,9,8,7,6}
         };
 
-        for (int row = 0; row < 6; ++row)
+        for (int row = 0; row < size; ++row)
         {
-            for (int col = 0; col < 6; col++)
+            for (int col = 0; col < size; col++)
             {
                 Assert.AreEqual(filledMatrix[row, col], expected[row, col]);
             }
