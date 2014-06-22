@@ -1,6 +1,6 @@
 ﻿using System;
 
-internal class MatrixRotatingWalk
+public static class MatrixRotatingWalk
 {
     private static int[,] matrix;
     private static int[] dRow = { 1, 1, 1, 0, -1, -1, -1, 0 };
@@ -13,7 +13,7 @@ internal class MatrixRotatingWalk
         PrintMatrix();
     }
 
-    private static void FillMatrix(int size)
+    public static void FillMatrix(int size)
     {
         if (size < 1 || size > 100)
             throw new ArgumentOutOfRangeException("size", "Matrix size is out of range!");
