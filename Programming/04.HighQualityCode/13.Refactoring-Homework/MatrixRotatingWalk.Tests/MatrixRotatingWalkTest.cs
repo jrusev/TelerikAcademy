@@ -7,6 +7,5 @@ public class MatrixRotatingWalkTest
     [TestMethod]
     public void TestMethod1()
     {
-        //MatrixRotatingWalk.FillMatrix(6);
     }
 }

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C2E2269E-F937-493E-B338-46B4C25A603A}</ProjectGuid>
+    <ProjectGuid>{77D796D7-D0C5-42C1-926B-2DFF336E5BC3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MatrixRotatingWalk.Tests</RootNamespace>
@@ -54,8 +54,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MatrixRotatingWalk.csproj">
-      <Project>{4d520899-7061-4eaa-b67e-d14ee8b30462}</Project>
+    <ProjectReference Include="..\MatrixRotatingWalk\MatrixRotatingWalk.csproj">
+      <Project>{5b7baf18-e08e-41d9-9242-d44437093aca}</Project>
       <Name>MatrixRotatingWalk</Name>
     </ProjectReference>
   </ItemGroup>

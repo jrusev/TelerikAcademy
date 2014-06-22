@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MatrixRotatingWalk.Tests")]
+[assembly: AssemblyTitle("MatrixRotatingWalk")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("MatrixRotatingWalk.Tests")]
+[assembly: AssemblyProduct("MatrixRotatingWalk")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("177f545a-82c1-4dc2-b729-bea5798fa9ae")]
+[assembly: Guid("3d08eac4-cde2-4366-9f66-1482efdd569b")]
 
 // Version information for an assembly consists of the following four values:
 //
