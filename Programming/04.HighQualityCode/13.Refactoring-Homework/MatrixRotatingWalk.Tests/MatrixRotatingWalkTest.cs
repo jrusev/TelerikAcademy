@@ -20,13 +20,7 @@ public class MatrixRotatingWalkTest
             {11,10,9,8,7,6}
         };
 
-        for (int row = 0; row < size; ++row)
-        {
-            for (int col = 0; col < size; col++)
-            {
-                Assert.AreEqual(filledMatrix[row, col], expected[row, col]);
-            }
-        }
+        CollectionAssert.AreEqual(filledMatrix, expected);
     }
 
     [TestMethod]
@@ -41,12 +35,6 @@ public class MatrixRotatingWalkTest
             { 5, 4, 3 } 
         };
 
-        for (int row = 0; row < size; ++row)
-        {
-            for (int col = 0; col < size; col++)
-            {
-                Assert.AreEqual(filledMatrix[row, col], expected[row, col]);
-            }
-        }
+        CollectionAssert.AreEqual(filledMatrix, expected);
     }
 }
