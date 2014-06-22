@@ -28,4 +28,25 @@ public class MatrixRotatingWalkTest
             }
         }
     }
+
+    [TestMethod]
+    public void Test_FillMatrix_3x3()
+    {
+        int size = 3;
+        var filledMatrix = MatrixRotatingWalk.FillMatrix(size);
+
+        var expected = new int[,] {
+            { 1, 7, 8 },
+            { 6, 2, 9 },
+            { 5, 4, 3 } 
+        };
+
+        for (int row = 0; row < size; ++row)
+        {
+            for (int col = 0; col < size; col++)
+            {
+                Assert.AreEqual(filledMatrix[row, col], expected[row, col]);
+            }
+        }
+    }
 }
