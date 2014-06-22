@@ -3,48 +3,46 @@
 internal class MatrixRotatingWalk
 {
     private static int[,] matrix;
-    private static int currRow;
-    private static int currCol;
-    private static int currentDirection;
-    private static int[] dirX = { 1, 1, 1, 0, -1, -1, -1, 0 };
-    private static int[] dirY = { 1, 0, -1, -1, -1, 0, 1, 1 };
+    private static int[] dRow = { 1, 1, 1, 0, -1, -1, -1, 0 };
+    private static int[] dCol = { 1, 0, -1, -1, -1, 0, 1, 1 };
 
     private static void Main()
     {
         int n = 6; //  GetMatrixSizeFromInput();
         matrix = new int[n, n];
         int counter = 0;
-        currRow = 0;
-        currCol = 0;
-        currentDirection = 0;
+        int currDir = 0;
+        int currRow;
+        int currCol;
 
-        while (EmptyCellAvailable())
+        while (TryGetEmptyCell(out currRow, out currCol))
         {
             matrix[currRow, currCol] = ++counter;
 
-            while (IsNextToEmptyCell())
+            while (IsNextToEmptyCell(currRow, currCol))
             {
-                while (CanGoInThisDirection())
+                while (CanGoInThisDirection(currRow, currCol, currDir))
                 {
-                    currRow += dirX[currentDirection];
-                    currCol += dirY[currentDirection];
+                    currRow += dRow[currDir];
+                    currCol += dCol[currDir];
                     matrix[currRow, currCol] = ++counter;
                 }
 
-                RotateClockwise();
+                // Rotate clockwise
+                currDir = (currDir == 7) ? 0 : currDir + 1;
             }
         }
 
         PrintMatrix();
     }
 
-    private static bool CanGoInThisDirection()
+    private static bool CanGoInThisDirection(int currRow, int currCol, int currDir)
     {
-        int nextX = currRow + dirX[currentDirection];
-        int nextY = currCol + dirY[currentDirection];
+        int nextRow = currRow + dRow[currDir];
+        int nextCol = currCol + dCol[currDir];
         var result =
-            IsInsideMatrix(nextX, nextY) &&
-            matrix[nextX, nextY] == 0;
+            IsInsideMatrix(nextRow, nextCol) &&
+            matrix[nextRow, nextCol] == 0;
         return result;
     }
 
@@ -53,6 +51,41 @@ internal class MatrixRotatingWalk
         var isInside =
             row >= 0 && row < matrix.GetLength(0) && col >= 0 && col < matrix.GetLength(1);
         return isInside;
+    }
+
+    private static bool IsNextToEmptyCell(int currRow, int currCol)
+    {
+        int row, col;
+        for (int i = 0; i < 8; i++)
+        {
+            row = currRow + dRow[i];
+            col = currCol + dCol[i];
+            if (IsInsideMatrix(row, col) && matrix[row, col] == 0)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private static bool TryGetEmptyCell(out int currRow, out int currCol)
+    {
+        for (int row = 0; row < matrix.GetLength(0); row++)
+        {
+            for (int col = 0; col < matrix.GetLength(1); col++)
+            {
+                if (matrix[row, col] == 0)
+                {
+                    currRow = row;
+                    currCol = col;
+                    return true;
+                }
+            }
+        }
+
+        currRow = currCol = 0;
+        return false;
     }
 
     private static void PrintMatrix()
@@ -80,44 +113,5 @@ internal class MatrixRotatingWalk
         }
 
         return n;
-    }
-
-    private static void RotateClockwise()
-    {
-        currentDirection = (currentDirection == 7) ? 0 : currentDirection + 1;
-    }
-
-    private static bool IsNextToEmptyCell()
-    {
-        int row, col;
-        for (int i = 0; i < 8; i++)
-        {
-            row = currRow + dirX[i];
-            col = currCol + dirY[i];
-            if (IsInsideMatrix(row, col) && matrix[row, col] == 0)
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    private static bool EmptyCellAvailable()
-    {
-        for (int row = 0; row < matrix.GetLength(0); row++)
-        {
-            for (int col = 0; col < matrix.GetLength(1); col++)
-            {
-                if (matrix[row, col] == 0)
-                {
-                    currRow = row;
-                    currCol = col;
-                    return true;
-                }
-            }
-        }
-
-        return false;
     }
 }
