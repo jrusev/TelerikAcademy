@@ -8,8 +8,17 @@ internal class MatrixRotatingWalk
 
     private static void Main()
     {
-        int n = 10; //  GetMatrixSizeFromInput();
-        matrix = new int[n, n];
+        int n = 6;
+        FillMatrix(n);
+        PrintMatrix();
+    }
+
+    private static void FillMatrix(int size)
+    {
+        if (size < 1 || size > 100)
+            throw new ArgumentOutOfRangeException("size", "Matrix size is out of range!");
+
+        matrix = new int[size, size];
         int counter = 0;
         int currRow;
         int currCol;
@@ -31,8 +40,6 @@ internal class MatrixRotatingWalk
                 }
             }
         }
-
-        PrintMatrix();
     }
 
     private static int GetNewDirection(int currRow, int currCol, int currDir)
@@ -109,19 +116,5 @@ internal class MatrixRotatingWalk
 
             Console.WriteLine();
         }
-    }
-
-    private static int GetMatrixSizeFromInput()
-    {
-        Console.Write("Enter the size of the matrix (between 1 and 100): ");
-        string input = Console.ReadLine();
-        int n = 0;
-        while (!int.TryParse(input, out n) || n < 0 || n > 100)
-        {
-            Console.WriteLine("You haven't entered a correct positive number");
-            input = Console.ReadLine();
-        }
-
-        return n;
     }
 }
