@@ -8,8 +8,8 @@ public static class MatrixRotatingWalk
 
     private static void Main()
     {
-        int n = 6;
-        FillMatrix(n);
+        int size = 6;
+        FillMatrix(size);
         PrintMatrix();
     }
 
