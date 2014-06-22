@@ -2,22 +2,21 @@
 
 internal class MatrixRotatingWalk
 {
-    private static int dx;
-    private static int dy;
     private static int[,] matrix;
     private static int currRow;
     private static int currCol;
+    private static int currentDirection;
+    private static int[] dirX = { 1, 1, 1, 0, -1, -1, -1, 0 };
+    private static int[] dirY = { 1, 0, -1, -1, -1, 0, 1, 1 };
 
     private static void Main()
     {
-        int n = GetMatrixSizeFromInput();
+        int n = 6; //  GetMatrixSizeFromInput();
         matrix = new int[n, n];
         int counter = 0;
         currRow = 0;
         currCol = 0;
-        dx = 1;
-        dy = 1;
-        PrintMatrix();
+        currentDirection = 0;
 
         while (EmptyCellAvailable())
         {
@@ -26,14 +25,14 @@ internal class MatrixRotatingWalk
             while (IsNextToEmptyCell())
             {
                 while (CanGoInThisDirection())
-                {                    
-                    currRow += dx;
-                    currCol += dy;
+                {
+                    currRow += dirX[currentDirection];
+                    currCol += dirY[currentDirection];
                     matrix[currRow, currCol] = ++counter;
-                } 
-  
+                }
+
                 RotateClockwise();
-            }            
+            }
         }
 
         PrintMatrix();
@@ -41,14 +40,19 @@ internal class MatrixRotatingWalk
 
     private static bool CanGoInThisDirection()
     {
+        int nextX = currRow + dirX[currentDirection];
+        int nextY = currCol + dirY[currentDirection];
         var result =
-            currRow + dx < matrix.GetLength(0) &&
-            currRow + dx >= 0 &&
-            currCol + dy < matrix.GetLength(1) &&
-            currCol + dy >= 0 &&
-            matrix[currRow + dx, currCol + dy] == 0;
-
+            IsInsideMatrix(nextX, nextY) &&
+            matrix[nextX, nextY] == 0;
         return result;
+    }
+
+    private static bool IsInsideMatrix(int row, int col)
+    {
+        var isInside =
+            row >= 0 && row < matrix.GetLength(0) && col >= 0 && col < matrix.GetLength(1);
+        return isInside;
     }
 
     private static void PrintMatrix()
@@ -59,7 +63,7 @@ internal class MatrixRotatingWalk
             {
                 Console.Write("{0,3}", matrix[row, col]);
             }
-                
+
             Console.WriteLine();
         }
     }
@@ -80,53 +84,20 @@ internal class MatrixRotatingWalk
 
     private static void RotateClockwise()
     {
-        var dirX = new[] { 1, 1, 1, 0, -1, -1, -1, 0 };
-        var dirY = new[] { 1, 0, -1, -1, -1, 0, 1, 1 };
-
-        int currentDirectionIndex = 0;
-        for (int dir = 0; dir < 8; dir++)
-        {
-            if (dirX[dir] == dx && dirY[dir] == dy)
-            {
-                currentDirectionIndex = dir;
-                break;
-            }
-        }
-
-        if (currentDirectionIndex == 7)
-        {
-            dx = dirX[0];
-            dy = dirY[0];
-            return;
-        }
-
-        dx = dirX[currentDirectionIndex + 1];
-        dy = dirY[currentDirectionIndex + 1];
+        currentDirection = (currentDirection == 7) ? 0 : currentDirection + 1;
     }
 
     private static bool IsNextToEmptyCell()
     {
-        int[] dirX = { 1, 1, 1, 0, -1, -1, -1, 0 };
-        int[] dirY = { 1, 0, -1, -1, -1, 0, 1, 1 };
+        int row, col;
         for (int i = 0; i < 8; i++)
         {
-            if (currRow + dirX[i] >= matrix.GetLength(0) || currRow + dirX[i] < 0)
-            {
-                dirX[i] = 0;
-            }                
-
-            if (currCol + dirY[i] >= matrix.GetLength(1) || currCol + dirY[i] < 0)
-            {
-                dirY[i] = 0;
-            }               
-        }
-
-        for (int i = 0; i < 8; i++)
-        {
-            if (matrix[currRow + dirX[i], currCol + dirY[i]] == 0)
+            row = currRow + dirX[i];
+            col = currCol + dirY[i];
+            if (IsInsideMatrix(row, col) && matrix[row, col] == 0)
             {
                 return true;
-            }                
+            }
         }
 
         return false;
