@@ -8,32 +8,42 @@ internal class MatrixRotatingWalk
 
     private static void Main()
     {
-        int n = 6; //  GetMatrixSizeFromInput();
+        int n = 10; //  GetMatrixSizeFromInput();
         matrix = new int[n, n];
         int counter = 0;
-        int currDir = 0;
         int currRow;
         int currCol;
 
         while (TryGetEmptyCell(out currRow, out currCol))
         {
             matrix[currRow, currCol] = ++counter;
+            int currDir = 0;
 
             while (IsNextToEmptyCell(currRow, currCol))
             {
+                currDir = GetNewDirection(currRow, currCol, currDir);
+
                 while (CanGoInThisDirection(currRow, currCol, currDir))
                 {
                     currRow += dRow[currDir];
                     currCol += dCol[currDir];
                     matrix[currRow, currCol] = ++counter;
                 }
-
-                // Rotate clockwise
-                currDir = (currDir == 7) ? 0 : currDir + 1;
             }
         }
 
         PrintMatrix();
+    }
+
+    private static int GetNewDirection(int currRow, int currCol, int currDir)
+    {        
+        while (!CanGoInThisDirection(currRow, currCol, currDir))
+        {
+            // Rotate clockwise
+            currDir = (currDir == 7) ? 0 : currDir + 1;
+        }
+
+        return currDir;
     }
 
     private static bool CanGoInThisDirection(int currRow, int currCol, int currDir)
