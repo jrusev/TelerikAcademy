@@ -12,13 +12,13 @@
 
 You can get a Git project using two main approaches:
 
-1. Transform the current directory into a Git repository (this is usually the first command you'll run in a new project.).
+1. Transform the current directory into a Git repository (this is usually the first command you'll run in a new project).
 * `$ git init`
-To add a new remote (get the SSH link not the HTTP from github): 
-* `$ git remote add origin git@github.com:user/repo.git`
+* To add a new remote (get the SSH link not the HTTP from github): 
+** `$ git remote add origin git@github.com:user/repo.git`
 
 2. If you want to get a copy of an existing Git repository:
-`$ git clone git@github.com:user/repo.git`
+* `$ git clone git@github.com:user/repo.git`
 
 ### Frequently used commands
 
