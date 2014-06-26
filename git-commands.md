@@ -4,9 +4,9 @@
 2. `$ ssh-keygen -t rsa -C "your.email@gmail.com"`
 3. Enter passphrase -> just press Enter, unless you wanto to enter your password every time
 4. Open the `id_ras.pub` inside .ssh folder (you can use notepad) and copy the SSH key (copy the entire line)
-5. go to github->account settings->SSH Keys->Add SSH key
-6. give it a tile, e.g. "my-PC" or "my-home-laptop", and paste the SSH key, select "Add key"
-7. `$ ssh -T git@github.com`
+5. Go to github->account settings->SSH Keys->Add SSH key
+6. Give it a tile, e.g. "my-PC" or "my-home-laptop", and paste the SSH key, select "Add key"
+7. `$ ssh -T git@github.com` - Are you sure you want to continue connecting? -> Yes
 
 ### Get a Git project
 
