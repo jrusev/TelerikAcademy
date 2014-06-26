@@ -1,6 +1,6 @@
 ### Create SSH key
 
-1. Go to your user folder (%USERPROFILE%) and backup your existing .ssh folder, if one exists
+1. Go to your user folder (`%USERPROFILE%`) and backup your existing .ssh folder, if one exists
 2. `$ ssh-keygen -t rsa -C "your.email@gmail.com"`
 3. Enter passphrase -> just press Enter, unless you wanto to enter your password every time
 4. Open the `id_ras.pub` inside .ssh folder (you can use notepad) and copy the SSH key (copy the entire line)
