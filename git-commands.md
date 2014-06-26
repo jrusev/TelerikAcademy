@@ -12,7 +12,7 @@
 
 You can get a Git project using two main approaches:
 
-1. Transform the current directory into a Git repository (this is usually the first command you’ll run in a new project.).
+1. Transform the current directory into a Git repository (this is usually the first command youï¿½ll run in a new project.).
 `$ git init`
 To add a new remote (get the SSH link not the HTTP from github): 
 `$ git remote add origin git@github.com:user/repo.git`
@@ -24,7 +24,7 @@ To add a new remote (get the SSH link not the HTTP from github):
 
 `$ git pull origin master` // imports commits from a remote repository (e.g. on GitHub) into your local repo
 `$ git add -A .` // adds all changes (new, changed or removed files) in the working directory to the staging area
-`$ git commit -m "put your comment here" // commits the staged snapshot to the local repository. 
+`$ git commit -m` "put your comment here" // commits the staged snapshot to the local repository
 `$ git push origin master` // pushing commits from your local repository to a remote repo.
 
 `$ git status -s` // displays the state of the working directory and the staging area
