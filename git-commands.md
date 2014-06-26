@@ -22,12 +22,12 @@ To add a new remote (get the SSH link not the HTTP from github):
 
 ### Frequently used commands
 
- `$ git pull origin master` // imports commits from a remote repository (e.g. on GitHub) into your local repo.
- `$ git add -A .` // adds all changes (new, changed or removed files) in the working directory to the staging area
- `$ git commit -m` "put your comment here" // commits the staged snapshot to the local repository
- `$ git push origin master` // pushing commits from your local repository to a remote repo.
+* `$ git pull origin master` // imports commits from a remote repository (e.g. on GitHub) into your local repo.
+* `$ git add -A .` // adds all changes (new, changed or removed files) in the working directory to the staging area
+* `$ git commit -m` "put your comment here" // commits the staged snapshot to the local repository
+* `$ git push origin master` // pushing commits from your local repository to a remote repo.
 
- `$ git status -s` // displays the state of the working directory and the staging area
- `$ git log --oneline` // shows the commit logs
+* `$ git status -s` // displays the state of the working directory and the staging area
+* `$ git log --oneline` // shows the commit logs
 
-Shift+ Z,Z -> exit to the command prompt (e.g. after a long git status message)
+* Shift+ Z,Z -> exit to the command prompt (e.g. after a long git status message)
