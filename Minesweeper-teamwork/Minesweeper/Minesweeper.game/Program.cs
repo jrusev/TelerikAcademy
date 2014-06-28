@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace gyrmeji
@@ -6,9 +7,11 @@ namespace gyrmeji
     class Telerik
     {
         private static int[,] matrica = new int[5, 10];
-        private static int[] nekviChisla = new int[15];
-        private static int[,] state = new int[5, 10];
-        private static int[,] open = new int[5, 10];
+        private static HashSet<int> minePositions = new HashSet<int>();
+
+        private static bool[,] displayState = new bool[5, 10];
+        private static bool[,] opened = new bool[5, 10];
+
         private static int[] topCells = new int[5];
         private static string[] topNames = new string[5];
         private static int topCellsCounter = 0;
@@ -41,18 +44,18 @@ namespace gyrmeji
                 int p2 = Convert.ToInt32((command.ElementAt(2)).ToString());
                 Console.WriteLine(p1);
 
-                if (open[p1, p2] == 1)
+                if (opened[p1, p2])
                 { Console.WriteLine("Illegal move!"); continue; }
 
-                if (open[p1, p2] == 0)
+                if (!opened[p1, p2])
                 {
-                    open[p1, p2] = 1;
-                    state[p1, p2] = 1;
+                    opened[p1, p2] = true;
+                    displayState[p1, p2] = true;
                     if (matrica[p1, p2] == 1)
                     {
                         for (int i = 0; i < 5; i++)
                             for (int j = 0; j < 10; j++)
-                            { state[i, j] = 1; }
+                            { displayState[i, j] = true; }
                         Displaymatrica();
                         Console.WriteLine("Booooom! You were killed by a mine. You revealed 2 cells without mines.Please enter your name for the top scoreboard:");
                         string str = Console.ReadLine();
@@ -72,22 +75,6 @@ namespace gyrmeji
             Console.WriteLine("Good Bye");
         }
 
-
-        private static bool IsFoundInRandomNumbers(int index, int number)
-        {
-            bool result = false;
-            for (int i = 0; i < index - 1; i++)
-            {
-                if (nekviChisla[i] == number)
-                {
-                    result = true;
-                    break;
-                }
-            }
-
-            return result;
-        }
-
         private static void Initializematrica()
         {
             for (int i = 0; i < 5; i++)
@@ -95,8 +82,8 @@ namespace gyrmeji
                 for (int j = 0; j < 10; j++)
                 {
                     matrica[i, j] = 0;
-                    state[i, j] = 0;
-                    open[i, j] = 0;
+                    displayState[i, j] = false;
+                    opened[i, j] = false;
                 }
             }
 
@@ -105,20 +92,13 @@ namespace gyrmeji
             for (int i = 0; i < 15; i++)
             {
                 int index = random.Next(50);
-
-
-                while (IsFoundInRandomNumbers(i, index))
+                while (minePositions.Contains(index))
                 {
                     index = random.Next(50);
                 }
 
-                // Console.WriteLine("{0},{1},{2}",index,(index/10),(index % 10));
-                nekviChisla[i] = index;
-
-
-
+                minePositions.Add(index);
                 matrica[(index / 10), (index % 10)] = 1;
-
             }
         }
         private static void Displaymatrica()
@@ -143,7 +123,7 @@ namespace gyrmeji
                 {
                     if (2 <= j && j <= 11)
                     {
-                        if (state[i, j - 2] == 0)
+                        if (!displayState[i, j - 2])
                         {
                             Console.Write("? ");
                         }
@@ -155,7 +135,7 @@ namespace gyrmeji
                             }
                             else
                             {
-                                if (open[i, j - 2] == 1) Console.Write("{0} ", CountNeighborcell(i, j - 2));
+                                if (opened[i, j - 2]) Console.Write("{0} ", CountNeighborcell(i, j - 2));
                                 else Console.Write("- ");
                             }
                         }
@@ -225,7 +205,7 @@ namespace gyrmeji
             for (int i = 0; i < 5; i++)
                 for (int j = 0; j < 10; j++)
                 {
-                    if (open[i, j] == 1)
+                    if (opened[i, j])
                         res++;
                 }
             return res;
