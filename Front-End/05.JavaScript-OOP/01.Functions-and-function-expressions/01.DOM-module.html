@@ -8,10 +8,10 @@
 <body>
     <div id="wrapper"></div>
     <script>
+        // Create a module for working with DOM.
         var domModule = (function () {
             var selectorBuffer = {};
             var MAX_SELECTOR_COUNT = 5;
-            var selectorCount = 0;
 
             // example: domModule.appendChild(li, "#wrapper ul");
             function appendChild(element, selector) {
