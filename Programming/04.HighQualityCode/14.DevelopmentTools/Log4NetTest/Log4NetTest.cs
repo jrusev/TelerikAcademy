@@ -7,7 +7,6 @@ class Program
     static void Main()
     {
         BasicConfigurator.Configure();
-
         ILog log = LogManager.GetLogger("log");
 
         log.Debug("Debug message successfulyl logged!");
