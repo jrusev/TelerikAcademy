@@ -13,6 +13,27 @@
          // Writing to the console should call toString() to each element
          // Writing errors and warnings to the console with and without format
         var specialConsole = (function () {
+            'use strict';
+
+            function format() {
+                var message = arguments[0] ? arguments[0].toString() : "";
+                for (var i = 1; i < arguments.length; i += 1) {
+                    message = message.split('{' + (i - 1) + '}').join(arguments[i].toString());
+                }
+                return message;
+            }
+
+            function writeLine() {
+                console.log(format.apply(this, arguments));
+            }
+
+            function writeError() {
+                console.error(format.apply(this, arguments));
+            }
+
+            function writeWarning() {
+                console.warn(format.apply(this, arguments));
+            }
 
             return {
                 writeLine: writeLine,
@@ -21,12 +42,13 @@
             }
         })();
 
-        specialConsole.writeLine("Message: hello");
-         //logs to the console "Message: hello"
-        specialConsole.writeLine("Message: {0}", "hello");
-         //logs to the console "Message: hello"
-        specialConsole.writeError("Error: {0}", "Something happened");
-        specialConsole.writeWarning("Warning: {0}", "A warning");
+        specialConsole.writeLine("Message: hello"); // logs to the console "Message: hello"
+        specialConsole.writeLine(); // logs a new line to the console
+        specialConsole.writeLine("Message: {0}", "hello"); // logs to the console "Message: hello"
+        specialConsole.writeLine("Message: {0}", [1, 2, 3]); // logs to the console "Message: 1,2,3"
+        specialConsole.writeLine([3, 4, 5]); // logs to the console "3,4,5"
+        specialConsole.writeError("Error: {0}", "Something happened"); // Error: Something happened
+        specialConsole.writeWarning("Warning: {0}", "A warning"); // Warning: A warning
     </script>
 </body>
 
