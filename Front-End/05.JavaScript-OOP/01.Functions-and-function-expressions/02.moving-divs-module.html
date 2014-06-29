@@ -18,83 +18,86 @@
 
 <body>
     <script>
-        // Create a module that works with moving div nodes.
-        var movingShapes = (function () {
+        (function () {
             'use strict';
 
-            var isRotating = false;
+            // Create a module that works with moving div nodes.
+            var movingShapes = (function () {
 
-            // Generate random background, font and border colors for the div element
-            function add(type) {
-                var div = document.createElement('div');
-                div.classList.add('rotating-div');
-                div.classList.add(type);
-                div.startX = 100 + Math.random() * 500 | 0;
-                div.startY = 100 + Math.random() * 200 | 0;
-                div.angle = Math.random() * 360 | 0;
-                div.radius = 50 + Math.random() * 50 | 0;
-                div.x = 0;
-                div.y = 0;
-                div.style.backgroundColor = randColor();
-                div.style.color = randColor();
-                div.style.borderColor = randColor();
-                div.innerHTML = type;
+                var isRotating = false;
 
-                document.body.appendChild(div);
+                // Generate random background, font and border colors for the div element
+                function add(type) {
+                    var div = document.createElement('div');
+                    div.classList.add('rotating-div');
+                    div.classList.add(type);
+                    div.startX = 100 + Math.random() * 500 | 0;
+                    div.startY = 100 + Math.random() * 200 | 0;
+                    div.angle = Math.random() * 360 | 0;
+                    div.radius = 50 + Math.random() * 50 | 0;
+                    div.x = 0;
+                    div.y = 0;
+                    div.style.backgroundColor = randColor();
+                    div.style.color = randColor();
+                    div.style.borderColor = randColor();
+                    div.innerHTML = type;
 
-                // The elements should be moving all the time
-                if (!isRotating)
-                    rotateDivs();
-            }
+                    document.body.appendChild(div);
 
-            function randColor() {
-                return 'rgb(' + ~~(Math.random() * 255) + ',' + ~~(Math.random() * 255) + ',' + ~~(Math.random() * 255) + ')';
-            }
-
-            // The movements of the div nodes can be either circular or rectangular
-            function rotateDivs() {
-                var x, y, div, i;
-                var ellipseDivs = document.querySelectorAll('.rotating-div.ellipse');
-                for (i = 0, len = ellipseDivs.length; i < len; i += 1) {
-                    div = ellipseDivs[i];
-                    div.angle++;
-                    x = Math.sin(div.angle * Math.PI / 180) * div.radius;
-                    y = Math.cos(div.angle * Math.PI / 180) * div.radius * 0.75;
-
-                    div.style.left = div.startX + x + 'px';
-                    div.style.top = div.startY + y + 'px';
+                    // The elements should be moving all the time
+                    if (!isRotating)
+                        rotateDivs();
                 }
 
-                var rectDivs = document.querySelectorAll('.rotating-div.rect');
-                for (i = 0, len = rectDivs.length; i < len; i += 1) {
-                    div = rectDivs[i];
-                    div.angle = div.angle > 400 ? 0 : div.angle + 1;
-
-                    if (div.angle < 100)
-                        div.x++;
-                    else if (div.angle < 200)
-                        div.y++;
-                    else if (div.angle < 300)
-                        div.x--;
-                    else
-                        div.y--;
-
-                    div.style.left = div.startX + div.x + 'px';
-                    div.style.top = div.startY + div.y + 'px';
+                function randColor() {
+                    return 'rgb(' + ~~(Math.random() * 255) + ',' + ~~(Math.random() * 255) + ',' + ~~(Math.random() * 255) + ')';
                 }
 
-                isRotating = window.requestAnimationFrame(rotateDivs);
-            }
+                // The movements of the div nodes can be either circular or rectangular
+                function rotateDivs() {
+                    var x, y, div, i;
+                    var ellipseDivs = document.querySelectorAll('.rotating-div.ellipse');
+                    for (i = 0, len = ellipseDivs.length; i < len; i += 1) {
+                        div = ellipseDivs[i];
+                        div.angle++;
+                        x = Math.sin(div.angle * Math.PI / 180) * div.radius;
+                        y = Math.cos(div.angle * Math.PI / 180) * div.radius * 0.75;
 
-            return {
-                add: add
-            }
+                        div.style.left = div.startX + x + 'px';
+                        div.style.top = div.startY + y + 'px';
+                    }
+
+                    var rectDivs = document.querySelectorAll('.rotating-div.rect');
+                    for (i = 0, len = rectDivs.length; i < len; i += 1) {
+                        div = rectDivs[i];
+                        div.angle = div.angle > 400 ? 0 : div.angle + 1;
+
+                        if (div.angle < 100)
+                            div.x++;
+                        else if (div.angle < 200)
+                            div.y++;
+                        else if (div.angle < 300)
+                            div.x--;
+                        else
+                            div.y--;
+
+                        div.style.left = div.startX + div.x + 'px';
+                        div.style.top = div.startY + div.y + 'px';
+                    }
+
+                    isRotating = window.requestAnimationFrame(rotateDivs);
+                }
+
+                return {
+                    add: add
+                }
+            })();
+
+            //add element with rectangular movement              
+            movingShapes.add("rect");
+            //add element with ellipse movement
+            movingShapes.add("ellipse");
         })();
-
-         //add element with rectangular movement              
-        movingShapes.add("rect");
-         //add element with ellipse movement
-        movingShapes.add("ellipse");
     </script>
 </body>
 
