@@ -17,7 +17,7 @@
             // Writing errors and warnings to the console with and without format
             var specialConsole = (function () {
 
-                function format() {
+                function _format() {
                     var message = arguments[0] ? arguments[0].toString() : "";
                     for (var i = 1; i < arguments.length; i += 1) {
                         message = message.split('{' + (i - 1) + '}').join(arguments[i].toString());
@@ -25,22 +25,16 @@
                     return message;
                 }
 
-                function writeLine() {
-                    console.log(format.apply(this, arguments));
-                }
-
-                function writeError() {
-                    console.error(format.apply(this, arguments));
-                }
-
-                function writeWarning() {
-                    console.warn(format.apply(this, arguments));
-                }
-
                 return {
-                    writeLine: writeLine,
-                    writeError: writeError,
-                    writeWarning: writeWarning
+                    writeLine: function () {
+                        console.log(_format.apply(this, arguments));
+                    },
+                    writeError: function () {
+                        console.error(_format.apply(this, arguments));
+                    },
+                    writeWarning: function () {
+                        console.warn(_format.apply(this, arguments));
+                    }
                 }
             })();
 
