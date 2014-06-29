@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>DOM Module</title>
+</head>
+
+<body>
+    <div id="wrapper"></div>
+    <script>
+        var domModule = (function () {
+            var selectorBuffer = {};
+            var MAX_SELECTOR_COUNT = 5;
+            var selectorCount = 0;
+
+            // example: domModule.appendChild(li, "#wrapper ul");
+            function appendChild(element, selector) {
+                var parrent = getElement(selector);
+                parrent.appendChild(element);
+            }
+
+            // example: domModule.removeChild("ul", "li:first-child");
+            function removeChild(parrentSelector, childSelector) {
+                var elementsToRemove = getElements(parrentSelector + " " + childSelector);
+                for (var i = 0; i < elementsToRemove.length; i++) {
+                    elementsToRemove[i].parentNode.removeChild(elementsToRemove[i]);
+                }
+            }
+
+            function addHandler(selector, eventType, handler) {
+                var elements = getElements(selector);
+                for (var i = 0; i < elements.length; i++) {
+                    elements[i].addEventListener(eventType, handler, false);
+                }
+            }
+
+            // example: domModule.appendToBuffer("#wrapper ul", li.cloneNode(true));
+            function appendToBuffer(selector, element) {
+
+                selectorBuffer[selector] = selectorBuffer[selector] || document.createDocumentFragment();
+
+                var buffer = selectorBuffer[selector];
+                buffer.appendChild(element);
+
+                if (buffer.childNodes.length == MAX_SELECTOR_COUNT) {
+                    var parent = getElement(selector);
+                    parent.appendChild(buffer);
+                    delete selectorBuffer[selector];
+                }
+            }
+
+            function getElement(selector) {
+                return document.querySelector(selector);
+            }
+
+            function getElements(selector) {
+                return document.querySelectorAll(selector);
+            }
+
+            return {
+                appendChild: appendChild,
+                removeChild: removeChild,
+                addHandler: addHandler,
+                appendToBuffer: appendToBuffer,
+                getElements: getElements
+            }
+        })();
+
+         // Create some elements for the test
+        var div = document.createElement("div");
+        var anchor = document.createElement("a");
+        anchor.classList.add("button");
+        var ul = document.createElement("ul");
+        var li = document.createElement("li");
+
+         // Add DOM element to parent element given by selector
+        domModule.appendChild(div, "#wrapper");
+        domModule.appendChild(anchor, "#wrapper");
+        domModule.appendChild(ul, "#wrapper");
+        domModule.appendChild(li, "#wrapper ul");
+
+         // Remove element from the DOM by given selector
+        domModule.removeChild("ul", "li:first-child");
+
+         // Attach event to given selector by given event type and event hander
+        domModule.addHandler("a.button", 'click',
+            function () {
+                alert("Clicked")
+            });
+
+         // Add elements to buffer (elmenets are added to DOM when their count reaches MAX_SELECTOR_COUNT)
+        domModule.appendToBuffer("#wrapper ul", li.cloneNode(true));
+        domModule.appendToBuffer("#wrapper ul", li.cloneNode(true));
+        domModule.appendToBuffer("#wrapper ul", li.cloneNode(true));
+        domModule.appendToBuffer("#wrapper ul", li.cloneNode(true));
+        domModule.appendToBuffer("#wrapper ul", li.cloneNode(true));
+
+        domModule.appendToBuffer("#wrapper", div.cloneNode(true));
+        domModule.appendToBuffer("#wrapper", div.cloneNode(true));
+        domModule.appendToBuffer("#wrapper", div.cloneNode(true));
+        domModule.appendToBuffer("#wrapper", div.cloneNode(true));
+        domModule.appendToBuffer("#wrapper", div.cloneNode(true));
+    </script>
+</body>
+
+</html>
