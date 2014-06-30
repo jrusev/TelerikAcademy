@@ -64,5 +64,5 @@ var CanvasShapes = (function () {
         Rect: Rect,
         Circle: Circle,
         Line: Line,
-    }
+    };
 })();
