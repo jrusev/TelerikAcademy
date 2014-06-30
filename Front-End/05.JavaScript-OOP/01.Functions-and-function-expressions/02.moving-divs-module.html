@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Rotating Divs Module</title>
+    <title>Moving Divs Module</title>
     <style>
-        .rotating-div {
+        .moving-div {
             position: absolute;
             width: 50px;
-            height: 50px;
+            height: 20px;
             text-align: center;
             border: 3px solid;
             font-weight: bold;
@@ -25,12 +25,13 @@
             var movingShapes = (function () {
 
                 var isRotating = false;
+                var rectDivs = [];
+                var ellipseDivs = [];
 
                 // Generate random background, font and border colors for the div element
                 function add(type) {
                     var div = document.createElement('div');
-                    div.classList.add('rotating-div');
-                    div.classList.add(type);
+                    div.className = 'moving-div';
                     div.startX = 100 + Math.random() * 500 | 0;
                     div.startY = 100 + Math.random() * 200 | 0;
                     div.angle = Math.random() * 360 | 0;
@@ -43,6 +44,10 @@
                     div.innerHTML = type;
 
                     document.body.appendChild(div);
+                    if (type === 'rect')
+                        rectDivs.push(div);
+                    else
+                        ellipseDivs.push(div);
 
                     // The elements should be moving all the time
                     if (!isRotating)
@@ -56,8 +61,7 @@
                 // The movements of the div nodes can be either circular or rectangular
                 function rotateDivs() {
                     var x, y, div, i;
-                    var ellipseDivs = document.querySelectorAll('.rotating-div.ellipse');
-                    for (i = 0, len = ellipseDivs.length; i < len; i += 1) {
+                    for (i = 0; i < ellipseDivs.length; i += 1) {
                         div = ellipseDivs[i];
                         div.angle++;
                         x = Math.sin(div.angle * Math.PI / 180) * div.radius;
@@ -67,10 +71,9 @@
                         div.style.top = div.startY + y + 'px';
                     }
 
-                    var rectDivs = document.querySelectorAll('.rotating-div.rect');
-                    for (i = 0, len = rectDivs.length; i < len; i += 1) {
+                    for (i = 0; i < rectDivs.length; i += 1) {
                         div = rectDivs[i];
-                        div.angle = div.angle > 400 ? 0 : div.angle + 1;
+                        div.angle = div.angle > 400 ? 0 : div.angle + 2;
 
                         if (div.angle < 100)
                             div.x++;
