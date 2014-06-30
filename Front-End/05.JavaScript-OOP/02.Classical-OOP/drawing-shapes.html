@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Drawing shapes with module</title>
+    <script src="CanvasShapes.js"></script>
+</head>
+
+<body>
+    <canvas id="canvas" width="640" height="480"></canvas>
+    <script>
+        (function () {
+            var ctx = document.getElementById('canvas').getContext('2d');
+
+            // create a Rectangle object
+            var rect = new CanvasShapes.Rect(50, 50);
+            rect.draw(100, 150, 'green', ctx);
+
+            // create a Circle object
+            var circle = new CanvasShapes.Circle(25);
+            circle.draw(200, 100, 'red', ctx);
+
+            // create a Line object
+            var line = new CanvasShapes.Line(75, -75);
+            line.draw(125, 175, 'blue', ctx);
+
+        })();
+    </script>
+</body>
+
+</html>
