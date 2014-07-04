@@ -34,13 +34,11 @@ var Game = (function () {
         }
 
         function _eatApples() {
-            var head = _snake.head;
-            var body = _snake.body;
             for (var i = 0; i < _apples.length; i++) {
-                if (_apples[i].x === head.x && _apples[i].y === head.y) {
-                    var tailX = body[body.length - 1].x * 2 - body[body.length - 2].x;
-                    var tailY = body[body.length - 1].y * 2 - body[body.length - 2].y;
-                    body.push(new gameObjects.Cell(tailX, tailY));
+                if (_apples[i].body.x === _snake.head.x && _apples[i].body.y === _snake.head.y) {
+                    // Add cell to the snake body
+                    _snake.eatApple();
+                    // Remove the eaten apple and create a new one at random position
                     _apples.splice(i, 1);
                     var randomCell = _getRandomCell();
                     _apples.push(new gameObjects.Apple(randomCell));

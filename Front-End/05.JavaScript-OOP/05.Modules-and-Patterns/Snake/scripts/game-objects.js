@@ -7,11 +7,9 @@ var gameObjects = (function () {
     }
 
     function Apple(cell) {
-        this.x = cell.x;
-        this.y = cell.y;
+        this.body = new Cell(cell.x, cell.y);
         this.draw = function (renderer) {
-            var body = new Cell(this.x, this.y);
-            renderer.drawCells([body], 'yellow');
+            renderer.drawCells([this.body], 'yellow');
         }
     }
 
@@ -49,6 +47,13 @@ var gameObjects = (function () {
             renderer.drawCells(this.body, 'green');
         }
 
+        Snake.prototype.eatApple = function () {
+            // Add cell to the snake body
+            var tailX = this.body[this.body.length - 1].x * 2 - this.body[this.body.length - 2].x;
+            var tailY = this.body[this.body.length - 1].y * 2 - this.body[this.body.length - 2].y;
+            this.body.push(new Cell(tailX, tailY));
+        }
+
         Snake.prototype.onKeyDown = function (event) {
             event = event || window.event;
             var keyCode = event.keyCode;
@@ -71,7 +76,7 @@ var gameObjects = (function () {
 
     return {
         Cell: Cell,
-        Snake: Snake,
-        Apple: Apple
+        Apple: Apple,
+        Snake: Snake
     };
 }());
