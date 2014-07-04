@@ -53,7 +53,8 @@ var Game = (function () {
 
         function _snakeIsAlive() {
             // Check if head collides with the screen borders            
-            if (_snake._head.x < 0 || _snake._head.x > _fieldWidth || _snake._head.y < 0 || _snake._head.y > _fieldHeight)
+            if (_snake._head.x < 0 || _snake._head.x > _fieldWidth - _cellSize ||
+                _snake._head.y < 0 || _snake._head.y > _fieldHeight - _cellSize)
                 return false;
 
             if (_snake.headCollidesWithBody())
