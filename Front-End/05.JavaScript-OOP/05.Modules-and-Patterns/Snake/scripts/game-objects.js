@@ -64,26 +64,24 @@ var GameObjects = (function () {
             return false;
         };
 
-        Snake.prototype.attachEventHandlers = function (document) {
-            document.addEventListener('keydown', _onKeyDown.bind(this), false);
-        };
+        Snake.prototype.attachEventHandlers = function (element) {
+            var self = this;
+            element.addEventListener('keydown', function (event) {
+                event = event || window.event;
+                var keyCode = event.keyCode;
 
-        function _onKeyDown(event) {
-            event = event || window.event;
-            var keyCode = event.keyCode;
+                if (keyCode === 37 && self._direction !== _dirs.right) // left
+                    self._direction = _dirs.left;
 
-            // 'this' is bound to the Snake instance in attachEventHandlers()
-            if (keyCode === 37 && this._direction !== _dirs.right) // left
-                this._direction = _dirs.left;
+                if (keyCode === 38 && self._direction !== _dirs.down) // up
+                    self._direction = _dirs.up;
 
-            if (keyCode === 38 && this._direction !== _dirs.down) // up
-                this._direction = _dirs.up;
+                if (keyCode === 39 && self._direction !== _dirs.left) // right
+                    self._direction = _dirs.right;
 
-            if (keyCode === 39 && this._direction !== _dirs.left) // right
-                this._direction = _dirs.right;
-
-            if (keyCode === 40 && this._direction !== _dirs.up) // down
-                this._direction = _dirs.down;
+                if (keyCode === 40 && self._direction !== _dirs.up) // down
+                    self._direction = _dirs.down;
+            }, false);
         };
 
         return Snake;
