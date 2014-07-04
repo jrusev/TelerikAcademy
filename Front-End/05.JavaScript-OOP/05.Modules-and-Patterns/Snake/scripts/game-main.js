@@ -64,7 +64,7 @@ var Game = (function () {
 
         // constructor
         function Game(cellSize) {
-            _cellSize = cellSize || 20;
+            _cellSize = cellSize || 20; // pixels
             _fieldWidth = 32 * _cellSize;
             _fieldHeight = 20 * _cellSize;
             _numApples = 3;
