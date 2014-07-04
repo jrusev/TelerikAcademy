@@ -48,17 +48,13 @@ var Game = (function () {
 
         function _snakeIsAlive() {
             var head = _snake.head;
-            var body = _snake.body;
-            // Check if head collides with the screen borders
-            if (head.x < 0 || head.x > _fieldWidth || head.y < 0 || head.y > _fieldHeight) {
+            // Check if head collides with the screen borders            
+            if (head.x < 0 || head.x > _fieldWidth || head.y < 0 || head.y > _fieldHeight)
                 return false;
-            }
-            // Check if head collides with the body
-            for (var i = 0; i < body.length; i++) {
-                if (head.x === body[i].x && head.y === body[i].y) {
-                    return false;
-                }
-            }
+
+            if (_snake.headCollidesWithBody())
+                return false;
+
             return true;
         }
 

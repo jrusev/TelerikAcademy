@@ -14,7 +14,7 @@ var gameObjects = (function () {
     }
 
     var Snake = (function () {
-        var _cellSize, _self;
+        var _self, _cellSize, _body;
         var _dirs = {
             right: [1, 0],
             left: [-1, 0],
@@ -26,17 +26,17 @@ var gameObjects = (function () {
             _self = this;
             _cellSize = cellSize;
             this.head = new Cell(startX, startY);
-            this.body = new Array(startLength - 1);
+            _body = new Array(startLength - 1);
             for (var i = 0; i < startLength - 1; i++) {
-                this.body[i] = new Cell(startX - _cellSize * (i + 1), startY);
+                _body[i] = new Cell(startX - _cellSize * (i + 1), startY);
             }
 
             this.direction = _dirs.right;
         }
 
         Snake.prototype.move = function () {
-            this.body.splice(this.body.length - 1, 1);
-            this.body.unshift(new Cell(this.head.x, this.head.y));
+            _body.splice(_body.length - 1, 1);
+            _body.unshift(new Cell(this.head.x, this.head.y));
 
             this.head.x += this.direction[0] * _cellSize;
             this.head.y += this.direction[1] * _cellSize;
@@ -44,14 +44,24 @@ var gameObjects = (function () {
 
         Snake.prototype.draw = function (renderer) {
             renderer.drawCells([this.head], 'red');
-            renderer.drawCells(this.body, 'green');
+            renderer.drawCells(_body, 'green');
         }
 
         Snake.prototype.eatApple = function () {
             // Add cell to the snake body
-            var tailX = this.body[this.body.length - 1].x * 2 - this.body[this.body.length - 2].x;
-            var tailY = this.body[this.body.length - 1].y * 2 - this.body[this.body.length - 2].y;
-            this.body.push(new Cell(tailX, tailY));
+            var tailX = _body[_body.length - 1].x * 2 - _body[_body.length - 2].x;
+            var tailY = _body[_body.length - 1].y * 2 - _body[_body.length - 2].y;
+            _body.push(new Cell(tailX, tailY));
+        }
+
+        Snake.prototype.headCollidesWithBody = function () {
+            for (var i = 0; i < _body.length; i++) {
+                if (this.head.x === _body[i].x && this.head.y === _body[i].y) {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         Snake.prototype.onKeyDown = function (event) {
