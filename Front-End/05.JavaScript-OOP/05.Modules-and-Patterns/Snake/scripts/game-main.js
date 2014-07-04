@@ -15,7 +15,10 @@ var Game = (function () {
         function _getRandomCell() {
             var x = Math.round((Math.random() * _fieldWidth - _cellSize) / _cellSize) * _cellSize;
             var y = Math.round((Math.random() * _fieldHeight - _cellSize) / _cellSize) * _cellSize;
-            return new gameObjects.Cell(x, y);
+            return {
+                x: x,
+                y: y
+            };
         }
 
         function _gameLoop() {
@@ -35,8 +38,8 @@ var Game = (function () {
 
         function _eatApples() {
             for (var i = 0; i < _apples.length; i++) {
-                if (_apples[i].body.x === _snake.head.x && _apples[i].body.y === _snake.head.y) {
-                    // Add cell to the snake body
+                if (_apples[i].body.x === _snake._head.x && _apples[i].body.y === _snake._head.y) {
+                    // Add cell to the snake tail
                     _snake.eatApple();
                     // Remove the eaten apple and create a new one at random position
                     _apples.splice(i, 1);
@@ -47,9 +50,8 @@ var Game = (function () {
         }
 
         function _snakeIsAlive() {
-            var head = _snake.head;
             // Check if head collides with the screen borders            
-            if (head.x < 0 || head.x > _fieldWidth || head.y < 0 || head.y > _fieldHeight)
+            if (_snake._head.x < 0 || _snake._head.x > _fieldWidth || _snake._head.y < 0 || _snake._head.y > _fieldHeight)
                 return false;
 
             if (_snake.headCollidesWithBody())
