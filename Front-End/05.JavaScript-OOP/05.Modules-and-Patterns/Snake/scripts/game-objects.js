@@ -19,6 +19,7 @@ var gameObjects = (function () {
     })();
 
     var Snake = (function () {
+        var self;
         var _dirs = {
             right: [1, 0],
             left: [-1, 0],
@@ -28,6 +29,7 @@ var gameObjects = (function () {
 
         // constructor
         function Snake(cellSize, startLength, startX, startY) {
+            self = this;
             this._cellSize = cellSize;
             this._head = new _Cell(startX, startY);
             this._body = new Array(startLength - 1);
@@ -68,17 +70,18 @@ var gameObjects = (function () {
             event = event || window.event;
             var keyCode = event.keyCode;
 
-            if (keyCode === 37 && this._direction !== _dirs.right) // left
-                this._direction = _dirs.left;
+            // TODO: find another way to get self
+            if (keyCode === 37 && self._direction !== _dirs.right) // left
+                self._direction = _dirs.left;
 
-            if (keyCode === 38 && this._direction !== _dirs.down) // up
-                this._direction = _dirs.up;
+            if (keyCode === 38 && self._direction !== _dirs.down) // up
+                self._direction = _dirs.up;
 
-            if (keyCode === 39 && this._direction !== _dirs.left) // right
-                this._direction = _dirs.right;
+            if (keyCode === 39 && self._direction !== _dirs.left) // right
+                self._direction = _dirs.right;
 
-            if (keyCode === 40 && this._direction !== _dirs.up) // down
-                this._direction = _dirs.down;
+            if (keyCode === 40 && self._direction !== _dirs.up) // down
+                self._direction = _dirs.down;
         };
 
         return Snake;

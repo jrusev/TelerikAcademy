@@ -13,6 +13,7 @@ var Game = (function () {
             _canvasRenderer;
 
         function _getRandomCell() {
+            // TODO: check if it gives 0 or fieldWidth!
             var x = Math.round((Math.random() * _fieldWidth - _cellSize) / _cellSize) * _cellSize;
             var y = Math.round((Math.random() * _fieldHeight - _cellSize) / _cellSize) * _cellSize;
             return {
