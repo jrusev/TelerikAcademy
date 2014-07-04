@@ -1,4 +1,4 @@
-var gameObjects = (function () {
+var GameObjects = (function () {
     "use strict";
 
     function _Cell(x, y) {

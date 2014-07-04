@@ -1,6 +1,8 @@
 var Game = (function () {
     "use strict";
 
+    var gameInstance;
+
     var Game = (function () {
 
         var _cellSize,
@@ -44,7 +46,7 @@ var Game = (function () {
                     // Remove the eaten apple and create a new one at random position
                     _apples.splice(i, 1);
                     var randomCell = _getRandomCell();
-                    _apples.push(new gameObjects.Apple(randomCell));
+                    _apples.push(new GameObjects.Apple(randomCell));
                 }
             }
         }
@@ -71,12 +73,12 @@ var Game = (function () {
         Game.prototype.run = function () {
             _canvasRenderer = CanvasRenderer.getRenderer(_fieldWidth, _fieldHeight, _cellSize);
             // Snake(cellSize, startLength, startX, startY)
-            _snake = new gameObjects.Snake(_cellSize, 5, _cellSize, _cellSize);
+            _snake = new GameObjects.Snake(_cellSize, 5, _cellSize, _cellSize);
             _snake.attachEventHandlers(document);
             _apples = [];
             for (var i = 0; i < _numApples; i++) {
                 var randomCell = _getRandomCell();
-                _apples.push(new gameObjects.Apple(randomCell));
+                _apples.push(new GameObjects.Apple(randomCell));
             }
 
             _intervalID = setInterval(_gameLoop, 1000 / 10);
@@ -88,7 +90,11 @@ var Game = (function () {
 
     return {
         createGame: function () {
-            return new Game();
+            if (!gameInstance) {
+                gameInstance = new Game();
+            }
+
+            return gameInstance;
         }
-    }
+    };
 })();
