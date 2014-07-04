@@ -13,9 +13,8 @@ var Game = (function () {
             _canvasRenderer;
 
         function _getRandomCell() {
-            // TODO: check if it gives 0 or fieldWidth!
-            var x = Math.round((Math.random() * _fieldWidth - _cellSize) / _cellSize) * _cellSize;
-            var y = Math.round((Math.random() * _fieldHeight - _cellSize) / _cellSize) * _cellSize;
+            var x = Math.round(Math.random() * (_fieldWidth / _cellSize - 1)) * _cellSize;
+            var y = Math.round(Math.random() * (_fieldHeight / _cellSize - 1)) * _cellSize;
             return {
                 x: x,
                 y: y
@@ -73,13 +72,13 @@ var Game = (function () {
             _canvasRenderer = CanvasRenderer.getRenderer(_fieldWidth, _fieldHeight, _cellSize);
             // Snake(cellSize, startLength, startX, startY)
             _snake = new gameObjects.Snake(_cellSize, 5, _cellSize, _cellSize);
+            _snake.attachEventHandlers(document);
             _apples = [];
             for (var i = 0; i < _numApples; i++) {
                 var randomCell = _getRandomCell();
                 _apples.push(new gameObjects.Apple(randomCell));
             }
 
-            document.addEventListener('keydown', _snake.onKeyDown, false);
             _intervalID = setInterval(_gameLoop, 1000 / 10);
         }
 
