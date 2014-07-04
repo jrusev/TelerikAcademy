@@ -3,34 +3,29 @@ var CanvasRenderer = (function () {
 
     var CanvasRenderer = (function () {
 
-        var _canvasContext,
-            _canvasWidth,
-            _canvasHeight,
-            _cellSize;
-
         // constructor
         var CanvasRenderer = (function (width, height, cellSize) {
-            _canvasWidth = width;
-            _canvasHeight = height;
-            _cellSize = cellSize;
+            this._width = width;
+            this._height = height;
+            this._cellSize = cellSize;
 
             var canvas = document.createElement('canvas');
-            canvas.width = _canvasWidth;
-            canvas.height = _canvasHeight;
+            canvas.width = this._width;
+            canvas.height = this._height;
             canvas.style.border = '2px solid black';
             document.body.appendChild(canvas);
-            _canvasContext = canvas.getContext('2d');
+            this._context = canvas.getContext('2d');
         });
 
         CanvasRenderer.prototype.clearScreen = function () {
-            _canvasContext.fillStyle = 'black';
-            _canvasContext.fillRect(0, 0, _canvasWidth, _canvasHeight);
+            this._context.fillStyle = 'black';
+            this._context.fillRect(0, 0, this._width, this._height);
         }
 
         CanvasRenderer.prototype.drawCells = function (cells, color) {
-            _canvasContext.fillStyle = color;
+            this._context.fillStyle = color;
             for (var i = 0; i < cells.length; i++) {
-                _canvasContext.fillRect(cells[i].x, cells[i].y, _cellSize, _cellSize);
+                this._context.fillRect(cells[i].x, cells[i].y, this._cellSize, this._cellSize);
             }
         }
 
