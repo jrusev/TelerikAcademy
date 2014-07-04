@@ -65,10 +65,10 @@ var GameObjects = (function () {
         };
 
         Snake.prototype.attachEventHandlers = function (document) {
-            document.addEventListener('keydown', this.onKeyDown.bind(this), false);
+            document.addEventListener('keydown', _onKeyDown.bind(this), false);
         };
 
-        Snake.prototype.onKeyDown = function (event) {
+        function _onKeyDown(event) {
             event = event || window.event;
             var keyCode = event.keyCode;
 
