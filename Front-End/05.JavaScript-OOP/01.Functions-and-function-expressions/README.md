@@ -1,4 +1,4 @@
-## Advanced Functions
+## Functions and Function Expressions
 
 1. Create a module for working to work with DOM. The module should have the following functionality
     * Add element to parent element by given selector

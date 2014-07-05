@@ -1,3 +1,5 @@
+## Classical OOP
+
 1. Create a module for drawing shapes using Canvas. Implement the following shapes:
  * Rect, by given position (X, Y) and size (Width, Height)
  * Circle, by given center position (X, Y) and radius (R)
