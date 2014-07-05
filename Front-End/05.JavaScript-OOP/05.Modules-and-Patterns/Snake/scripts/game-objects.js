@@ -19,7 +19,7 @@ var GameObjects = (function () {
     })();
 
     var Snake = (function () {
-        var _dirs = {
+        var Dirs = {
             right: [1, 0],
             left: [-1, 0],
             up: [0, -1],
@@ -34,7 +34,7 @@ var GameObjects = (function () {
             for (var i = 0; i < startLength - 1; i++) {
                 this._body[i] = new _Cell(startX - this._cellSize * (i + 1), startY);
             }
-            this._direction = _dirs.right;
+            this._direction = Dirs.right;
         }
 
         Snake.prototype.move = function () {
@@ -70,17 +70,17 @@ var GameObjects = (function () {
                 event = event || window.event;
                 var keyCode = event.keyCode;
 
-                if (keyCode === 37 && self._direction !== _dirs.right) // left
-                    self._direction = _dirs.left;
+                if (keyCode === 37 && self._direction !== Dirs.right) // left
+                    self._direction = Dirs.left;
 
-                if (keyCode === 38 && self._direction !== _dirs.down) // up
-                    self._direction = _dirs.up;
+                if (keyCode === 38 && self._direction !== Dirs.down) // up
+                    self._direction = Dirs.up;
 
-                if (keyCode === 39 && self._direction !== _dirs.left) // right
-                    self._direction = _dirs.right;
+                if (keyCode === 39 && self._direction !== Dirs.left) // right
+                    self._direction = Dirs.right;
 
-                if (keyCode === 40 && self._direction !== _dirs.up) // down
-                    self._direction = _dirs.down;
+                if (keyCode === 40 && self._direction !== Dirs.up) // down
+                    self._direction = Dirs.down;
             }, false);
         };
 
