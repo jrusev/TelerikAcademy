@@ -29,17 +29,21 @@ var Game = (function () {
             }
         }
 
-        function _getRandomCell() {
-            var x = Math.round(Math.random() * (FIELD_WIDTH / CELL_SIZE - 1)) * CELL_SIZE;
-            var y = Math.round(Math.random() * (FIELD_HEIGHT / CELL_SIZE - 1)) * CELL_SIZE;
-            return {
-                x: x,
-                y: y
-            };
+        function _snakeIsAlive() {
+            // Check if head collides with the screen borders            
+            if (snake._head.x < 0 || snake._head.x > FIELD_WIDTH - CELL_SIZE ||
+                snake._head.y < 0 || snake._head.y > FIELD_HEIGHT - CELL_SIZE)
+                return false;
+
+            if (snake.headCollidesWithBody())
+                return false;
+
+            return true;
         }
 
         function _eatApples() {
             for (var i = 0; i < apples.length; i++) {
+                // If snake is running through an apple...
                 if (apples[i].body.x === snake._head.x && apples[i].body.y === snake._head.y) {
                     // Add cell to the snake tail
                     snake.eatApple();
@@ -51,16 +55,13 @@ var Game = (function () {
             }
         }
 
-        function _snakeIsAlive() {
-            // Check if head collides with the screen borders            
-            if (snake._head.x < 0 || snake._head.x > FIELD_WIDTH - CELL_SIZE ||
-                snake._head.y < 0 || snake._head.y > FIELD_HEIGHT - CELL_SIZE)
-                return false;
-
-            if (snake.headCollidesWithBody())
-                return false;
-
-            return true;
+        function _getRandomCell() {
+            var x = Math.round(Math.random() * (FIELD_WIDTH / CELL_SIZE - 1)) * CELL_SIZE;
+            var y = Math.round(Math.random() * (FIELD_HEIGHT / CELL_SIZE - 1)) * CELL_SIZE;
+            return {
+                x: x,
+                y: y
+            };
         }
 
         // constructor
