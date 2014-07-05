@@ -4,10 +4,10 @@
  * The ComboBox holds a set of items (an array)
  * Initially only a single item, the selected item, is visible (the ComboBox is collapsed)
  * When the selected item is clicked, all other items are shown (the ComboBox is expanded)
-  * If an item is clicked, it becomes the selected item and the ComboBox collapses
+   * If an item is clicked, it becomes the selected item and the ComboBox collapses
  * Each of the items in a ComboBox can contain any valid HTML code
  * Use RequireJS and handlebars.js
-  * jQuery is not obligatory (use it if you will)
+   * jQuery is not obligatory (use it if you will)
  * The ComboBox should have the following usage:
 ```
 var people = [
