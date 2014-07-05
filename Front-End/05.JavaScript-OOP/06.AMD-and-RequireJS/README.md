@@ -1,4 +1,4 @@
-## AMD-and-RequireJS
+## AMD and RequireJS
 
 1. Implement a ComboBox control (like a dropdown list)
 * The ComboBox holds a set of items (an array)
