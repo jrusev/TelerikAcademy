@@ -1,0 +1,12 @@
+li {
+    list-style-type: none;
+    width: 100px;            
+    text-align: center;
+    border: 1px solid grey;
+    border-radius: 5px;
+    cursor: pointer;            
+}
+img {
+    width: 100px;
+    height: 60px;
+}
