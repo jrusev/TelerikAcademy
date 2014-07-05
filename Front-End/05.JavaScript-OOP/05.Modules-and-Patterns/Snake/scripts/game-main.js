@@ -5,18 +5,18 @@ var Game = (function () {
 
     var Game = (function () {
 
-        var _cellSize,
-            _fieldWidth,
-            _fieldHeight,
-            _numApples,
-            _intervalID,
-            _snake,
-            _apples,
-            _canvasRenderer;
+        var CELL_SIZE,
+            FIELD_WIDTH,
+            FIELD_HEIGHT,
+            numApples,
+            intervalID,
+            snake,
+            apples,
+            canvasRenderer;
 
         function _getRandomCell() {
-            var x = Math.round(Math.random() * (_fieldWidth / _cellSize - 1)) * _cellSize;
-            var y = Math.round(Math.random() * (_fieldHeight / _cellSize - 1)) * _cellSize;
+            var x = Math.round(Math.random() * (FIELD_WIDTH / CELL_SIZE - 1)) * CELL_SIZE;
+            var y = Math.round(Math.random() * (FIELD_HEIGHT / CELL_SIZE - 1)) * CELL_SIZE;
             return {
                 x: x,
                 y: y
@@ -24,40 +24,40 @@ var Game = (function () {
         }
 
         function _gameLoop() {
-            _canvasRenderer.clearScreen();
-            _apples.forEach(function (apple) {
-                apple.draw(_canvasRenderer);
+            canvasRenderer.clearScreen();
+            apples.forEach(function (apple) {
+                apple.draw(canvasRenderer);
             });
-            _snake.draw(_canvasRenderer);
-            _snake.move();
+            snake.draw(canvasRenderer);
+            snake.move();
             if (_snakeIsAlive()) {
                 _eatApples();
             } else {
-                clearInterval(_intervalID);
+                clearInterval(intervalID);
                 alert('Well... snake died.');
             }
         }
 
         function _eatApples() {
-            for (var i = 0; i < _apples.length; i++) {
-                if (_apples[i].body.x === _snake._head.x && _apples[i].body.y === _snake._head.y) {
+            for (var i = 0; i < apples.length; i++) {
+                if (apples[i].body.x === snake._head.x && apples[i].body.y === snake._head.y) {
                     // Add cell to the snake tail
-                    _snake.eatApple();
+                    snake.eatApple();
                     // Remove the eaten apple and create a new one at random position
-                    _apples.splice(i, 1);
+                    apples.splice(i, 1);
                     var randomCell = _getRandomCell();
-                    _apples.push(new GameObjects.Apple(randomCell));
+                    apples.push(new GameObjects.Apple(randomCell));
                 }
             }
         }
 
         function _snakeIsAlive() {
             // Check if head collides with the screen borders            
-            if (_snake._head.x < 0 || _snake._head.x > _fieldWidth - _cellSize ||
-                _snake._head.y < 0 || _snake._head.y > _fieldHeight - _cellSize)
+            if (snake._head.x < 0 || snake._head.x > FIELD_WIDTH - CELL_SIZE ||
+                snake._head.y < 0 || snake._head.y > FIELD_HEIGHT - CELL_SIZE)
                 return false;
 
-            if (_snake.headCollidesWithBody())
+            if (snake.headCollidesWithBody())
                 return false;
 
             return true;
@@ -65,24 +65,24 @@ var Game = (function () {
 
         // constructor
         function Game(cellSize) {
-            _cellSize = cellSize || 20; // pixels
-            _fieldWidth = 32 * _cellSize;
-            _fieldHeight = 20 * _cellSize;
-            _numApples = 3;
+            CELL_SIZE = cellSize || 20; // pixels
+            FIELD_WIDTH = 32 * CELL_SIZE;
+            FIELD_HEIGHT = 20 * CELL_SIZE;
+            numApples = 3;
         }
 
         Game.prototype.run = function () {
-            _canvasRenderer = CanvasRenderer.getRenderer(_fieldWidth, _fieldHeight, _cellSize);
+            canvasRenderer = CanvasRenderer.getRenderer(FIELD_WIDTH, FIELD_HEIGHT, CELL_SIZE);
             // Snake(cellSize, startLength, startX, startY)
-            _snake = new GameObjects.Snake(_cellSize, 5, _cellSize, _cellSize);
-            _snake.attachEventHandlers(document);
-            _apples = [];
-            for (var i = 0; i < _numApples; i++) {
+            snake = new GameObjects.Snake(CELL_SIZE, 5, CELL_SIZE, CELL_SIZE);
+            snake.attachEventHandlers(document);
+            apples = [];
+            for (var i = 0; i < numApples; i++) {
                 var randomCell = _getRandomCell();
-                _apples.push(new GameObjects.Apple(randomCell));
+                apples.push(new GameObjects.Apple(randomCell));
             }
 
-            _intervalID = setInterval(_gameLoop, 1000 / 10);
+            intervalID = setInterval(_gameLoop, 1000 / 10);
         }
 
         return Game;
