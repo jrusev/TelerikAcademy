@@ -13,8 +13,8 @@
         $(document).ready(function () {
             var comboBox = controls.ComboBox(data.countryFlags);
             var template = $("#template").html();
-            var comboBoxHtml = comboBox.render(template);
-            $('#container').html(comboBoxHtml);
+            var $comboControl = comboBox.render(template);
+            $('#container').append($comboControl);
         });
     });
 
