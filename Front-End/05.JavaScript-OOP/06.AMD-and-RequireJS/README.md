@@ -1,6 +1,6 @@
 ## AMD and RequireJS
 
-1. Implement a ComboBox control (like a dropdown list)
+1. Implement a **ComboBox control** (like a dropdown list)
  * The ComboBox holds a set of items (an array)
  * Initially only a single item, the selected item, is visible (the ComboBox is collapsed)
  * When the selected item is clicked, all other items are shown (the ComboBox is expanded)
