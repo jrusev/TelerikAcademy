@@ -9,6 +9,7 @@
  * Use RequireJS and handlebars.js
    * jQuery is not obligatory (use it if you will)
  * The ComboBox should have the following usage:
+ 
 	```
 	var people = [
 	  { id: 1, name: "Doncho Minkov", age: 18, avatarUrl: "images/minkov.jpg" }, 
