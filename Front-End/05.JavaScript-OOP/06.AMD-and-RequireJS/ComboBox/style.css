@@ -1,6 +1,6 @@
 li {
     list-style-type: none;
-    width: 100px;            
+    width: 102px;            
     text-align: center;
     border: 1px solid grey;
     border-radius: 5px;
@@ -9,4 +9,5 @@ li {
 img {
     width: 100px;
     height: 60px;
+    border: 1px solid LightGray;
 }
