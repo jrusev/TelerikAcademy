@@ -14,15 +14,6 @@ var Game = (function () {
             apples,
             canvasRenderer;
 
-        function _getRandomCell() {
-            var x = Math.round(Math.random() * (FIELD_WIDTH / CELL_SIZE - 1)) * CELL_SIZE;
-            var y = Math.round(Math.random() * (FIELD_HEIGHT / CELL_SIZE - 1)) * CELL_SIZE;
-            return {
-                x: x,
-                y: y
-            };
-        }
-
         function _gameLoop() {
             canvasRenderer.clearScreen();
             apples.forEach(function (apple) {
@@ -36,6 +27,15 @@ var Game = (function () {
                 clearInterval(intervalID);
                 alert('Well... snake died.');
             }
+        }
+
+        function _getRandomCell() {
+            var x = Math.round(Math.random() * (FIELD_WIDTH / CELL_SIZE - 1)) * CELL_SIZE;
+            var y = Math.round(Math.random() * (FIELD_HEIGHT / CELL_SIZE - 1)) * CELL_SIZE;
+            return {
+                x: x,
+                y: y
+            };
         }
 
         function _eatApples() {
