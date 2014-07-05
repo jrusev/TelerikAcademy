@@ -9,14 +9,13 @@ define(['jquery', 'handlebars'], function ($) {
 
         ComboBox.prototype.render = function (templateHtml) {
             
-            var template, $buffer, $ul, $li, $listItems;
+            var template, $buffer, $ul, $li;
 
             template = Handlebars.compile(templateHtml);
 
             $buffer = $('<div/>').addClass('comboBox');
             $ul = $('<ul/>');
             $li = $('<li/>');
-            $listItems;
 
             for (var i = 0; i < this._items.length; i++) {
                 $li.html(template(this._items[i]));
@@ -34,7 +33,7 @@ define(['jquery', 'handlebars'], function ($) {
                 $clicked.show();
             });
 
-            return $buffer;
+            return $buffer[0];
         };
 
         return ComboBox;
