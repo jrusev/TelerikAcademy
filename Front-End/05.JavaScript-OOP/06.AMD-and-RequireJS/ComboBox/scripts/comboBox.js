@@ -33,7 +33,7 @@ define(['jquery', 'handlebars'], function ($) {
                 $clicked.show();
             });
 
-            // return DOM element, not the jQuery object
+            // return the DOM element from the jQuery object
             return $buffer[0];
         };
 
