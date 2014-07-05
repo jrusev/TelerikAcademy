@@ -1,12 +1,14 @@
-li {
-    list-style-type: none;
+#container {
+    padding-left: 40px;
+}
+#container .country-item {
     width: 102px;            
     text-align: center;
     border: 1px solid LightBlue;
     border-radius: 5px;
-    cursor: pointer;            
+    cursor: pointer; 
 }
-img {
+#container .country-item img {
     width: 100px;
     height: 60px;
     border: 1px solid LightGray;

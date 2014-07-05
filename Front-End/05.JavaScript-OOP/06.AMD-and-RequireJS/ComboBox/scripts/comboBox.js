@@ -1,45 +1,27 @@
 define(['jquery', 'handlebars'], function ($) {
     'use strict';
 
-    var ComboBox = (function () {
+    function ComboBox(items) {
+        this._items = items;
+    }
 
-        function ComboBox(items) {
-            this._items = items;
-        }
+    ComboBox.prototype.render = function (templateHtml) {
 
-        ComboBox.prototype.render = function (templateHtml) {
-            
-            var template, $buffer, $ul, $li;
+        var template = Handlebars.compile(templateHtml);
+        var $buffer = $('<div/>').addClass('comboBox');
+        
+        this._items.forEach(function(item) {
+            $(template(item)).addClass('box-item').appendTo($buffer);
+        });
 
-            template = Handlebars.compile(templateHtml);
+        $buffer.on('click', '.box-item', function () {
+            var $clicked = $(this);
+            $clicked.siblings().toggle().find('.selected').removeClass('selected');
+            $clicked.addClass('selected').show();
+        });
 
-            $buffer = $('<div/>').addClass('comboBox');
-            $ul = $('<ul/>');
-            $li = $('<li/>');
-
-            for (var i = 0; i < this._items.length; i++) {
-                $li.html(template(this._items[i]));
-                $ul.append($li.clone(true));
-            }
-
-            $ul.appendTo($buffer);
-            $ul.children().hide().first().show();
-
-            $buffer.on('click', 'li', function () {
-                var $clicked = $(this);
-                $clicked.parent().find('.selected').removeClass('selected');
-                $clicked.addClass('selected');
-                $clicked.siblings().toggle();
-                $clicked.show();
-            });
-
-            // return the DOM element from the jQuery object
-            return $buffer[0];
-        };
-
-        return ComboBox;
-
-    })();
+        return $buffer[0];
+    };
 
     return ComboBox;
 });
