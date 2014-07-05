@@ -10,7 +10,7 @@
     require(["jquery", "controls", "data"], function ($, controls, data) {
         
         $(document).ready(function () {
-            var comboBox = controls.ComboBox(data.items);
+            var comboBox = controls.ComboBox(data.countryFlags);
             var template = $("#template").html();
             var comboBoxHtml = comboBox.render(template);
             $('#container').html(comboBoxHtml);

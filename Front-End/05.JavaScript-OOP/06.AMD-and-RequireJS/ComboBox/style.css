@@ -2,7 +2,7 @@ li {
     list-style-type: none;
     width: 102px;            
     text-align: center;
-    border: 1px solid grey;
+    border: 1px solid LightBlue;
     border-radius: 5px;
     cursor: pointer;            
 }

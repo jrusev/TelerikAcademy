@@ -3,7 +3,7 @@ define(function ($) {
 
     var data = (function () {
         
-         var items = [
+         var countryFlags = [
              { id: 1, name: "Argentina", src: "http://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/200px-Flag_of_Argentina.svg.png" }, 
              { id: 2, name: "Belgium", src: "http://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Belgium.svg/200px-Flag_of_Belgium.svg.png" },
              { id: 3, name: "Brazil", src: "http://upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/200px-Flag_of_Brazil.svg.png" },
@@ -14,7 +14,7 @@ define(function ($) {
          ];
 
         return {
-            items: items
+            countryFlags: countryFlags
         }
 
     })();

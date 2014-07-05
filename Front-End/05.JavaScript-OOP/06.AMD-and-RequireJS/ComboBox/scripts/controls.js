@@ -19,20 +19,18 @@ define(['jquery','handlebars'], function ($) {
                     $listItems;
 
                 for (var i = 0; i < this._items.length; i++) {
-                    $li.attr('data-value', i);
                     $li.html(template(this._items[i]));
                     $ul.append($li.clone(true));
                 }
 
                 $ul.appendTo($buffer);
-                $listItems = $ul.children();
-                $listItems.hide().first().show();
+                $ul.children().hide().first().show();
 
                 $buffer.on('click', 'li', function () {
                     var $clicked = $(this);
                     $clicked.parent().find('.selected').removeClass('selected');
                     $clicked.addClass('selected');
-                    $listItems.toggle();
+                    $clicked.siblings().toggle();
                     $clicked.show();
                 });
 
