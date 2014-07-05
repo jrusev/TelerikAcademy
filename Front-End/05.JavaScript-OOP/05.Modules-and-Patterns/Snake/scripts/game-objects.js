@@ -1,7 +1,7 @@
 var GameObjects = (function () {
     "use strict";
 
-    function _Cell(x, y) {
+    function Cell(x, y) {
         this.x = x;
         this.y = y;
     }
@@ -9,7 +9,7 @@ var GameObjects = (function () {
     var Apple = (function () {
 
         function Apple(cell) {
-            this.body = new _Cell(cell.x, cell.y);
+            this.body = new Cell(cell.x, cell.y);
         }
         Apple.prototype.draw = function (renderer) {
             renderer.drawCells([this.body], 'yellow');
@@ -29,17 +29,17 @@ var GameObjects = (function () {
         // constructor
         function Snake(cellSize, startLength, startX, startY) {
             this._cellSize = cellSize;
-            this._head = new _Cell(startX, startY);
+            this._head = new Cell(startX, startY);
             this._body = new Array(startLength - 1);
             for (var i = 0; i < startLength - 1; i++) {
-                this._body[i] = new _Cell(startX - this._cellSize * (i + 1), startY);
+                this._body[i] = new Cell(startX - this._cellSize * (i + 1), startY);
             }
             this._direction = Dirs.right;
         }
 
         Snake.prototype.move = function () {
             this._body.splice(this._body.length - 1, 1);
-            this._body.unshift(new _Cell(this._head.x, this._head.y));
+            this._body.unshift(new Cell(this._head.x, this._head.y));
 
             this._head.x += this._direction[0] * this._cellSize;
             this._head.y += this._direction[1] * this._cellSize;
@@ -54,7 +54,7 @@ var GameObjects = (function () {
             // Add cell to the snake body
             var tailX = this._body[this._body.length - 1].x * 2 - this._body[this._body.length - 2].x;
             var tailY = this._body[this._body.length - 1].y * 2 - this._body[this._body.length - 2].y;
-            this._body.push(new _Cell(tailX, tailY));
+            this._body.push(new Cell(tailX, tailY));
         };
 
         Snake.prototype.headCollidesWithBody = function () {

@@ -84,7 +84,7 @@ var Game = (function () {
             }
 
             intervalID = setInterval(_gameLoop, 1000 / 10);
-        }
+        };
 
         return Game;
 
