@@ -14,10 +14,8 @@ define(['jquery', 'handlebars'], function ($) {
             $(template(item)).addClass('box-item').appendTo($buffer);
         });
 
-        $buffer.on('click', '.box-item', function () {
-            var $clicked = $(this);
-            $clicked.siblings().toggle().find('.selected').removeClass('selected');
-            $clicked.addClass('selected').show();
+        $buffer.on('click', '.box-item', function () {   
+            $(this).addClass('selected').show().siblings().removeClass('selected').toggle();
         });
 
         return $buffer[0];
