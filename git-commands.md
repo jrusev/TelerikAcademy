@@ -37,7 +37,7 @@ You can get a Git project using two main approaches:
 * `$ git checkout <newbranch>` - switch to the new branch.
 * `$ git merge <otherbranch>` - merge the specified branch into the current branch. 
 
-### Going back to previous commit (use with care and only as reference!)
+### Going back to previous commit (use with care!)
 
 * `$ git checkout [revision]` - goes back to an old revision (commit) in a temporary branch and does not change history
 * `$ git checkout master` - returns back to the master branch.
