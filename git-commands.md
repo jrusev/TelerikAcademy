@@ -29,3 +29,17 @@ You can get a Git project using two main approaches:
 * `$ git status -s` - displays the state of the working directory and the staging area
 * `$ git log --oneline` - shows the commit logs
 * Shift+ Z,Z -> exit to the command prompt (e.g. after a long git status message)
+
+### Branching
+
+* `$ git branch <newbranch>` - creates a new branch.
+* `$ git branch` - lists all branches.
+* `$ git checkout <newbranch>` - switch to the new branch.
+* `$ git merge <otherbranch>` - merge the specified branch into the current branch. 
+
+### Going back to previous commit (use with care and only as reference!)
+
+* `$ git checkout [revision]` - goes back to an old revision (commit) in a temporary branch and does not change history
+* `$ git checkout master` - returns back to the master branch.
+* `$ git revert [revision]` - go back to an old version and create a new commit (use when work is already shared).
+* `$ git reset --hard [revision]` - goes back to an old revision and deletes history (use only when work is not already shared).
