@@ -10,7 +10,7 @@ define([], function () {
 			this.bonus = params.bonus;
 		}
 
-		Student .prototype.toString = function () {
+		Student.prototype.toString = function () {
 			return '{' + this.name + ', exam: ' + this.exam.toFixed(2) + ', total score: '+ (this.totalScore.toFixed(2) || 'n.a.') + '}';
 		};
 
