@@ -43,3 +43,7 @@ You can get a Git project using two main approaches:
 * `$ git checkout master` - returns back to the master branch.
 * `$ git revert [revision]` - go back to an old version and create a new commit (use when work is already shared).
 * `$ git reset --hard [revision]` - goes back to an old revision and deletes history (use only when work is not already shared).
+* Revert to a previous Git commit - [http://stackoverflow.com/questions/4114095/revert-to-a-previous-git-commit]
+
+
+
