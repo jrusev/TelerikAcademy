@@ -35,7 +35,9 @@ You can get a Git project using two main approaches:
 * `$ git branch <newbranch>` - creates a new branch.
 * `$ git branch` - lists all branches.
 * `$ git checkout <newbranch>` - switch to the new branch.
-* `$ git merge <otherbranch>` - merge the specified branch into the current branch. 
+* `$ git merge <otherbranch>` - merge the specified branch into the current branch.
+* `$ git branch -d <localBranch>` - delete a local branch.
+* `$ git push origin --delete <branchName>` - delete a remote branch.
 
 ### Going back to previous commit (use with care!)
 
