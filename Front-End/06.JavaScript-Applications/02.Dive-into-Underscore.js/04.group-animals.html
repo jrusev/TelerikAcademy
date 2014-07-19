@@ -15,17 +15,11 @@
         (function () {
             'use strict';
 
-            var Animal = (function () {
-                function Animal(name, specie, legs) {
-                    this.name = name;
-                    this.specie = specie;
-                    this.legs = legs;
-                };
-                Animal.prototype.toString = function () {
-                    return this.name;
-                }
-                return Animal;
-            })();
+            function Animal(name, specie, legs) {
+                this.name = name;
+                this.specie = specie;
+                this.legs = legs;
+            };
 
             var animals = [
                 new Animal('Simba', 'lion', 4),
@@ -45,7 +39,8 @@
                 .each(function (group) {
                     var specie = _.first(group).specie;
                     var legs = _.first(group).legs;
-                    console.log(specie + 's (' + legs + ' legs): ' + group.join(', '));
+                    var names = _.pluck(group, 'name');
+                    console.log(specie + 's (' + legs + ' legs): ' + names.join(', '));
                 });
         }());
     </script>
