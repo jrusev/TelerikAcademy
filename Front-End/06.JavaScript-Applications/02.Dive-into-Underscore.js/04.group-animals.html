@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dive into Underscore.js</title>
+    <script src="scripts/underscore.js"></script>
+</head>
+
+<body>
+    <script>
+        /**
+         * Write a function that by a given array of animals,
+         * groups them by species and sorts them by number of legs
+         */
+        (function () {
+            'use strict';
+
+            var Animal = (function () {
+                function Animal(name, specie, legs) {
+                    this.name = name;
+                    this.specie = specie;
+                    this.legs = legs;
+                };
+                Animal.prototype.toString = function () {
+                    return this.name;
+                }
+                return Animal;
+            })();
+
+            var animals = [
+                new Animal('Simba', 'lion', 4),
+                new Animal('Nala', 'lion', 4),
+                new Animal('Willie', 'whale', 0),
+                new Animal('Kenga', 'kangaroo', 2),
+                new Animal('Ru', 'kangaroo', 2),
+            ];
+
+            console.log('Animals grouped by specie and sorted by number of legs:');
+
+            _.chain(animals)
+                .groupBy('specie')
+                .sortBy(function (group) {
+                    return _.first(group).legs;
+                })
+                .each(function (group) {
+                    var specie = _.first(group).specie;
+                    var legs = _.first(group).legs;
+                    console.log(specie + 's (' + legs + ' legs): ' + group.join(', '));
+                });
+        }());
+    </script>
+</body>
+
+</html>
