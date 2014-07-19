@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dive into Underscore.js</title>
+    <script src="scripts/underscore.js"></script>
+</head>
+
+<body>
+    <script>
+        /**
+         * By a given array of animals, find the total number of legs.
+         * Each animal can have 2, 4, 6, 8 or 100 legs.
+         */
+        (function () {
+            'use strict';
+
+            function Animal(name, specie, legs) {
+                this.name = name;
+                this.specie = specie;
+                this.legs = legs;
+            };
+
+            var animals = [
+                new Animal('Simba', 'fourLegged', 4),
+                new Animal('Oxy', 'sixLegged', 6),
+                new Animal('Kenga', 'eightLegged', 8),
+                new Animal('Ru', 'hundredLegged', 100),
+                new Animal('Two', 'twoLegged', 2),
+            ];
+
+            var sumOfLegs = _.reduce(animals, function (memo, animal) {
+                return memo + animal.legs;
+            }, 0);
+
+            console.log('Total number of legs: ' + sumOfLegs);
+
+        }());
+    </script>
+</body>
+
+</html>
