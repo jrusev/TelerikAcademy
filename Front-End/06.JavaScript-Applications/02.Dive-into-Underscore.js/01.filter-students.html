@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dive into Underscore.js</title>
+    <script src="scripts/underscore/underscore.js"></script>
+</head>
+
+<body>
+    <script>
+        /**
+         * Write a method that from a given array of students finds all students
+         * whose first name is before its last name alphabetically.
+         * Print the students in descending order by full name.
+         */
+        (function () {
+            'use strict';
+
+            var Student = Object.create({
+                init: function (fname, lname) {
+                    this.fname = fname;
+                    this.lname = lname;
+                    return this;
+                },
+                toString: function () {
+                    return this.fname + ' ' + this.lname;
+                }
+            });
+
+            var students = [
+              Object.create(Student).init('Doncho', 'Minkov'),
+              Object.create(Student).init('Nikolay', 'Kostov'),
+              Object.create(Student).init('Aneliya', 'Stoyanova'),
+              Object.create(Student).init('Ivaylo', 'Kenov'),
+              Object.create(Student).init('Todor', 'Stoyanov')
+             ];
+
+            var studentsFnameBeforeLname = _.filter(students, function (s) {
+                return s.fname < s.lname;
+            });
+
+            console.log('---People whose first name is before its last name alphabetically:');
+            _.each(studentsFnameBeforeLname, function (s) {
+                console.log(s.toString());
+            });
+
+        }());
+    </script>
+</body>
+
+</html>
