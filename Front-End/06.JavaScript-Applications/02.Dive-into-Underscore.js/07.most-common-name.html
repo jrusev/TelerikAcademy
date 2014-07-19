@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dive into Underscore.js</title>
+    <script src="scripts/underscore.js"></script>
+</head>
+
+<body>
+    <script>
+        /**
+         * By an array of people find the most common first and last name.
+         */
+        (function () {
+            'use strict';
+
+            function Person(fname, lname) {
+                this.fname = fname;
+                this.lname = lname;
+            };
+
+            var people = [
+                new Person('Svetlin', 'Nakov'),
+                new Person('Svetlin', 'Ivanov'),
+                new Person('Nikolay', 'Kostov'),
+                new Person('Nikolay', 'Vasilev'),
+                new Person('Nikolay', 'Ivanov'),
+                new Person('Nikolay', 'Donev'),
+                new Person('Ivaylo', 'Kenov'),
+                new Person('Ivaylo', 'Hristov'),
+                new Person('Ivaylo', 'Ivanov'),
+                new Person('Doncho', 'Minkov')
+            ];
+
+            function getTopName(prop) {
+                return _.chain(people)
+                    .groupBy(prop)
+                    .sortBy('length')
+                    .last()
+                    .first()
+                    .value()[prop];
+            }
+
+            var topFirstName = getTopName('fname');
+            var topLastName = getTopName('lname');
+
+            console.log('Most common first name is: ' + topFirstName);
+            console.log('Most common last name is: ' + topLastName);
+
+        }());
+    </script>
+</body>
+
+</html>
