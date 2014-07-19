@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dive into Underscore.js</title>
+    <script src="scripts/underscore.js"></script>
+</head>
+
+<body>
+    <script>
+        /**
+         * By a given collection of books, find the most popular author
+         * (the author with the highest number of books).
+         */
+        (function () {
+            'use strict';
+
+            function Book(title, author) {
+                this.title = title;
+                this.author = author;
+            };
+
+            var books = [
+                // by Nakov
+                new Book('Java', 'Svetlin Nakov'),
+                new Book('C++', 'Svetlin Nakov'),
+                new Book('Pascal', 'Svetlin Nakov'),
+                new Book('Linux', 'Svetlin Nakov'),
+
+                // by Niki
+                new Book('C#', 'Nikolay Kostov'),
+
+                // by Ivo
+                new Book('Handlebars', 'Ivaylo Kenov'),
+                new Book('Angular', 'Ivaylo Kenov'),
+
+                // by Doncho
+                new Book('JavaScript', 'Doncho Minkov'),
+                new Book('HTML', 'Doncho Minkov'),
+                new Book('CSS', 'Doncho Minkov'),
+            ];
+
+            var booksByTopAuthor = _.chain(books)
+                .groupBy('author')
+                .sortBy('length')
+                .last()
+                .value();
+
+            var topAuthor = _.first(booksByTopAuthor).author;
+            var topAuthorBookCount = booksByTopAuthor.length;
+
+            console.log('The most popular author is ' + topAuthor + ' with ' + topAuthorBookCount + ' books.');
+
+        }());
+    </script>
+</body>
+
+</html>
