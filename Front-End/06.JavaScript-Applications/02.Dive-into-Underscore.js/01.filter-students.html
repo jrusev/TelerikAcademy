@@ -31,6 +31,7 @@
               Object.create(Student).init('Doncho', 'Minkov'),
               Object.create(Student).init('Nikolay', 'Kostov'),
               Object.create(Student).init('Aneliya', 'Stoyanova'),
+              Object.create(Student).init('Aneliya', 'Stoyanov'),
               Object.create(Student).init('Ivaylo', 'Kenov'),
               Object.create(Student).init('Todor', 'Stoyanov')
              ];
@@ -40,9 +41,13 @@
             });
 
             console.log('---People whose first name is before its last name alphabetically:');
-            _.each(studentsFnameBeforeLname, function (s) {
-                console.log(s.toString());
-            });
+            _.chain(studentsFnameBeforeLname)
+                .sortBy(function (s) {
+                    return s.toString();
+                })
+                .each(function (s) {
+                    console.log(s.toString());
+                });
 
         }());
     </script>
