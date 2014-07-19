@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dive into Underscore.js</title>
+    <script src="scripts/underscore.js"></script>
+</head>
+
+<body>
+    <script>
+        /**
+         * Write function that finds the first name and last name of all students with age between 18 and 24.
+         */
+        (function () {
+            'use strict';
+
+            function Student(fname, lname, age) {
+                this.fname = fname;
+                this.lname = lname;
+                this.age = age;
+            };
+
+            var students = [
+                new Student('Doncho', 'Minkov', 15),
+                new Student('Nikolay', 'Kostov', 20),
+                new Student('Aneliya', 'Stoyanova', 24),
+                new Student('Ivaylo', 'Kenov', 18),
+                new Student('Todor', 'Stoyanov', 30),
+            ];
+
+            console.log('All students with age between 18 and 24:');
+
+            _.chain(students)
+                .filter(function (s) {
+                    return s.age >= 18 && s.age <= 24;
+                })
+                .sortBy('age')
+                .each(function (s) {
+                    console.log(s.fname + ' ' + s.lname + ' ' + s.age);
+                });
+
+        }());
+    </script>
+</body>
+
+</html>
