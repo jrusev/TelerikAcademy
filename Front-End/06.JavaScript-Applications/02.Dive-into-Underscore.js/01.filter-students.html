@@ -16,37 +16,30 @@
         (function () {
             'use strict';
 
-            var Student = Object.create({
-                init: function (fname, lname) {
-                    this.fname = fname;
-                    this.lname = lname;
-                    return this;
-                },
-                toString: function () {
-                    return this.fname + ' ' + this.lname;
-                }
-            });
+            function Student(fname, lname) {
+                this.fname = fname;
+                this.lname = lname;
+            };
 
             var students = [
-              Object.create(Student).init('Doncho', 'Minkov'),
-              Object.create(Student).init('Nikolay', 'Kostov'),
-              Object.create(Student).init('Aneliya', 'Stoyanova'),
-              Object.create(Student).init('Aneliya', 'Stoyanov'),
-              Object.create(Student).init('Ivaylo', 'Kenov'),
-              Object.create(Student).init('Todor', 'Stoyanov')
-             ];
+                new Student('Doncho', 'Minkov'),
+                new Student('Nikolay', 'Kostov'),
+                new Student('Aneliya', 'Stoyanova'),
+                new Student('Aneliya', 'Stoyanov'),
+                new Student('Ivaylo', 'Kenov'),
+                new Student('Todor', 'Stoyanov'),
+            ];
 
-            var studentsFnameBeforeLname = _.filter(students, function (s) {
-                return s.fname < s.lname;
-            });
-
-            console.log('---People whose first name is before its last name alphabetically:');
-            _.chain(studentsFnameBeforeLname)
+            console.log('Students whose first name is before its last name alphabetically:');
+            _.chain(students)
+                .filter(function (s) {
+                    return s.fname < s.lname;
+                })
                 .sortBy(function (s) {
-                    return s.toString();
+                    return s.fname + ' ' + s.lname;
                 })
                 .each(function (s) {
-                    console.log(s.toString());
+                    console.log(s.fname + ' ' + s.lname);
                 });
 
         }());
