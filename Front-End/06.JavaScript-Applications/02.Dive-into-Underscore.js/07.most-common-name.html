@@ -32,17 +32,30 @@
                 new Person('Doncho', 'Minkov')
             ];
 
-            function getTopName(prop) {
-                return _.chain(people)
-                    .groupBy(prop)
-                    .sortBy('length')
-                    .last()
-                    .first()
-                    .value()[prop];
+            /**
+             * Returns the most common property value in a list of objects.
+             */
+            function getMostCommonProperty(objects, prop) {
+                var groups = _.groupBy(objects, prop);
+                return _.max(groups, function (gr) {
+                    return gr.length
+                })[0][prop];
             }
 
-            var topFirstName = getTopName('fname');
-            var topLastName = getTopName('lname');
+            // function getMostCommonProperty2(objects, prop) {
+            //     var groupsByPropCount = _.countBy(objects, prop);
+            //     var pairs = _.pairs(groupsByPropCount);
+            //     return _.max(pairs, _.last)[0];
+            // }
+            //
+            // function getMostCommonProperty3(objects, prop) {
+            //     var groupsByPropCount = _.countBy(objects, prop);
+            //     var maxCount = _.max(groupsByPropCount);
+            //     return _.invert(groupsByPropCount)[maxCount];
+            // }
+
+            var topFirstName = getMostCommonProperty(people, 'fname');
+            var topLastName = getMostCommonProperty(people, 'lname');
 
             console.log('Most common first name is: ' + topFirstName);
             console.log('Most common last name is: ' + topLastName);

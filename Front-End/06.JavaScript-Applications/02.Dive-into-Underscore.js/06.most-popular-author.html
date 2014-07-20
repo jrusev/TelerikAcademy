@@ -44,15 +44,6 @@
             var maxBooks = _.max(numBooksByAuthor);
             var topAuthor = _.invert(numBooksByAuthor)[maxBooks];
 
-            //            var booksByTopAuthor = _.chain(books)
-            //                .groupBy('author')
-            //                .sortBy('length')
-            //                .last()
-            //                .value();
-            //
-            //            var topAuthor = _.first(booksByTopAuthor).author;
-            //            var maxBooks = booksByTopAuthor.length;
-
             console.log('The most popular author is ' + topAuthor + ' with ' + maxBooks + ' books.');
 
         }());
