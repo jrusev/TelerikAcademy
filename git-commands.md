@@ -39,13 +39,14 @@ You can get a Git project using two main approaches:
 * `git branch -d <localBranch>` - delete a local branch.
 * `git push origin --delete <branchName>` - delete a remote branch.
 
-### Going back to previous commit (use with care!)
+### Undo changes (use with care!)
 
 * `git checkout [revision]` - goes back to an old revision (commit) in a temporary branch and does not change history
 * `git checkout master` - returns back to the master branch.
 * `git revert [revision]` - go back to an old version and create a new commit (use when work is already shared).
 * `git reset --hard [revision]` - goes back to an old revision and deletes history (use only when work is not already shared).
 * Revert to a previous Git commit - [http://stackoverflow.com/questions/4114095/revert-to-a-previous-git-commit]
+* `git checkout -- .` - discard unstaged changes (changes in the working copy that are not added to the index).
 
 
 
