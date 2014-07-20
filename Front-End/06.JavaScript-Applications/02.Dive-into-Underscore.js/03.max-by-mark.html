@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dive into Underscore.js</title>
+    <script src="scripts/underscore.js"></script>
+</head>
+
+<body>
+    <script>
+        /**
+         * Write a function that by a given array of students finds the student with highest marks.
+         */
+        (function () {
+            'use strict';
+
+            var Student = (function () {
+                function Student(fname, lname, marks) {
+                    this.fname = fname;
+                    this.lname = lname;
+                    this.marks = marks;
+                };
+                Student.prototype.toString = function () {
+                    return this.fname + ' ' + this.lname + ' [' + this.marks + ']';
+                }
+                return Student;
+            })();
+
+            var students = [
+                new Student('Doncho', 'Minkov', [75, 81, 97]),
+                new Student('Nikolay', 'Kostov', [77, 85, 87]),
+                new Student('Aneliya', 'Stoyanova', [75, 82, 101]),
+                new Student('Ivaylo', 'Kenov', [95, 89, 96]),
+                new Student('Todor', 'Stoyanov', [66, 76, 86]),
+            ];
+
+            function average(arr) {
+                return _.reduce(arr, function (memo, num) {
+                    return memo + num;
+                }, 0) / arr.length;
+            }
+
+            var topStudent = _.max(students, function (s) {
+                return average(s.marks);
+            });
+
+            console.log('The student with the highest marks: ' + topStudent.toString());
+        }());
+    </script>
+</body>
+
+</html>
