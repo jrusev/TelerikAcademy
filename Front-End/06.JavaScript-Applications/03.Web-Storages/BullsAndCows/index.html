@@ -55,9 +55,7 @@
                 nGuesses++;
                 print('Your guess #' + nGuesses + ': ');
 
-                var guessAsArray = guessAsStr.split('').map(function (t) {
-                    return +t
-                });
+                var guessAsArray = guessAsStr.split('');
                 var result = countBullsCows(num, guessAsArray);
                 showScore(result.bulls, result.cows);
                 if (result.bulls == len) {
@@ -83,9 +81,9 @@
                     bulls: 0,
                     cows: 0
                 };
-                //var guessAsStr = guessAsArray.join('');
+                var guessAsStr = guessAsArray.join('');
                 for (var i = 0; i < num.length; i++) {
-                    var digPresent = guessAsArray.indexOf(num[i]) != -1;
+                    var digPresent = guessAsStr.search(num[i]) != -1;
                     if (num[i] == guessAsArray[i]) count.bulls++;
                     else if (digPresent) count.cows++;
                 }
