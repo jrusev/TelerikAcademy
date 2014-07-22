@@ -20,10 +20,9 @@
 
             var nGuesses = 0,
                 len = 4,
+                outputDiv = document.getElementById('output'),
+                p = document.createElement('p'),
                 num;
-
-            var outputDiv = document.getElementById('output');
-            var p = document.createElement('p');
 
             window.addEventListener("load", main, false);
 
@@ -48,15 +47,18 @@
             }
 
             function checkGuess(evt) {
-                if (!isValidGuess(nGuesses, len, this.value)) {
+                var guessAsStr = this.value;
+                if (!isValidGuess(nGuesses, len, guessAsStr)) {
                     return;
                 }
 
                 nGuesses++;
                 print('Your guess #' + nGuesses + ': ');
 
-                var guess = String(parseInt(this.value)).split('');
-                var result = countBullsCows(num, guess);
+                var guessAsArray = guessAsStr.split('').map(function (t) {
+                    return +t
+                });
+                var result = countBullsCows(num, guessAsArray);
                 showScore(result.bulls, result.cows);
                 if (result.bulls == len) {
                     showFinalResult(nGuesses);
@@ -64,27 +66,27 @@
                 }
             }
 
-            function isValidGuess(nGuesses, len, guess) {
-                if (guess.length != len) {
+            function isValidGuess(nGuesses, len, guessAsStr) {
+                if (guessAsStr.length != len) {
                     print('  You must enter a ' + len + ' digit number.');
                     return false;
                 }
-                if (hasDups(guess)) {
+                if (hasDups(guessAsStr)) {
                     print('  No digits can be duplicated.');
                     return false;
                 }
                 return true;
             }
 
-            function countBullsCows(num, guess) {
+            function countBullsCows(num, guessAsArray) {
                 var count = {
                     bulls: 0,
                     cows: 0
                 };
-                var g = guess.join('');
+                //var guessAsStr = guessAsArray.join('');
                 for (var i = 0; i < num.length; i++) {
-                    var digPresent = g.search(num[i]) != -1;
-                    if (num[i] == guess[i]) count.bulls++;
+                    var digPresent = guessAsArray.indexOf(num[i]) != -1;
+                    if (num[i] == guessAsArray[i]) count.bulls++;
                     else if (digPresent) count.cows++;
                 }
                 return count;
