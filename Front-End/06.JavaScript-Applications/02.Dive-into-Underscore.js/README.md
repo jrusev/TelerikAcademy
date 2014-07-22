@@ -1,4 +1,4 @@
-## Modules and Patterns
+## Dive into Underscore.js
 
 1. Write a method that from a given array of students finds all students whose first name is before its last name alphabetically. Print the students in descending order by full name. Use Underscore.js
 * Write function that finds the first name and last name of all students with age between 18 and 24. Use Underscore.js

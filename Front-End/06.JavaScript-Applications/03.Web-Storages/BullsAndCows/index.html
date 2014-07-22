@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bulls and Cows</title>
+    <script src="scripts/underscore.js"></script>
+</head>
+
+<body>
+    <input type="text" id="text-input-auto" autofocus="autofocus" placeholder="Type your guess here..." />
+    <div id="output"></div>
+    <script>
+        /**
+         * Create a simple number guessing game (bulls and cows).
+         * When the game ends save the player nickname inside the localStorage.
+         * Implement a high-score list
+         */
+        (function () {
+            'use strict';
+
+            var nGuesses = 0,
+                len = 4,
+                num;
+
+            var outputDiv = document.getElementById('output');
+            var p = document.createElement('p');
+
+            window.addEventListener("load", main, false);
+
+            function main() {
+                num = pickNum(len);
+                console.log('The secret number is: ' + num.join(''));
+                showInstructions(len);
+                attachEventHandlers();
+            }
+
+            function pickNum(len) {
+                var nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+                nums.sort(function () {
+                    return Math.random() - 0.5
+                });
+                return nums.slice(0, len);
+            }
+
+            function attachEventHandlers(input) {
+                var inputText = document.getElementById('text-input-auto');
+                inputText.addEventListener('change', checkGuess, false);
+            }
+
+            function checkGuess(evt) {
+                if (!isValidGuess(nGuesses, len, this.value)) {
+                    return;
+                }
+
+                nGuesses++;
+                print('Your guess #' + nGuesses + ': ');
+
+                var guess = String(parseInt(this.value)).split('');
+                var result = countBullsCows(num, guess);
+                showScore(result.bulls, result.cows);
+                if (result.bulls == len) {
+                    showFinalResult(nGuesses);
+                    return;
+                }
+            }
+
+            function isValidGuess(nGuesses, len, guess) {
+                if (guess.length != len) {
+                    print('  You must enter a ' + len + ' digit number.');
+                    return false;
+                }
+                if (hasDups(guess)) {
+                    print('  No digits can be duplicated.');
+                    return false;
+                }
+                return true;
+            }
+
+            function countBullsCows(num, guess) {
+                var count = {
+                    bulls: 0,
+                    cows: 0
+                };
+                var g = guess.join('');
+                for (var i = 0; i < num.length; i++) {
+                    var digPresent = g.search(num[i]) != -1;
+                    if (num[i] == guess[i]) count.bulls++;
+                    else if (digPresent) count.cows++;
+                }
+                return count;
+            }
+
+            function hasDups(guess) {
+                var t = guess.split('').sort();
+                for (var i = 1; i < t.length; i++) {
+                    if (t[i] == t[i - 1]) return true;
+                }
+                return false;
+            }
+
+            function print(text) {
+                var pClone = p.cloneNode(true);
+                pClone.innerHTML = text;
+                outputDiv.appendChild(pClone);
+            }
+
+            function showScore(nBulls, nCows) {
+                print('    Bulls: ' + nBulls + ', cows: ' + nCows);
+            }
+
+            function showFinalResult(guesses) {
+                print('You win!!! Guesses needed: ' + guesses);
+            }
+
+            function showInstructions() {
+                print('Bulls and Cows Game: You must guess the ' + len + ' digit number I am thinking of.');
+                print('The number is composed of the digits 1-9 and no digit appears more than once.');
+                print('After each of your guesses, I will tell you:');
+                print('1) the number of bulls (digits in right place)');
+                print('2) the number of cows (correct digits, but in the wrong place)');
+            }
+
+        }());
+    </script>
+</body>
+
+</html>
