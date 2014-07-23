@@ -4,13 +4,11 @@ define(['underscore', 'uiManager', 'scoreBoard'], function (_, ui, scoreBoard) {
     var SIZE = 4,
         digits = "123456789",
         secret = _.sample(digits, SIZE),
-        countGuesses = 0,
-        gameEnded = false;
+        countGuesses = 0;
 
     console.log(secret.join(''));
 
     function onGuess(evt) {
-        if (gameEnded) return;
         var guess = this.value;
         if (_.intersection(guess, digits).length !== SIZE)
             return ui.print('Invalid guess, try again.');
@@ -29,8 +27,8 @@ define(['underscore', 'uiManager', 'scoreBoard'], function (_, ui, scoreBoard) {
 
     function endGame(guess) {
         ui.print(guess + ': Correct, you guessed it from ' + countGuesses + ' guesses!');
+        ui.disableInput();
         scoreBoard.saveScore(countGuesses);
-        gameEnded = true;
     }
 
     return {

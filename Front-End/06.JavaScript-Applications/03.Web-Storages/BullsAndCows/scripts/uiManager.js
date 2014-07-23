@@ -6,12 +6,14 @@ define(["jquery", "storage"], function ($, storage) {
     document.getElementById('submit').style.visibility = 'hidden';
     document.getElementById('scoreBoard').style.visibility = 'hidden';
 
-
     function showSubmitForm(handler) {
         var submitForm = document.getElementById('submit');
         submitForm.style.visibility = '';
         submitForm.focus();
         submitForm.addEventListener('change', handler, false);
+    }
+
+    function disableInput() {
         document.getElementById('input').disabled = true;
     }
 
@@ -36,7 +38,8 @@ define(["jquery", "storage"], function ($, storage) {
         print: print,
         showSubmitForm: showSubmitForm,
         hideSubmitForm: hideSubmitForm,
-        updateScoreTable: updateScoreTable
+        updateScoreTable: updateScoreTable,
+        disableInput: disableInput
     }
 
 });
