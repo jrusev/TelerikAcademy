@@ -8,12 +8,12 @@
 
     require.config({
         paths: {
-            "jquery": "libs/jquery-2.1.1.min",
-            "underscore": "libs/underscore",
-            "uiManager": "uiManager",
-            "game": "game",
-            "storage": "storage",
-            "scoreBoard": "scoreBoard"
+            jquery: "libs/jquery-2.1.1.min",
+            underscore: "libs/underscore",
+            uiManager: "uiManager",
+            game: "game",
+            storage: "storage",
+            scoreBoard: "scoreBoard"
         }
     });
 
