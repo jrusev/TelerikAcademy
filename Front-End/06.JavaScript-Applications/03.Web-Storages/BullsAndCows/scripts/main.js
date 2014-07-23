@@ -17,10 +17,10 @@
         }
     });
 
-    require(["jquery", "game"], function ($, game) {
+    require(["jquery", "game", "uiManager"], function ($, game, ui) {
 
         $(document).ready(function () {
-            $('#input').change(game.onGuess);
+            ui.enableInput(game.onGuess);
         });
     });
 

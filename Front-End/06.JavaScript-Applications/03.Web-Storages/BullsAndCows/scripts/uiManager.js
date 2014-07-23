@@ -1,9 +1,10 @@
 define(["jquery"], function ($) {
     'use strict';
 
-    var $container = $('#container');
-    var $outputBox = $container.find('#output');
-    var $submitBox = $container.find('#submit');
+    var $container = $('#container'),
+        $outputBox = $container.find('#output'),
+        $submitBox = $container.find('#submit'),
+        $inputBox = $container.find('#input');
 
     hideSubmitForm();
     $container.find('#scoreBoard').hide();
@@ -17,7 +18,11 @@ define(["jquery"], function ($) {
     }
 
     function disableInput() {
-        $container.find('#input').prop('disabled', true);
+        $inputBox.prop('disabled', true);
+    }
+
+    function enableInput(handler) {
+        $inputBox.change(handler);
     }
 
     function updateScoreTable(scores) {
@@ -38,7 +43,7 @@ define(["jquery"], function ($) {
         showSubmitForm: showSubmitForm,
         hideSubmitForm: hideSubmitForm,
         updateScoreTable: updateScoreTable,
+        enableInput: enableInput,
         disableInput: disableInput
     }
-
 });
