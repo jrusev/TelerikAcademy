@@ -3,6 +3,7 @@
 
 <head>
     <title>Bulls and Cows</title>
+    <script src="scripts/underscore.js"></script>
 </head>
 
 <body>
@@ -17,106 +18,45 @@
         (function () {
             'use strict';
 
-            var nGuesses = 0,
-                len = 4,
+            var SIZE = 4,
+                digits = "123456789",
+                secret = _.sample(digits, SIZE),
+                nGuesses = 0,
                 outputDiv = document.getElementById('output'),
-                p = document.createElement('p'),
-                num;
+                p = document.createElement('div');
 
             window.addEventListener("load", main, false);
 
             function main() {
-                num = pickNum(len);
-                console.log('The secret number is: ' + num.join(''));
-                showInstructions(len);
-                attachEventHandlers();
-            }
+                print('Guess a number with ' + SIZE + ' unique digits from 1 through 9:');
+                print('*bulls - digits in the right place');
+                print('*cows - correct digits, but in the wrong place');
 
-            function pickNum(len) {
-                var nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-                nums.sort(function () {
-                    return Math.random() - 0.5
-                });
-                return nums.slice(0, len);
-            }
-
-            function attachEventHandlers(input) {
                 var inputText = document.getElementById('text-input-auto');
-                inputText.addEventListener('change', checkGuess, false);
+                inputText.addEventListener('change', onGuess, false);
             }
 
-            function checkGuess(evt) {
-                var guessAsStr = this.value;
-                if (!isValidGuess(nGuesses, len, guessAsStr)) {
+            function onGuess() {
+                var guess = _.uniq(this.value);
+                console.log(_.difference(guess, digits.split('')));
+                if (guess.length !== SIZE || _.difference(guess, digits.split('')).length) {
+                    print('Malformed guess; try again.');
                     return;
                 }
-
-                nGuesses++;
-                print('Your guess #' + nGuesses + ': ');
-
-                var guessAsArray = guessAsStr.split('');
-                var result = countBullsCows(num, guessAsArray);
-                showScore(result.bulls, result.cows);
-                if (result.bulls == len) {
-                    showFinalResult(nGuesses);
-                    return;
+                var bulls = 0,
+                    cows = 0;
+                for (var i = 0; i < SIZE; i++) {
+                    if (guess[i] === secret[i])++bulls
+                    else if (_.contains(secret, guess[i]))++cows
                 }
-            }
-
-            function isValidGuess(nGuesses, len, guessAsStr) {
-                if (guessAsStr.length != len) {
-                    print('  You must enter a ' + len + ' digit number.');
-                    return false;
-                }
-                if (hasDups(guessAsStr)) {
-                    print('  No digits can be duplicated.');
-                    return false;
-                }
-                return true;
-            }
-
-            function countBullsCows(num, guessAsArray) {
-                var count = {
-                    bulls: 0,
-                    cows: 0
-                };
-                var guessAsStr = guessAsArray.join('');
-                for (var i = 0; i < num.length; i++) {
-                    var digPresent = guessAsStr.search(num[i]) != -1;
-                    if (num[i] == guessAsArray[i]) count.bulls++;
-                    else if (digPresent) count.cows++;
-                }
-                return count;
-            }
-
-            function hasDups(guess) {
-                var t = guess.split('').sort();
-                for (var i = 1; i < t.length; i++) {
-                    if (t[i] == t[i - 1]) return true;
-                }
-                return false;
+                if (bulls === SIZE) print('A winner is you!');
+                else print(this.value + ': ' + bulls + ' bull(s), ' + cows + ' cow(s).');
             }
 
             function print(text) {
                 var pClone = p.cloneNode(true);
                 pClone.innerHTML = text;
                 outputDiv.appendChild(pClone);
-            }
-
-            function showScore(nBulls, nCows) {
-                print('    Bulls: ' + nBulls + ', cows: ' + nCows);
-            }
-
-            function showFinalResult(guesses) {
-                print('You win!!! Guesses needed: ' + guesses);
-            }
-
-            function showInstructions() {
-                print('Bulls and Cows Game: You must guess the ' + len + ' digit number I am thinking of.');
-                print('The number is composed of the digits 1-9 and no digit appears more than once.');
-                print('After each of your guesses, I will tell you:');
-                print('1) the number of bulls (digits in right place)');
-                print('2) the number of cows (correct digits, but in the wrong place)');
             }
 
         }());
