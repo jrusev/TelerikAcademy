@@ -1,4 +1,4 @@
-define(["jquery", "storage"], function ($, storage) {
+define(["jquery"], function ($) {
     'use strict';
 
     var outputBox = document.getElementById('output');
