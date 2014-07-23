@@ -3,12 +3,15 @@
 
 <head>
     <title>Bulls and Cows</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <script src="scripts/underscore.js"></script>
 </head>
 
 <body>
-    <input type="text" id="text-input-auto" autofocus="autofocus" placeholder="Type your guess here..." />
-    <div id="output"></div>
+    <div id="container">
+        <input type="text" id="input" autofocus="autofocus" placeholder="Type your guess here..." />
+        <ul id="output"></ul>
+    </div>
     <script>
         /**
          * Create a simple number guessing game (bulls and cows).
@@ -21,9 +24,8 @@
             var SIZE = 4,
                 digits = "123456789",
                 secret = _.sample(digits, SIZE),
-                nGuesses = 0,
-                outputDiv = document.getElementById('output'),
-                p = document.createElement('div');
+                countGuesses = 0,
+                output = document.getElementById('output');
 
             window.addEventListener("load", main, false);
 
@@ -32,31 +34,30 @@
                 print('*bulls - digits in the right place');
                 print('*cows - correct digits, but in the wrong place');
 
-                var inputText = document.getElementById('text-input-auto');
+                var inputText = document.getElementById('input');
                 inputText.addEventListener('change', onGuess, false);
+                console.log(secret.join(''));
             }
 
             function onGuess() {
-                var guess = _.uniq(this.value);
-                console.log(_.difference(guess, digits.split('')));
-                if (guess.length !== SIZE || _.difference(guess, digits.split('')).length) {
-                    print('Malformed guess; try again.');
-                    return;
-                }
-                var bulls = 0,
-                    cows = 0;
-                for (var i = 0; i < SIZE; i++) {
-                    if (guess[i] === secret[i])++bulls
-                    else if (_.contains(secret, guess[i]))++cows
-                }
-                if (bulls === SIZE) print('A winner is you!');
-                else print(this.value + ': ' + bulls + ' bull(s), ' + cows + ' cow(s).');
+                var guess = this.value;
+                if (_.intersection(guess, digits).length !== SIZE)
+                    return print('Invalid guess, try again.');
+
+                countGuesses++;
+                var bulls = _.reduce(_.zip(guess, secret), function (b, pair) {
+                    return pair[0] == pair[1] ? b + 1 : b;
+                }, 0);
+
+                if (bulls == SIZE)
+                    return print(guess + ': Correct, you guessed it from ' + countGuesses + ' guesses!');
+
+                var cows = _.intersection(guess, secret).length - bulls;
+                print(guess + ': ' + bulls + ' bull(s), ' + cows + ' cow(s).');
             }
 
             function print(text) {
-                var pClone = p.cloneNode(true);
-                pClone.innerHTML = text;
-                outputDiv.appendChild(pClone);
+                output.innerHTML += '<li>' + text + '</li>'
             }
 
         }());

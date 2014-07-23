@@ -1,0 +1,14 @@
+ #container {
+     font-family: 'Calibri';
+ }
+ #container #output {
+     list-style-type: none;
+     width: 400px;
+     text-align: left;
+     padding: 0;
+     border: 1px solid LightBlue;
+     border-radius: 5px;
+ }
+ #container #output li {
+     list-style-type: none;
+ }
