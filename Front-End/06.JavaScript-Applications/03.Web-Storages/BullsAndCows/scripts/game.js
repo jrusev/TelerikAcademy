@@ -9,7 +9,7 @@ define(['underscore', 'uiManager', 'scoreBoard'], function (_, ui, scoreBoard) {
     console.log(secret.join(''));
 
     function onGuess(evt) {
-        var guess = this.value;
+        var guess = evt.target.value;
         if (_.intersection(guess, digits).length !== SIZE)
             return ui.print('Invalid guess, try again.');
 
