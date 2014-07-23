@@ -1,37 +1,36 @@
 define(["jquery"], function ($) {
     'use strict';
 
-    var outputBox = document.getElementById('output');
+    var $container = $('#container');
+    var $outputBox = $container.find('#output');
+    var $submitBox = $container.find('#submit');
 
-    document.getElementById('submit').style.visibility = 'hidden';
-    document.getElementById('scoreBoard').style.visibility = 'hidden';
+    hideSubmitForm();
+    $container.find('#scoreBoard').hide();
 
     function showSubmitForm(handler) {
-        var submitForm = document.getElementById('submit');
-        submitForm.style.visibility = '';
-        submitForm.focus();
-        submitForm.addEventListener('change', handler, false);
-    }
-
-    function disableInput() {
-        document.getElementById('input').disabled = true;
+        $submitBox.show().focus().change(handler);
     }
 
     function hideSubmitForm() {
-        document.getElementById('submit').style.visibility = 'hidden';
+        $submitBox.hide();
+    }
+
+    function disableInput() {
+        $container.find('#input').prop('disabled', true);
     }
 
     function updateScoreTable(scores) {
-        document.getElementById('scoreBoard').style.visibility = '';
-        var scoreList = document.getElementById('scoreList');
-        scoreList.innerHTML = '';
+        var $scoreList = $container.find('#scoreList');
+        $scoreList.empty();
         scores.forEach(function (entry) {
-            scoreList.innerHTML += '<li>' + entry.name + ' -> ' + entry.score + '</li>'
+            $scoreList.append('<li>' + entry.name + ' -> ' + entry.score + '</li>');
         });
+        $container.find('#scoreBoard').show();
     }
 
     function print(text) {
-        outputBox.innerHTML += '<li>' + text + '</li>'
+        $outputBox.append('<li>' + text + '</li>');
     }
 
     return {

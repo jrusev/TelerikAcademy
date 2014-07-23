@@ -10,9 +10,17 @@ define(["storage", "uiManager"], function (storage, ui) {
     }
 
     function onNameSubmit(evt) {
-        storage.addScore(this.value, _countGuesses);
-        ui.updateScoreTable(storage.getScores());
         ui.hideSubmitForm();
+        var score = {
+            name: evt.target.value,
+            score: _countGuesses
+        };
+
+        var scoreList = storage.getScores();
+        scoreList.push(score);
+        storage.saveScores(_.sortBy(scoreList, 'score'));
+
+        ui.updateScoreTable(storage.getScores());
     }
 
     return {

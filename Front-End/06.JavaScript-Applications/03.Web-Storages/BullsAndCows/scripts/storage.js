@@ -11,25 +11,16 @@ define([], function () {
         return JSON.parse(this.getItem(key));
     };
 
-    function addScore(name, guesses) {
-        var scoreList = getScores();
-        scoreList.push({
-            name: name,
-            score: guesses
-        });
-        setScores(_.sortBy(scoreList, 'score'));
+    function saveScores(scores) {
+        localStorage.setObject(scoreBoardKey, scores);
     }
 
     function getScores() {
         return localStorage.getObject(scoreBoardKey) || [];
     }
 
-    function setScores(scoreList) {
-        localStorage.setObject(scoreBoardKey, scoreList);
-    }
-
     return {
-        addScore: addScore,
+        saveScores: saveScores,
         getScores: getScores
     }
 });
