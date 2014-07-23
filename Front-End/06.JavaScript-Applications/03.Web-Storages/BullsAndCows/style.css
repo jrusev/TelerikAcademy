@@ -15,3 +15,13 @@
  #container #output {
      min-height: 3.0em;
  }
+ #container span {
+     display: inline-block;
+     width: 100px;
+ }
+ #container #scoreList {
+     padding: 5px;
+ }
+ #container #scoreList .title {
+     font-weight: bold;
+ }

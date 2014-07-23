@@ -28,8 +28,9 @@ define(["jquery"], function ($) {
     function updateScoreTable(scores) {
         var $scoreList = $container.find('#scoreList');
         $scoreList.empty();
+        $scoreList.append('<li><span class="title">Name</span><span class="title">Score</span></li>');
         scores.forEach(function (entry) {
-            $scoreList.append('<li>' + entry.name + ' -> ' + entry.score + '</li>');
+            $scoreList.append('<li><span>' + entry.name + '</span><span>' + entry.score + '</span></li>');
         });
         $container.find('#scoreBoard').show();
     }
