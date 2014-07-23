@@ -16,28 +16,35 @@
         </ul>
         <input type="text" id="input" autofocus="autofocus" placeholder="Type your guess here..." />
         <ul id="output"></ul>
+        <input type="text" id="submit" placeholder="Enter your name here..." />
+        <div id="scoreBoard">
+            <p>Top scores:</p>
+            <ul id="scoreList"></ul>
+        </div>
     </div>
+    <script src="scripts/uiManager.js"></script>
     <script>
         /**
          * Create a simple number guessing game (bulls and cows).
          * Implement a high-score list and save it in localStorage.
          */
-        (function () {
+        (function (ui) {
             'use strict';
 
             var SIZE = 4,
                 digits = "123456789",
                 secret = _.sample(digits, SIZE),
                 countGuesses = 0,
-                outputBox = document.getElementById('output');
+                gameEnded = false;
 
-            document.getElementById('input').addEventListener('change', onGuess, false);
             console.log(secret.join(''));
+            ui.attachInputHandler(onGuess);
 
-            function onGuess() {
+            function onGuess(evt) {
+                if (gameEnded) return;
                 var guess = this.value;
                 if (_.intersection(guess, digits).length !== SIZE)
-                    return print('Invalid guess, try again.');
+                    return ui.print('Invalid guess, try again.');
 
                 countGuesses++;
                 var bulls = _.reduce(_.zip(guess, secret), function (count, p) {
@@ -45,17 +52,20 @@
                 }, 0);
 
                 if (bulls == SIZE)
-                    return print(guess + ': Correct, you guessed it from ' + countGuesses + ' guesses!');
+                    return endGame(guess);
 
                 var cows = _.intersection(guess, secret).length - bulls;
-                print(guess + ': ' + bulls + ' bulls, ' + cows + ' cows');
+                ui.print(guess + ': ' + bulls + ' bulls, ' + cows + ' cows');
             }
 
-            function print(text) {
-                outputBox.innerHTML += '<li>' + text + '</li>'
+            function endGame(guess) {
+                ui.print(guess + ': Correct, you guessed it from ' + countGuesses + ' guesses!');
+                ui.print('Please enter your nickname in the input box...')
+                gameEnded = true;
+                ui.showSubmitForm(countGuesses);
             }
 
-        }());
+        }(uiManager));
     </script>
 </body>
 
