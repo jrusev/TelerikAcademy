@@ -10,7 +10,12 @@ define(["jquery"], function ($) {
     $container.find('#scoreBoard').hide();
 
     function showSubmitForm(handler) {
-        $submitBox.show().focus().change(handler);
+        $submitBox
+            .show()
+            .focus()
+            .change(function () {
+                handler(this.value);
+            });
     }
 
     function hideSubmitForm() {
@@ -22,13 +27,15 @@ define(["jquery"], function ($) {
     }
 
     function enableInput(handler) {
-        $inputBox.change(handler);
+        $inputBox.change(function () {
+            handler(this.value);
+        });
     }
 
     function updateScoreTable(scores) {
         var $scoreList = $container.find('#scoreList');
         $scoreList.empty();
-        $scoreList.append('<li><span class="title">Name</span><span class="title">Score</span></li>');
+        $scoreList.append('<li><span class="title">Name</span><span class="title">Guesses</span></li>');
         scores.forEach(function (entry) {
             $scoreList.append('<li><span>' + entry.name + '</span><span>' + entry.score + '</span></li>');
         });

@@ -4,15 +4,16 @@ define(["storage", "uiManager"], function (storage, ui) {
     var _countGuesses;
 
     function saveScore(countGuesses) {
+        ui.disableInput();
         ui.print('Please enter your nickname in the input box...')
         ui.showSubmitForm(onNameSubmit);
         _countGuesses = countGuesses;
     }
 
-    function onNameSubmit(evt) {
+    function onNameSubmit(name) {
         ui.hideSubmitForm();
         var score = {
-            name: evt.target.value,
+            name: name,
             score: _countGuesses
         };
 
