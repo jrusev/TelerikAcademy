@@ -9,14 +9,18 @@
 
 <body>
     <div id="container">
+        <ul id="rules">
+            <li>Guess a number with 4 unique digits from 1 through 9:</li>
+            <li>*bulls - digits in the right place</li>
+            <li>*cows - correct digits, but in the wrong place</li>
+        </ul>
         <input type="text" id="input" autofocus="autofocus" placeholder="Type your guess here..." />
         <ul id="output"></ul>
     </div>
     <script>
         /**
          * Create a simple number guessing game (bulls and cows).
-         * When the game ends save the player nickname inside the localStorage.
-         * Implement a high-score list
+         * Implement a high-score list and save it in localStorage.
          */
         (function () {
             'use strict';
@@ -25,19 +29,10 @@
                 digits = "123456789",
                 secret = _.sample(digits, SIZE),
                 countGuesses = 0,
-                output = document.getElementById('output');
+                outputBox = document.getElementById('output');
 
-            window.addEventListener("load", main, false);
-
-            function main() {
-                print('Guess a number with ' + SIZE + ' unique digits from 1 through 9:');
-                print('*bulls - digits in the right place');
-                print('*cows - correct digits, but in the wrong place');
-
-                var inputText = document.getElementById('input');
-                inputText.addEventListener('change', onGuess, false);
-                console.log(secret.join(''));
-            }
+            document.getElementById('input').addEventListener('change', onGuess, false);
+            console.log(secret.join(''));
 
             function onGuess() {
                 var guess = this.value;
@@ -53,11 +48,11 @@
                     return print(guess + ': Correct, you guessed it from ' + countGuesses + ' guesses!');
 
                 var cows = _.intersection(guess, secret).length - bulls;
-                print(guess + ': ' + bulls + ' bull(s), ' + cows + ' cow(s).');
+                print(guess + ': ' + bulls + ' bulls, ' + cows + ' cows');
             }
 
             function print(text) {
-                output.innerHTML += '<li>' + text + '</li>'
+                outputBox.innerHTML += '<li>' + text + '</li>'
             }
 
         }());

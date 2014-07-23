@@ -1,7 +1,7 @@
  #container {
      font-family: 'Calibri';
  }
- #container #output {
+ #container ul {
      list-style-type: none;
      width: 400px;
      text-align: left;
@@ -9,6 +9,9 @@
      border: 1px solid LightBlue;
      border-radius: 5px;
  }
- #container #output li {
+ #container li {
      list-style-type: none;
+ }
+ #container #output {
+     min-height: 3.0em;
  }
