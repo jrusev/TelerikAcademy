@@ -1,7 +1,7 @@
 define([], function () {
     'use strict';
 
-    var scoreBoardKey = 'bullsCowsScoreBoard';
+    var scoreBoardKey = 'bullsCowsStorage';
 
     Storage.prototype.setObject = function (key, obj) {
         this.setItem(key, JSON.stringify(obj));
