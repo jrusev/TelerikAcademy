@@ -23,3 +23,6 @@
  #container #scoreList .title {
      font-weight: bold;
  }
+ #container .hidden {
+     display: none;
+ }

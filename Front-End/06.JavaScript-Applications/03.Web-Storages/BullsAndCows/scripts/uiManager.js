@@ -7,11 +7,8 @@ define(["jquery"], function ($) {
         $scoreBoard = $container.find('#scoreBoard'),
         $submitForm = $container.find('#form-submit-name');
 
-    $submitForm.hide();
-    $scoreBoard.hide();
-
     function showSubmitForm(handler) {
-        $submitForm.show();
+        $submitForm.removeClass('hidden');
         var $submitBox = $container.find('#input-submit-name');
         $submitBox.focus();
         $("#btn-submit-name").click(function () {
@@ -33,7 +30,7 @@ define(["jquery"], function ($) {
         scores.forEach(function (entry) {
             $scoreList.append('<li><span>' + entry.name + '</span><span>' + entry.score + '</span></li>');
         });
-        $scoreBoard.show();
+        $scoreBoard.removeClass('hidden');
     }
 
     function printEnd(text) {
