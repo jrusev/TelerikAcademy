@@ -1,7 +1,8 @@
-define(["storage", "uiManager"], function (storage, ui) {
+define(["uiManager"], function (ui) {
     'use strict';
 
-    var _countGuesses;
+    var SCORES_KEY = 'bullsCowsScores',
+        _countGuesses;
 
     function saveScore(countGuesses) {
         ui.disableInput();
@@ -16,12 +17,19 @@ define(["storage", "uiManager"], function (storage, ui) {
             name: name,
             score: _countGuesses
         };
-
-        var scoreList = storage.getScores();
+        var scoreList = getScores();
         scoreList.push(score);
-        storage.saveScores(_.sortBy(scoreList, 'score'));
+        scoreList = _.sortBy(scoreList, 'score');
+        saveScores(scoreList);
+        ui.updateScoreTable(scoreList);
+    }
 
-        ui.updateScoreTable(storage.getScores());
+    function saveScores(scores) {
+        localStorage.setItem(SCORES_KEY, JSON.stringify(scores));
+    }
+
+    function getScores() {
+        return JSON.parse(localStorage.getItem(SCORES_KEY)) || [];
     }
 
     return {

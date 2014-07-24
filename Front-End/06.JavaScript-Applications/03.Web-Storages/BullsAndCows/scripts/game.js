@@ -1,13 +1,13 @@
 define(['underscore', 'uiManager', 'scoreBoard'], function (_, ui, scoreBoard) {
     'use strict';
     var SIZE = 4,
-        digits = "123456789",
-        secret = _.sample(digits, SIZE),
+        DIGITS = "123456789",
+        secret = _.sample(DIGITS, SIZE),
         countGuesses = 0;
     console.log(secret.join(''));
 
     function onGuess(guess) {
-        if (_.intersection(guess, digits).length !== SIZE)
+        if (_.intersection(guess, DIGITS).length !== SIZE)
             return ui.print('Invalid guess, try again.');
 
         countGuesses++;
