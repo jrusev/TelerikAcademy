@@ -11,7 +11,6 @@ define(["uiManager"], function (ui) {
     }
 
     function onNameSubmit(name) {
-        ui.hideSubmitForm();
         var score = {
             name: name,
             score: _countGuesses

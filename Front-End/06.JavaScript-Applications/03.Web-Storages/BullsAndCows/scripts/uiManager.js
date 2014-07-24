@@ -7,7 +7,7 @@ define(["jquery"], function ($) {
         $scoreBoard = $container.find('#scoreBoard'),
         $submitForm = $container.find('#form-submit-name');
 
-    hideSubmitForm();
+    $submitForm.hide();
     $scoreBoard.hide();
 
     function showSubmitForm(handler) {
@@ -15,12 +15,9 @@ define(["jquery"], function ($) {
         var $submitBox = $container.find('#input-submit-name');
         $submitBox.focus();
         $("#btn-submit-name").click(function () {
+            $submitForm.hide();
             handler($submitBox.val());
         });
-    }
-
-    function hideSubmitForm() {
-        $submitForm.hide();
     }
 
     function enableInput(handler) {
@@ -54,7 +51,6 @@ define(["jquery"], function ($) {
         print: print,
         printEnd: printEnd,
         showSubmitForm: showSubmitForm,
-        hideSubmitForm: hideSubmitForm,
         updateScoreTable: updateScoreTable,
         enableInput: enableInput
     }
