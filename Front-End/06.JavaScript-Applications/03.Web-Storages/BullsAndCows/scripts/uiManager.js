@@ -37,9 +37,9 @@ define(["jquery"], function ($) {
     }
 
     function printEnd(text) {
-        // $inputBox.hide();
+        //        $inputBox.hide();
+        //        $outputBox.empty();
         $inputBox.prop('disabled', true);
-        //$outputBox.empty();
         print(text);
     }
 
