@@ -12,7 +12,6 @@
             underscore: "libs/underscore",
             uiManager: "uiManager",
             game: "game",
-            storage: "storage",
             scoreBoard: "scoreBoard"
         }
     });

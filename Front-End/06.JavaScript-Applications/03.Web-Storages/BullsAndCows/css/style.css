@@ -3,11 +3,12 @@
  }
  #container ul {
      list-style-type: none;
-     width: 400px;
+     width: 380px;
      text-align: left;
      padding: 0;
      border: 1px solid LightBlue;
      border-radius: 5px;
+     padding: 5px;
  }
  #container li {
      list-style-type: none;
@@ -18,9 +19,6 @@
  #container span {
      display: inline-block;
      width: 100px;
- }
- #container #scoreList {
-     padding: 5px;
  }
  #container #scoreList .title {
      font-weight: bold;

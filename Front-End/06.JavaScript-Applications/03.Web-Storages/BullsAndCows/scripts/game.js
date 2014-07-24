@@ -16,7 +16,7 @@ define(['underscore', 'uiManager', 'scoreBoard'], function (_, ui, scoreBoard) {
         }, 0);
 
         if (bulls == SIZE) {
-            ui.print(guess + ': Correct, you needed ' + countGuesses + ' guesses!');
+            ui.printEnd(guess + ': Correct, you needed ' + countGuesses + ' guesses!');
             return scoreBoard.saveScore(countGuesses);
         }
 

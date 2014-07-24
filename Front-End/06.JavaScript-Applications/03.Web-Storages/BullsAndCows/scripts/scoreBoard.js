@@ -5,7 +5,6 @@ define(["uiManager"], function (ui) {
         _countGuesses;
 
     function saveScore(countGuesses) {
-        ui.disableInput();
         ui.print('Please enter your nickname in the input box...')
         ui.showSubmitForm(onNameSubmit);
         _countGuesses = countGuesses;
