@@ -32,6 +32,7 @@ define(["jquery"], function ($) {
     }
 
     function printEnd(text) {
+        $inputBox.off("change");
         $inputBox.prop('disabled', true);
         print(text);
     }
