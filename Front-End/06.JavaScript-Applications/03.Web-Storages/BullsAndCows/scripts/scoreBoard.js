@@ -5,9 +5,9 @@ define(["uiManager"], function (ui) {
         _countGuesses;
 
     function saveScore(countGuesses) {
-        ui.print('Please enter your nickname in the input box...')
-        ui.showSubmitForm(onNameSubmit);
         _countGuesses = countGuesses;
+        ui.print('Please enter your nickname in the input box...')
+        ui.showSubmitForm(onNameSubmit);        
     }
 
     function onNameSubmit(name) {
@@ -19,7 +19,7 @@ define(["uiManager"], function (ui) {
         scoreList.push(score);
         scoreList = _.sortBy(scoreList, 'score');
         saveScores(scoreList);
-        ui.updateScoreTable(scoreList);
+        ui.showScores(scoreList);
     }
 
     function saveScores(scores) {

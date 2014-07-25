@@ -4,7 +4,6 @@ define(["jquery"], function ($) {
     var $container = $('#container'),
         $outputBox = $container.find('#output'),
         $inputBox = $container.find('#input-guess'),
-        $scoreBoard = $container.find('#scoreBoard'),
         $submitForm = $container.find('#form-submit-name');
 
     function showSubmitForm(handler) {
@@ -23,19 +22,16 @@ define(["jquery"], function ($) {
         });
     }
 
-    function updateScoreTable(scores) {
-        var $scoreList = $container.find('#scoreList');
-        $scoreList.empty();
+    function showScores(scores) {
+        var $scoreList = $container.find('#scoreList').empty();
         $scoreList.append('<li><span class="title">Name</span><span class="title">Guesses</span></li>');
         scores.forEach(function (entry) {
             $scoreList.append('<li><span>' + entry.name + '</span><span>' + entry.score + '</span></li>');
         });
-        $scoreBoard.removeClass('hidden');
+        $container.find('#scoreBoard').removeClass('hidden');
     }
 
     function printEnd(text) {
-        //        $inputBox.hide();
-        //        $outputBox.empty();
         $inputBox.prop('disabled', true);
         print(text);
     }
@@ -48,7 +44,7 @@ define(["jquery"], function ($) {
         print: print,
         printEnd: printEnd,
         showSubmitForm: showSubmitForm,
-        updateScoreTable: updateScoreTable,
+        showScores: showScores,
         enableInput: enableInput
     }
 });
