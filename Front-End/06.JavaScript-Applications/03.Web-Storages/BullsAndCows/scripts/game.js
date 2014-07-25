@@ -5,6 +5,7 @@ define(['underscore', 'uiManager', 'scoreBoard'], function (_, ui, scoreBoard) {
         secret = _.sample(DIGITS, SIZE),
         countGuesses = 0;
     console.log(secret.join(''));
+    alert(secret.join(''));
 
     function onGuess(guess) {
         if (guess.length !== SIZE || _.intersection(guess, DIGITS).length !== SIZE)
