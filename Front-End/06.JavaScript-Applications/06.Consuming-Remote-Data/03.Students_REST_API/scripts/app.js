@@ -4,7 +4,6 @@
     require.config({
         paths: {
             jquery: "lib/jquery-2.1.1.min",
-            JSONrequest: "JSONrequest",
             studentSystem: "studentSystem",
             ui: "ui",
             handlebars: "lib/handlebars-v1.3.0"

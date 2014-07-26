@@ -1,11 +1,10 @@
-define(['jquery', 'ui', 'JSONrequest'], function ($, ui, JSONrequest) {
+define(['jquery', 'ui'], function ($, ui) {
     'use strict';
 
     var resourceUrl = 'http://localhost:3000/students';
 
     function loadStudents() {
-        return JSONrequest
-            .getJSON(resourceUrl)
+        return $.get(resourceUrl)
             .done(ui.successLoadStudents)
             .fail(ui.errorHandler);
     };
@@ -15,8 +14,7 @@ define(['jquery', 'ui', 'JSONrequest'], function ($, ui, JSONrequest) {
             name: name,
             grade: grade
         };
-        return JSONrequest
-            .postJSON(resourceUrl, student)
+        return $.post(resourceUrl, student)
             .done(ui.successAddStudent)
             .done(loadStudents)
             .fail(ui.errorHandler);
@@ -40,5 +38,4 @@ define(['jquery', 'ui', 'JSONrequest'], function ($, ui, JSONrequest) {
         addStudent: addStudent,
         removeStudent: removeStudent
     }
-
 });
