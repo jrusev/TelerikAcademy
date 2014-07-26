@@ -1,9 +1,21 @@
-(function ($) {
+(function () {
     'use strict';
 
-    $(document).ready(function () {
-        studentSystem.loadStudents();
-        ui.attachHandler(studentSystem.addStudent)
+    require.config({
+        paths: {
+            jquery: "lib/jquery-2.1.1.min",
+            JSONrequest: "JSONrequest",
+            studentSystem: "studentSystem",
+            ui: "ui"
+        }
     });
 
-})(jQuery);
+    require(["jquery", "studentSystem", "ui"], function ($, studentSystem, ui) {
+
+        $(document).ready(function () {
+            studentSystem.loadStudents();
+            ui.attachHandler(studentSystem.addStudent)
+        });
+    });
+
+}());

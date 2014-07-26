@@ -1,4 +1,4 @@
-var ui = (function ($) {
+define(['jquery'], function ($) {
     'use strict';
 
     var $successMsg, $errorMsg;
@@ -48,4 +48,4 @@ var ui = (function ($) {
         attachHandler: attachHandler
     }
 
-})(jQuery);
+});

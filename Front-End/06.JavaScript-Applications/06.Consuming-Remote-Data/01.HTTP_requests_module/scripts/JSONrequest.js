@@ -1,4 +1,4 @@
-var JSONrequest = (function ($) {
+define(['jquery'], function ($) {
     'use strict';
 
     // Create a module that exposes methods for performing HTTP requests by given URL and headers
@@ -27,4 +27,4 @@ var JSONrequest = (function ($) {
             });
         }
     }
-})(jQuery);
+});

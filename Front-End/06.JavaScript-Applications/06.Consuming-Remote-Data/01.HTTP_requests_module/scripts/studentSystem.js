@@ -1,4 +1,4 @@
-var studentSystem = (function ($) {
+define(['jquery', 'ui', 'JSONrequest'], function ($, ui, JSONrequest) {
     'use strict';
 
     var resourceUrl = 'http://localhost:3000/students';
@@ -23,4 +23,4 @@ var studentSystem = (function ($) {
         addStudent: addStudent
     }
 
-})(jQuery);
+});
