@@ -18,7 +18,7 @@
     require(["jquery", "studentSystem", "ui"], function ($, studentSystem, ui) {
 
         $(document).ready(function () {
-            studentSystem.loadStudents();
+            studentSystem.reloadStudents();
             ui.attachHandlers(studentSystem.addStudent, studentSystem.removeStudent)
         });
     });

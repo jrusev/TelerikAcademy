@@ -3,12 +3,6 @@ define(['jquery', 'ui'], function ($, ui) {
 
     var resourceUrl = 'http://localhost:3000/students';
 
-    function loadStudents() {
-        return $.get(resourceUrl)
-            .done(ui.showStudents)
-            .fail(ui.showError);
-    };
-
     function addStudent(name, grade) {
         var student = {
             name: name,
@@ -16,7 +10,7 @@ define(['jquery', 'ui'], function ($, ui) {
         };
         return $.post(resourceUrl, student)
             .done(_successAddStudent)
-            .done(loadStudents)
+            .done(reloadStudents)
             .fail(ui.showError);
     };
 
@@ -29,9 +23,15 @@ define(['jquery', 'ui'], function ($, ui) {
                 }
             })
             .done(_successRemoveStudent)
-            .done(loadStudents)
+            .done(reloadStudents)
             .fail(ui.showError);
     }
+
+    function reloadStudents() {
+        return $.get(resourceUrl)
+            .done(ui.showStudents)
+            .fail(ui.showError);
+    };
 
     function _successAddStudent(data) {
         var msg = '' + data.name + ' successfully added';
@@ -43,8 +43,8 @@ define(['jquery', 'ui'], function ($, ui) {
     };
 
     return {
-        loadStudents: loadStudents,
         addStudent: addStudent,
-        removeStudent: removeStudent
+        removeStudent: removeStudent,
+        reloadStudents: reloadStudents
     }
 });
