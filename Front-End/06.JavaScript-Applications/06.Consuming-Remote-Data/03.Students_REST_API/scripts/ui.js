@@ -15,6 +15,10 @@ define(['jquery', 'handlebars'], function ($, Handlebars) {
         $successMsg.html('' + data.name + ' successfully added').show().fadeOut(2000);
     };
 
+    function successRemoveStudent(data) {
+        $successMsg.html('Student successfully removed').show().fadeOut(2000);
+    };
+
     function successLoadStudents(data) {
         $('#students-container').html(template({
             rows: data.students
@@ -48,6 +52,7 @@ define(['jquery', 'handlebars'], function ($, Handlebars) {
     return {
         successAddStudent: successAddStudent,
         successLoadStudents: successLoadStudents,
+        successRemoveStudent: successRemoveStudent,
         errorHandler: errorHandler,
         attachAddHandler: attachAddHandler,
         attachRemoveHandler: attachRemoveHandler

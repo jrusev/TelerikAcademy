@@ -30,6 +30,7 @@ define(['jquery', 'ui', 'JSONrequest'], function ($, ui, JSONrequest) {
                     _method: 'delete'
                 }
             })
+            .done(ui.successRemoveStudent)
             .done(loadStudents)
             .fail(ui.errorHandler);
     }
