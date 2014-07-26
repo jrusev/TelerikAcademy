@@ -5,13 +5,26 @@ var JSONrequest = (function ($) {
     // getJSON and postJSON
     // Both methods should work with promises
     return {
-        getJSON: function (url, callback) {
-            // jQuery.get() returns a promise
-            return $.get(url, callback, "json");
+        getJSON: function (url, callback, headers) {
+            // jQuery.ajax() returns a promise
+            return $.ajax({
+                url: url,
+                headers: headers,
+                dataType: "json",
+                data: undefined,
+                success: callback
+            });
         },
-        postJSON: function (url, data, callback) {
-            // jQuery.post() returns a promise
-            return $.post(url, data, callback, "json");
+        postJSON: function (url, data, callback, headers) {
+            // jQuery.ajax() returns a promise
+            return $.ajax({
+                url: url,
+                type: "post",
+                headers: headers,
+                dataType: "json",
+                data: data,
+                success: callback
+            });
         }
     }
 })(jQuery);

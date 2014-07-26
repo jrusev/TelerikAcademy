@@ -1,37 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
     <title>HTTP Requests with getJSON/postJSON</title>
-    <script src="scripts/jquery-2.0.2.js"></script>
-    <style type="text/css">
-        .info {
-            font-size: 0.9em;
-            font-style: italic;
-            border: 1px solid orange;
-            display: block;
-            padding: 5px 15px;
-            width: 250px;
-            margin: 0 auto;
-            text-indent: 0;
-        }
-        .message.success {
-            color: green;
-        }
-        .message.error {
-            color: red;
-        }
-        .message.error,
-        .message.success {
-            display: none;
-        }
-        .student-item strong:before {
-            content: 'Name: ';
-        }
-        .student-item span:before {
-            content: ', Grade: ';
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="scripts/lib/jquery-2.0.2.js"></script>
+    <script src="scripts/JSONrequest.js"></script>
+    <script src="scripts/studentSystem.js"></script>
+    <script src="scripts/ui.js"></script>
+    <script src="scripts/app.js"></script>
 </head>
 
 <body>
@@ -49,9 +26,6 @@
 		</strong>
     </div>
     <div id="students-container"></div>
-    <script src="scripts/JSONrequest.js"></script>
-    <script src="scripts/studentSystem.js">
-    </script>
     <p class='info'>This web page should be run on a server (localhost or in WWW).</p>
 </body>
 
