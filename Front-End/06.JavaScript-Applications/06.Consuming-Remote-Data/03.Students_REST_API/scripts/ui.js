@@ -19,43 +19,35 @@ define(['jquery', 'handlebars'], function ($, Handlebars) {
         $successMsg.html('Student successfully removed').show().fadeOut(2000);
     };
 
-    function successLoadStudents(data) {
+    function showStudents(data) {
         $('#students-container').html(template({
             rows: data.students
         }))
     };
 
-    function errorHandler(err) {
+    function showError(err) {
         console.log('Error: ' + JSON.stringify(err));
-        $errorMsg
-            .html('Error: ' + err.status + ' (' + err.statusText + ')')
-            .show()
-            .fadeOut(2000);
+        $errorMsg.html('Error: ' + err.status + ' (' + err.statusText + ')').show().fadeOut(2000);
     };
 
-    function attachAddHandler(handler) {
+    function attachHandlers(handlerAdd, handlerRemove) {
         $('#btn-add-student').on('click', function () {
             var name = $('#tb-name').val();
             var grade = $('#tb-grade').val();
-            handler(name, grade);
-            console.log("attachAddHandler");
+            handlerAdd(name, grade);
         });
-    }
 
-    function attachRemoveHandler(handler) {
         $('#btn-remove-student').on('click', function () {
             var id = $('#tb-id').val();
-            handler(id);
+            handlerRemove(id);
         });
     }
 
     return {
         successAddStudent: successAddStudent,
-        successLoadStudents: successLoadStudents,
+        showStudents: showStudents,
         successRemoveStudent: successRemoveStudent,
-        errorHandler: errorHandler,
-        attachAddHandler: attachAddHandler,
-        attachRemoveHandler: attachRemoveHandler
+        showError: showError,
+        attachHandlers: attachHandlers
     }
-
 });

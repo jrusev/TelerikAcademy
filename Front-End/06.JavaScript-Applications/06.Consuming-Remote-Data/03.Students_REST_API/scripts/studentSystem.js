@@ -5,8 +5,8 @@ define(['jquery', 'ui'], function ($, ui) {
 
     function loadStudents() {
         return $.get(resourceUrl)
-            .done(ui.successLoadStudents)
-            .fail(ui.errorHandler);
+            .done(ui.showStudents)
+            .fail(ui.showError);
     };
 
     function addStudent(name, grade) {
@@ -17,7 +17,7 @@ define(['jquery', 'ui'], function ($, ui) {
         return $.post(resourceUrl, student)
             .done(ui.successAddStudent)
             .done(loadStudents)
-            .fail(ui.errorHandler);
+            .fail(ui.showError);
     };
 
     function removeStudent(id) {
@@ -30,7 +30,7 @@ define(['jquery', 'ui'], function ($, ui) {
             })
             .done(ui.successRemoveStudent)
             .done(loadStudents)
-            .fail(ui.errorHandler);
+            .fail(ui.showError);
     }
 
     return {

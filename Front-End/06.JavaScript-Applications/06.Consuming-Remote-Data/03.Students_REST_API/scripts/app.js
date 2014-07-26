@@ -19,8 +19,7 @@
 
         $(document).ready(function () {
             studentSystem.loadStudents();
-            ui.attachAddHandler(studentSystem.addStudent)
-            ui.attachRemoveHandler(studentSystem.removeStudent);
+            ui.attachHandlers(studentSystem.addStudent, studentSystem.removeStudent)
         });
     });
 
