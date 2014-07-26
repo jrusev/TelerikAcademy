@@ -1,0 +1,38 @@
+.info {
+    font-size: 0.9em;
+    font-style: italic;
+    border: 1px solid orange;
+    display: block;
+    padding: 5px 15px;
+    width: 250px;
+    margin: 0 auto;
+    text-indent: 0;
+}
+.message.success {
+    color: green;
+}
+.message.error {
+    color: red;
+}
+.message.error,
+.message.success {
+    display: none;
+}
+#students-container {
+    margin: 20px 20px;   
+}
+#students-container table {
+    border-collapse: collapse;
+    font-family: Calibri;
+}
+#students-container table, tr, td, th {
+    border: 1px solid black;
+    padding: 3px;
+}
+#students-container th {
+    background-color: #A6A6A6;
+    color: white;
+}
+#students-container tr:nth-child(odd) {
+    background-color: #D9D9D9;
+}
