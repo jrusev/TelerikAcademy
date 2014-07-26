@@ -15,7 +15,7 @@ define(['jquery', 'ui'], function ($, ui) {
             grade: grade
         };
         return $.post(resourceUrl, student)
-            .done(ui.successAddStudent)
+            .done(_successAddStudent)
             .done(loadStudents)
             .fail(ui.showError);
     };
@@ -28,10 +28,19 @@ define(['jquery', 'ui'], function ($, ui) {
                     _method: 'delete'
                 }
             })
-            .done(ui.successRemoveStudent)
+            .done(_successRemoveStudent)
             .done(loadStudents)
             .fail(ui.showError);
     }
+
+    function _successAddStudent(data) {
+        var msg = '' + data.name + ' successfully added';
+        ui.showSuccessMessage(msg);
+    };
+
+    function _successRemoveStudent(data) {
+        ui.showSuccessMessage('Student successfully removed');
+    };
 
     return {
         loadStudents: loadStudents,

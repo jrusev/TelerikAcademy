@@ -11,12 +11,8 @@ define(['jquery', 'handlebars'], function ($, Handlebars) {
         template = Handlebars.compile(source);
     });
 
-    function successAddStudent(data) {
-        $successMsg.html('' + data.name + ' successfully added').show().fadeOut(2000);
-    };
-
-    function successRemoveStudent(data) {
-        $successMsg.html('Student successfully removed').show().fadeOut(2000);
+    function showSuccessMessage(msg) {
+        $successMsg.html(msg).show().fadeOut(2000);
     };
 
     function showStudents(data) {
@@ -44,10 +40,9 @@ define(['jquery', 'handlebars'], function ($, Handlebars) {
     }
 
     return {
-        successAddStudent: successAddStudent,
-        showStudents: showStudents,
-        successRemoveStudent: successRemoveStudent,
+        attachHandlers: attachHandlers,
+        showSuccessMessage: showSuccessMessage,
         showError: showError,
-        attachHandlers: attachHandlers
+        showStudents: showStudents
     }
 });
