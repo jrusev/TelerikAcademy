@@ -1,7 +1,7 @@
 define(['jquery', 'ui'], function ($, ui) {
     'use strict';
 
-    var resourceUrl = 'http://localhost:3000/students';
+    var resourceUrl = 'http://localhost:3000/students/';
 
     function addStudent(name, grade) {
         var student = {
@@ -16,7 +16,7 @@ define(['jquery', 'ui'], function ($, ui) {
 
     function removeStudent(id) {
         return $.ajax({
-                url: resourceUrl + '/' + id,
+                url: resourceUrl + id,
                 type: 'POST',
                 data: {
                     _method: 'delete'
