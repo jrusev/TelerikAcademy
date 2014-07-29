@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/jquery-2.0.2.js"></script>
+    <script src="Scripts/q.js"></script>
+    <script src="Scripts/cryptojs-sha1.js"></script>
+    <script src="Scripts/class.js"></script>
+    <script src="Scripts/http-requester.js"></script>
+    <script src="Scripts/data-layer.js"></script>
+    <script src="Scripts/ui-controls.js"></script>
+    <script src="Scripts/controllers.js"></script>
+</head>
+<body>
+    <div id="main-container">
+
+    </div>
+
+    <script>
+        //        var login = new BullsAndCows.UI.LoginControl();
+        //        login.build("");
+
+        function PresentLoginPage(accessController, gameController) {
+            accessController.loginUser().then(function () {
+                $("#main-container").html("");
+                PresentGamePage(accessController, gameController);
+                return false;
+            }).done();
+        }
+
+        function PresentGamePage(accessController, gameController) {
+            $("#main-container").append("<a href='#' id='logout-button'>Logout</a>");
+
+            $("#logout-button").on("click", function () {
+                $("#main-container").html("");
+                gameController.stopGame();
+                accessController.logoutUser();
+                PresentLoginPage(accessController, gameController);
+                return false;
+            });
+
+            gameController.startGame();
+        }
+
+        $(function () {
+            var localPersister = BullsAndCows.Data.getDataPersister("http://localhost:40643/api/");
+
+            var accessController = BullsAndCows.Controllers.getAccessController(localPersister, "#main-container");
+            var gameController = BullsAndCows.Controllers.getGameController(localPersister, "#main-container");
+
+            if (accessController.isUserLoggedIn()) {
+                PresentGamePage(accessController, gameController);
+            }
+            else {
+                PresentLoginPage(accessController, gameController);
+            }
+
+        });
+    </script>
+</body>
+</html>

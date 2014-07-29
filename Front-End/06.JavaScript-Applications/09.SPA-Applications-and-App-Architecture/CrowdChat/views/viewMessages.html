@@ -1,0 +1,11 @@
+<div class="col-lg-8">
+     <ul id="messages" data-template="messages-template" class="list-group"></ul>
+</div>
+
+<script id="messages-template" type="text/x-handlebars-template">
+    {{#items}}
+    <li id="{{id}}" class="list-group-item">
+        <strong>{{by}}</strong><span>: {{{text}}}</span>
+    </li>
+    {{/items}}
+</script>
