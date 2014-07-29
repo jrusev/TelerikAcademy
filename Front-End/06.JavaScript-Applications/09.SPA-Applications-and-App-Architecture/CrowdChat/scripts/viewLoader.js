@@ -2,14 +2,14 @@ define(["jquery"], function ($) {
 
     var $wrapper = $("#mainContent");
 
-    function _load(file) {
+    function loadFromFile(file) {
         // jQuery.get() returns a promise, so the function returns a promise
         return $.get("views/" + file + ".html", function (data) {
             $wrapper.html(data);
         });
     }
 
-    function load(view) {
+    function loadFromString(view) {
         // jQuery.when() returns a promise, so the function returns a promise
         return $.when($wrapper.html(partials[view]));
 
@@ -45,6 +45,6 @@ define(["jquery"], function ($) {
     };
 
     return {
-        load: load
+        load: loadFromString
     }
 });
