@@ -9,7 +9,7 @@
 
     require(['mocha', 'chai'], function () {
         mocha.setup('bdd');
-        require(['test.session'], function () {
+        require(['unitTests'], function () {
             mocha.run();
         });
     })
