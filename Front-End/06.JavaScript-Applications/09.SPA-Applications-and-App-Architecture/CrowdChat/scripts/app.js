@@ -6,6 +6,8 @@
             underscore: "libs/underscore-min",
             sammy: "libs/sammy",
             handlebars: "libs/handlebars-v1.3.0",
+            mocha: "libs/mocha",
+            chai: "libs/chai"
 
             // Scripts
             requester: "httpRequester",
