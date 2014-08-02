@@ -1,1 +1,1 @@
-Make sure you are connected to the Internet, so the NuGet package manager can download Moq and JustMock (will happen automatically, when the tests are run).
+Make sure you are connected to the Internet, so the NuGet package manager can download Moq and JustMock (will happen automatically, when the tests are run or the project is rebuilt).

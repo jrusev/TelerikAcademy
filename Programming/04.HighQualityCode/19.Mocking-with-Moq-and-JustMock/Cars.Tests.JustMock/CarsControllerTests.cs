@@ -97,6 +97,7 @@
             Assert.AreEqual(2005, model.Year);
         }
 
+        // New unit tests
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void GettingCarDetailsShouldThrowIfCarDoesNotExist()
