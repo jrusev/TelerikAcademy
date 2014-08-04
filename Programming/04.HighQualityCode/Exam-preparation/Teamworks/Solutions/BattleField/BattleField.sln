@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Battle-Field-1", "Battle-Field-1\Battle-Field-1.csproj", "{0A083471-3972-4892-98BC-8A94BF306EE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Battle-Field-2", "Battle-Field-2\Battle-Field-2.csproj", "{1CCEAB59-D36D-423E-88D8-55D24ED29F72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Battle-Field-3", "Battle-Field-3\Battle-Field-3.csproj", "{35870605-20E7-4668-A5A7-A3926E6D61CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Battle-Field-4", "Battle-Field-4\Battle-Field-4.csproj", "{148DFEA2-F686-4839-BE3C-CCB486EB3E4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Battle-Field-5", "Battle-Field-5\Battle-Field-5.csproj", "{493704EF-A54B-41A2-B1BF-47857B5337CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Battle-Field-6", "Battle-Field-6\Battle-Field-6.csproj", "{85255C43-CCD7-4E3B-8C0B-79AC0D498B85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Battle-Field-7", "Battle-Field-7\Battle-Field-7.csproj", "{344092E2-0BEC-4F25-9CD2-B4AC7FC668BE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A083471-3972-4892-98BC-8A94BF306EE5}.Debug|x86.ActiveCfg = Debug|x86
+		{0A083471-3972-4892-98BC-8A94BF306EE5}.Debug|x86.Build.0 = Debug|x86
+		{0A083471-3972-4892-98BC-8A94BF306EE5}.Release|x86.ActiveCfg = Release|x86
+		{0A083471-3972-4892-98BC-8A94BF306EE5}.Release|x86.Build.0 = Release|x86
+		{1CCEAB59-D36D-423E-88D8-55D24ED29F72}.Debug|x86.ActiveCfg = Debug|x86
+		{1CCEAB59-D36D-423E-88D8-55D24ED29F72}.Debug|x86.Build.0 = Debug|x86
+		{1CCEAB59-D36D-423E-88D8-55D24ED29F72}.Release|x86.ActiveCfg = Release|x86
+		{1CCEAB59-D36D-423E-88D8-55D24ED29F72}.Release|x86.Build.0 = Release|x86
+		{35870605-20E7-4668-A5A7-A3926E6D61CE}.Debug|x86.ActiveCfg = Debug|x86
+		{35870605-20E7-4668-A5A7-A3926E6D61CE}.Debug|x86.Build.0 = Debug|x86
+		{35870605-20E7-4668-A5A7-A3926E6D61CE}.Release|x86.ActiveCfg = Release|x86
+		{35870605-20E7-4668-A5A7-A3926E6D61CE}.Release|x86.Build.0 = Release|x86
+		{148DFEA2-F686-4839-BE3C-CCB486EB3E4B}.Debug|x86.ActiveCfg = Debug|x86
+		{148DFEA2-F686-4839-BE3C-CCB486EB3E4B}.Debug|x86.Build.0 = Debug|x86
+		{148DFEA2-F686-4839-BE3C-CCB486EB3E4B}.Release|x86.ActiveCfg = Release|x86
+		{148DFEA2-F686-4839-BE3C-CCB486EB3E4B}.Release|x86.Build.0 = Release|x86
+		{493704EF-A54B-41A2-B1BF-47857B5337CB}.Debug|x86.ActiveCfg = Debug|x86
+		{493704EF-A54B-41A2-B1BF-47857B5337CB}.Debug|x86.Build.0 = Debug|x86
+		{493704EF-A54B-41A2-B1BF-47857B5337CB}.Release|x86.ActiveCfg = Release|x86
+		{493704EF-A54B-41A2-B1BF-47857B5337CB}.Release|x86.Build.0 = Release|x86
+		{85255C43-CCD7-4E3B-8C0B-79AC0D498B85}.Debug|x86.ActiveCfg = Debug|x86
+		{85255C43-CCD7-4E3B-8C0B-79AC0D498B85}.Debug|x86.Build.0 = Debug|x86
+		{85255C43-CCD7-4E3B-8C0B-79AC0D498B85}.Release|x86.ActiveCfg = Release|x86
+		{85255C43-CCD7-4E3B-8C0B-79AC0D498B85}.Release|x86.Build.0 = Release|x86
+		{344092E2-0BEC-4F25-9CD2-B4AC7FC668BE}.Debug|x86.ActiveCfg = Debug|x86
+		{344092E2-0BEC-4F25-9CD2-B4AC7FC668BE}.Debug|x86.Build.0 = Debug|x86
+		{344092E2-0BEC-4F25-9CD2-B4AC7FC668BE}.Release|x86.ActiveCfg = Release|x86
+		{344092E2-0BEC-4F25-9CD2-B4AC7FC668BE}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
