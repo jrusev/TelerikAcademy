@@ -18,6 +18,11 @@
 
         public void AddEvent(Event ev)
         {
+            if (ev == null)
+            {
+                throw new ArgumentNullException("event");
+            }
+
             string eventTitleLowerCase = ev.Title.ToLowerInvariant();
             this.eventsByTitle.Add(eventTitleLowerCase, ev);
             this.eventsByDate.Add(ev.Date, ev);
@@ -25,6 +30,11 @@
 
         public int DeleteEventsByTitle(string title)
         {
+            if (title == null)
+            {
+                throw new ArgumentNullException("title");
+            }
+
             string titleLowerCase = title.ToLowerInvariant();
 
             // IMPROVED PERFORMANCE:

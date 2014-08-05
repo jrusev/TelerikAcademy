@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="EventsManagerFastTests\AddEventTests.cs" />
     <Compile Include="EventsManagerFastTests\DeleteEventsByTitleTests.cs" />
+    <Compile Include="EventsManagerFastTests\EventsManagerFastTests-Solution.cs" />
     <Compile Include="EventsManagerFastTests\ListEventsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
