@@ -10,8 +10,8 @@
 AddEvent 2012-03-26T09:00:00 | C# exam
 AddEvent 2012-03-26T09:00:00 | C# exam
 AddEvent 2012-03-26T08:00:00 | C# exam
-AddEvent 2012-03-07T22:30:00 | party | Biad
-ListEvents 2012-03-07T08:00:00 | 2
+AddEvent 2012-03-07T22:30:00 | party | Vitosha
+ListEvents 2012-03-07T08:00:00 | 3
 DeleteEvents c# exam
 DeleteEvents My granny's bushes
 ListEvents 2013-11-27T08:30:25 | 25
@@ -25,7 +25,7 @@ End
         internal static void Main()
         {
             // Sets the Console to read from string
-            Console.SetIn(new StringReader(TestIn001));
+            ////Console.SetIn(new StringReader(TestIn001));
 
             IEventsManager eventsManager = new EventsManagerFast();
             var calendarSystemController = new CalendarSystemController(eventsManager);
