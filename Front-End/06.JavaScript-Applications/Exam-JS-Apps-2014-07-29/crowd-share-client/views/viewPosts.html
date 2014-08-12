@@ -1,0 +1,33 @@
+<div class="col-lg-8">
+    <div>
+        <select id="select-sortby">
+          <option selected>Sort by date</option>
+          <option>Sort by title</option>
+        </select>
+        <select id="select-sortorder">
+          <option>Sort ascending</option>
+          <option selected>Sort descending</option>
+        </select>
+        <select id="select-num-posts">
+          <option value="1" >10 posts</option>
+          <option value="2">20 posts</option>
+          <option value="3">30 posts</option>
+          <option value="4">40 posts</option>
+          <option value="5">50 posts</option>
+          <option value="6" selected>all posts</option>
+        </select>
+    </div>
+     <ul id="messages" data-template="messages-template" class="list-group"></ul>
+</div>
+
+<script id="messages-template" type="text/x-handlebars-template">
+    {{#items}}
+    <li id="{{id}}" class="list-group-item">
+        <div>Title: {{title}}</div>
+        <div id="post-body">{{{body}}}</div>
+        <div>
+            <span>posted {{prettifyDate postDate}} mins ago </span><strong>{{#with user}}{{username}}{{/with}}</strong>      
+        </div>        
+    </li>
+    {{/items}}
+</script>
