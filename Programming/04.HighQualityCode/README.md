@@ -1,4 +1,4 @@
-# High-Quality Code
+## High-Quality Code
 
 1. High-Quality Code Course Introduction
 * What Is High Quality Programming Code
