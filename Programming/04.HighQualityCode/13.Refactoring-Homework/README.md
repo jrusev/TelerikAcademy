@@ -1,6 +1,6 @@
 ## Refactoring
 
-Refactor the C# code from "[Assertions-and-Exceptions-Homework.zip](https://github.com/neutrino-git/TelerikAcademy/raw/master/Programming/04.HighQualityCode/13.Refactoring-Homework/Refactoring-Homework.zip)" to improve its internal quality. You might follow the following steps:
+Refactor the C# code from "[Refactoring-Homework.zip](https://github.com/neutrino-git/TelerikAcademy/raw/master/Programming/04.HighQualityCode/13.Refactoring-Homework/Refactoring-Homework.zip)" to improve its internal quality. You might follow the following steps:
 
 1. Make some initial refactorings like:
     * Reformat the code.
