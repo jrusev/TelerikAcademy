@@ -1,6 +1,6 @@
 ## Test-Driven Development
 
-Finish the provided `Poker` project using TDD.
+Finish the provided Poker project using TDD.
 
 1. Write a class `Card` implementing the `ICard` interface. Implement the properties. Write a constructor. Implement the `ToString()` method. Test all cases.
 * Write a class `Hand` implementing the `IHand` interface. Implement the properties. Write a constructor. Implement the `ToString()` method. Test all cases.
