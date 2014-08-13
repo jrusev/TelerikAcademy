@@ -1,6 +1,6 @@
-# Software design patterns
+## Software design patterns
 
-## Creational patterns
+### Creational patterns
 
 * __Abstract factory__ : Provide an interface for creating families of related or dependent objects without specifying their concrete classes.
 * __Builder__ : Separate the construction of a complex object from its representation, allowing the same construction process to create various representations.
@@ -9,7 +9,7 @@
 * __Prototype__ : Specify the kinds of objects to create using a prototypical instance, and create new objects by copying this prototype.
 * __Singleton__ : Ensure a class has only one instance, and provide a global point of access to it.
 	
-## Structural patterns
+### Structural patterns
 
 * __Adapter (Wrapper)__ : Convert the interface of a class into another interface clients expect. An adapter lets classes work together that could not otherwise because of incompatible interfaces. The enterprise integration pattern equivalent is the translator.
 * __Bridge__ : Decouple an abstraction from its implementation allowing the two to vary independently.
@@ -19,7 +19,7 @@
 * __Flyweight__ : Use sharing to support large numbers of similar objects efficiently.
 * __Proxy__ : Provide a surrogate or placeholder for another object to control access to it.
  	
-## Behavioral patterns
+### Behavioral patterns
 
 * __Chain of responsibility__ : Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request. Chain the receiving objects and pass the request along the chain until an object handles it.
 * __Command__ : Encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.
