@@ -5,7 +5,21 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 public class MatrixRotatingWalkTest
 {
     [TestMethod]
-    public void Test_FillMatrix_6x6()
+    [ExpectedException(typeof(ArgumentOutOfRangeException))]
+    public void AboveMaxSizeShouldThrowEx()
+    {
+        var filledMatrix = MatrixRotatingWalk.FillMatrix(MatrixRotatingWalk.MaxSize + 1);
+    }
+
+    [TestMethod]
+    [ExpectedException(typeof(ArgumentOutOfRangeException))]
+    public void BelowMinSizeShouldThrowEx()
+    {
+        var filledMatrix = MatrixRotatingWalk.FillMatrix(MatrixRotatingWalk.MinSize - 1);
+    }
+
+    [TestMethod]
+    public void FillMatrix_6x6()
     {
         int size = 6;
         var filledMatrix = MatrixRotatingWalk.FillMatrix(size);
@@ -24,7 +38,7 @@ public class MatrixRotatingWalkTest
     }
 
     [TestMethod]
-    public void Test_FillMatrix_3x3()
+    public void FillMatrix_3x3()
     {
         int size = 3;
         var filledMatrix = MatrixRotatingWalk.FillMatrix(size);

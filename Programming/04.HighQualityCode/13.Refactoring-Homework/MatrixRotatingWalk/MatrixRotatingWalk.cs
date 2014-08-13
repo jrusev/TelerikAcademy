@@ -2,20 +2,22 @@
 
 public static class MatrixRotatingWalk
 {
+    public const int MinSize = 1;
+    public const int MaxSize = 100;
     private static int[,] matrix;
     private static int[] dRow = { 1, 1, 1, 0, -1, -1, -1, 0 };
     private static int[] dCol = { 1, 0, -1, -1, -1, 0, 1, 1 };
 
     private static void Main()
     {
-        int size = 6;
+        int size = 10;
         FillMatrix(size);
         PrintMatrix();
     }
 
     public static int[,] FillMatrix(int size)
     {
-        if (size < 1 || size > 100)
+        if (size < MinSize || size > MaxSize)
         {
             throw new ArgumentOutOfRangeException("size", "Matrix size is out of range!");
         }            
