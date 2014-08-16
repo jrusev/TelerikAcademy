@@ -31,7 +31,7 @@
             nodes.Add(node9);
             nodes.Add(node10);
 
-            Dictionary<Node, List<Edge>> graph = new Dictionary<Node, List<Edge>>()
+            var graph = new Dictionary<Node, List<Edge>>()
             {
                 { node1, new List<Edge> { new Edge(node2, 23), new Edge(node8, 8) } },
                 { node2, new List<Edge> { new Edge(node1, 23), new Edge(node4, 3), new Edge(node7, 34) } },
@@ -51,8 +51,7 @@
 
             for (int i = 0; i < nodes.Count; i++)
             {
-                Console.Write("Distance from {0} to {1} ", source.ID, i);
-                Console.WriteLine(nodes[i].DijkstraDistance);
+                Console.WriteLine("Distance from {0} to {1} is {2}", source.ID, i, nodes[i].DijkstraDistance);
             }
         }
 
