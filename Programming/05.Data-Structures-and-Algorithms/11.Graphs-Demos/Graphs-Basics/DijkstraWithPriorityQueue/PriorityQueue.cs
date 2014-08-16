@@ -1,11 +1,17 @@
-﻿using System;
-
-namespace DijkstraWithPriorityQueue
+﻿namespace DijkstraWithPriorityQueue
 {
+    using System;
+
     public class PriorityQueue<T> where T : IComparable
     {
         private T[] heap;
         private int index;
+
+        public PriorityQueue()
+        {
+            this.heap = new T[16];
+            this.index = 1;
+        }
 
         public int Count
         {
@@ -15,17 +21,11 @@ namespace DijkstraWithPriorityQueue
             }
         }
 
-        public PriorityQueue()
-        {
-            this.heap = new T[16];
-            this.index = 1;
-        }
-
         public void Enqueue(T element)
         {
             if (this.index >= this.heap.Length)
             {
-                IncreaseArray();
+                this.IncreaseArray();
             }
 
             this.heap[this.index] = element;
@@ -59,7 +59,7 @@ namespace DijkstraWithPriorityQueue
             while (true)
             {
                 int leftChildIndex = rootIndex * 2;
-                int rightChildIndex = rootIndex * 2 + 1;
+                int rightChildIndex = (rootIndex * 2) + 1;
 
                 if (leftChildIndex > this.index)
                 {

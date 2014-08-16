@@ -1,16 +1,17 @@
-﻿using System;
-
-namespace DijkstraWithPriorityQueue
+﻿namespace DijkstraWithPriorityQueue
 {
+    using System;
+
     public class Node : IComparable
     {
-        public int ID { get; private set; }
-        public double DijkstraDistance { get; set; }
-
         public Node(int id)
         {
             this.ID = id;
         }
+
+        public int ID { get; private set; }
+
+        public double DijkstraDistance { get; set; }
 
         public int CompareTo(object obj)
         {

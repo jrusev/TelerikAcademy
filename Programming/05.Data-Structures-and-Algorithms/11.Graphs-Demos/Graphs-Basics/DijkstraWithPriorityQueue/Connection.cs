@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DijkstraWithPriorityQueue
+﻿namespace DijkstraWithPriorityQueue
 {
-    public class Connection
+    public class Edge
     {
-        public Node Node { get; set; }
-        public double Distance { get; set; }
-
-        public Connection(Node node, double distance)
+        public Edge(Node node, double distance)
         {
             this.Node = node;
             this.Distance = distance;
         }
+
+        public Node Node { get; set; }
+
+        public double Distance { get; set; }
     }
 }

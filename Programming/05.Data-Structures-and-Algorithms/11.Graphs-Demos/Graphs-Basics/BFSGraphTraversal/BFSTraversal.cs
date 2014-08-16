@@ -31,11 +31,7 @@ namespace GraphTraversal
 
         public static void Main()
         {
-            int nodes = 6;
-
-            visited = new bool[6];
-
-            graph = new int[6, 6]
+            graph = new int[,]
             { 
                 {0,1,0,0,1,0},
                 {1,0,1,0,0,1},
@@ -44,6 +40,8 @@ namespace GraphTraversal
                 {1,0,0,1,0,1},
                 {1,0,1,0,1,0},
             };
+
+            visited = new bool[graph.GetLength(0)];
 
             BFS(1);
         }
