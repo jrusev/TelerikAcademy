@@ -1,0 +1,41 @@
+Design pattern: Simple Factory
+	* 
+
+Design pattern: Strategy
+	* Strategy pattern is used to pass IVideoCard to the Computer class, which allows it to print the result on different outputs.
+
+Design pattern: Template Method
+	* ComputerFactory defines abstract methods to construct computers, which are implemented by the subclasses HPComputers and DellComputers
+
+Design pattern: Abstract factory
+	* classes that implement the abstract factory are: ComputerFactory, HPComputers, DellComputers, Computer, ComputerServer, ComputerLaptop and ComputerPC
+
+Design pattern: Composite
+	* 
+
+Design pattern: Mediator
+	* 
+
+Found bottlenecks:
+	* Cpu.Rand usese a while loop -> loop removed
+	* Cpu.Square calculated the square with a loop; it can be calculated directly.
+
+Found bugs:
+	* missing semicolon
+	* missing '>'
+	* missing % after battery status
+
+Single responsibility principle
+	* Extracted class Videocard from HardDrive!!! CPU no longer writes directly on the videocard, instead it only returns a result from an operation, and the Computer draws the result through the videocard.
+
+Open/closed principle
+	* The factory pattern allows adding new computer manufacturers without changing existing code (this is how Lenovo was added).
+
+Liskov substitution principle
+	* The concrete computers (server, laptop, pc) which are subclasses of the Computer class do not break its behaviour.
+
+Interface segregation principle
+	* The IRam interface defines only two operations essential to construct a RAM object -> LoadValue and SaveValue.
+
+Dependency inversion principle
+	* The IVideocard interface inverts the dependency of the Computer on a concrete video card. It accepts the video card through the IVideocard interface in its construcor.
