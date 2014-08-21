@@ -2,7 +2,7 @@
 
 1. Data structures, algorithms and complexity
 * Linear data structures
-* Trees and traversals (dfs and bfs)
+* Trees and traversals (DFS and BFS)
 * Dictionaries, hash tables and sets
 * Advanced data structures
 * Data structures efficiency
