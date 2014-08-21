@@ -1,15 +1,15 @@
 ## Data Structures and Algorithms
 
-1. Data Structures Algorithms and Complexity
-* Linear Data Structures
-* Trees and Traversals
-* Dictionaries, Hash Tables and Sets
-* Advanced Data Structures
-* Data Structures Efficiency
-* Sorting and Seraching Algorithms
+1. Data structures, algorithms and complexity
+* Linear data structures
+* Trees and traversals (dfs and bfs)
+* Dictionaries, hash tables and sets
+* Advanced data structures
+* Data structures efficiency
+* Sorting and seraching algorithms
 * Recursion
 * Combinatorics
-* Dynamic Programming
-* Graphs and Graph Algorithms
-* Other Algorithms
-* Methodology of Problem Solving
+* Dynamic programming
+* Graphs and graph algorithms
+* Other algorithms
+* Methodology of problem solving
