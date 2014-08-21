@@ -9,7 +9,7 @@ internal class Program
         for (int row = 0; row < matrix.GetLength(0); row++)
             if (matrix[row, 0] % 2 == 0)
                 for (int col = 0; col < matrix.GetLength(1); col++)
-                    if (matrix[row, col] > 0)
+                    if (matrix[row, col] > -1)
                         count++;
         return count;
     }
@@ -23,6 +23,6 @@ internal class Program
         int n = 1000, m = 1000;
         int[,] matrix = new int[n, m];
         long calcCount = CalcCount(matrix);
-        Console.WriteLine(calcCount);
+        Console.WriteLine("{0:n0}", calcCount);
     }
 }

@@ -38,9 +38,9 @@ internal class Program
     // So the comparison will be executed n*(n-1) times, which is O(n^2).
     private static void Main(string[] args)
     {
-        int n = 10000;
+        int n = 1000;
         int[] arr = new int[n];
         long count = Compute(arr);
-        Console.WriteLine(count);
+        Console.WriteLine("{0:n0}", count);
     }
 }

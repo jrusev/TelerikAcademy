@@ -27,9 +27,9 @@ internal class Program
     private static void Main()
     {
         count = 0;
-        int n = 10, m = 10;
+        int n = 1000, m = 1000;
         int[,] matrix = new int[n, m];
         long sum = CalcSum(matrix, 0);
-        Console.WriteLine(count);
+        Console.WriteLine("{0:n0}", count);
     }
 }
