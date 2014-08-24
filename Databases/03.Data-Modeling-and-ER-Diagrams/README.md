@@ -2,7 +2,7 @@
 
 1. Create the following database diagram in SQL Server:
 
-  ![Screenshot]()
+  ![Screenshot](https://raw.githubusercontent.com/neutrino-git/TelerikAcademy/master/Databases/03.Data-Modeling-and-ER-Diagrams/01.CitizensDB.png)
   
 * Fill some sample data in the tables with SQL Server Management Studio.
 
