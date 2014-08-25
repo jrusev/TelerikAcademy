@@ -4,11 +4,13 @@
 SELECT FirstName, LastName, Salary FROM Employees
 WHERE Salary = (SELECT MIN(Salary) FROM Employees)
 
--- 2. Write a SQL query to find the names and salaries of the employees that have a salary that is up to 10% higher than the minimal salary for the company.
+-- 2. Write a SQL query to find the names and salaries of the employees 
+-- that have a salary that is up to 10% higher than the minimal salary for the company.
 SELECT FirstName, LastName, Salary FROM Employees
 WHERE Salary <= 1.1 * (SELECT MIN(Salary) FROM Employees)
 
--- 3. Write a SQL query to find the full name, salary and department of the employees that take the minimal salary in their department.
+-- 3. Write a SQL query to find the full name, salary and department of the employees
+-- that take the minimal salary in their department.
 SELECT FirstName, LastName, d.Name AS Department, Salary
 FROM Employees e
 JOIN Departments d ON e.DepartmentID = d.DepartmentID
@@ -86,7 +88,8 @@ HAVING Count(*) = 5
 SELECT e.FirstName, e.LastName FROM Employees e
 WHERE 5 = (SELECT COUNT(*) FROM Employees WHERE ManagerID = e.EmployeeID)
 
--- 12. Write a SQL query to find all employees along with their managers. For employees that do not have manager display the value "(no manager)".
+-- 12. Write a SQL query to find all employees along with their managers.
+-- For employees that do not have manager display the value "(no manager)".
 SELECT 
   e.FirstName + ' ' + e.LastName AS [Employee],
   ISNULL(m.FirstName + ' ' + m.LastName, '(no manager)') AS [Manager]
@@ -100,11 +103,13 @@ SELECT
 FROM Employees e
 LEFT JOIN Employees m ON e.ManagerId = m.EmployeeId
 
--- 13. Write a SQL query to find the names of all employees whose last name is exactly 5 characters long. Use the built-in LEN(str) function.
+-- 13. Write a SQL query to find the names of all employees whose last name is exactly 5 characters long.
+-- Use the built-in LEN(str) function.
 SELECT LastName, LEN(LastName) AS [Name Length]  FROM Employees
 WHERE LEN(LastName) = 5
 
--- 14. Write a SQL query to display the current date and time in the following format "day.month.year hour:minutes:seconds:milliseconds".
+-- 14. Write a SQL query to display the current date and time in the following format
+-- "day.month.year hour:minutes:seconds:milliseconds".
 SELECT CONVERT(varchar, GETDATE(), 113) AS [Current Date and Time]
 -- second variant:
 SELECT FORMAT(GETDATE(), 'dd MMM yyyy HH:mm:ss:fff') AS [Current Date and Time]
@@ -119,7 +124,8 @@ CREATE TABLE Users (
 )
 GO
 
--- 16. Write a SQL statement to create a view that displays the users from the Users table that have been in the system today.
+-- 16. Write a SQL statement to create a view that displays the users
+-- from the Users table that have been in the system today.
 CREATE VIEW [UsersLoggedToday] AS
 SELECT Username  FROM Users
 WHERE DATEDIFF(day, LastLogin, GETDATE()) = 0
@@ -135,14 +141,16 @@ GO
 SELECT * FROM Users
 SELECT Username AS [Users Logged In Today] FROM UsersLoggedToday
 
--- 17. Write a SQL statement to create a table Groups. Groups should have unique name. Define primary key and identity column.
+-- 17. Write a SQL statement to create a table Groups. Groups should have unique name.
+-- Define primary key and identity column.
 CREATE TABLE Groups (
     GroupId INT IDENTITY PRIMARY KEY,
 	Name nvarchar(100) NOT NULL UNIQUE 
 )
 GO
 
--- 18. Write a SQL statement to add a column GroupID to the table Users. Add a foreign key constraint between tables Users and Groups tables.
+-- 18. Write a SQL statement to add a column GroupID to the table Users.
+-- Add a foreign key constraint between tables Users and Groups tables.
 ALTER TABLE Users
 ADD GroupId INT FOREIGN KEY REFERENCES Groups(GroupId)
 
@@ -181,7 +189,8 @@ INSERT INTO Users(UserName, [Password], FullName)
 	FROM Employees
 GO
 
--- 23. Write a SQL statement that changes the password to NULL for all users that have not been in the system since 10.03.2010.
+-- 23. Write a SQL statement that changes the password to NULL for all users
+-- that have not been in the system since 10.03.2010.
 UPDATE Users SET Password = NULL
 WHERE LastLogin <  CONVERT(DATE, '10.03.2010', 104)
 
@@ -194,7 +203,8 @@ FROM Employees e
 	JOIN Departments d ON d.DepartmentID = e.DepartmentID
 GROUP BY d.Name, e.JobTitle
 
--- 26. Write a SQL query to display the minimal employee salary by department and job title along with the name of some of the employees that take it.
+-- 26. Write a SQL query to display the minimal employee salary by department and job title
+-- along with the name of some of the employees that take it.
 SELECT LastName, d.Name AS Department, JobTitle, Salary
 FROM Employees e JOIN Departments d ON e.DepartmentId = d.DepartmentId
 WHERE e.Salary =
@@ -228,7 +238,8 @@ WHERE e.EmployeeID IN (SELECT DISTINCT ManagerID FROM Employees)
 GROUP BY t.Name
 ORDER BY [Managers Count] DESC
 
--- 29. Write a SQL to create table WorkHours to store work reports for each employee (employee id, date, task, hours, comments).
+-- 29. Write a SQL to create table WorkHours to store work reports for each employee
+-- (employee id, date, task, hours, comments).
 CREATE TABLE WorkHours (
   ReportID int IDENTITY PRIMARY KEY,
   EmployeeID int FOREIGN KEY REFERENCES Employees (EmployeeID),
@@ -314,14 +325,15 @@ UPDATE WorkHours SET Comments = 'Completed query 30' WHERE EmployeeID = 1
 ----	GROUP BY d.Name
 ----ROLLBACK TRAN
 
--- 31. Start a database transaction and drop the table EmployeesProjects. Now how you could restore back the lost table data?
+-- 31. Start a database transaction and drop the table EmployeesProjects.
+-- Now how you could restore back the lost table data?
 
 ----BEGIN TRAN
 ----	DROP TABLE EmployeesProjects
 ----ROLLBACK TRAN
 
--- 32. Find how to use temporary tables in SQL Server.
--- Using temporary tables backup all records from EmployeesProjects and restore them back after dropping and re-creating the table.
+-- 32. Using temporary tables backup all records from EmployeesProjects
+-- and restore them back after dropping and re-creating the table.
 SELECT * INTO #Temp FROM EmployeesProjects
 DROP TABLE EmployeesProjects
 SELECT * INTO EmployeeProjects FROM #Temp
