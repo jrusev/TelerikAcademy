@@ -17,45 +17,27 @@ public class LongestSubsequence
         Console.WriteLine("Longest subsequence: {0}", string.Join(", ", longestSubsequence));
     }
 
-    private static List<int> FindLongestSubsequence(List<int> nums)
+    public static List<int> FindLongestSubsequence(List<int> nums)
     {
-        if (nums.Count == 1)
-        {
-            return nums;
-        }
-
         int longestStart = 0;
-        int currentStart = 0;
-
-        int longestLength = 0;
+        int longestLength = 1;
         int currentLength = 1;
 
         for (int i = 1; i < nums.Count; i++)
         {
-            // If the current elements is different than the last,
-            // or the end of the sequence is reached...
-            if (nums[i] != nums[i - 1] || i == nums.Count - 1)
-            {
-                // ... check if the current sequence is longer than the longest
-                if (currentLength > longestLength)
-                {
-                    longestLength = currentLength;
-                    longestStart = currentStart;
-                }
+            if (nums[i] != nums[i - 1])
+                currentLength = 0;
 
-                // Start a new sequence
-                currentStart = i;
-                currentLength = 1;
-            }
-            else
+            currentLength++;
+
+            if (currentLength > longestLength)
             {
-                // The current element is equal to the last - continue sequence
-                currentLength++;
+                longestLength = currentLength;
+                longestStart = i - currentLength + 1;
             }
         }
 
-        var longestSubsequence = nums.Skip(longestStart).Take(longestLength);
-        return new List<int>(longestSubsequence);
+        return nums.Skip(longestStart).Take(longestLength).ToList();
     }
 
     private static List<int> CreateListOfRandomNumbers(int listSize)

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("04.LongestSubsequenceUnitTest")]
+[assembly: AssemblyTitle("04.LES.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("04.LongestSubsequenceUnitTest")]
+[assembly: AssemblyProduct("04.LES.Tests")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("cdb85e82-435f-4896-b767-07d9333d6303")]
+[assembly: Guid("db6ba314-a1a0-4f51-b150-4e701fdf3f7a")]
 
 // Version information for an assembly consists of the following four values:
 //

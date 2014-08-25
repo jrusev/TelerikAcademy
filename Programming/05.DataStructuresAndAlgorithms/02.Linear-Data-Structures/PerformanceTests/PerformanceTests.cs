@@ -62,11 +62,12 @@ public class PerformanceTests
 
     private static IEnumerable<int> GenerateList(int numCount)
     {
+        var rand = new Random();
         var nums = new List<int>();
         var maxNum = numCount / 10;
         for (int i = 0; i < numCount; i++)
         {
-            nums.Add(i % maxNum);
+            nums.Add(rand.Next(maxNum));
         }
 
         //nums = new List<int>() { 4, 2, 2, 5, 2, 3, 2, 3, 1, 5, 2 };
