@@ -11,7 +11,6 @@
     | --------------- |:------:|
     | Svetlin Nakov   | 25     |
     | Doncho Minkov   | 22     |
-    | Doncho Minkov   | 22     |
     | Nikolay Kostov  | 24     |
     | Georgi Georgiev | 20     |
 
