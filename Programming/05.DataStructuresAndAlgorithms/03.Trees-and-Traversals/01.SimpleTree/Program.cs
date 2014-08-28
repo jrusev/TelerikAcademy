@@ -8,18 +8,14 @@ public class Program
     private static Node<int>[] nodes;
 
     private static void Main()
-    {
-        // Example tree, N-1 pairs of (parent node - child node)
-        Console.SetIn(new StringReader(@"7
-2 4
-3 2
-5 0
-3 5
-5 6
-5 1
-"));
+    {   
+     
+#if DEBUG
+        // Example tree, N-1 pairs of [parent node -> child node]
+        Console.SetIn(new System.IO.StreamReader("../../input.txt"));
+#endif
 
-        ParseTree(Console.In);
+        ParseTree();
 
         // 1) the root node
         var root = FindRoot();
@@ -176,15 +172,15 @@ public class Program
         return sum;
     }
 
-    private static void ParseTree(TextReader input)
+    private static void ParseTree()
     {
-        int n = int.Parse(input.ReadLine());
+        int n = int.Parse(Console.ReadLine());
         nodes = Enumerable.Range(0, n).Select(i => new Node<int>(i)).ToArray();
 
         // Connect the nodes
         for (int i = 0; i < n - 1; i++)
         {
-            var vertices = input.ReadLine().Split().Select(int.Parse).ToArray();
+            var vertices = Console.ReadLine().Split().Select(int.Parse).ToArray();
             
             var parent = nodes[vertices[0]];
             var child = nodes[vertices[1]];
