@@ -65,43 +65,21 @@ public class Program
 
     private static Node<int> FindRoot()
     {
-        for (int i = 0; i < nodes.Length; i++)
-        {
-            if (!nodes[i].HasParent)
-            {
-                return nodes[i];
-            }
-        }
+        var root = nodes.FirstOrDefault(n => !n.HasParent);
+
+        if (root != null) return root;
 
         throw new ApplicationException("The tree has no root!");
     }
 
     private static IEnumerable<int> FindLeafNodes()
     {
-        var leafNodes = new List<int>();
-        for (int i = 0; i < nodes.Length; i++)
-        {
-            if (nodes[i].Children.Count == 0)
-            {
-                leafNodes.Add(nodes[i].Value);
-            }
-        }
-
-        return leafNodes;
+        return nodes.Where(n => n.Children.Count == 0).Select(n => n.Value);
     }
 
     private static IEnumerable<int> FindMiddleNodes()
     {
-        var middleNodes = new List<int>();
-        for (int i = 0; i < nodes.Length; i++)
-        {
-            if (nodes[i].Children.Count != 0 && nodes[i].HasParent)
-            {
-                middleNodes.Add(nodes[i].Value);
-            }
-        }
-
-        return middleNodes;
+        return nodes.Where(n => n.Children.Count != 0 && n.HasParent).Select(n => n.Value);
     }
 
     private static IEnumerable<int> FindLongestPath(Node<int> root)
