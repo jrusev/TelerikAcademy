@@ -179,20 +179,12 @@ public class Program
     private static void ParseTree(TextReader input)
     {
         int n = int.Parse(input.ReadLine());
-
-        nodes = new Node<int>[n];
-
-        // Create the nodes with their corresponding values
-        for (int i = 0; i < nodes.Length; i++)
-        {
-            nodes[i] = new Node<int>(i);
-        }
+        nodes = Enumerable.Range(0, n).Select(i => new Node<int>(i)).ToArray();
 
         // Add the edges
         for (int i = 0; i < n - 1; i++)
         {
-            string[] vertices = input.ReadLine().Split(
-                new char[] { ' ', '(', ')', '-', '>', '<' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] vertices = input.ReadLine().Split();
             int parentIndex = int.Parse(vertices[0]);
             int childIndex = int.Parse(vertices[1]);
 
