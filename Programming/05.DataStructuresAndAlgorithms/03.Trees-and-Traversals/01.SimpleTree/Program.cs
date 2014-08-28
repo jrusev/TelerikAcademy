@@ -175,6 +175,8 @@ public class Program
     private static void ParseTree()
     {
         int n = int.Parse(Console.ReadLine());
+
+        // Create the nodes
         nodes = Enumerable.Range(0, n).Select(i => new Node<int>(i)).ToArray();
 
         // Connect the nodes
