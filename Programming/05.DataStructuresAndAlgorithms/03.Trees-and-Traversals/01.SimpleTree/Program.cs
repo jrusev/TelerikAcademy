@@ -181,15 +181,13 @@ public class Program
         int n = int.Parse(input.ReadLine());
         nodes = Enumerable.Range(0, n).Select(i => new Node<int>(i)).ToArray();
 
-        // Add the edges
+        // Connect the nodes
         for (int i = 0; i < n - 1; i++)
         {
-            string[] vertices = input.ReadLine().Split();
-            int parentIndex = int.Parse(vertices[0]);
-            int childIndex = int.Parse(vertices[1]);
-
-            var child = nodes[childIndex];
-            var parent = nodes[parentIndex];
+            var vertices = input.ReadLine().Split().Select(int.Parse).ToArray();
+            
+            var parent = nodes[vertices[0]];
+            var child = nodes[vertices[1]];
 
             parent.Children.Add(child);
             child.Parent = parent;
