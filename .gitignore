@@ -154,3 +154,9 @@ $RECYCLE.BIN/
 
 # Mac desktop service store files
 .DS_Store
+
+# Microsoft Fakes
+FakesAssemblies/
+*.lic
+*.jmconfig
+.nuget/NuGet.exe
