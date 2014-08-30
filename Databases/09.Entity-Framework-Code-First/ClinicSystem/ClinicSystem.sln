@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clinics.Models", "Clinics.Models\Clinics.Models.csproj", "{1327C144-7309-4AAF-8407-B0815D59BF47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clinics.Data", "Clinics.Data\Clinics.Data.csproj", "{84923950-FDAD-4AE8-9A6F-0441721E348D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clinics.ConsoleClient", "Clinics.Console\Clinics.ConsoleClient.csproj", "{9F5C3BC6-8FBF-41E6-A87A-C97F05AEA0C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1327C144-7309-4AAF-8407-B0815D59BF47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1327C144-7309-4AAF-8407-B0815D59BF47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1327C144-7309-4AAF-8407-B0815D59BF47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1327C144-7309-4AAF-8407-B0815D59BF47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84923950-FDAD-4AE8-9A6F-0441721E348D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84923950-FDAD-4AE8-9A6F-0441721E348D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84923950-FDAD-4AE8-9A6F-0441721E348D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84923950-FDAD-4AE8-9A6F-0441721E348D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F5C3BC6-8FBF-41E6-A87A-C97F05AEA0C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F5C3BC6-8FBF-41E6-A87A-C97F05AEA0C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F5C3BC6-8FBF-41E6-A87A-C97F05AEA0C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F5C3BC6-8FBF-41E6-A87A-C97F05AEA0C3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
