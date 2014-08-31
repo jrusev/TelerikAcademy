@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-// Implement the data structure "set" in a class HashedSet<T> using your class HashTable<K,T> to hold the elements.
-// Implement all standard set operations like Add(T), Find(T), Remove(T), Count, Clear(), union and intersect.
+// Represents a set, implemented with HashTable<K,bool>
 public class HashedSet<T> : IEnumerable<T>
 {
     // We will use a hash table to hold the keys, and use bool for the values to save memory.
@@ -28,16 +27,20 @@ public class HashedSet<T> : IEnumerable<T>
     // Gets the number of elements that are contained in a set.
     public int Count
     {
-        get
-        {
-            return this.set.Count;
-        }
+        get { return this.set.Count; }
     }
 
     // Adds the specified element to a set.
-    public void Add(T item)
+    // Returns true if the element is added to the set; false if the element is already present.
+    public bool Add(T item)
     {
+        if (this.set.ContainsKey(item))
+        {
+            return false;
+        }
+
         this.set.Add(item, false);
+        return true;
     }
 
     // Determines whether the set contains the specified element.
@@ -70,12 +73,12 @@ public class HashedSet<T> : IEnumerable<T>
     // Modifies the current HashedSet<T> object to contain only the elements that are present in both collections.
     public void Intersect(IEnumerable<T> otherCollection)
     {
-        foreach (var item in this.set.Keys)
+        foreach (var item in this.set.Keys.ToList())
         {
             if (!otherCollection.Contains(item))
             {
                 this.Remove(item);
-            }                
+            }
         }
     }
 
@@ -84,18 +87,11 @@ public class HashedSet<T> : IEnumerable<T>
         return '[' + string.Join(", ", this.set.Select(item => item.Key)) + ']';
     }
 
-    // Iterates through the elements of the set
     public IEnumerator<T> GetEnumerator()
     {
-        //foreach (var item in this.set)
-        //{
-        //    yield return item.Key;
-        //}
-
         return this.set.Select(kvp => kvp.Key).GetEnumerator();
     }
 
-    // Iterates through the elements of the set
     IEnumerator IEnumerable.GetEnumerator()
     {
         return this.GetEnumerator();

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 
 // Implement the data structure "set" in a class HashedSet<T> using your class HashTable<K,T> to hold the elements.
 // Implement all standard set operations like Add(T), Find(T), Remove(T), Count, Clear(), union and intersect.
@@ -12,6 +10,10 @@ public class Program
         Console.WriteLine("Set: {0}", set);
 
         // Add
+        set.Add(6);
+        Console.WriteLine("Add '6' -> {0}", set);
+
+        // Add existing
         set.Add(6);
         Console.WriteLine("Add '6' -> {0}", set);
 
