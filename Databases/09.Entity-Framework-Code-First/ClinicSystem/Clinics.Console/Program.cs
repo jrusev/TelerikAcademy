@@ -23,12 +23,11 @@ namespace Clinics.ConsoleClient
 
         private static void ClearDatabase(ClinicsDB db)
         {
-            // In this order
-            db.Manipulations.ToList().ForEach(x => db.Manipulations.Remove(x));
-            db.Specialists.ToList().ForEach(x => db.Specialists.Remove(x));
-            db.Specialties.ToList().ForEach(x => db.Specialties.Remove(x));
-            db.Procedures.ToList().ForEach(x => db.Procedures.Remove(x));
-            SaveChanges(db);
+            // In this order      
+            db.Database.ExecuteSqlCommand("DELETE FROM Procedures");
+            db.Database.ExecuteSqlCommand("DELETE FROM Manipulations");
+            db.Database.ExecuteSqlCommand("DELETE FROM Specialists");
+            db.Database.ExecuteSqlCommand("DELETE FROM Specialties");
         }
 
         private static void SeedDatabase(ClinicsDB db)
