@@ -30,7 +30,7 @@ public class Program
     {
         foreach (var command in commands)
         {
-            Console.WriteLine("$ " + command);
+            Console.WriteLine("> " + command);
             var args = command.Substring(5, command.Length - 6);
             var searchTerms = args.Split(new[] { ", " }, StringSplitOptions.RemoveEmptyEntries);
 
