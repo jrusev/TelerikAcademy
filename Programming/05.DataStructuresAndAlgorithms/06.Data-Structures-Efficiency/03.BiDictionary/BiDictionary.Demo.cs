@@ -31,9 +31,9 @@ public class BiDictionaryDemo
         }
 
         // Test the dictionary by searching by key1 (name), key2 (age) and both key1 and key2
-        Console.WriteLine("All people named Peter: {0}", string.Join(", ", bdict["Peter"]));
-        Console.WriteLine("All people at age 20: {0}", string.Join(", ", bdict[20]));
-        Console.WriteLine("All people at age 20, named Peter: {0}", string.Join(", ", bdict["Peter", 20]));
+        Console.WriteLine("All people named Peter: {0}", string.Join(", ", bdict.GetByK1("Peter")));
+        Console.WriteLine("All people at age 20: {0}", string.Join(", ", bdict.GetByK2(20)));
+        Console.WriteLine("All people at age 20, named Peter: {0}", string.Join(", ", bdict.GetByBoth("Peter", 20)));
     }
 
     // Represents a person with name, age and town
