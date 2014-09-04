@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using MongoChat.Client;
@@ -17,7 +18,8 @@ class MongoChatClient
         {
             Console.Write("> ");
             messages.Insert(new BsonDocument { { "Author", username }, { "Text", Console.ReadLine() }, { "Time", DateTime.Now } });
-            Console.WriteLine(string.Join(Environment.NewLine, messages.FindAll()));
+            var allMessages = messages.FindAll().Select(m => string.Format("[{0}] {1}: {2}", m["Time"].ToLocalTime(), m["Author"], m["Text"]));
+            Console.WriteLine(string.Join(Environment.NewLine, allMessages));
         }
     }
 }
