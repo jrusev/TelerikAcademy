@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger.Models", "Logger.Models\Logger.Models.csproj", "{D642401A-2DE1-499F-9922-05EF50450764}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoChat.Client", "LinqLikeQueries\MongoChat.Client.csproj", "{D1614D50-EC36-42AC-A436-0D635D2547CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.MongoCRUD", "MongoCRUD\01.MongoCRUD.csproj", "{D1614D50-EC36-42AC-A436-0D635D2547CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoChat.Models", "Logger.Models\MongoChat.Models.csproj", "{D642401A-2DE1-499F-9922-05EF50450764}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D642401A-2DE1-499F-9922-05EF50450764}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D642401A-2DE1-499F-9922-05EF50450764}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D642401A-2DE1-499F-9922-05EF50450764}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D642401A-2DE1-499F-9922-05EF50450764}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D1614D50-EC36-42AC-A436-0D635D2547CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D1614D50-EC36-42AC-A436-0D635D2547CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1614D50-EC36-42AC-A436-0D635D2547CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1614D50-EC36-42AC-A436-0D635D2547CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D642401A-2DE1-499F-9922-05EF50450764}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D642401A-2DE1-499F-9922-05EF50450764}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D642401A-2DE1-499F-9922-05EF50450764}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D642401A-2DE1-499F-9922-05EF50450764}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

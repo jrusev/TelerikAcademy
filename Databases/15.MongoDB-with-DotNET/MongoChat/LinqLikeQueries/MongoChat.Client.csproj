@@ -47,16 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="MongoChatClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ExtensionsMethods\ExtensionsMethods.csproj">
-      <Project>{fd25f861-2fff-4b73-a995-ff1af798648f}</Project>
-      <Name>ExtensionsMethods</Name>
+    <ProjectReference Include="..\Logger.Models\MongoChat.Models.csproj">
+      <Project>{d642401a-2de1-499f-9922-05ef50450764}</Project>
+      <Name>MongoChat.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

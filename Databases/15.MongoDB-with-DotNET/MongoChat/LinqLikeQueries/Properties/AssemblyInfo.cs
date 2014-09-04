@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CrudOperations")]
+[assembly: AssemblyTitle("LinqLikeQueries")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CrudOperations")]
+[assembly: AssemblyProduct("LinqLikeQueries")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("ddff24b1-dbdf-423d-8c77-3b99b72a82e9")]
+[assembly: Guid("37d7be8c-040b-4ddf-81c0-6028ca2c230d")]
 
 // Version information for an assembly consists of the following four values:
 //
