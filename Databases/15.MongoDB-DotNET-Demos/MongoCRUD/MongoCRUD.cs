@@ -5,6 +5,7 @@ using System.Linq;
 using MongoDB.Driver;
 using MongoDB.Driver.Builders;
 using MongoDB.Driver.Linq;
+using MongoDB.Bson;
 
 using Logger.Models;
 using ExtensionsMethods;
@@ -28,6 +29,8 @@ class MongoCRUD
         Modify(logs);
 
         Delete(logs);
+
+        WorkWithBson();
     }
 
     private static void Create(MongoCollection<Log> logs)
@@ -91,6 +94,43 @@ class MongoCRUD
         }
 
         return logs;
+    }
+
+    // http://stackoverflow.com/a/18069949
+    private static void WorkWithBson()
+    {
+        //build some test data
+        BsonArray dataFields = new BsonArray { new BsonDocument { 
+		     { "ID" , ObjectId.GenerateNewId()}, { "NAME", "ID"}, {"TYPE", "Text"} } };
+        BsonDocument nested = new BsonDocument {
+            { "name", "John Doe" },
+            { "fields", dataFields },
+            { "address", new BsonDocument {
+                    { "street", "123 Main St." },
+                    { "city", "Madison" },
+                    { "state", "WI" },
+                    { "zip", 53711}
+                }
+		     }
+		 };
+        // grab the address from the document,
+        // subdocs as a BsonDocument
+        var address = nested["address"].AsBsonDocument;
+        Console.WriteLine(address["city"].AsString);
+        // or, jump straight to the value ...
+        Console.WriteLine(nested["address"]["city"].AsString);
+        // loop through the fields array
+        var allFields = nested["fields"].AsBsonArray;
+        foreach (var fields in allFields)
+        {
+            // grab a few of the fields:
+            Console.WriteLine("Name: {0}, Type: {1}",
+                fields["NAME"].AsString, fields["TYPE"].AsString);
+        }
+
+        // Madison
+        // Madison
+        // Name: ID, Type: Text
     }
 
     static MongoDatabase GetDatabase(string name, string fromHost)
