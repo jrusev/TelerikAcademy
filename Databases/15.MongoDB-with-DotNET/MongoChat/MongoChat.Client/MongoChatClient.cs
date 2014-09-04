@@ -4,15 +4,14 @@ using MongoChat.Models;
 
 class MongoChatClient
 {
+    const string MongoLab = "mongodb://telerik:chat@ds035300.mongolab.com:35300/mongochat";
+    const string Localhost = "mongodb://localhost";
+
     static void Main()
     {
-        string mongoLab = "mongodb://telerik:chat@ds035300.mongolab.com:35300/mongochat";
-        string local = "mongodb://127.0.0.1";
+        string connString = MongoLab;
 
-        string connString = mongoLab;
-        string dbName = "mongochat";
-
-        var db = new MongoClient(connString).GetServer().GetDatabase(dbName);
+        var db = new MongoClient(connString).GetServer().GetDatabase("mongochat");
         var messages = db.GetCollection<Message>("Messages");
 
         Console.Write("Username: ");
