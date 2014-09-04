@@ -17,8 +17,11 @@ class MongoChatClient
         while (true)
         {
             Console.Write("> ");
-            messages.Insert(
-                new BsonDocument { { "Author", username }, { "Text", Console.ReadLine() }, { "Time", DateTime.Now } });
+            string input = Console.ReadLine();
+
+            if (!string.IsNullOrWhiteSpace(input))
+                messages.Insert(
+                    new BsonDocument { { "Author", username }, { "Text", input }, { "Time", DateTime.Now } });
 
             var formattedMessages = messages
                 .FindAll()
