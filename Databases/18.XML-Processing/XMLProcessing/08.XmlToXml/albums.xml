@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<albums>
+	<album>
+		<name>Hooked on a Feeling</name>
+		<artist>Blue Swede</artist>
+	</album>
+	<album>
+		<name>Record World</name>
+		<artist>Raspberries</artist>
+	</album>
+	<album>
+		<name>Starting Over</name>
+		<artist>Raspberries</artist>
+	</album>
+	<album>
+		<name>Wovoka</name>
+		<artist>Redbone</artist>
+	</album>
+	<album>
+		<name>The 5th Dimension</name>
+		<artist>Blue Swede</artist>
+	</album>
+</albums>

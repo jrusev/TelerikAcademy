@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<catalogue name="Awesome Mix Vol. 1">
+	<album>
+		<name>Hooked on a Feeling</name>
+		<artist>Blue Swede</artist>
+		<year>1968</year>
+		<producer>Scepter Records</producer>
+		<price>$20.00</price>
+	</album>
+	<album>
+		<name>Record World</name>
+		<artist>Raspberries</artist>
+		<year>1972</year>
+		<producer>Capitol Records</producer>
+		<price>$18.50</price>
+		<songs>
+			<song>Don't Want to Say Goodbye</song>
+			<song>Go All the Way</song>
+			<song>I Wanna Be with You</song>
+		</songs>
+	</album>
+	<album>
+		<name>Starting Over</name>
+		<artist>Raspberries</artist>
+		<year>1974</year>
+		<producer>Capitol</producer>
+		<price>$17.50</price>
+	</album>
+	<album>
+		<name>Wovoka</name>
+		<artist>Redbone</artist>
+		<year>1974</year>
+		<producer>Lolly Vegas</producer>
+		<price>$11.00</price>
+		<songs>
+			<song>Come and Get Your Love</song>
+			<song>When You Got Trouble</song>
+		</songs>
+	</album>
+	<album>
+		<name>The 5th Dimension</name>
+		<artist>Blue Swede</artist>
+		<year>1974</year>
+		<producer>Warner Bros.</producer>
+		<price>$9.99</price>
+	</album>
+</catalogue>

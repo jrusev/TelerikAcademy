@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<People>
+	<person>
+		<name>Svetlin Nakov</name>
+		<address>Sofia, 1505</address>
+		<phone>886888888</phone>
+	</person>
+	<person>
+		<name>Doncho Minkov</name>
+		<address>Varna, 9000</address>
+		<phone>886888889</phone>
+	</person>
+	<person>
+		<name>Nikolay Kostov</name>
+		<address>Plovdiv, 6000</address>
+		<phone>886888880</phone>
+	</person>
+</People>

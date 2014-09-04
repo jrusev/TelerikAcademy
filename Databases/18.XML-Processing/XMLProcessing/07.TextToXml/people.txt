@@ -1,0 +1,3 @@
+Svetlin Nakov; Sofia, 1505; 886888888
+Doncho Minkov; Varna, 9000; 886888889
+Nikolay Kostov; Plovdiv, 6000; 886888880
