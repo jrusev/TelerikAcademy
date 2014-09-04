@@ -7,8 +7,8 @@
     <ProjectGuid>{D1614D50-EC36-42AC-A436-0D635D2547CF}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LinqLikeQueries</RootNamespace>
-    <AssemblyName>LinqLikeQueries</AssemblyName>
+    <RootNamespace>MongoChat.Client</RootNamespace>
+    <AssemblyName>MongoChat</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -47,17 +47,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connections.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Connections.settings</DependentUpon>
+    </Compile>
     <Compile Include="MongoChatClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MongoChat.Models\MongoChat.Models.csproj">
-      <Project>{d642401a-2de1-499f-9922-05ef50450764}</Project>
-      <Name>MongoChat.Models</Name>
-    </ProjectReference>
+    <None Include="Connections.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Connections.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

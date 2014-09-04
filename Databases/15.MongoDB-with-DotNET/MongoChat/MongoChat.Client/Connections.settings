@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MongoChat.Client" GeneratedClassName="Connections">
+  <Profiles />
+  <Settings>
+    <Setting Name="MongoCloud" Type="System.String" Scope="User">
+      <Value Profile="(Default)">mongodb://telerik:chat@ds035300.mongolab.com:35300/mongochat</Value>
+    </Setting>
+    <Setting Name="MongoLocal" Type="System.String" Scope="User">
+      <Value Profile="(Default)">mongodb://localhost</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
