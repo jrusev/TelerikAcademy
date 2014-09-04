@@ -54,7 +54,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Logger.Models\MongoChat.Models.csproj">
+    <ProjectReference Include="..\MongoChat.Models\MongoChat.Models.csproj">
       <Project>{d642401a-2de1-499f-9922-05ef50450764}</Project>
       <Name>MongoChat.Models</Name>
     </ProjectReference>
