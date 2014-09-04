@@ -17,8 +17,11 @@ class MongoChatClient
         while (true)
         {
             Console.Write("> ");
-            messages.Insert(new BsonDocument { { "Author", username }, { "Text", Console.ReadLine() }, { "Time", DateTime.Now } });
-            var posts = messages.FindAll().Select(m => string.Format("[{0}] {1}: {2}", m["Time"].ToLocalTime(), m["Author"], m["Text"]));
+            messages.Insert(
+                new BsonDocument { { "Author", username }, { "Text", Console.ReadLine() }, { "Time", DateTime.Now } });
+            var posts = messages
+                .FindAll()
+                .Select(m => string.Format("[{0}] {1}: {2}", m["Time"].ToLocalTime(), m["Author"], m["Text"]));
             Console.WriteLine(string.Join(Environment.NewLine, posts));
         }
     }
