@@ -6,8 +6,8 @@
 * Dictionaries, hash tables and sets
 * Advanced data structures
 * Data structures efficiency
-* Sorting and seraching algorithms
 * Recursion
+* Sorting and seraching algorithms
 * Combinatorics
 * Dynamic programming
 * Graphs and graph algorithms
