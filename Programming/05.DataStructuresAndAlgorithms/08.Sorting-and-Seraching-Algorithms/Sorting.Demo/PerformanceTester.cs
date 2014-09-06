@@ -9,7 +9,7 @@ namespace Sorting.Demo
         private static readonly Random Rand = new Random();
         private static readonly Stopwatch Stopwatch = new Stopwatch();
 
-        public static void TestAlgoPerformance(params ISorter<int>[] sorters)
+        public static void Test(params ISorter<int>[] sorters)
         {
             var randomArray = GenerareRandomArray(10000);
 

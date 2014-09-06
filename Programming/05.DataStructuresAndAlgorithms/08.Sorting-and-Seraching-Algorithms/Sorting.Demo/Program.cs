@@ -49,7 +49,7 @@
             Console.WriteLine();
 
             Console.WriteLine("Test sort performance:");
-            PerformanceTester.TestAlgoPerformance(new SelectionSorter<int>(), new QuickSorter<int>(), new MergeSorter<int>());
+            PerformanceTester.Test(new SelectionSorter<int>(), new QuickSorter<int>(), new MergeSorter<int>());
         }
     }
 }
