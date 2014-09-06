@@ -10,6 +10,9 @@ class ExtractOldAlbumPricesLINQ
     static void Main()
     {
         var doc = XElement.Load(filePath);
+
+        // Elements() finds only those elements that are direct descendents, i.e. immediate children.
+        // Descendants() finds children at any level, i.e. children, grand-children, etc...
         var albums = from album in doc.Elements("album")
                      where int.Parse(album.Element("year").Value) < (DateTime.Now.Year - 5)
                      select new
