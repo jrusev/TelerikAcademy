@@ -10,14 +10,14 @@ public static class FileUtils
             throw new FileNotFoundException("File does not exist: " + path);
         }
 
-        string textContent = string.Empty;
+        string content = string.Empty;
 
         using (var reader = new StreamReader(path))
         {
-            textContent = reader.ReadToEnd();
+            content = reader.ReadToEnd();
         }
 
-        return textContent;
+        return content;
     }
 
     public static void CreateFile(string path, string text)
