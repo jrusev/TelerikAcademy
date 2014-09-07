@@ -47,9 +47,9 @@ END
 SELECT COUNT(*) AS 'AgeRanges' FROM AgeRanges
 GO
 
--- Create 20 000 toys
+-- Create 10 000 toys
 SET NOCOUNT ON -- Suppresses the "xx rows affected" message
-WHILE (SELECT COUNT(*) FROM Toys) < 20000
+WHILE (SELECT COUNT(*) FROM Toys) < 10000
 BEGIN
   DECLARE @Name nvarchar(50) = 'Toy' + SUBSTRING(CONVERT(varchar(255), NEWID()), 0, 9)
   DECLARE @Price money = (ABS(CHECKSUM(NewId())) % 100 / 100.0) * 199 -- random from 0.00 to 199.00
