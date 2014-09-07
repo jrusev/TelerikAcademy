@@ -53,7 +53,7 @@ WHILE (SELECT COUNT(*) FROM Toys) < 10000
 BEGIN
   DECLARE @Name nvarchar(50) = 'Toy' + SUBSTRING(CONVERT(varchar(255), NEWID()), 0, 9)
   DECLARE @Price money = (ABS(CHECKSUM(NewId())) % 100 / 100.0) * 199 -- random from 0.00 to 199.00
-  DECLARE @ManufacturerId int = (SELECT TOP 1 Id FROM Manufacturers ORDER BY NEWID())
+  DECLARE @ManufacturerId int = (SELECT TOP 1 Id FROM Manufacturers ORDER BY NEWID()) -- random manufacturer Id
   INSERT INTO Toys(Name, Price, ManufacturerId) 
   VALUES(@Name, @Price, @ManufacturerId)
 END
