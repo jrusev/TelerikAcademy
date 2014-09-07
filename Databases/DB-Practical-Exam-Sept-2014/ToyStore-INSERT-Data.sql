@@ -70,27 +70,27 @@ DECLARE @Row INT = (SELECT MIN(RowNum) FROM #Toys)
 SET NOCOUNT ON -- Suppresses the "xx rows affected" message
 WHILE @Row <= @MaxRow
 BEGIN -- foreach toy
-	DECLARE @ToyId int = (SELECT Id FROM #Toys WHERE RowNum = @Row) -- the Id of the current toy  
-	-- Add category
-	IF (RAND(CAST( NEWID() AS varbinary)) > 0.5) -- will execute 50% of the time
-	BEGIN
-		DECLARE @MaxCategories int = (ABS(CHECKSUM(NewId())) % 5) -- from 0 to 4 categories per toy
-		DECLARE @CountCategories int = 0
-		WHILE @CountCategories < @MaxCategories
-		BEGIN
-			DECLARE @CategoryId int = (SELECT TOP 1 Id FROM Categories ORDER BY NEWID()) -- random categoryId
-			DECLARE @IsDuplicate int = 
-				(SELECT COUNT(*) FROM ToysCategories WHERE (ToyId = @ToyId AND CategoryId = @CategoryId))
-			-- if the category is not already added to this toy
-			IF (@IsDuplicate = 0)
-			BEGIN			
-				INSERT INTO ToysCategories(ToyId, CategoryId) 
-				VALUES(@ToyId, @CategoryId)				
-			END
-			SET @CountCategories = @CountCategories + 1
-		END
-	END    
-	SET @Row = @Row + 1
+    DECLARE @ToyId int = (SELECT Id FROM #Toys WHERE RowNum = @Row) -- the Id of the current toy  
+    -- Add category
+    IF (RAND(CAST( NEWID() AS varbinary)) > 0.5) -- will execute 50% of the time
+    BEGIN
+        DECLARE @MaxCategories int = (ABS(CHECKSUM(NewId())) % 5) -- from 0 to 4 categories per toy
+        DECLARE @CountCategories int = 0
+        WHILE @CountCategories < @MaxCategories
+        BEGIN
+            DECLARE @CategoryId int = (SELECT TOP 1 Id FROM Categories ORDER BY NEWID()) -- random categoryId
+            DECLARE @IsDuplicate int = 
+                (SELECT COUNT(*) FROM ToysCategories WHERE (ToyId = @ToyId AND CategoryId = @CategoryId))
+            -- if the category is not already added to this toy
+            IF (@IsDuplicate = 0)
+            BEGIN
+                INSERT INTO ToysCategories(ToyId, CategoryId)
+                VALUES(@ToyId, @CategoryId)
+            END
+            SET @CountCategories = @CountCategories + 1
+        END
+    END    
+    SET @Row = @Row + 1
 END
 SET NOCOUNT OFF
 
