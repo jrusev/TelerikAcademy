@@ -86,7 +86,7 @@ BEGIN -- foreach toy
             BEGIN
                 INSERT INTO ToysCategories(ToyId, CategoryId)
                 VALUES(@ToyId, @CategoryId)
-				SET @CountCategories = @CountCategories + 1
+                SET @CountCategories = @CountCategories + 1
             END            
         END
     END    
