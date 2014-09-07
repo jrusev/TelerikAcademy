@@ -90,7 +90,7 @@ BEGIN -- foreach toy
 			SET @CountCategories = @CountCategories + 1
 		END
 	END    
-    SET @Row = @Row + 1
+	SET @Row = @Row + 1
 END
 SET NOCOUNT OFF
 
