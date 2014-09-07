@@ -1,0 +1,3 @@
+Toys - Categories : many-to-many
+Manufacturers - Toys : one-to-many
+AgeRanges - Toys : one-to-many
