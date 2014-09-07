@@ -81,7 +81,7 @@ BEGIN -- foreach toy
 			DECLARE @CategoryId int = (SELECT TOP 1 Id FROM Categories ORDER BY NEWID()) -- random categoryId
 			DECLARE @IsDuplicate int = 
 				(SELECT COUNT(*) FROM ToysCategories WHERE (ToyId = @ToyId AND CategoryId = @CategoryId))
-
+			-- if the category is not already added to this toy
 			IF (@IsDuplicate = 0)
 			BEGIN			
 				INSERT INTO ToysCategories(ToyId, CategoryId) 
