@@ -41,3 +41,5 @@ SET NOCOUNT OFF
 SELECT COUNT(*) AS 'Students' FROM Students
 SELECT COUNT(*) AS 'StudentCourses' FROM StudentCourses
 GO
+
+select ABS(CHECKSUM(NewId())) % 100 / 100.0
