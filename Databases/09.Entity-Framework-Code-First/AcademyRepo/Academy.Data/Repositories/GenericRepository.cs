@@ -8,10 +8,10 @@
 
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        private IClinicsDBContext context;
+        private IAcademyDBContext context;
         private IDbSet<T> set;
 
-        public GenericRepository(IClinicsDBContext context)
+        public GenericRepository(IAcademyDBContext context)
         {
             this.context = context;
             this.set = context.Set<T>();

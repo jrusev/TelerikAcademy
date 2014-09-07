@@ -3,7 +3,7 @@
     using Academy.Data.Repositories;
     using Academy.Models;
 
-    public interface IClinicsData
+    public interface IAcademyData
     {
         IGenericRepository<Course> Courses { get; }
 

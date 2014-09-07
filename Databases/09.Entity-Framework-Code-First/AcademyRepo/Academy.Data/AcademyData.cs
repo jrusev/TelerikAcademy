@@ -6,19 +6,19 @@
     using Academy.Data.Repositories;
     using Academy.Models;
 
-    public class ClinicsData : IClinicsData
+    public class AcademyData : IAcademyData
     {
-        private IClinicsDBContext context;
+        private IAcademyDBContext context;
         private IDictionary<Type, object> repositories;
 
-        public ClinicsData(IClinicsDBContext context)
+        public AcademyData(IAcademyDBContext context)
         {
             this.context = context;
             this.repositories = new Dictionary<Type, object>();
         }
 
-        public ClinicsData()
-            : this(new ClinicsDBContext())
+        public AcademyData()
+            : this(new AcademyDBContext())
         {
         }
 

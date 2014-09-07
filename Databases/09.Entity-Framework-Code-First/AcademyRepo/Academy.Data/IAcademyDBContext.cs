@@ -5,7 +5,7 @@
 
     using Academy.Models;
 
-    public interface IClinicsDBContext
+    public interface IAcademyDBContext
     {
         IDbSet<Course> Courses { get; set; }
 

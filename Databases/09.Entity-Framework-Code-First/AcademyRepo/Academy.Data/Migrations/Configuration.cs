@@ -2,7 +2,7 @@
 {
     using System.Data.Entity.Migrations;
 
-    public sealed class Configuration : DbMigrationsConfiguration<ClinicsDBContext>
+    public sealed class Configuration : DbMigrationsConfiguration<AcademyDBContext>
     {
         public Configuration()
         {
@@ -11,7 +11,7 @@
             this.ContextKey = "Clinics.Data.ClinicsDBContex";
         }
 
-        protected override void Seed(ClinicsDBContext context)
+        protected override void Seed(AcademyDBContext context)
         {
         }
     }
