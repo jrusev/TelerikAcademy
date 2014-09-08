@@ -22,8 +22,8 @@ class Knapsack
 
         var takeItems = GetItems(items, maxCapacity);
 
-        Console.WriteLine("Highest cost: {0}", takeItems.Sum(i => i.Value));
         Console.WriteLine("Total weight: {0}", takeItems.Sum(i => i.Weight));
+        Console.WriteLine("Highest cost: {0}", takeItems.Sum(i => i.Value));
         Console.WriteLine("Take items: {0}", string.Join(", ", takeItems.Select(i => i.Name).OrderBy(x => x)));        
     }
 
