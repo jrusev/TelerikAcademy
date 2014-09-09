@@ -1,11 +1,7 @@
 ﻿using System;
 
 // Write a program to calculate the Minimum Edit Distance between two words.
-// MED(x, y) is the minimal sum of costs of edit operations used to transform x to y.
-// Sample costs are given below:
-//   cost (replace a letter) = 1
-//   cost (delete a letter) = 0.9
-//   cost (insert a letter) = 0.8
+// Sample costs for each operation : repalce = 1, delete = 0.9, insert = 0.8
 // Example: x = "developer", y = "enveloped" -> cost = 2.7
 class Program
 {
@@ -33,8 +29,7 @@ class Program
                     d[i, j] = Math.Min(Math.Min(
                         d[i - 1, j] + cost.Delete,
                         d[i, j - 1] + cost.Insert),
-                        d[i - 1, j - 1] + cost.Replace
-                        );
+                        d[i - 1, j - 1] + cost.Replace);
         return d[s.Length, t.Length];
     }
 }
