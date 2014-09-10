@@ -14,7 +14,7 @@ class CableNetworkPrim
     }
 
     // Prim's algorithm
-    // For a graph with vertices V and edges E, complexity is O(E + V log V)
+    // For a graph with vertices V, complexity is O(V^2)
     static void FindMinSpanningTree(int[,] adjMatrix)
     {
         Console.WriteLine("Edges in the minimum spanning tree (using Prim):");
