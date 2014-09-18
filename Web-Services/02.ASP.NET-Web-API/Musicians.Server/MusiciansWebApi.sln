@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Musicians.Data", "Musicians.Data\Musicians.Data.csproj", "{67CEBDF2-CADD-4E0B-81E4-CCEB50C41306}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Musicians.Models", "Musicians.Models\Musicians.Models.csproj", "{D30B8B62-DAC9-47A1-980A-582342C3972D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Musicians.Services", "Musicians.Services\Musicians.Services.csproj", "{40782F17-5FF1-4182-B0D7-EE5115DFCD01}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67CEBDF2-CADD-4E0B-81E4-CCEB50C41306}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67CEBDF2-CADD-4E0B-81E4-CCEB50C41306}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67CEBDF2-CADD-4E0B-81E4-CCEB50C41306}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67CEBDF2-CADD-4E0B-81E4-CCEB50C41306}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D30B8B62-DAC9-47A1-980A-582342C3972D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D30B8B62-DAC9-47A1-980A-582342C3972D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D30B8B62-DAC9-47A1-980A-582342C3972D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D30B8B62-DAC9-47A1-980A-582342C3972D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40782F17-5FF1-4182-B0D7-EE5115DFCD01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40782F17-5FF1-4182-B0D7-EE5115DFCD01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40782F17-5FF1-4182-B0D7-EE5115DFCD01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40782F17-5FF1-4182-B0D7-EE5115DFCD01}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.Frames", "01.Frames\01.Frames.csproj", "{249D996F-1033-4E37-8439-4AB9C6637FB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.RecoverMessage", "04.RecoverMessage\04.RecoverMessage.csproj", "{D9780520-6476-497B-85CD-4159CA34A1C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.SupermarketQueue", "03.SupermarketQueue\03.SupermarketQueue.csproj", "{A6510A6C-798C-47A2-9F0C-775B3F2FA144}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{249D996F-1033-4E37-8439-4AB9C6637FB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{249D996F-1033-4E37-8439-4AB9C6637FB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{249D996F-1033-4E37-8439-4AB9C6637FB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{249D996F-1033-4E37-8439-4AB9C6637FB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9780520-6476-497B-85CD-4159CA34A1C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9780520-6476-497B-85CD-4159CA34A1C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9780520-6476-497B-85CD-4159CA34A1C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9780520-6476-497B-85CD-4159CA34A1C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6510A6C-798C-47A2-9F0C-775B3F2FA144}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6510A6C-798C-47A2-9F0C-775B3F2FA144}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6510A6C-798C-47A2-9F0C-775B3F2FA144}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6510A6C-798C-47A2-9F0C-775B3F2FA144}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

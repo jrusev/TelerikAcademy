@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.HugryTom", "01.HugryTom\01.HugryTom.csproj", "{A73A5AC6-EC85-4B38-AD8A-5675F73BCE68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.WalkInThePark", "02.WalkInThePark\02.WalkInThePark.csproj", "{7BC07842-5397-45C7-8145-25BEC9F250FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A73A5AC6-EC85-4B38-AD8A-5675F73BCE68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A73A5AC6-EC85-4B38-AD8A-5675F73BCE68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A73A5AC6-EC85-4B38-AD8A-5675F73BCE68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A73A5AC6-EC85-4B38-AD8A-5675F73BCE68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BC07842-5397-45C7-8145-25BEC9F250FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BC07842-5397-45C7-8145-25BEC9F250FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BC07842-5397-45C7-8145-25BEC9F250FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BC07842-5397-45C7-8145-25BEC9F250FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
