@@ -1,5 +1,6 @@
 ## Telerik Software Academy
 <a href="http://academy.telerik.com/" title="Telerik Academy"><img src="http://academy.telerik.com/images/default-album/telerik-academy-banner.jpg?sfvrsn=2" alt="Академия на Телерик"/></a>
+
 Course assignments - homeworks, projects, teamworks and random code.
 
 ### Programming
