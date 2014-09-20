@@ -9,7 +9,7 @@ Course assignments - homeworks, projects, teamworks and random code.
 * [C# - Part II](https://github.com/neutrino-git/TelerikAcademy/tree/master/Programming/02.CSharp-Part-2)
 * [OOP](https://github.com/neutrino-git/TelerikAcademy/tree/master/Programming/03.OOP)
 * [High Quality Code](https://github.com/neutrino-git/TelerikAcademy/tree/master/Programming/04.HighQualityCode)
-* [Data Structures And Algorithms](https://github.com/neutrino-git/TelerikAcademy/tree/master/Programming/05.DataStructuresAndAlgorithms)
+* [Data Structures and Algorithms](https://github.com/neutrino-git/TelerikAcademy/tree/master/Programming/05.DataStructuresAndAlgorithms)
 
 ### Front-End
 
