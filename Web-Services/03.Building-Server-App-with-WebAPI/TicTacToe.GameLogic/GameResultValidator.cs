@@ -11,7 +11,7 @@
         {
             if (board.Length != 9)
             {
-                throw new InvalidOperationException("Invalid board state!");
+                throw new InvalidOperationException("Board contains invalid number of characters!");
             }
 
             if (!board.All(c => ValidCharacters.Contains(c)))
