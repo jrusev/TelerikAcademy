@@ -9,23 +9,7 @@
 
         public GameResult GetResult(string board)
         {
-            if (board.Length != 9)
-            {
-                throw new InvalidOperationException("Board contains invalid number of characters!");
-            }
-
-            if (!board.All(c => ValidCharacters.Contains(c)))
-            {
-                throw new InvalidOperationException("Board contains invalid characters!");
-            }
-
-            int countX = board.Count(c => c == 'X');
-            int countO = board.Count(c => c == 'O');
-
-            if (Math.Abs(countX - countO) > 1)
-            {
-                throw new InvalidOperationException("Invalid board state - one player has made invalid number of turns!");
-            }
+            ValidateBoard(board);
 
             var winner = GetWinner(board);
 
@@ -54,6 +38,27 @@
             }
 
             return ' ';
+        }
+
+        private static void ValidateBoard(string board)
+        {
+            if (board.Length != 9)
+            {
+                throw new InvalidOperationException("Board contains invalid number of characters!");
+            }
+
+            if (!board.All(c => ValidCharacters.Contains(c)))
+            {
+                throw new InvalidOperationException("Board contains invalid characters!");
+            }
+
+            int countX = board.Count(c => c == 'X');
+            int countO = board.Count(c => c == 'O');
+
+            if (Math.Abs(countX - countO) > 1)
+            {
+                throw new InvalidOperationException("Invalid board state - one player has made invalid number of turns!");
+            }
         }
     }
 }
