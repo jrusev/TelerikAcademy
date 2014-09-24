@@ -65,14 +65,14 @@
                 return this.BadRequest(this.ModelState);
             }
 
-            var student = data.Students.All().FirstOrDefault(x => x.Id == homework.StudentId);
+            var student = data.Students.Find(homework.StudentId);
             if (student == null)
             {
                 return this.BadRequest("Student with such id does not exist!");
             }
 
             var courseId = homework.CourseId;
-            var course = data.Courses.All().FirstOrDefault(x => x.Id == courseId);
+            var course = data.Courses.Find(courseId);
             if (course == null)
             {
                 return this.BadRequest("Course with such id does not exist!");
@@ -100,7 +100,7 @@
                 return BadRequest(ModelState);
             }
 
-            var existingHomework = this.data.Homeworks.All().FirstOrDefault(x => x.Id == id);
+            var existingHomework = this.data.Homeworks.Find(id);
             if (existingHomework == null)
             {
                 return BadRequest("Homework with such id does not exist!");
@@ -121,7 +121,7 @@
         [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
-            var existingHomework = this.data.Homeworks.All().FirstOrDefault(x => x.Id == id);
+            var existingHomework = this.data.Homeworks.Find(id);
             if (existingHomework == null)
             {
                 return BadRequest("Homework with such id does not exist!");

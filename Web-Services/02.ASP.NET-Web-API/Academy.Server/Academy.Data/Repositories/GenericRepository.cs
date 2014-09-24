@@ -27,6 +27,11 @@
             return this.All().Where(conditions);
         }
 
+        public T Find(object id)
+        {
+            return this.set.Find(id);
+        }
+
         public void Add(T entity)
         {
             var entry = this.AttachIfDetached(entity);

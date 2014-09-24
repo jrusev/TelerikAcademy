@@ -10,6 +10,8 @@
 
         IQueryable<T> SearchFor(Expression<Func<T, bool>> conditions);
 
+        T Find(object id);
+
         void Add(T entity);
 
         void Update(T entity);

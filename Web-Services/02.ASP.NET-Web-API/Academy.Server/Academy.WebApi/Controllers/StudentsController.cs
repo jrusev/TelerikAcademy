@@ -80,7 +80,7 @@
                 return BadRequest(ModelState);
             }
 
-            var existingStudent = this.data.Students.All().FirstOrDefault(s => s.Id == id);
+            var existingStudent = this.data.Students.Find(id);
             if (existingStudent == null)
             {
                 return BadRequest("Student with such id does not exist!");
@@ -106,7 +106,7 @@
         [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
-            var existingStudent = this.data.Students.All().FirstOrDefault(s => s.Id == id);
+            var existingStudent = this.data.Students.Find(id);
             if (existingStudent == null)
             {
                 return BadRequest("Student with such id does not exist!");
@@ -122,14 +122,14 @@
         [HttpPost]
         public IHttpActionResult AddCourse(int id, string courseId)
         {
-            var student = this.data.Students.All().FirstOrDefault(x => x.Id == id);
+            var student = this.data.Students.Find(id);
             if (student == null)
             {
                 return this.BadRequest("Student with such id does not exist!");
             }
 
             var idAsGuid = new Guid(courseId);
-            var course = this.data.Courses.All().FirstOrDefault(x => x.Id == idAsGuid);
+            var course = this.data.Courses.Find(idAsGuid);
             if (course == null)
             {
                 return this.BadRequest("Course with such id does not exist!");

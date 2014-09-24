@@ -82,7 +82,7 @@
             }
 
             var idAsGuid = new Guid(id);
-            var existingCourse = this.data.Courses.All().FirstOrDefault(x => x.Id == idAsGuid);
+            var existingCourse = this.data.Courses.Find(idAsGuid);
             if (existingCourse == null)
             {
                 return BadRequest("Course with such id does not exist!");
@@ -96,6 +96,8 @@
             this.data.SaveChanges();
 
             courseModel.Id = idAsGuid;
+            courseModel.Students = existingCourse.Students.Select(s => s.FirstName + " " + s.LastName);
+
             return this.Ok(courseModel);
         }
 
@@ -104,7 +106,7 @@
         public IHttpActionResult Delete(string id)
         {
             var idAsGuid = new Guid(id);
-            var existingCourse = this.data.Courses.All().FirstOrDefault(x => x.Id == idAsGuid);
+            var existingCourse = this.data.Courses.Find(idAsGuid);
             if (existingCourse == null)
             {
                 return BadRequest("Course with such id does not exist!");
