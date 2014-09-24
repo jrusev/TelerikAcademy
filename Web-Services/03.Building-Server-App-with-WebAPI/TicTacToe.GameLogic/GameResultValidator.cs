@@ -40,7 +40,7 @@
             return ' ';
         }
 
-        private static void ValidateBoard(string board)
+        private void ValidateBoard(string board)
         {
             if (board.Length != 9)
             {
