@@ -23,6 +23,7 @@
         }
 
         // GET: api/Scores
+        [AllowAnonymous]
         public IHttpActionResult Get()
         {
             var scores =  this.data.Users.All().OrderByDescending(CalcRank).Select(u => new
