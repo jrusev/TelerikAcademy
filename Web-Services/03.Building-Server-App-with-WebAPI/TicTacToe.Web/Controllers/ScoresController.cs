@@ -25,10 +25,10 @@
         // GET: api/Scores
         public IHttpActionResult Get()
         {
-            var scores =  this.data.Users.All().OrderBy(CalcRank).Select(u => new
+            var scores =  this.data.Users.All().OrderByDescending(CalcRank).Select(u => new
             { 
                 User = u.Email,
-                Rank = CalcRank(u),
+                Score = CalcRank(u),
                 Wins = u.Wins,
                 Losses = u.Losses
             });
