@@ -29,7 +29,7 @@
 
             foreach (var win in wins)
             {
-                var w = win.ToCharArray().Select(c => c - '0').ToArray();
+                var w = win.Select(c => c - '0').ToArray();
                 var b = board[w[0]];
                 if ("XO".Contains(b) && w.All(i => board[i] == b))
                 {
