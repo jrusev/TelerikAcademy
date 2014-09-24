@@ -27,17 +27,20 @@
         {
             var wins = new[] { "012", "345", "678", "036", "147", "258", "048", "246" };
 
+            char winner = '?';
             foreach (var win in wins)
             {
                 var w = win.Select(c => c - '0').ToArray();
-                var b = board[w[0]];
-                if ("XO".Contains(b) && w.All(i => board[i] == b))
+                var p = board[w[0]];
+                if ("XO".Contains(p) && w.All(i => board[i] == p))
                 {
-                    return b;
+                    if (winner != '?')
+                        throw new InvalidOperationException("More than one winning line on the board!");
+                    winner = p;
                 }
             }
 
-            return ' ';
+            return winner;
         }
 
         private void ValidateBoard(string board)

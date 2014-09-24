@@ -107,6 +107,20 @@ namespace TicTacToe.Tests
             var result = validator.GetResult(board);
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void MoreThanOneWinner_ShouldThrowExeption()
+        {
+            string board = GetBoard(new[]
+            {
+                "XOX",
+                "OOO",
+                "XXX",
+            });
+
+            var result = validator.GetResult(board);
+        }
+
         #endregion
 
         private string GetBoard(string[] matrix)
