@@ -10,7 +10,9 @@
         public GameResult GetResult(string board)
         {
             ValidateBoard(board);
+
             var winner = GetWinner(board);
+
             switch (winner)
             {
                 case 'X': return GameResult.WonByX;
