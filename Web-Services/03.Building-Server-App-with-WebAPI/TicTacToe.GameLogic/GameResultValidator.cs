@@ -27,7 +27,7 @@
         {
             var wins = new[] { "012", "345", "678", "036", "147", "258", "048", "246" };
 
-            char winner = '?';
+            var winner = '?';
             foreach (var win in wins)
             {
                 var w = win.Select(c => c - '0').ToArray();
