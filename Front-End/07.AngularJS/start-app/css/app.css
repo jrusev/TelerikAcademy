@@ -1,0 +1,15 @@
+.ios-btn {
+    text-decoration: none !important;
+}
+
+input.ng-dirty.ng-invalid {
+    background-color: pink !important;
+}
+
+input.ng-dirty.ng-valid.validity {
+    background-color: darkseagreen !important;
+}
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+    display: none !important;
+}

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My app</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/toastr.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body ng-app="myApp" ng-controller="MainController" ng-cloak>
+
+    <div navigation-bar></div>
+    <div id="main-container" ng-view></div>
+    <div modal-window></div>
+
+    <!-- libs -->
+    <script src="js/lib/jquery-2.1.1.min.js"></script>
+    <script src="js/lib/angular/angular.min.js"></script>
+    <script src="js/lib/angular/angular-route.min.js"></script>
+    <script src="js/lib/angular/angular-resource.min.js"></script>
+    <script src="js/lib/bootstrap.min.js"></script>
+    <script src="js/lib/toastr/toastr.min.js"></script>
+
+    <!-- app -->
+    <script src="js/app.js"></script>
+    
+    <script src="js/services/appData.js"></script>
+    <script src="js/services/auth.js"></script>    
+    <script src="js/services/notifier.js"></script>
+    
+    <script src="js/filters/statusFilter.js"></script>
+    
+    <script src="js/directives/navigationBarDirective.js"></script>
+    <script src="js/directives/modalWindowDirective.js"></script>
+    
+    <script src="js/controllers/MainController.js"></script>
+    <script src="js/controllers/auth/LoginController.js"></script>
+    <script src="js/controllers/auth/LogoutController.js"></script>
+    <script src="js/controllers/auth/RegistrationController.js"></script>
+    <script src="js/controllers/ListUsersController.js"></script>
+    <script src="js/controllers/ListGamesController.js"></script>
+    
+    <script src="js/utility/ModalDialog.js"></script>
+</body>
+
+</html>
