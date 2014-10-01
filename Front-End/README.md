@@ -6,3 +6,4 @@
 * [JavaScript - UI and DOM](https://github.com/neutrino-git/TelerikAcademy/tree/master/Front-End/04.JavaScript-UI-DOM)
 * [JavaScript - OOP](https://github.com/neutrino-git/TelerikAcademy/tree/master/Front-End/05.JavaScript-OOP)
 * [JavaScript - Applications](https://github.com/neutrino-git/TelerikAcademy/tree/master/Front-End/06.JavaScript-Applications)
+* [JavaScript - SPA with AngularJS](https://github.com/neutrino-git/TelerikAcademy/tree/master/Front-End/07.AngularJS)

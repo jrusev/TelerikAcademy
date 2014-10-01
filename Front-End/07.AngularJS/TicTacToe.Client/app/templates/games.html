@@ -1,0 +1,68 @@
+<div class="container clearfix" ng-controller="ListGamesController">
+    <div class="container">
+        <div class="row" ng-cloak>
+            <div class="col-md-offset-3 col-md-6">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#allMyGames" target="_self" data-toggle="tab">Active games</a>
+                    </li>
+                    <li>
+                        <a href="#myGamesHistory" target="_self" data-toggle="tab">My games history</a>
+                    </li>                    
+                    <li class="pull-right">
+                        <a href="#/game/create" class="ios-btn">Create new game</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="allMyGames">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                     <th>Name</th>
+                                    <th>Created by</th>
+                                    <th>Date created</th>
+                                    <th>Status</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="game in allMyGames | orderBy: '-DateCreated'">
+                                    <td>{{ $index + 1 }}</td>
+                                    <td>{{ game.Name }}</td>
+                                    <td>{{ game.Creator }}</td>
+                                    <td>{{ game.DateCreated | date : 'd MMM, HH:mm' }}</td>
+                                    <td>{{ game.Status | gameStatusFilter:{state:game.Status, firstPlayerName:game.Creator, currentPlayerName: currentPlayer} }}</td>
+                                    <td><a href="" class="ios-btn" ng-click="playMyGame(game.Id, game.Status, game.Creator)">{{ game.Status | gameActionFilter:{state:game.Status, firstPlayerName:game.Creator, currentPlayerName: currentPlayer} }}</a></td>
+                                </tr>
+                            </tbody>
+                        </table>                               
+                    </div>
+                    <div class="tab-pane fade" id="myGamesHistory">                        
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Created by</th>
+                                    <th>Date created</th>
+                                    <th>Status</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="game in myGamesHistory">
+                                    <td>{{ $index + 1 }}</td>
+                                    <td>{{ game.Name }}</td>
+                                    <td>{{ game.Creator }}</td>
+                                    <td>{{ game.DateCreated | date : 'd MMM, HH:mm' }}</td>
+                                    <td>{{ game.Status | gameStatusFilter:{state:game.Status, firstPlayerName:game.Creator, currentPlayerName: currentPlayer} }}</td>
+                                </tr>
+                            </tbody>
+                        </table>                        
+                    </div>                    
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>

@@ -1,0 +1,61 @@
+.ios-btn {
+    text-decoration: none !important;
+}
+
+input.ng-dirty.ng-invalid {
+    background-color: pink !important;
+}
+
+input.ng-dirty.ng-valid.validity {
+    background-color: darkseagreen !important;
+}
+
+.vertical-content {
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: -4px;
+}
+
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+    display: none !important;
+}
+
+.tic-tac-toe-table-container {
+    text-align: center;
+}
+
+.tic-tac-toe-table, .tic-tac-toe-table tr, .tic-tac-toe-table td {
+    margin: 0 auto;
+    border: 1px solid white;
+}
+
+.tic-tac-toe-table.notAllowed td {
+    cursor: not-allowed;
+}
+
+.tic-tac-toe-table.allowed td {
+    cursor: crosshair;
+}
+
+.tic-tac-toe-table td {
+    font-size: 1.8em;
+    text-align: center;
+    width: 90px;
+    height: 90px;
+}
+
+.tic-tac-toe-table td:hover {
+    background-color: slategray;
+}
+
+h3.gamePlayersInfo {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 5px;
+}
+
+h3.gameStatusInfo {
+    margin-top: 25px;
+}

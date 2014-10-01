@@ -1,0 +1,2 @@
+You can start the app by double-clicking the server.bat and going to "http://localhost:1234/". 'Score' and 'Users' pages do not require registration.
+The app is using a REST service at "http://tic-tac-toe-webapp.apphb.com". The hosting is free, so it will take a little while for the first request to go through (the server wakes up), then it will be fast.
