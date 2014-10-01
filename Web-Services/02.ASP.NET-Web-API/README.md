@@ -1,6 +1,6 @@
 ## ASP.NET Web API
 
-1. Using ASP.NET Web API create REST services for the Student System demo from Code First presentation in the Databases course. Use high-quality code, use Repository pattern and create services for all available models. Do not use scaffolding.
+1. Using ASP.NET Web API create REST services for the ```Student System``` demo from Code First presentation in the Databases course. Use high-quality code, use Repository pattern and create services for all available models. Do not use scaffolding.
 * Using ASP.NET Web API and Entity Framework (database first or code first) create a database and web services with full CRUD (create, read, update, delete) operations for hierarchy of following classes:
     * Artists (Name, Country, DateOfBirth, etc.)
     * Albums (Title, Year, Producer, etc.)
