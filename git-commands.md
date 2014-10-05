@@ -29,6 +29,7 @@ You can get a Git project using two main approaches:
 * `git status -s` - displays the state of the working directory and the staging area
 * `git log --oneline` - shows the commit logs
 * Shift+ Z,Z -> exit to the command prompt (e.g. after a long git status message)
+* `git mv oldname temp` + `git mv temp newname` - renames file (helpful when changing capitalization of filenames)
 
 ### Branching
 
