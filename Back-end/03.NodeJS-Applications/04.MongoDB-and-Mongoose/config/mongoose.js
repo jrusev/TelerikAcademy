@@ -6,7 +6,7 @@ module.exports.connect = function (connectionString, callback) {
     
     db.on('error', console.error.bind(console, 'connection error:'));
     db.once('open', function () {
-        console.log('Connected to db at ' + connectionString);
+        console.log('Connected successfully to ' + connectionString);
         
         if (typeof(callback) === "function") {
             callback();

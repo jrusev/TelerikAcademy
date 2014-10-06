@@ -1,11 +1,14 @@
 var connectionString = 'mongodb://localhost/chat-db';
 
 require('./config/mongoose').connect(connectionString, function () {
-        // initiliazise the DB models
-        require('./models/user').init();
-        require('./models/message').init();
-        exchangeMessages();
+    initiliaziseDbModels()
+    exchangeMessages();
 });
+
+function initiliaziseDbModels() {
+    require('./models/user').init();
+    require('./models/message').init();
+}
 
 function exchangeMessages() {
     var users = require('./controllers/usersController');
