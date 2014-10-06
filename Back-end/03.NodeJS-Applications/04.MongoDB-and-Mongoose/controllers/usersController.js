@@ -15,7 +15,7 @@ module.exports.registerUser = function (userData) {
 
 
 module.exports.seed = function (users, callback) {
-    User.count({}, function (error, count) {
+    User.count(function (error, count) {
         if (error) return console.log(error);
         
         if (!count) {

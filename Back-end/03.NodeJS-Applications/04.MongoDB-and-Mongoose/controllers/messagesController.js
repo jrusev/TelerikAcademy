@@ -2,7 +2,6 @@ var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var Message = mongoose.model('Message');
 
-// Send new message
 module.exports.sendMessage = function (msgData, callback) {
     User.findOne({username: msgData.from}, function (error, sender) {
         if (error) return console.log(error);
@@ -26,7 +25,6 @@ module.exports.sendMessage = function (msgData, callback) {
     })
 };
 
-// Get all messages
 module.exports.getMessages = function (queryData, callback) {
     User.findOne({username: queryData.from}, function (error, sender) {
         if (error) return console.log(error);
@@ -34,14 +32,10 @@ module.exports.getMessages = function (queryData, callback) {
         User.findOne({username: queryData.to}, function (error, receiver) {                
             if (error) return console.log(error);
 
-            Message.find({})
+            Message.find()
                 .where('from').equals(sender._id)
                 .where('to').equals(receiver._id)
-                .exec(function (error, messages) {
-                   if (error) return console.log(error);
-                    
-                   callback(null, messages);                  
-                });                
+                .exec(callback);                
         })
         
     })
