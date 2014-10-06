@@ -1,23 +1,15 @@
 var mongoose = require('mongoose');
 
-module.exports.connect = function (dbName) {
-    mongoose.connect(dbName);
+module.exports.connect = function (connectionString, callback) {
+    mongoose.connect(connectionString);
     var db = mongoose.connection;
     
-    // initiliazise the DB models
-    require('../models/user').init();
-    require('../models/message').init();
-
-    db.once('open', function (err) {
-        if (err) {
-            console.log('DB ERROR: ' + err);
-        }
+    db.on('error', console.error.bind(console, 'connection error:'));
+    db.once('open', function () {
+        console.log('Connected to db at ' + connectionString);
         
-        console.log('MongoDb is running at ' + dbName);
-    });
-
-    db.on("error", function (error) {
-        console.log(error);
+        if (typeof(callback) === "function") {
+            callback();
+        }
     });
 };
-

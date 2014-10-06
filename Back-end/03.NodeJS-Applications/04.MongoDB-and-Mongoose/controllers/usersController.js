@@ -1,6 +1,5 @@
 var User = require('mongoose').model('User');
 
-// Register new user
 module.exports.registerUser = function (userData) {
     var newUser = new User({
         username: userData.username,
@@ -8,22 +7,23 @@ module.exports.registerUser = function (userData) {
     });
 
     newUser.save(function (error, user) {
-        if (error) {
-            console.log('REGISTER NEW USER ERROR: ' + error);
-        } else {
-            console.log('New user registered: ' + user);
-        }
+        if (error) return console.log(error);
+
+        console.log('New user registered: ' + user);        
     })
 };
 
 
 module.exports.seed = function (users, callback) {
-    User.count({}, function (err, count) {
-        if (err) throw new Error();
+    User.count({}, function (error, count) {
+        if (error) return console.log(error);
+        
         if (!count) {
-            User.create(users);
-            
+            User.create(users);            
         }
-        callback();
+        
+        if (typeof(callback) === "function") {
+            callback();
+        }
     });
 }
