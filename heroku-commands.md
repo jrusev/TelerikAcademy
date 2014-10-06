@@ -6,7 +6,7 @@
 * `foreman start web` - run the app locally (at localhost:5000)
 * `heroku open` - open the app in a browser at its URL
 * `heroku apps:rename newname` - rename an app at any time (newname.herokuapp.com)
-* `heroku git:remote -a MyHerokuAppName` - adds the heroku remote (when you get 'No app specified')
+* `heroku git:remote -a HerokuAppName` - adds the heroku remote (when you get 'No app specified')
 * `heroku config:set TIMES=2` - to set the config var on Heroku
 * `heroku logs --tail > logs.txt` - view logs about your running app
 * `heroku run bash` - opens up a shell on a one-off dyno
