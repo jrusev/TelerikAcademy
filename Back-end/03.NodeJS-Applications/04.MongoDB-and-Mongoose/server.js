@@ -19,11 +19,7 @@ function exchangeMessages() {
         { username: 'user2', password: 'pass2' }
     ];
 
-    var message = {
-        from: 'user1',
-        to: 'user2',
-        text: 'Hello, user2!'
-    };
+    var message = { from: 'user1', to: 'user2', text: 'Hello, user2!' };
 
     users.seed(admins, function () {
         messages.clearAll(function () {
