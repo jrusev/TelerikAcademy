@@ -12,5 +12,6 @@
 * `heroku config:set TIMES=2` - to set the config var on Heroku
 * `heroku logs --tail > logs.txt` - view logs about your running app
 * `heroku run bash` - opens up a shell on a one-off dyno
+* `heroku restart` - restarts the heroku app (on heroku)
 
 [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)

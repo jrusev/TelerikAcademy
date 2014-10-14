@@ -25,5 +25,5 @@ Course assignments - homeworks, projects, teamworks and random code.
 
 1. [Databases](https://github.com/neutrino-git/TelerikAcademy/tree/master/Back-end/01.Databases)
 * [Web Services and Cloud](https://github.com/neutrino-git/TelerikAcademy/tree/master/Back-end/02.Web-Services)
-* [NodeJS-Applications](https://github.com/neutrino-git/TelerikAcademy/tree/master/Back-end/03.NodeJS-Applications)
+* [NodeJS Applications](https://github.com/neutrino-git/TelerikAcademy/tree/master/Back-end/03.NodeJS-Applications)
 
