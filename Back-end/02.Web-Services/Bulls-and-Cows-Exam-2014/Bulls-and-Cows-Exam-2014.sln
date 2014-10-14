@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BullsCows.Models", "BullsCows.Models\BullsCows.Models.csproj", "{49B7B307-F6E0-4B76-B535-B0297E62C0CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BullsCows.Data", "BullsCows.Data\BullsCows.Data.csproj", "{2832F084-5154-4DBD-907D-672AFA6DEEF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BullsCows.WebAPI", "BullsCows.WebAPI\BullsCows.WebAPI.csproj", "{49157C0A-B11B-4DC0-B0C9-47912499FE1D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{49B7B307-F6E0-4B76-B535-B0297E62C0CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49B7B307-F6E0-4B76-B535-B0297E62C0CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49B7B307-F6E0-4B76-B535-B0297E62C0CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49B7B307-F6E0-4B76-B535-B0297E62C0CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2832F084-5154-4DBD-907D-672AFA6DEEF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2832F084-5154-4DBD-907D-672AFA6DEEF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2832F084-5154-4DBD-907D-672AFA6DEEF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2832F084-5154-4DBD-907D-672AFA6DEEF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49157C0A-B11B-4DC0-B0C9-47912499FE1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49157C0A-B11B-4DC0-B0C9-47912499FE1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49157C0A-B11B-4DC0-B0C9-47912499FE1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49157C0A-B11B-4DC0-B0C9-47912499FE1D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,20 @@
+extends ../shared/layout
+
+block main-content
+
+        
+    br
+    br
+    form(id="form-upload" method="post" enctype="multipart/form-data")
+        input(id="file" type="file" name="file_0")
+        input(type="checkbox", name="private_0")
+        span  private
+        br
+        br
+        input(type="submit" value="Submit" class="btn btn-primary")
+    br
+    br
+    a(href="#" id="add-input-file") Add more files
+
+block page-scripts
+    script(src="js/upload.js")

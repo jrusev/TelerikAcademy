@@ -1,0 +1,2 @@
+This is a file upload system with public and private access. Unauthorized users can see and download files marked as public. Authorized users can also upload files.
+There are two models - users and files, and 5 views. I have used Express, Jade, Passport and Stylus. There is no AngularJS, pages are rendered on the server.

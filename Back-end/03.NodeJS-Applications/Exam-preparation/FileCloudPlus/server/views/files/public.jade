@@ -1,0 +1,21 @@
+extends ../shared/layout
+block main-content
+    .row
+        .text-center
+            h2 Public Uploads
+        .col-md-offset-2.col-md-8
+            table.table.table-striped.table-bordered
+                tr
+                    th File name
+                    th Download link
+                    th Uploaded by
+                    th Date
+                each file in files
+                    tr
+                        td #{file.fileName}
+                        td.truncate
+                            a(href="/files/download/#{file.url}") http://filecloud.com/files/download/#{file.url}
+                        td #{file.owner.username}
+                        td #{moment(file.uploadingDate).format("MMM-DD-YYYY HH:mm:ss")}
+                
+                

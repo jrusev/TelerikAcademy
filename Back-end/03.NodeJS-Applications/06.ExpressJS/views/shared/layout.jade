@@ -1,0 +1,45 @@
+doctype
+html
+    head
+        title FileCloud
+        link(rel="stylesheet" href="/lib/bootstrap-3.2.0/css/bootstrap.min.css")
+        link(rel="stylesheet" href="/css/site.css")
+    body
+        header.nav.navbar-inverse
+            .container
+                .navbar-header
+                    a.navbar-brand(href="/") FileCloud
+                .navbar-collapse.collapse
+                    ul.nav.navbar-nav
+                        li
+                            a(href="/public") Public Uploads
+                            
+                    ul.nav.navbar-nav.navbar-right
+                        if !currentUser
+                            li
+                                a(href="/register") Register
+                            li
+                                a(href="/login") Login
+                        else
+                            li
+                                a(href="/myfiles") My Uploads
+                            li
+                                a(href="/upload") +New Upload
+                            li
+                                a(href="") Hi, #{currentUser.username}
+                            li
+                                a(href="/logout") Logout
+
+        .container
+            br
+            if errorMessage
+                .alert.alert-danger(role="alert") #{errorMessage}
+
+            block main-content
+
+        footer
+            p.text-center
+                | &copy; Telerik Academy 2014
+
+        include scripts
+        block page-scripts

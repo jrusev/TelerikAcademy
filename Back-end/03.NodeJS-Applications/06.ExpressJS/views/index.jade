@@ -1,0 +1,6 @@
+extends shared/layout
+
+block main-content
+    h1 Welcome to FileCloud
+    if !currentUser
+        div Registration is required to upload files.

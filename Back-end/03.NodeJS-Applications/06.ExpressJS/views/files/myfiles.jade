@@ -1,0 +1,18 @@
+extends ../shared/layout
+block main-content
+    h1 My Uploads
+    table.table.table-bordered
+        tr
+            th File name
+            th Download link
+            th Private
+            th Date
+        - for(var i = 0; i < files.length; i++) {
+            - var url = '/download/' + files[i].url;
+            tr
+                td #{files[i].filename}
+                td.truncate
+                    a(href="#{url}") #{'http://filecloud.com' + url}
+                td #{files[i].private ? 'yes' : 'no'}
+                td #{moment(files[i].uploadDate).format("MMM-DD-YYYY HH:mm:ss")}
+        - }

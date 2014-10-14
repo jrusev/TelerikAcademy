@@ -1,0 +1,27 @@
+extends ../shared/layout
+block main-content
+    .row
+        .text-center
+            h2 My Uploads
+        .col-md-offset-2.col-md-8
+            table.table.table-striped.table-bordered
+                tr
+                    th File name
+                    th Download link
+                    th Private
+                    th Date
+                    th Manage
+                each file in files
+                    tr
+                        td #{file.fileName}
+                        td.truncate
+                            a(href="/files/download/#{file.url}") http://filecloud.com/files/download/#{file.url}
+                        td #{file.isPrivate ? 'yes ' : 'no '}
+                        td #{moment(file.uploadingDate).format("MMM-DD-YYYY HH:mm:ss")}
+                        td
+                            a(class="update" href="/files/update/#{file.url}") Change Privacy
+                            span  / 
+                            a(class="delete" href="/files/delete/#{file.url}") Delete
+
+block page-scripts
+    script(src="js/sendRequest.js")
