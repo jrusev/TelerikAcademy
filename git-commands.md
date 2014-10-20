@@ -30,6 +30,7 @@ You can get a Git project using two main approaches:
 * `git log --oneline` - shows the commit logs
 * Shift+ Z,Z -> exit to the command prompt (e.g. after a long git status message)
 * `git mv oldname temp` + `git mv temp newname` - renames file (helpful when changing capitalization of filenames)
+* `git remote -v` - gets a list of any configured remote urls
 * `git remote set-url origin git@github.com:user/newrepo.git` - change the URL for a remote Git repository
 
 ### Branching
