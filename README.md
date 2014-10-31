@@ -1,4 +1,4 @@
-## Telerik Software Academy
+## Telerik Software Academy 2013/2014
 <a href="http://academy.telerik.com/" title="Telerik Academy"><img src="http://academy.telerik.com/images/default-album/telerik-academy-banner.jpg?sfvrsn=2" alt="Академия на Телерик"/></a>
 
 Course assignments - homeworks, projects, teamworks and random code.
@@ -11,7 +11,7 @@ Course assignments - homeworks, projects, teamworks and random code.
 * [High Quality Code](https://github.com/neutrino-git/TelerikAcademy/tree/master/Programming/04.HighQualityCode)
 * [Data Structures and Algorithms](https://github.com/neutrino-git/TelerikAcademy/tree/master/Programming/05.DataStructuresAndAlgorithms)
 
-### Web
+### Front-end
 
 1. [HTML](https://github.com/neutrino-git/TelerikAcademy/tree/master/Front-End/01.HTML)
 * [CSS](https://github.com/neutrino-git/TelerikAcademy/tree/master/Front-End/02.CSS)
@@ -21,7 +21,7 @@ Course assignments - homeworks, projects, teamworks and random code.
 * [JavaScript - Applications](https://github.com/neutrino-git/TelerikAcademy/tree/master/Front-End/06.JavaScript-Applications)
 * [JavaScript - AngularJS](https://github.com/neutrino-git/TelerikAcademy/tree/master/Front-End/07.AngularJS)
 
-### Server
+### Back-end
 
 1. [Databases](https://github.com/neutrino-git/TelerikAcademy/tree/master/Back-end/01.Databases)
 * [Web Services and Cloud](https://github.com/neutrino-git/TelerikAcademy/tree/master/Back-end/02.Web-Services)
