@@ -29,5 +29,5 @@ Course assignments - homeworks, projects, teamworks and random code.
 
 ### Mobile
 
-1. [iOS Applications](https://github.com/jrusev/Objective-C)
+1. [iOS Applications](https://github.com/jrusev/iOS-Apps-Telerik-Academy)
 
