@@ -1,0 +1,54 @@
+extends ../shared/layout
+
+block main-content
+    h3 User Profile
+    .row
+        .col-md-offset-3.col-md-6
+            form.form-horizontal(role="form" method="post")
+              .form-group
+                label.col-sm-2.control-label(for="imageUrl") Photo
+                .col-sm-10
+                  input.form-control(type="text" name="imageUrl" placeholder="#{user.imageUrl || 'Profile image url'}")
+              .form-group
+                label.col-sm-2.control-label(for="description") Phone
+                .col-sm-10
+                  input.form-control(type="text" name="phone" placeholder="#{user.phone || 'Phone'}")              
+              .form-group
+                label.col-sm-2.control-label(for="facebookUrl") Facebook
+                .col-sm-10
+                  input.form-control(type="text" name="facebookUrl" placeholder="#{user.facebookUrl || 'Facebook url'}")
+              .form-group
+                label.col-sm-2.control-label(for="description") Google+
+                .col-sm-10
+                  input.form-control(type="text" name="googleUrl" placeholder="#{user.googleUrl || 'Google+ url'}")
+              .form-group
+                label.col-sm-2.control-label(for="linkedinUrl") LinkedIn
+                .col-sm-10
+                  input.form-control(type="text" name="linkedInUrl" placeholder="#{user.linkedInUrl || 'LinkedIn url'}")
+              .form-group
+                .col-sm-offset-2.col-sm-10
+                    input(type="submit" value="Update Profile" class="btn btn-primary")
+                
+    .row
+        .text-center
+            h2 Own Events
+        .col-md-offset-2.col-md-8
+            table.table.table-striped.table-bordered
+                tr
+                    th Title
+                    th Date
+                each event in ownEvents
+                    tr
+                        td
+                            a(href="/events/#{event._id}") #{event.title}
+                        td #{moment(event.date).format("MMM-DD-YYYY HH:mm:ss")}
+                        
+    .row
+        .text-center
+            h2 Joined Events
+        .col-md-offset-2.col-md-8
+            table.table.table-striped.table-bordered
+                ul
+                each event in JSON.parse(joinedEvents)
+                    li
+                        a(href="/events/#{event}") #{event}

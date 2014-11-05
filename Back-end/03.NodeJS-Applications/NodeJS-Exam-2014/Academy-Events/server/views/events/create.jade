@@ -1,0 +1,51 @@
+extends ../shared/layout
+
+block main-content
+    h3 Create Event
+    .col-md-offset-3.col-md-6
+        form.form-horizontal(role="form" method="post")
+          .form-group
+            label.col-sm-2.control-label(for="title") Title
+            .col-sm-10
+              input.form-control(type="text" name="title" placeholder="Title" required="required")
+          .form-group
+            label.col-sm-2.control-label(for="description") Description
+            .col-sm-10
+              input.form-control(type="text" name="description" placeholder="Description" required="required")
+          .form-group
+            label.col-sm-2.control-label(for="category") Category
+            .col-sm-10
+              input.form-control(type="text" name="category" placeholder="Category" required="required")
+          .form-group
+            label.col-sm-2.control-label(for="location") Location
+            .col-sm-10
+              input.form-control(type="text" name="location" placeholder="Location (latitude, longitude)")
+          .form-group
+            label.col-sm-2.control-label(for="type") Type
+            .col-sm-10
+              select.form-control(id="type" name="type")
+                each type in ['public', 'initiative-based', 'initiative-and-season-based']
+                    option #{type}
+          .form-group(id="input-initiative")
+              label.col-sm-2.control-label(for="initiative") Initiative
+              .col-sm-10
+                  select.form-control(id="initiative" class="form-control" name="initiative")
+                      each name, i in JSON.parse(initiatives).names
+                          option(value="#{name}") #{name}
+          .form-group(id="input-season")
+              label.col-sm-2.control-label(for="season") Season
+              .col-sm-10
+                  select.form-control(id="season" class="form-control" name="season")
+                      each season, i in JSON.parse(initiatives).seasons
+                          option(value="#{season}") #{season}                          
+          .form-group
+            label.col-sm-2.control-label(for="date") Date
+            .col-sm-10
+              input.form-control(type="date" name="date" date-picker="" placeholder="yyyy-MM-dd HH:mm:ss" required="required")
+
+          .form-group
+            .col-sm-offset-2.col-sm-10
+                input(type="submit" value="Create Event" class="btn btn-primary")
+                
+block page-scripts
+    script(src="js/sendRequest.js")

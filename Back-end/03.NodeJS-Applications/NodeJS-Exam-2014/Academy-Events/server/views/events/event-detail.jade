@@ -1,0 +1,29 @@
+extends ../shared/layout
+block main-content
+    .row
+        .text-center
+            h2 Event Deatils
+        .col-md-12
+            table.table.table-striped.table-bordered
+                tr
+                    th Title
+                    th Description
+                    th Location
+                    th Category
+                    th Type
+                    th Date
+                    th Created By
+                    th Comments
+                    th Joined
+                tr
+                    td #{event.title}
+                    td.truncate #{event.description}
+                    td #{event.location}
+                    td #{event.category}
+                    td #{event.type}
+                    td #{moment(event.date).format("MMM-DD-YYYY HH:mm:ss")}
+                    td #{event.owner.firstName + ' ' + event.owner.lastName}
+                    td #{event.comments}
+                    td #{event.joined ? 'Yes' : 'No'}
+
+

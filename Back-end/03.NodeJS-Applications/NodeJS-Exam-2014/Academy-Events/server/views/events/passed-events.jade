@@ -1,0 +1,22 @@
+extends ../shared/layout
+block main-content
+    .row
+        .text-center
+            h2 Passed Events
+        .col-md-offset-2.col-md-8
+            table.table.table-striped.table-bordered
+                tr
+                    th Title
+                    th Category
+                    th Date
+                    th Created By
+                    th Joined
+                each event in events
+                    tr
+                        td
+                            a(href="/events/#{event._id}") #{event.title}
+                        td #{event.category}
+                        td #{moment(event.date).format("MMM-DD-YYYY HH:mm:ss")}
+                        td #{event.owner.firstName + ' ' + event.owner.lastName}
+                        td #{event.joined ? 'Yes' : 'No'}
+

@@ -1,0 +1,33 @@
+extends ../shared/layout
+block main-content
+    .row
+        .text-center
+            h2 Active Events
+        .col-md-12
+            table.table.table-striped.table-bordered
+                tr
+                    th Title
+                    th Category
+                    th Date
+                    th Initiative
+                    th Created By
+                    th Leave/Join
+                    th Joined
+                each event in events
+                    tr
+                        td
+                            a(href="/events/#{event._id}") #{event.title}
+                        td #{event.category}
+                        td #{moment(event.date).format("MMM-DD-YYYY HH:mm:ss")}
+                        td #{ event.initiative ? event.initiative + (event.season ? ', ' + event.season : '') : 'public'}
+                        td #{event.owner.firstName + ' ' + event.owner.lastName}
+                        td
+                            if (event.joined)
+                                a.update(href="/events/leave/#{event._id}") Leave
+                            else
+                                a.update(href="/events/join/#{event._id}") Join
+                        td #{event.joined ? 'Yes' : 'No'}
+                            
+block page-scripts
+    script(src="js/sendRequest.js")
+

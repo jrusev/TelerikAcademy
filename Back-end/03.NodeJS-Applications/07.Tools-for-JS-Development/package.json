@@ -16,5 +16,10 @@
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-contrib-stylus": "^0.20.0",
     "grunt-contrib-watch": "^0.6.1"
+  },
+  "dependencies": {
+    "ee-first": "^1.0.5",
+    "grunt-connect": "^0.2.0",
+    "source-map": "^0.1.40"
   }
 }
