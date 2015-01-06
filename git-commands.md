@@ -25,10 +25,9 @@ You can get a Git project using two main approaches:
 * `git add -A .` - adds all changes (new, changed or removed files) in the working directory to the staging area
 * `git commit -m "put your comment here"` - commits the staged snapshot to the local repository
 * `git push origin master` - pushing commits from your local repository to a remote repo.
-
 * `git status -s` - displays the state of the working directory and the staging area
 * `git log --oneline` - shows the commit logs
-* Shift+ Z,Z -> exit to the command prompt (e.g. after a long git status message)
+* `Shift+ Z,Z` -> exit to the command prompt (e.g. after a long git status message)
 * `git mv oldname temp` + `git mv temp newname` - renames file (helpful when changing capitalization of filenames)
 * `git remote -v` - gets a list of any configured remote urls
 * `git remote set-url origin git@github.com:user/newrepo.git` - change the URL for a remote Git repository
@@ -36,7 +35,7 @@ You can get a Git project using two main approaches:
 ### Branching
 
 * `git branch <newbranch>` - creates a new branch.
-* `git checkout -b <new-branch>` - create and check out <new-branch> (runs git branch before running git checkout).
+* `git checkout -b <new-branch>` - create and check out new-branch (runs git branch before running git checkout).
 * `git branch` - lists all branches.
 * `git checkout <newbranch>` - switch to the new branch.
 * `git merge <otherbranch>` - merge the specified branch into the current branch.
