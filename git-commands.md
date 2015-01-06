@@ -36,6 +36,7 @@ You can get a Git project using two main approaches:
 ### Branching
 
 * `git branch <newbranch>` - creates a new branch.
+* `git checkout -b <new-branch>` - create and check out <new-branch> (runs git branch before running git checkout).
 * `git branch` - lists all branches.
 * `git checkout <newbranch>` - switch to the new branch.
 * `git merge <otherbranch>` - merge the specified branch into the current branch.
