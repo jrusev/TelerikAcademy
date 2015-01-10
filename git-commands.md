@@ -41,6 +41,7 @@ You can get a Git project using two main approaches:
 * `git merge <otherbranch>` - merge the specified branch into the current branch.
 * `git branch -d <localBranch>` - delete a local branch.
 * `git push origin --delete <branchName>` - delete a remote branch.
+* `git checkout -b <new-feature> origin/<new-feature>` - to work on a <new-feature> branch after cloning
 
 ### Undo changes (use with care!)
 
