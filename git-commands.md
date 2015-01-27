@@ -55,8 +55,7 @@ You can get a Git project using two main approaches:
 * `git commit --amend` - change the commit message of the most recent commit.
 
 ### Forking Workflow
-- https://www.atlassian.com/git/tutorials/making-a-pull-request/example
-- https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow
+- (Making a pull-request)[https://www.atlassian.com/git/tutorials/making-a-pull-request/example], (Forking workflow)[https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow]
 
 - Fork the project from the central repo on GitHub
 - Clone the forked repo: `git clone git@github.com:user/app.git`
