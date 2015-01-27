@@ -60,6 +60,7 @@ You can get a Git project using two main approaches:
 - Fork the project from the central repo on GitHub
 - Clone the forked repo: `git clone git@github.com:user/app.git`
 - Add the upstream remote: `git remote add upstream git@github.com:central/app.git`
+
 - Create your feature branch: `git checkout -b feature-branch`
 - Edit and commit some code (git add and git commit)
 - Push the commits to the feature branch at the forked repo (origin):
@@ -79,7 +80,6 @@ You can get a Git project using two main approaches:
 
 - Create a Pull Request on GitHub
 - Delete the branch locally and on github when pull request is merged: `git branch -d feature-branch`
-
 - Delete all stale remote-tracking branches. These stale branches have already been removed from origin, but are still locally available in "remotes/origin": 
   * `git remote prune --dry-run origin`
   * `git branch -a`
