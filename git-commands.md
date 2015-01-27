@@ -61,9 +61,9 @@ You can get a Git project using two main approaches:
 - Fork the project from the central repo on GitHub
 
 - Clone the forked repo:
-`git clone git@github.com:user/app.git`
+  * `git clone git@github.com:user/app.git`
 - Add the upstream remote:
-`git remote add upstream git@github.com:central/app.git`
+  * `git remote add upstream git@github.com:central/app.git`
 
 - Create your feature branch:
 `git checkout -b feature-branch`
