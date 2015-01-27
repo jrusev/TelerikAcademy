@@ -59,40 +59,28 @@ You can get a Git project using two main approaches:
 - https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow
 
 - Fork the project from the central repo on GitHub
-
-- Clone the forked repo:
-  * `git clone git@github.com:user/app.git`
-- Add the upstream remote:
-  * `git remote add upstream git@github.com:central/app.git`
-
-- Create your feature branch:
-`git checkout -b feature-branch`
-
+- Clone the forked repo: `git clone git@github.com:user/app.git`
+- Add the upstream remote: `git remote add upstream git@github.com:central/app.git`
+- Create your feature branch: `git checkout -b feature-branch`
 - Edit and commit some code (git add and git commit)
 - Push the commits to the feature branch at the forked repo (origin):
 `git push origin feature-branch`
 
 - Pull changes from the upstream repo:
-`git checkout master`
-`git pull upstream master`
-- And push to your forked master:
-`git push origin master`
+  * `git checkout master`
+  * `git pull upstream master`
+- And push to your forked master: `git push origin master`
 
 - Sync your branch with the master
-`git checkout feature-branch`
-`git rebase -i master`
-`git push origin feature-branch --force`
+  * `git checkout feature-branch`
+  * `git rebase -i master`
+  * `git push origin feature-branch --force`
 
-- Sqush the last three commits (will let you chose how):
-`git rebase --interactive HEAD~3`
+- Sqush the last three commits (will let you chose how): `git rebase --interactive HEAD~3`
 
 - Create a Pull Request on GitHub
+- Delete the branch locally and on github when pull request is merged: `git branch -d feature-branch`
 
-- Delete the branch locally and on github when pull request is merged
-`git branch -d feature-branch`
-
-- Delete all stale remote-tracking branches.
-- These stale branches have already been removed from origin,
-- but are still locally available in "remotes/origin". 
-`git remote prune --dry-run origin`
-`git branch -a`
+- Delete all stale remote-tracking branches. These stale branches have already been removed from origin, but are still locally available in "remotes/origin": 
+  * `git remote prune --dry-run origin`
+  * `git branch -a`
