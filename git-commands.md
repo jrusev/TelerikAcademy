@@ -55,17 +55,17 @@ You can get a Git project using two main approaches:
 * `git commit --amend` - change the commit message of the most recent commit.
 
 ### Forking Workflow
-# https://www.atlassian.com/git/tutorials/making-a-pull-request/example
-# https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow
+- [https://www.atlassian.com/git/tutorials/making-a-pull-request/example]
+- [https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow]
 
-# Fork the project from the central repo on GitHub
+- Fork the project from the central repo on GitHub
 
-# Clone the forked repo:
+- Clone the forked repo:
 `git clone git@github.com:user/app.git`
-# Add the upstream remote
+- Add the upstream remote
 `git remote add upstream git@github.com:central/app.git`
 
-# Create your feature branch
+- Create your feature branch
 `git checkout -b feature-branch`
 
 # Edit and commit some code (git add and git commit)
