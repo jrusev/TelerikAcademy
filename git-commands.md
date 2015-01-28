@@ -31,6 +31,7 @@ You can get a Git project using two main approaches:
 * `git mv oldname temp` + `git mv temp newname` - renames file (helpful when changing capitalization of filenames)
 * `git remote -v` - gets a list of any configured remote urls
 * `git remote set-url origin git@github.com:user/newrepo.git` - change the URL for a remote Git repository
+* `git show` - shows the log message and textual diff for the last commit [git show](http://git-scm.com/docs/git-show).
 
 ### Branching
 
