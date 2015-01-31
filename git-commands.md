@@ -44,6 +44,7 @@ You can get a Git project using two main approaches:
 * `git branch -d <localBranch>` - delete a local branch.
 * `git push origin --delete <branchName>` - delete a remote branch.
 * `git checkout -b <new-feature> origin/<new-feature>` - to work on a <new-feature> branch after cloning
+* `git checkout --track origin/new-feature` - create a local branch that tracks a remote branch
 
 ### Undo changes (use with care!)
 
