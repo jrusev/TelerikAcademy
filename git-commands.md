@@ -56,7 +56,7 @@ You can get a Git project using two main approaches:
 * Revert to a previous Git commit - [http://stackoverflow.com/questions/4114095/revert-to-a-previous-git-commit]
 * `git checkout -- .` - discard unstaged changes (changes in the working copy that are not added to the index).
 * `git commit --amend --no-edit` - replace the most recent commit (without changing its commit message).
-* http://stackoverflow.com/questions/1186535/how-to-modify-a-specified-commit
+* [Modify a specific commit](http://stackoverflow.com/questions/1186535/how-to-modify-a-specified-commit)
 
 ### Forking Workflow
 - [Making a pull-request](https://www.atlassian.com/git/tutorials/making-a-pull-request/example), [Forking workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow)
