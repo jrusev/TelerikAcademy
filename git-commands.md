@@ -47,6 +47,8 @@ You can get a Git project using two main approaches:
 * `git checkout -b <new-feature> origin/<new-feature>` - to work on a <new-feature> branch after cloning
 * `git remote update --prune` - update your remote branch list, deleting any stale branches. (= `git fetch --all`)
 * `git checkout --track origin/new-feature` - create a local branch that tracks a remote branch
+* `git stash` - stash the changes in a dirty working directory away
+* 'git stash pop` = `git stash apply && git stash drop`
 
 ### Undo changes (use with care!)
 
