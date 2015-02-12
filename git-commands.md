@@ -33,6 +33,7 @@ You can get a Git project using two main approaches:
 * `git remote set-url origin git@github.com:user/newrepo.git` - change the URL for a remote Git repository
 * `git show` - shows the log message and textual diff for the last commit (see [here](http://git-scm.com/docs/git-show)).
 * `git config --global core.editor "atom --wait"` - set Atom as your default editor
+* `git diff --cached` - show the changes which have been staged (after `git add`, before `git commit`)
 
 ### Branching
 
