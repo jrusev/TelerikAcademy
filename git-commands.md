@@ -64,7 +64,7 @@ You can get a Git project using two main approaches:
 * `git commit --amend --no-edit` - replace the most recent commit (without changing its commit message).
 * [Modify a specific commit](http://stackoverflow.com/questions/1186535/how-to-modify-a-specified-commit)
 * `git reset HEAD <file>` - remove file from the staging area (after `git add`)
-* `git fetch origin & git reset --hard origin/branch` - make the current local branch exactly match the remote tracking branch
+* `git fetch --all & git reset --hard origin/branch` - make the current local branch exactly match the remote tracking branch
 
 ### Forking Workflow
 - [Making a pull-request](https://www.atlassian.com/git/tutorials/making-a-pull-request/example), [Forking workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow)
