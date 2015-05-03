@@ -88,7 +88,7 @@ You can get a Git project using two main approaches:
   * `git rebase -i master`
   * `git push origin feature-branch --force`
 
-- Sqush the last three commits (will let you chose how): `git rebase --interactive HEAD~3`
+- Squash the last three commits (will let you chose how): `git rebase --interactive HEAD~3`
 
 - Create a Pull Request on GitHub
 - Delete the branch locally and on github when pull request is merged: `git branch -d feature-branch`
