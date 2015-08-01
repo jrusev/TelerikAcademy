@@ -51,6 +51,11 @@ You can get a Git project using two main approaches:
 * `git checkout --track origin/new-feature` - create a local branch that tracks a remote branch
 * `git stash` - stash the changes in a dirty working directory away
 * `git stash pop` = `git stash apply && git stash drop`
+* cherry picking a commit from another repo:
+  * `git remote add other_repo git@github.com:user/repo.git`
+  * `git fetch other_repo`
+  * `git checkout <branch>`
+  * `git cherry-pick <commit_hash>`
 
 
 ### Undo changes (use with care!)
