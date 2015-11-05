@@ -56,6 +56,7 @@ You can get a Git project using two main approaches:
   * `git fetch other_repo`
   * `git checkout <branch>`
   * `git cherry-pick <commit_hash>`
+* [update git submodule to latest commit]( http://stackoverflow.com/questions/5828324/update-git-submodule-to-latest-commit-on-origin)
 
 
 ### Undo changes (use with care!)
