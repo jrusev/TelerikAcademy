@@ -69,8 +69,9 @@ You can get a Git project using two main approaches:
 * `git checkout -- .` - discard unstaged changes (changes in the working copy that are not added to the index).
 * `git commit --amend --no-edit` - replace the most recent commit (without changing its commit message).
 * [Modify a specific commit](http://stackoverflow.com/questions/1186535/how-to-modify-a-specified-commit)
-* `git reset HEAD <file>` - remove file from the staging area (after `git add`)
 * `git fetch --all & git reset --hard origin/branch` - make the current local branch exactly match the remote tracking branch
+* `git reset --soft HEAD~` - undo last commit and put the modified files back in staging
+* `git reset HEAD <file>` - remove file from the staging area (after `git add`)
 
 ### Forking Workflow
 - [Making a pull-request](https://www.atlassian.com/git/tutorials/making-a-pull-request/example), [Forking workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow)
