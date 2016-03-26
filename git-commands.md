@@ -34,6 +34,7 @@ You can get a Git project using two main approaches:
 * `git config --global core.editor "atom --wait"` - set Atom as your default editor
 * `git diff --cached` - show the changes which have been staged (after `git add`, before `git commit`)
 * `git show` - shows the log message and textual diff for the last commit (see [here](http://git-scm.com/docs/git-show)).
+* `git log --pretty=format:'%h - %s (%cr) <%an>' 9a824c0..e1998e6` - pretty log between two commits
 
 ### Branching
 
