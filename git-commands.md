@@ -65,10 +65,9 @@ You can get a Git project using two main approaches:
 ```shell
 git pull -r origin master 
 git co db/structure.sql --theirs
+rake db:migrate
 git add db/structure.sql 
 git rebase --continue
-rake db:migrate
-git add db/structure.sql
 git ci --amend --no-edit
 # git push -f
 ```
