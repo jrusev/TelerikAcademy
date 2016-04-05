@@ -68,7 +68,6 @@ git co db/structure.sql --theirs
 rake db:migrate
 git add db/structure.sql 
 git rebase --continue
-git ci --amend --no-edit
 # git push -f
 ```
 
