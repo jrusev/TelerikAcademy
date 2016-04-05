@@ -60,6 +60,19 @@ You can get a Git project using two main approaches:
 * [update git submodule to latest commit]( http://stackoverflow.com/questions/5828324/update-git-submodule-to-latest-commit-on-origin)
 
 
+### Rebase `structure.sql`
+
+```shell
+git pull -r origin master 
+git co db/structure.sql --theirs
+git add db/structure.sql 
+git rebase --continue
+rake db:migrate
+git add db/structure.sql
+git ci --amend --no-edit
+# git push -f
+```
+
 ### Undo changes (use with care!)
 
 * `git checkout [revision]` - goes back to an old revision (commit) in a temporary branch and does not change history
