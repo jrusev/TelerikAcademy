@@ -22,7 +22,7 @@ You can get a Git project using two main approaches:
 ### Frequently used commands
 
 * `git pull origin master` - imports commits from a remote repository (e.g. on GitHub) into your local repo.
-* `git add -A .` - adds all changes (new, changed or removed files) in the working directory to the staging area
+* `git add .` - adds all changes (new, changed or removed files) in the working directory to the staging area
 * `git commit -m "put your comment here"` - commits the staged snapshot to the local repository
 * `git push origin master` - pushing commits from your local repository to a remote repo.
 * `git status -s` - displays the state of the working directory and the staging area
